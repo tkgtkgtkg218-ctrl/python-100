@@ -25,6 +25,28 @@
 .tests li.t-ok { border-left-color: var(--ok); } .tests li.t-ng { border-left-color: var(--ng); }
 .testdetail { margin-top: 10px; }
 .runout { margin: 10px 0; }
+
+/* コース選択 */
+.course-list { display: grid; gap: 12px; margin: 8px 0 16px; }
+.course-card { display: flex; gap: 16px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; color: inherit; text-decoration: none; box-shadow: var(--shadow); }
+a.course-card:hover, a.course-card:focus-visible { border-color: var(--accent); outline: none; }
+.course-badge { flex: none; min-width: 92px; text-align: center; font-weight: 700; font-size: .92rem; padding: 12px 8px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); }
+.course-js .course-badge { background: #fff1c2; color: #6b4a00; }
+.course-htmlcss .course-badge { background: #fde2ea; color: #9b1c48; }
+.course-body { flex: 1; min-width: 0; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .course-js .course-badge { background: #3a2f10; color: #ffd36b; }
+  :root:not([data-theme="light"]) .course-htmlcss .course-badge { background: #3b1a26; color: #ff9ab8; }
+}
+@media (max-width: 480px) { .course-card { flex-direction: column; align-items: stretch; } .course-badge { align-self: flex-start; } }
+
+/* 表示結果のプレビュー（HTML・CSS・DOM操作） */
+.previewbox { margin: 10px 0; border: 1px dashed var(--border); border-radius: 10px; padding: 8px; }
+.preview-frame { display: block; width: 100%; height: 240px; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
+pre.code[data-lang] { position: relative; }
+pre.code[data-lang]::before { content: attr(data-lang); position: absolute; top: 4px; right: 8px; font: 11px/1 system-ui, sans-serif; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+details.actual { margin-top: 10px; }
+details.actual summary { cursor: pointer; font-weight: 600; }
 .banner { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 10; display: flex; gap: 12px; align-items: center; background: var(--text); color: var(--bg); padding: 8px 8px 8px 16px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, .25); max-width: calc(100vw - 32px); }
 .banner .btn { min-height: 36px; padding: 4px 14px; width: auto; }
 .install { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; background: var(--accent-soft); border-radius: 12px; padding: 10px 14px; margin: 8px 0 14px; }

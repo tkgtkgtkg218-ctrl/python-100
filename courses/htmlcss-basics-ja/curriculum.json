@@ -1,0 +1,1744 @@
+{
+  "course": {
+    "id": "htmlcss-basics-ja",
+    "language": "html-css",
+    "language_display_name": "HTML/CSS",
+    "subject_kind": "markup_and_stylesheet_languages",
+    "environment_checked": "Google Chrome（ヘッドレス）で表示・計算値を検証",
+    "locale": "ja-JP",
+    "title": "HTML/CSS はじめの100問",
+    "schema_version": "1.1.0",
+    "ui": {
+      "type_labels": {
+        "multiple_choice": "3択",
+        "predict_output": "表示の予測",
+        "fill_blank": "穴埋め",
+        "bug_fix": "間違い探し",
+        "code_write": "HTML/CSSを書く"
+      },
+      "write_button": "回答する（自動採点）",
+      "run_button": "プレビューする",
+      "run_output_label": "表示結果"
+    }
+  },
+  "stages": [
+    {
+      "id": "S01",
+      "number": 1,
+      "title": "HTMLの基本構造",
+      "subtitle": "要素・タグ・属性と、HTML文書の骨組み",
+      "learning_goals": [
+        "HTML がWebページの構造と意味を表すマークアップ言語であることを説明できる",
+        "要素・開始タグ・終了タグ・内容・属性という用語を正しく使い分けられる",
+        "<!doctype html>・html・head・body の役割を説明できる",
+        "最小の HTML 文書を自分で書ける",
+        "ブラウザが空白・改行・コメントをどう扱うかを説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "特になし（テキストエディタでファイルを保存し、ブラウザで開ければ十分です）"
+      ],
+      "prerequisite_stage_ids": [],
+      "topics": [
+        "HTML とは（マークアップ言語。CSS・JavaScript との役割の違い）",
+        "要素、開始タグ、終了タグ、内容",
+        "属性と属性値",
+        "文書型宣言 <!doctype html>",
+        "html・head・body、meta charset、title",
+        "コメント、空白と改行の扱い"
+      ],
+      "common_pitfalls": [
+        "HTML は「実行」するものではなく、ブラウザが読み取って表示するもの",
+        "終了タグの書き忘れ（ブラウザが推測して直すため、意図と違う構造になる）",
+        "<!doctype html> を書かないと、ブラウザが古い互換モードで表示する",
+        "ソースの改行や連続した空白は、そのままは表示されない",
+        "属性値は引用符で囲む"
+      ],
+      "lesson_id": "LESSON-S01",
+      "question_plan": [
+        {
+          "question_id": "HC-001",
+          "number_in_stage": 1,
+          "title": "HTMLの役割",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "HTMLの役割",
+            "マークアップ言語"
+          ]
+        },
+        {
+          "question_id": "HC-002",
+          "number_in_stage": 2,
+          "title": "終了タグ",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "要素",
+            "終了タグ"
+          ]
+        },
+        {
+          "question_id": "HC-003",
+          "number_in_stage": 3,
+          "title": "タブに表示される文字",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "title要素",
+            "head"
+          ]
+        },
+        {
+          "question_id": "HC-004",
+          "number_in_stage": 4,
+          "title": "文字コードの指定",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "meta charset",
+            "属性"
+          ]
+        },
+        {
+          "question_id": "HC-005",
+          "number_in_stage": 5,
+          "title": "doctype がない文書",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "文書型宣言",
+            "標準モード"
+          ]
+        },
+        {
+          "question_id": "HC-006",
+          "number_in_stage": 6,
+          "title": "閉じ忘れた見出し",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "終了タグ",
+            "入れ子"
+          ]
+        },
+        {
+          "question_id": "HC-007",
+          "number_in_stage": 7,
+          "title": "属性名と属性値",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "属性",
+            "lang"
+          ]
+        },
+        {
+          "question_id": "HC-008",
+          "number_in_stage": 8,
+          "title": "コメントの中の要素",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "コメント"
+          ]
+        },
+        {
+          "question_id": "HC-009",
+          "number_in_stage": 9,
+          "title": "空白と改行の表示",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "空白の扱い",
+            "br"
+          ]
+        },
+        {
+          "question_id": "HC-010",
+          "number_in_stage": 10,
+          "title": "最小のHTML文書を書く",
+          "type": "code_write",
+          "difficulty": 2,
+          "concepts": [
+            "HTML文書の骨組み",
+            "doctype",
+            "head",
+            "body"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "見出し・段落・強調など、文章の構造を表す要素を学びます（ステージ2）"
+      ],
+      "unlock_condition": null
+    },
+    {
+      "id": "S02",
+      "number": 2,
+      "title": "見出し・段落・テキスト",
+      "subtitle": "文章の構造を表す要素と、ブロック・インライン",
+      "learning_goals": [
+        "見出し（h1〜h6）と段落（p）で、文章の構造を表せる",
+        "強調（strong / em）、改行（br）、区切り（hr）、まとまり（div / span）を使い分けられる",
+        "要素の意味（セマンティクス）と見た目を区別して考えられる",
+        "ブロックレベルの要素とインラインの要素の、表示の違いを説明できる",
+        "< や & を文字として表示する文字参照（&lt; &amp; など）を使える"
+      ],
+      "prerequisite_knowledge": [
+        "HTML の基本構造・要素と属性（ステージ1）"
+      ],
+      "prerequisite_stage_ids": [
+        "S01"
+      ],
+      "topics": [
+        "見出し h1〜h6 と、見出しの階層",
+        "段落 p と、改行 br・区切り線 hr",
+        "強調 strong / em（意味）と、b / i（見た目だけ）",
+        "div と span（意味を持たないまとまり）",
+        "ブロックとインライン",
+        "文字参照（&lt; &gt; &amp;）"
+      ],
+      "common_pitfalls": [
+        "文字を大きくしたいから h1 を使う（見出しは構造のために使う。大きさは CSS で変える）",
+        "段落の間を空けるために <br> を並べる（段落は p 要素で分ける）",
+        "p の中に見出しなどのブロック要素を入れる（p は途中で自動的に閉じられてしまう）",
+        "br は空要素。</br> と書くと、改行が2つになってしまう",
+        "< をそのまま書くと、タグの始まりと誤解される（&lt; と書く）"
+      ],
+      "lesson_id": "LESSON-S02",
+      "question_plan": [
+        {
+          "question_id": "HC-011",
+          "number_in_stage": 1,
+          "title": "見出しを使う理由",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "見出し",
+            "セマンティクス"
+          ]
+        },
+        {
+          "question_id": "HC-012",
+          "number_in_stage": 2,
+          "title": "ブロックとインラインの並び",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "ブロック要素",
+            "インライン要素"
+          ]
+        },
+        {
+          "question_id": "HC-013",
+          "number_in_stage": 3,
+          "title": "< を文字として表示する",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "文字参照"
+          ]
+        },
+        {
+          "question_id": "HC-014",
+          "number_in_stage": 4,
+          "title": "重要な部分を表す要素",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "strong",
+            "セマンティクス"
+          ]
+        },
+        {
+          "question_id": "HC-015",
+          "number_in_stage": 5,
+          "title": "p の中に見出しを入れた",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "ブロック要素",
+            "p",
+            "入れ子"
+          ]
+        },
+        {
+          "question_id": "HC-016",
+          "number_in_stage": 6,
+          "title": "段落を分ける正しい方法",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "p",
+            "br",
+            "役割の分担"
+          ]
+        },
+        {
+          "question_id": "HC-017",
+          "number_in_stage": 7,
+          "title": "br の終了タグ",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "br",
+            "空要素"
+          ]
+        },
+        {
+          "question_id": "HC-018",
+          "number_in_stage": 8,
+          "title": "見出しの階層",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "見出しの階層"
+          ]
+        },
+        {
+          "question_id": "HC-019",
+          "number_in_stage": 9,
+          "title": "最も大きい見出しはどれか",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "見出し",
+            "ブラウザの標準スタイル"
+          ]
+        },
+        {
+          "question_id": "HC-020",
+          "number_in_stage": 10,
+          "title": "見出しと段落でページを書く",
+          "type": "code_write",
+          "difficulty": 2,
+          "concepts": [
+            "見出し",
+            "p",
+            "strong",
+            "文書の構造"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "他のページや画像へつなぐ「リンク」と「画像」を学びます（ステージ3）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S01"
+      }
+    },
+    {
+      "id": "S03",
+      "number": 3,
+      "title": "リンクと画像",
+      "subtitle": "a 要素と img 要素、パスの書き方、alt 属性",
+      "learning_goals": [
+        "a 要素と href 属性でリンクを作れる",
+        "絶対URL・相対パス・ページ内リンク・メールリンクを書き分けられる",
+        "target=\"_blank\" と rel=\"noopener noreferrer\" の意味を説明できる",
+        "img 要素で画像を表示し、alt・width・height を正しく指定できる",
+        "figure と figcaption で、画像に説明を付けられる"
+      ],
+      "prerequisite_knowledge": [
+        "HTML の基本構造（ステージ1）",
+        "見出し・段落・ブロックとインライン（ステージ2）"
+      ],
+      "prerequisite_stage_ids": [
+        "S02"
+      ],
+      "topics": [
+        "a 要素と href",
+        "URL とパス（絶対URL / 相対パス / ../ / ページ内リンク / mailto:）",
+        "target と rel",
+        "img 要素（src / alt / width / height）",
+        "alt の書き方",
+        "figure と figcaption"
+      ],
+      "common_pitfalls": [
+        "リンク先は href（src ではない）、画像のファイルは src（href ではない）",
+        "相対パスは、いま書いている HTML ファイルの場所が基準",
+        "リンクの文字を「こちら」にしない（リンク先が分かる文字にする）",
+        "alt を書かない・「画像」などの無意味な文字にしない",
+        "target=\"_blank\" を使うときは rel=\"noopener noreferrer\" も付ける"
+      ],
+      "lesson_id": "LESSON-S03",
+      "question_plan": [
+        {
+          "question_id": "HC-021",
+          "number_in_stage": 1,
+          "title": "href の役割",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "a要素",
+            "href"
+          ]
+        },
+        {
+          "question_id": "HC-022",
+          "number_in_stage": 2,
+          "title": "相対パスの書き方",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "相対パス",
+            "img"
+          ]
+        },
+        {
+          "question_id": "HC-023",
+          "number_in_stage": 3,
+          "title": "../ で指すリンク先",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "相対パス",
+            "../"
+          ]
+        },
+        {
+          "question_id": "HC-024",
+          "number_in_stage": 4,
+          "title": "画像の代替テキスト",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "alt"
+          ]
+        },
+        {
+          "question_id": "HC-025",
+          "number_in_stage": 5,
+          "title": "alt の役割",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "alt",
+            "アクセシビリティ"
+          ]
+        },
+        {
+          "question_id": "HC-026",
+          "number_in_stage": 6,
+          "title": "新しいタブで開くリンクの安全性",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "target",
+            "rel",
+            "セキュリティ"
+          ]
+        },
+        {
+          "question_id": "HC-027",
+          "number_in_stage": 7,
+          "title": "画像の表示サイズ",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "img",
+            "width",
+            "height"
+          ]
+        },
+        {
+          "question_id": "HC-028",
+          "number_in_stage": 8,
+          "title": "リンク先を指定する属性",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "href",
+            "src"
+          ]
+        },
+        {
+          "question_id": "HC-029",
+          "number_in_stage": 9,
+          "title": "ページ内リンクが動かない",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "ページ内リンク",
+            "id"
+          ]
+        },
+        {
+          "question_id": "HC-030",
+          "number_in_stage": 10,
+          "title": "リンクと画像を使ったページ",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "a要素",
+            "img",
+            "alt",
+            "target",
+            "rel",
+            "ページ内リンク"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "項目を並べる「リスト」と、ページ全体の構造を表す要素を学びます（ステージ4）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S02"
+      }
+    },
+    {
+      "id": "S04",
+      "number": 4,
+      "title": "リストとページ構造",
+      "subtitle": "ul / ol / li、header・nav・main・footer などの構造を表す要素",
+      "learning_goals": [
+        "ul・ol・li で、順序のないリスト・順序のあるリストを書き分けられる",
+        "リストを入れ子にする正しい書き方を説明できる",
+        "header・nav・main・section・article・footer などで、ページの構造を表せる",
+        "div と、意味を持つ構造の要素を使い分けられる",
+        "ナビゲーションを「リンクのリスト」として書ける"
+      ],
+      "prerequisite_knowledge": [
+        "HTML の基本構造（ステージ1）",
+        "文章の要素（ステージ2）",
+        "リンク（ステージ3）"
+      ],
+      "prerequisite_stage_ids": [
+        "S03"
+      ],
+      "topics": [
+        "ul（順序なし）と ol（順序あり）、li",
+        "リストの入れ子",
+        "ol の start 属性",
+        "header / nav / main / footer",
+        "section / article / aside",
+        "div との使い分け"
+      ],
+      "common_pitfalls": [
+        "li は、必ず ul・ol の直接の子にする（li だけを body に置かない）",
+        "リストの入れ子は、ul の中に直接 ul ではなく、li の中に ul を入れる",
+        "li の終了タグ </li> の書き忘れ（次の li で自動的に閉じられるが、意図しない構造になりやすい）",
+        "main はページに1つ。何でも div で書かず、意味のある要素を選ぶ",
+        "リストは「見た目の点」のためではなく、「項目が並んでいる」という構造のために使う"
+      ],
+      "lesson_id": "LESSON-S04",
+      "question_plan": [
+        {
+          "question_id": "HC-031",
+          "number_in_stage": 1,
+          "title": "ul と ol の使い分け",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "ol",
+            "ul",
+            "li"
+          ]
+        },
+        {
+          "question_id": "HC-032",
+          "number_in_stage": 2,
+          "title": "リストの標準の記号",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "ul",
+            "ol",
+            "標準スタイル"
+          ]
+        },
+        {
+          "question_id": "HC-033",
+          "number_in_stage": 3,
+          "title": "番号の開始位置",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "ol",
+            "start属性"
+          ]
+        },
+        {
+          "question_id": "HC-034",
+          "number_in_stage": 4,
+          "title": "リストの外に出た li",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "li",
+            "ul"
+          ]
+        },
+        {
+          "question_id": "HC-035",
+          "number_in_stage": 5,
+          "title": "入れ子のリストの書き方",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "リストの入れ子"
+          ]
+        },
+        {
+          "question_id": "HC-036",
+          "number_in_stage": 6,
+          "title": "入れ子のリストの li の数",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "リストの入れ子",
+            "li"
+          ]
+        },
+        {
+          "question_id": "HC-037",
+          "number_in_stage": 7,
+          "title": "ナビゲーションを表す要素",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "nav"
+          ]
+        },
+        {
+          "question_id": "HC-038",
+          "number_in_stage": 8,
+          "title": "閉じ忘れた li",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "li",
+            "終了タグ"
+          ]
+        },
+        {
+          "question_id": "HC-039",
+          "number_in_stage": 9,
+          "title": "main 要素の役割",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "main",
+            "セマンティクス"
+          ]
+        },
+        {
+          "question_id": "HC-040",
+          "number_in_stage": 10,
+          "title": "構造の要素でページを組み立てる",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "header",
+            "nav",
+            "main",
+            "footer",
+            "ul",
+            "li",
+            "article"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "ユーザーが入力するための「フォーム」を学びます（ステージ5）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S03"
+      }
+    },
+    {
+      "id": "S05",
+      "number": 5,
+      "title": "フォーム",
+      "subtitle": "form・input・label・select・textarea・入力チェック",
+      "learning_goals": [
+        "form 要素と、action・method 属性の役割を説明できる",
+        "input の type 属性で、入力欄の種類を使い分けられる",
+        "label を for と id で入力欄に関連付けられる",
+        "radio（name でグループ化）・checkbox・select・textarea を使える",
+        "required・type=\"email\" などの、ブラウザの入力チェックの仕組みを説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "HTML の基本構造（ステージ1）",
+        "文章・リンク・リスト・構造の要素（ステージ2〜4）"
+      ],
+      "prerequisite_stage_ids": [
+        "S04"
+      ],
+      "topics": [
+        "form・action・method（GET / POST）",
+        "input の種類（text・email・password・number・checkbox・radio）",
+        "name 属性とデータの送信",
+        "label と for / id",
+        "select・option・textarea",
+        "required・placeholder・minlength・min / max（入力チェック）",
+        "button と type=\"submit\""
+      ],
+      "common_pitfalls": [
+        "label の for と、input の id が一致していないと、関連付けられない",
+        "radio は name を同じにすると1つのグループになる。name が違うと、複数選べてしまう",
+        "name 属性がない入力欄の値は、送信されない",
+        "placeholder は、ヒントにすぎない（label の代わりにしない）",
+        "type に存在しない値を書くと、text として扱われる",
+        "属性値は引用符で囲む（空白を含む値は、引用符がないと途中で切れる）"
+      ],
+      "lesson_id": "LESSON-S05",
+      "question_plan": [
+        {
+          "question_id": "HC-041",
+          "number_in_stage": 1,
+          "title": "パスワードを送るときの method",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "form",
+            "method",
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "question_id": "HC-042",
+          "number_in_stage": 2,
+          "title": "label と入力欄の関連付け",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "label",
+            "for",
+            "id"
+          ]
+        },
+        {
+          "question_id": "HC-043",
+          "number_in_stage": 3,
+          "title": "同じ name の radio",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "radio",
+            "name属性"
+          ]
+        },
+        {
+          "question_id": "HC-044",
+          "number_in_stage": 4,
+          "title": "2つ選べてしまう radio",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "radio",
+            "name属性"
+          ]
+        },
+        {
+          "question_id": "HC-045",
+          "number_in_stage": 5,
+          "title": "入力チェックの結果",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "required",
+            "入力チェック"
+          ]
+        },
+        {
+          "question_id": "HC-046",
+          "number_in_stage": 6,
+          "title": "メールアドレス用の入力欄",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "input type",
+            "email"
+          ]
+        },
+        {
+          "question_id": "HC-047",
+          "number_in_stage": 7,
+          "title": "引用符のない属性値",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "属性値",
+            "引用符",
+            "placeholder"
+          ]
+        },
+        {
+          "question_id": "HC-048",
+          "number_in_stage": 8,
+          "title": "select の最初の選択",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "select",
+            "option",
+            "selected"
+          ]
+        },
+        {
+          "question_id": "HC-049",
+          "number_in_stage": 9,
+          "title": "name 属性の役割",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "name属性",
+            "フォーム送信"
+          ]
+        },
+        {
+          "question_id": "HC-050",
+          "number_in_stage": 10,
+          "title": "会員登録フォームを書く",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "form",
+            "input",
+            "label",
+            "select",
+            "textarea",
+            "required",
+            "button"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "ここまでで HTML の基本は完成です。次は、見た目を整える CSS を学びます（ステージ6）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S04"
+      }
+    },
+    {
+      "id": "S06",
+      "number": 6,
+      "title": "CSSの基本",
+      "subtitle": "ルールの書き方・セレクタ・文字色と背景色・優先順位",
+      "learning_goals": [
+        "CSS が、見た目を指定するスタイルシート言語であることを説明できる",
+        "セレクタ・プロパティ・値・宣言ブロックという用語を使って、CSS のルールを読める",
+        "style 要素・外部ファイル（link）・style 属性の3つの適用方法を説明できる",
+        "要素・クラス・id のセレクタで、スタイルを適用する対象を選べる",
+        "color と background-color で、文字色と背景色を指定できる",
+        "スタイルの優先順位（詳細度・後勝ち）と、継承の基本を理解する"
+      ],
+      "prerequisite_knowledge": [
+        "HTML の基本（ステージ1〜5）。特に、要素・属性（class・id）"
+      ],
+      "prerequisite_stage_ids": [
+        "S05"
+      ],
+      "topics": [
+        "CSS とは（スタイルシート言語）",
+        "ルールの書き方（セレクタ { プロパティ: 値; }）",
+        "適用方法（style 要素・link・style 属性）",
+        "要素・クラス・id セレクタ",
+        "color と background-color（色の名前）",
+        "優先順位と継承",
+        "コメント /* */"
+      ],
+      "common_pitfalls": [
+        "宣言の終わりの ; を忘れると、次の宣言までまとめて無効になる",
+        "プロパティ名の綴り間違い（color を colour と書くなど）は、エラーにならず無視される",
+        "class は .、id は # をセレクタの先頭に付ける",
+        "同じ要素に複数のルールが当たるときは、詳細度（id > class > 要素）と、後に書いたものが優先される",
+        "文字色などは、子要素にも引き継がれる（継承）。背景色などは、引き継がれない"
+      ],
+      "lesson_id": "LESSON-S06",
+      "question_plan": [
+        {
+          "question_id": "HC-051",
+          "number_in_stage": 1,
+          "title": "CSS とは",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "CSSの役割",
+            "スタイルシート言語"
+          ]
+        },
+        {
+          "question_id": "HC-052",
+          "number_in_stage": 2,
+          "title": "CSS の用語",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "セレクタ",
+            "プロパティ",
+            "値"
+          ]
+        },
+        {
+          "question_id": "HC-053",
+          "number_in_stage": 3,
+          "title": "文字色を指定するプロパティ",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "color",
+            "プロパティ"
+          ]
+        },
+        {
+          "question_id": "HC-054",
+          "number_in_stage": 4,
+          "title": "クラスセレクタの対象",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "クラスセレクタ"
+          ]
+        },
+        {
+          "question_id": "HC-055",
+          "number_in_stage": 5,
+          "title": "スタイルの優先順位",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "詳細度",
+            "優先順位"
+          ]
+        },
+        {
+          "question_id": "HC-056",
+          "number_in_stage": 6,
+          "title": "宣言の区切り",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "宣言",
+            "セミコロン"
+          ]
+        },
+        {
+          "question_id": "HC-057",
+          "number_in_stage": 7,
+          "title": "プロパティ名の綴りミス",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "color",
+            "綴りミス"
+          ]
+        },
+        {
+          "question_id": "HC-058",
+          "number_in_stage": 8,
+          "title": "外部の CSS ファイルを読み込む",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "link",
+            "rel",
+            "外部CSS"
+          ]
+        },
+        {
+          "question_id": "HC-059",
+          "number_in_stage": 9,
+          "title": "文字色の継承",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "継承",
+            "color"
+          ]
+        },
+        {
+          "question_id": "HC-060",
+          "number_in_stage": 10,
+          "title": "色を付けて見た目を整える",
+          "type": "code_write",
+          "difficulty": 2,
+          "concepts": [
+            "セレクタ",
+            "color",
+            "background-color"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "文字の大きさ・太さ・色の指定方法を、さらに詳しく学びます（ステージ7）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S05"
+      }
+    },
+    {
+      "id": "S07",
+      "number": 7,
+      "title": "文字と色の装飾",
+      "subtitle": "色の指定方法・文字の大きさ・単位・セレクタの組み合わせ",
+      "learning_goals": [
+        "色を、名前・#rrggbb・rgb() の書き方で指定できる",
+        "font-size・font-weight・line-height・text-align・text-decoration を指定できる",
+        "px・em・rem・% という単位の違いを説明できる",
+        "子孫セレクタ（空白）・子セレクタ（>）・グループ化（,）を使い分けられる",
+        "疑似クラス :hover の意味を説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "CSS の基本（ステージ6）"
+      ],
+      "prerequisite_stage_ids": [
+        "S06"
+      ],
+      "topics": [
+        "色の指定（名前・#rrggbb・#rgb・rgb()）",
+        "font-size と単位（px / em / rem / %）",
+        "font-weight・font-family・line-height",
+        "text-align・text-decoration",
+        "子孫セレクタ・子セレクタ・グループ化",
+        "疑似クラス :hover"
+      ],
+      "common_pitfalls": [
+        "数値だけで単位を付けない指定（font-size: 20;）は無効になる（0 だけは単位不要）",
+        "em は親の文字の大きさが基準、rem は html 要素の文字の大きさが基準",
+        "line-height は、単位なしの数値（1.5）にすると、文字の大きさに合わせて決まる",
+        "h1 h2 {…}（空白）は、h1 の中の h2 を選ぶ。h1, h2 {…}（カンマ）が、両方を選ぶ",
+        "px 固定の文字の大きさは、ブラウザの文字サイズ設定が効きにくい"
+      ],
+      "lesson_id": "LESSON-S07",
+      "question_plan": [
+        {
+          "question_id": "HC-061",
+          "number_in_stage": 1,
+          "title": "em・rem・% の計算",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "em",
+            "rem",
+            "%",
+            "font-size"
+          ]
+        },
+        {
+          "question_id": "HC-062",
+          "number_in_stage": 2,
+          "title": "太字にする",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "font-weight"
+          ]
+        },
+        {
+          "question_id": "HC-063",
+          "number_in_stage": 3,
+          "title": "line-height の計算",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "line-height"
+          ]
+        },
+        {
+          "question_id": "HC-064",
+          "number_in_stage": 4,
+          "title": "文字の大きさに rem を使う理由",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "rem",
+            "アクセシビリティ"
+          ]
+        },
+        {
+          "question_id": "HC-065",
+          "number_in_stage": 5,
+          "title": "単位のない font-size",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "font-size",
+            "単位"
+          ]
+        },
+        {
+          "question_id": "HC-066",
+          "number_in_stage": 6,
+          "title": "中央揃え",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "text-align"
+          ]
+        },
+        {
+          "question_id": "HC-067",
+          "number_in_stage": 7,
+          "title": "子セレクタの対象",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "子セレクタ",
+            "子孫セレクタ"
+          ]
+        },
+        {
+          "question_id": "HC-068",
+          "number_in_stage": 8,
+          "title": "見出しをまとめて指定する",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "グループ化",
+            "子孫セレクタ"
+          ]
+        },
+        {
+          "question_id": "HC-069",
+          "number_in_stage": 9,
+          "title": "疑似クラス :hover",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "疑似クラス",
+            ":hover"
+          ]
+        },
+        {
+          "question_id": "HC-070",
+          "number_in_stage": 10,
+          "title": "文字を整えたページ",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "font-size",
+            "line-height",
+            "text-align",
+            "text-decoration",
+            "rem"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "要素の内側・外側の余白を決める「ボックスモデル」を学びます（ステージ8）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S06"
+      }
+    },
+    {
+      "id": "S08",
+      "number": 8,
+      "title": "ボックスモデル",
+      "subtitle": "content・padding・border・margin と、box-sizing・display",
+      "learning_goals": [
+        "すべての要素が「箱（ボックス）」で、内容・padding・border・margin の4層でできていることを説明できる",
+        "width・height が、box-sizing によって、どこまでの大きさを指すかを説明できる",
+        "padding・margin の1〜4つの値の書き方（上右下左）を使える",
+        "margin: 0 auto で、ブロック要素を水平方向に中央へ置ける",
+        "border・border-radius・background-color で、箱の見た目を整えられる",
+        "display の block・inline・inline-block・none の違いを説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "CSS の基本（ステージ6）",
+        "文字と色の装飾・単位（ステージ7）",
+        "ブロックとインライン（ステージ2）"
+      ],
+      "prerequisite_stage_ids": [
+        "S07"
+      ],
+      "topics": [
+        "ボックスモデル（content / padding / border / margin）",
+        "width と height、box-sizing（content-box / border-box）",
+        "padding・margin の書き方と省略記法",
+        "border と border-radius",
+        "margin: 0 auto による中央寄せ",
+        "上下の margin の相殺（重なり）",
+        "display（block / inline / inline-block / none）"
+      ],
+      "common_pitfalls": [
+        "width は、標準では内容（content）の幅だけ。padding と border を足した分だけ、実際の幅は大きくなる",
+        "インライン要素（span など）には、width・height・上下の margin が効かない",
+        "margin: 0 auto の中央寄せには、width の指定が必要",
+        "上下に隣り合う margin は、足し算ではなく、大きいほうの値に重なる（相殺）",
+        "border は、太さ・線の種類・色の3つを書く（線の種類を忘れると表示されない）"
+      ],
+      "lesson_id": "LESSON-S08",
+      "question_plan": [
+        {
+          "question_id": "HC-071",
+          "number_in_stage": 1,
+          "title": "ボックスモデルの4層",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "ボックスモデル"
+          ]
+        },
+        {
+          "question_id": "HC-072",
+          "number_in_stage": 2,
+          "title": "箱の見た目の幅",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "ボックスモデル",
+            "width",
+            "content-box"
+          ]
+        },
+        {
+          "question_id": "HC-073",
+          "number_in_stage": 3,
+          "title": "box-sizing: border-box",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "box-sizing",
+            "border-box"
+          ]
+        },
+        {
+          "question_id": "HC-074",
+          "number_in_stage": 4,
+          "title": "余白の省略記法",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "padding",
+            "省略記法"
+          ]
+        },
+        {
+          "question_id": "HC-075",
+          "number_in_stage": 5,
+          "title": "上下の margin の相殺",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "margin",
+            "相殺"
+          ]
+        },
+        {
+          "question_id": "HC-076",
+          "number_in_stage": 6,
+          "title": "中央に寄らない箱",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "margin: auto",
+            "width",
+            "中央寄せ"
+          ]
+        },
+        {
+          "question_id": "HC-077",
+          "number_in_stage": 7,
+          "title": "padding と margin の違い",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "padding",
+            "margin"
+          ]
+        },
+        {
+          "question_id": "HC-078",
+          "number_in_stage": 8,
+          "title": "表示されない枠線",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "border",
+            "省略記法"
+          ]
+        },
+        {
+          "question_id": "HC-079",
+          "number_in_stage": 9,
+          "title": "インライン要素の width",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "display",
+            "インライン要素",
+            "width"
+          ]
+        },
+        {
+          "question_id": "HC-080",
+          "number_in_stage": 10,
+          "title": "カードを作る",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "box-sizing",
+            "padding",
+            "border",
+            "margin",
+            "border-radius"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "箱を横に並べたり、中央に寄せたりする「Flexbox」を学びます（ステージ9）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S07"
+      }
+    },
+    {
+      "id": "S09",
+      "number": 9,
+      "title": "Flexbox",
+      "subtitle": "display: flex、主軸と交差軸、並べ方・揃え方・伸び縮み",
+      "learning_goals": [
+        "display: flex で、子要素を横一列に並べられる",
+        "Flex コンテナ（親）と Flex アイテム（子）、主軸と交差軸という用語を使える",
+        "flex-direction・justify-content・align-items・gap・flex-wrap を使える",
+        "flex（flex: 1 など）で、アイテムの幅を割り振れる",
+        "ナビゲーションバー・カードの横並び・中央寄せを Flexbox で作れる"
+      ],
+      "prerequisite_knowledge": [
+        "ボックスモデル・display（ステージ8）",
+        "CSS の基本・セレクタ（ステージ6〜7）"
+      ],
+      "prerequisite_stage_ids": [
+        "S08"
+      ],
+      "topics": [
+        "display: flex と Flex コンテナ・Flex アイテム",
+        "主軸と交差軸、flex-direction",
+        "justify-content（主軸方向の並べ方）",
+        "align-items（交差軸方向の揃え方）",
+        "gap と flex-wrap",
+        "flex（flex-grow）によるアイテムの伸び縮み"
+      ],
+      "common_pitfalls": [
+        "display: flex は、並べたい要素の「親」に書く（子ではない）",
+        "justify-content や align-items は、display: flex を指定した親でないと効かない",
+        "flex-direction: column にすると、主軸が縦になり、justify-content と align-items の向きが入れ替わる",
+        "align-items が縦方向の中央揃えに効くのは、親に height（高さ）がある場合",
+        "display の値は flex（flexbox や inline-flexbox などは存在しない）"
+      ],
+      "lesson_id": "LESSON-S09",
+      "question_plan": [
+        {
+          "question_id": "HC-081",
+          "number_in_stage": 1,
+          "title": "display: flex を書く場所",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "display: flex",
+            "Flexコンテナ"
+          ]
+        },
+        {
+          "question_id": "HC-082",
+          "number_in_stage": 2,
+          "title": "display: flex の並び方",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "display: flex",
+            "flex-direction"
+          ]
+        },
+        {
+          "question_id": "HC-083",
+          "number_in_stage": 3,
+          "title": "space-between の並び方",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "justify-content",
+            "space-between"
+          ]
+        },
+        {
+          "question_id": "HC-084",
+          "number_in_stage": 4,
+          "title": "縦に並べる",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "flex-direction",
+            "主軸"
+          ]
+        },
+        {
+          "question_id": "HC-085",
+          "number_in_stage": 5,
+          "title": "縦方向の中央に揃える",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "align-items",
+            "交差軸"
+          ]
+        },
+        {
+          "question_id": "HC-086",
+          "number_in_stage": 6,
+          "title": "効かない justify-content",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "justify-content",
+            "display: flex"
+          ]
+        },
+        {
+          "question_id": "HC-087",
+          "number_in_stage": 7,
+          "title": "gap を含めた位置",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "gap"
+          ]
+        },
+        {
+          "question_id": "HC-088",
+          "number_in_stage": 8,
+          "title": "display の値の書き間違い",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "display: flex",
+            "綴りミス"
+          ]
+        },
+        {
+          "question_id": "HC-089",
+          "number_in_stage": 9,
+          "title": "flex: 1 と flex: 2",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "flex",
+            "flex-grow"
+          ]
+        },
+        {
+          "question_id": "HC-090",
+          "number_in_stage": 10,
+          "title": "3つのカードを横に並べる",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "display: flex",
+            "gap",
+            "flex",
+            "justify-content",
+            "align-items"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "画面の幅に合わせてレイアウトを変える「レスポンシブデザイン」を学びます（ステージ10）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S08"
+      }
+    },
+    {
+      "id": "S10",
+      "number": 10,
+      "title": "レスポンシブデザインと簡単なページ制作",
+      "subtitle": "viewport・メディアクエリ・柔軟なレイアウト・ページを組み立てる",
+      "learning_goals": [
+        "レスポンシブウェブデザインとは何か、なぜ必要かを説明できる",
+        "viewport の meta 要素の役割を説明できる",
+        "max-width・% などの柔軟な指定で、画面幅に合わせて伸び縮みする箱を作れる",
+        "メディアクエリ（@media）で、画面幅に応じて、スタイルを切り替えられる",
+        "モバイルファーストの考え方で、スマホから PC まで対応するページを作れる",
+        "ここまでの HTML・CSS の知識を組み合わせて、簡単なページを自分で作れる"
+      ],
+      "prerequisite_knowledge": [
+        "ステージ1〜9のすべて（特に、ボックスモデルと Flexbox）"
+      ],
+      "prerequisite_stage_ids": [
+        "S09"
+      ],
+      "topics": [
+        "レスポンシブウェブデザインとは",
+        "viewport の meta 要素",
+        "max-width と相対的な幅（%）",
+        "画像の幅の調整（max-width: 100%）",
+        "メディアクエリ（@media (min-width / max-width)）",
+        "モバイルファーストと flex-wrap",
+        "簡単なページの制作"
+      ],
+      "common_pitfalls": [
+        "viewport の meta 要素がないと、スマホでは、PC 向けの幅で表示されて小さくなる",
+        "固定の幅（width: 800px など）は、画面が狭いと、はみ出して横スクロールになる",
+        "メディアクエリの条件には、かっこ（( )）が必要（@media (min-width: 600px)）",
+        "min-width は「その幅以上」、max-width は「その幅以下」",
+        "画像は、max-width: 100%; height: auto; を付けないと、親の幅を超えることがある"
+      ],
+      "lesson_id": "LESSON-S10",
+      "question_plan": [
+        {
+          "question_id": "HC-091",
+          "number_in_stage": 1,
+          "title": "viewport の meta 要素",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "viewport",
+            "meta"
+          ]
+        },
+        {
+          "question_id": "HC-092",
+          "number_in_stage": 2,
+          "title": "狭い画面でのメディアクエリ",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "メディアクエリ",
+            "min-width"
+          ]
+        },
+        {
+          "question_id": "HC-093",
+          "number_in_stage": 3,
+          "title": "画面幅 800px のとき",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "メディアクエリ",
+            "max-width"
+          ]
+        },
+        {
+          "question_id": "HC-094",
+          "number_in_stage": 4,
+          "title": "狭い画面向けの条件",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "max-width",
+            "メディアクエリ"
+          ]
+        },
+        {
+          "question_id": "HC-095",
+          "number_in_stage": 5,
+          "title": "画面からはみ出す箱",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "max-width",
+            "%",
+            "レスポンシブ"
+          ]
+        },
+        {
+          "question_id": "HC-096",
+          "number_in_stage": 6,
+          "title": "かっこのないメディアクエリ",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "メディアクエリ",
+            "構文"
+          ]
+        },
+        {
+          "question_id": "HC-097",
+          "number_in_stage": 7,
+          "title": "折り返したときの行数",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "flex-wrap",
+            "レスポンシブ"
+          ]
+        },
+        {
+          "question_id": "HC-098",
+          "number_in_stage": 8,
+          "title": "モバイルファースト",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "モバイルファースト",
+            "min-width"
+          ]
+        },
+        {
+          "question_id": "HC-099",
+          "number_in_stage": 9,
+          "title": "max-width で伸び縮みする箱",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "max-width",
+            "柔軟な幅"
+          ]
+        },
+        {
+          "question_id": "HC-100",
+          "number_in_stage": 10,
+          "title": "レスポンシブなページを作る",
+          "type": "code_write",
+          "difficulty": 5,
+          "concepts": [
+            "viewport",
+            "メディアクエリ",
+            "Flexbox",
+            "ページ制作",
+            "セマンティクス"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "HTML と CSS の基本は、ここまでです。次は、JavaScript で動きを付けたり、CSS の Grid・アニメーションなどを学べます"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S09"
+      }
+    }
+  ]
+}

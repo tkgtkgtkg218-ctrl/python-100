@@ -1,0 +1,1755 @@
+{
+  "course": {
+    "id": "javascript-basics-ja",
+    "language": "javascript",
+    "language_display_name": "JavaScript",
+    "subject_kind": "programming_language",
+    "environment_checked": "Google Chrome（ヘッドレス）で実行検証",
+    "locale": "ja-JP",
+    "title": "JavaScript はじめの100問",
+    "schema_version": "1.1.0",
+    "ui": {
+      "type_labels": {
+        "multiple_choice": "3択",
+        "predict_output": "実行結果の予測",
+        "fill_blank": "穴埋め",
+        "bug_fix": "間違い探し",
+        "code_write": "コード作成"
+      },
+      "write_button": "回答する（自動採点）",
+      "run_button": "実行して試す",
+      "run_output_label": "実行結果"
+    }
+  },
+  "stages": [
+    {
+      "id": "S01",
+      "number": 1,
+      "title": "変数とデータ型",
+      "subtitle": "console.log、let / const、データ型",
+      "learning_goals": [
+        "JavaScript がブラウザの中で動くプログラミング言語であることを説明できる",
+        "console.log で値をコンソールに表示できる",
+        "let と const で変数を宣言し、値を入れたり変更したりできる",
+        "数値・文字列・真偽値・undefined・null というデータ型を区別できる",
+        "typeof で型を調べられる",
+        "最初のエラー（ReferenceError / TypeError）の原因を推測できる"
+      ],
+      "prerequisite_knowledge": [
+        "特になし（HTML と CSS を少し知っていると、ステージ8以降が分かりやすくなります）"
+      ],
+      "prerequisite_stage_ids": [],
+      "topics": [
+        "JavaScript とは（HTML・CSS との役割の違い）",
+        "動かす場所（<script> タグ、開発者ツールのコンソール）",
+        "console.log とコメント",
+        "let と const",
+        "データ型（number / string / boolean / undefined / null）",
+        "typeof"
+      ],
+      "common_pitfalls": [
+        "console.log の出力はページの画面ではなく、開発者ツールのコンソールに出る",
+        "const の変数に再代入するとエラー（TypeError）になる",
+        "変数名の大文字・小文字は区別される（userName と username は別）",
+        "引用符で囲まない文字は変数名として扱われ、ReferenceError になる",
+        "\"42\"（文字列）と 42（数値）は別のデータ型"
+      ],
+      "lesson_id": "LESSON-S01",
+      "question_plan": [
+        {
+          "question_id": "JS-001",
+          "number_in_stage": 1,
+          "title": "console.log の出力先",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "console.log",
+            "コンソール"
+          ]
+        },
+        {
+          "question_id": "JS-002",
+          "number_in_stage": 2,
+          "title": "文字列と数値の表示",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "console.log",
+            "文字列",
+            "数値"
+          ]
+        },
+        {
+          "question_id": "JS-003",
+          "number_in_stage": 3,
+          "title": "let と const の使い分け",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "const",
+            "let"
+          ]
+        },
+        {
+          "question_id": "JS-004",
+          "number_in_stage": 4,
+          "title": "変数への再代入",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "let",
+            "再代入"
+          ]
+        },
+        {
+          "question_id": "JS-005",
+          "number_in_stage": 5,
+          "title": "const に再代入してしまう",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "const",
+            "let",
+            "TypeError"
+          ]
+        },
+        {
+          "question_id": "JS-006",
+          "number_in_stage": 6,
+          "title": "typeof で型を調べる",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "typeof",
+            "データ型"
+          ]
+        },
+        {
+          "question_id": "JS-007",
+          "number_in_stage": 7,
+          "title": "文字列を変数に入れる",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "文字列",
+            "引用符"
+          ]
+        },
+        {
+          "question_id": "JS-008",
+          "number_in_stage": 8,
+          "title": "undefined と null",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "undefined",
+            "null"
+          ]
+        },
+        {
+          "question_id": "JS-009",
+          "number_in_stage": 9,
+          "title": "変数名の大文字・小文字",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "変数名",
+            "ReferenceError",
+            "大文字小文字"
+          ]
+        },
+        {
+          "question_id": "JS-010",
+          "number_in_stage": 10,
+          "title": "変数を使って表示する",
+          "type": "code_write",
+          "difficulty": 2,
+          "concepts": [
+            "let",
+            "const",
+            "変数",
+            "console.log"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "変数の値を計算・比較する「演算子」（ステージ2）の土台になります"
+      ],
+      "unlock_condition": null
+    },
+    {
+      "id": "S02",
+      "number": 2,
+      "title": "演算子",
+      "subtitle": "計算・文字列の連結・比較・論理演算",
+      "learning_goals": [
+        "算術演算子（+ - * / % **）で計算できる",
+        "+= などの代入演算子と、文字列の連結・テンプレートリテラルを使える",
+        "=（代入）と ===（比較）の違いを説明できる",
+        "&&（かつ）・||（または）・!（否定）を使える",
+        "文字列と数値が混ざったときの動き（型変換）と NaN を理解する"
+      ],
+      "prerequisite_knowledge": [
+        "console.log（ステージ1）",
+        "let / const とデータ型（ステージ1）"
+      ],
+      "prerequisite_stage_ids": [
+        "S01"
+      ],
+      "topics": [
+        "算術演算子（+ - * / % **）と計算の優先順位",
+        "代入演算子（= += -= など）と ++ / --",
+        "文字列の連結（+）とテンプレートリテラル",
+        "比較演算子（=== !== < > <= >=）と ==",
+        "論理演算子（&& || !）",
+        "型変換（Number()）と NaN"
+      ],
+      "common_pitfalls": [
+        "/ は整数除算ではない（7 / 2 は 3.5）",
+        "\"5\" + 3 は 8 ではなく文字列の \"53\" になる",
+        "等しいかの比較は ===（= は代入）",
+        "== は型を自動で変換して比べるため、=== を使うのが基本",
+        "テンプレートリテラルはバッククォート（`）で囲む。\"...\" では ${ } が使えない"
+      ],
+      "lesson_id": "LESSON-S02",
+      "question_plan": [
+        {
+          "question_id": "JS-011",
+          "number_in_stage": 1,
+          "title": "割り算・余り・累乗",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "算術演算子",
+            "%",
+            "**"
+          ]
+        },
+        {
+          "question_id": "JS-012",
+          "number_in_stage": 2,
+          "title": "文字列と数値の計算",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "文字列の連結",
+            "型変換"
+          ]
+        },
+        {
+          "question_id": "JS-013",
+          "number_in_stage": 3,
+          "title": "テンプレートリテラルの書き方",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "テンプレートリテラル"
+          ]
+        },
+        {
+          "question_id": "JS-014",
+          "number_in_stage": 4,
+          "title": "比較演算子の結果",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "===",
+            "==",
+            "!=="
+          ]
+        },
+        {
+          "question_id": "JS-015",
+          "number_in_stage": 5,
+          "title": "変数に足し込む",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "代入演算子",
+            "+="
+          ]
+        },
+        {
+          "question_id": "JS-016",
+          "number_in_stage": 6,
+          "title": "論理演算子",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "&&",
+            "||",
+            "!"
+          ]
+        },
+        {
+          "question_id": "JS-017",
+          "number_in_stage": 7,
+          "title": "比較したつもりが代入",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "=",
+            "===",
+            "代入と比較"
+          ]
+        },
+        {
+          "question_id": "JS-018",
+          "number_in_stage": 8,
+          "title": "数値にできない計算",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "型変換",
+            "NaN"
+          ]
+        },
+        {
+          "question_id": "JS-019",
+          "number_in_stage": 9,
+          "title": "足し算が連結になる",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "Number()",
+            "型変換",
+            "文字列の連結"
+          ]
+        },
+        {
+          "question_id": "JS-020",
+          "number_in_stage": 10,
+          "title": "税込み価格を求める",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "算術演算子",
+            "計算の優先順位"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "比較や論理演算の結果（true / false）を使って、処理を分岐させます（ステージ3）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S01"
+      }
+    },
+    {
+      "id": "S03",
+      "number": 3,
+      "title": "条件分岐",
+      "subtitle": "if / else if / else、真偽の判定、三項演算子、switch",
+      "learning_goals": [
+        "if / else if / else で処理を分岐できる",
+        "条件の順序と境界値を意識して条件を書ける",
+        "true / false 以外の値が条件で真偽に変換されるルール（truthy / falsy）を説明できる",
+        "三項演算子と switch 文の基本形を書ける",
+        "if の条件で = と === を取り違えるミスに気づける"
+      ],
+      "prerequisite_knowledge": [
+        "比較演算子・論理演算子（ステージ2）",
+        "変数と console.log（ステージ1）"
+      ],
+      "prerequisite_stage_ids": [
+        "S02"
+      ],
+      "topics": [
+        "if / else if / else と { }",
+        "条件の順序と境界値",
+        "truthy / falsy（真として扱われる値・偽として扱われる値）",
+        "三項演算子（条件 ? A : B）",
+        "switch と break",
+        "&& と || の返す値"
+      ],
+      "common_pitfalls": [
+        "if の条件に = を書くと代入になり、エラーにならずに常に動いてしまうことがある",
+        "else if は上から順に調べ、最初に成り立ったものだけが実行される",
+        "switch の case の最後に break を忘れると、次の case も実行される",
+        "空でない文字列は \"0\" や \"false\" でも truthy",
+        "「以上」と「より大きい」の境界（>= と >）"
+      ],
+      "lesson_id": "LESSON-S03",
+      "question_plan": [
+        {
+          "question_id": "JS-021",
+          "number_in_stage": 1,
+          "title": "if と else の動き",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "if",
+            "else",
+            "ブロック"
+          ]
+        },
+        {
+          "question_id": "JS-022",
+          "number_in_stage": 2,
+          "title": "else if は最初に成り立つ所まで",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "else if",
+            "条件の順序"
+          ]
+        },
+        {
+          "question_id": "JS-023",
+          "number_in_stage": 3,
+          "title": "falsy な値",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "truthy / falsy"
+          ]
+        },
+        {
+          "question_id": "JS-024",
+          "number_in_stage": 4,
+          "title": "文字列の真偽",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "truthy / falsy",
+            "文字列"
+          ]
+        },
+        {
+          "question_id": "JS-025",
+          "number_in_stage": 5,
+          "title": "三項演算子",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "三項演算子"
+          ]
+        },
+        {
+          "question_id": "JS-026",
+          "number_in_stage": 6,
+          "title": "条件の並べ順",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "else if",
+            "条件の順序"
+          ]
+        },
+        {
+          "question_id": "JS-027",
+          "number_in_stage": 7,
+          "title": "switch の break 忘れ",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "switch",
+            "break"
+          ]
+        },
+        {
+          "question_id": "JS-028",
+          "number_in_stage": 8,
+          "title": "条件に = を書いてしまった",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "=",
+            "===",
+            "truthy / falsy"
+          ]
+        },
+        {
+          "question_id": "JS-029",
+          "number_in_stage": 9,
+          "title": "&& と || が返す値",
+          "type": "predict_output",
+          "difficulty": 4,
+          "concepts": [
+            "||",
+            "&&",
+            "truthy / falsy"
+          ]
+        },
+        {
+          "question_id": "JS-030",
+          "number_in_stage": 10,
+          "title": "点数から評価を決める",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "if",
+            "else if",
+            "境界値"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "同じ処理をくり返す「繰り返し」（ステージ4）へ進みます"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S02"
+      }
+    },
+    {
+      "id": "S04",
+      "number": 4,
+      "title": "繰り返し",
+      "subtitle": "for、while、break / continue、入れ子のループ",
+      "learning_goals": [
+        "for 文の3つの部分（初期化・条件・更新）の役割を説明できる",
+        "for と while を使い分けて、決まった回数・条件付きの繰り返しを書ける",
+        "合計を求めるなど、変数を更新しながら繰り返す書き方ができる",
+        "break と continue の違いを説明できる",
+        "無限ループの原因に気づける",
+        "入れ子（ネスト）のループの動きを追える"
+      ],
+      "prerequisite_knowledge": [
+        "変数・演算子（ステージ1〜2）",
+        "if と比較演算子（ステージ3）"
+      ],
+      "prerequisite_stage_ids": [
+        "S03"
+      ],
+      "topics": [
+        "for 文（初期化 ; 条件 ; 更新）",
+        "while 文",
+        "合計を求める（累積）",
+        "break と continue",
+        "無限ループ",
+        "入れ子のループ"
+      ],
+      "common_pitfalls": [
+        "i < 5 は 0〜4（5 は含まれない）。5 回まわすには i < 5、1〜5 なら i <= 5",
+        "while の中で条件に使う変数を更新し忘れると、終わらないループになる",
+        "合計用の変数は、ループの前に 0 で用意する",
+        "continue は「その回だけ飛ばす」、break は「ループ全体を終える」"
+      ],
+      "lesson_id": "LESSON-S04",
+      "question_plan": [
+        {
+          "question_id": "JS-031",
+          "number_in_stage": 1,
+          "title": "for 文の回数",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "for",
+            "i++"
+          ]
+        },
+        {
+          "question_id": "JS-032",
+          "number_in_stage": 2,
+          "title": "3ずつ増やす for 文",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "for",
+            "+="
+          ]
+        },
+        {
+          "question_id": "JS-033",
+          "number_in_stage": 3,
+          "title": "for の条件の部分",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "for",
+            "条件"
+          ]
+        },
+        {
+          "question_id": "JS-034",
+          "number_in_stage": 4,
+          "title": "while のカウントダウン",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "while",
+            "n--"
+          ]
+        },
+        {
+          "question_id": "JS-035",
+          "number_in_stage": 5,
+          "title": "終わらないループ",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "無限ループ",
+            "while"
+          ]
+        },
+        {
+          "question_id": "JS-036",
+          "number_in_stage": 6,
+          "title": "合計を求める",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "累積",
+            "+="
+          ]
+        },
+        {
+          "question_id": "JS-037",
+          "number_in_stage": 7,
+          "title": "continue と break",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "continue",
+            "break"
+          ]
+        },
+        {
+          "question_id": "JS-038",
+          "number_in_stage": 8,
+          "title": "入れ子のループ",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "入れ子のループ",
+            "文字列の連結"
+          ]
+        },
+        {
+          "question_id": "JS-039",
+          "number_in_stage": 9,
+          "title": "合計が合わない（範囲のミス）",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "for",
+            "オフバイワン",
+            "比較演算子"
+          ]
+        },
+        {
+          "question_id": "JS-040",
+          "number_in_stage": 10,
+          "title": "1 から n までの合計",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "for",
+            "累積",
+            "while"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "たくさんのデータをまとめて扱う「配列」と for を組み合わせます（ステージ5）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S03"
+      }
+    },
+    {
+      "id": "S05",
+      "number": 5,
+      "title": "配列",
+      "subtitle": "配列の作り方・添字・追加と削除・for...of",
+      "learning_goals": [
+        "配列を作り、添字（0 始まり）で要素を取り出したり置き換えたりできる",
+        "length・push・pop・includes・indexOf・join・slice を使える",
+        "範囲外の添字は undefined になる（エラーにならない）ことを理解する",
+        "for と for...of で配列の要素を順に処理できる",
+        "const の配列でも中身を変更できることを説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "変数・データ型（ステージ1）",
+        "演算子（ステージ2）",
+        "if（ステージ3）",
+        "for（ステージ4）"
+      ],
+      "prerequisite_stage_ids": [
+        "S04"
+      ],
+      "topics": [
+        "配列リテラル [ ] と添字",
+        "length と最後の要素",
+        "要素の置き換え・push・pop",
+        "includes・indexOf・join・slice",
+        "for と for...of",
+        "const と配列の関係"
+      ],
+      "common_pitfalls": [
+        "添字は 0 から始まる。最後の要素は arr[arr.length - 1]",
+        "範囲外の添字を読んでも undefined になる（エラーにならない）",
+        "for の条件を i <= arr.length にすると、1つ多くまわってしまう",
+        "push は ( )、添字は [ ]。arr.push[4] のように書き間違えない",
+        "const の配列にも push できる（再代入だけが禁止）"
+      ],
+      "lesson_id": "LESSON-S05",
+      "question_plan": [
+        {
+          "question_id": "JS-041",
+          "number_in_stage": 1,
+          "title": "最初の要素の取り出し方",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "配列",
+            "添字"
+          ]
+        },
+        {
+          "question_id": "JS-042",
+          "number_in_stage": 2,
+          "title": "length と範囲外の添字",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "length",
+            "undefined",
+            "範囲外"
+          ]
+        },
+        {
+          "question_id": "JS-043",
+          "number_in_stage": 3,
+          "title": "置き換え・追加・削除",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "push",
+            "pop",
+            "要素の置き換え"
+          ]
+        },
+        {
+          "question_id": "JS-044",
+          "number_in_stage": 4,
+          "title": "push の書き間違い",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "push",
+            "メソッド呼び出し"
+          ]
+        },
+        {
+          "question_id": "JS-045",
+          "number_in_stage": 5,
+          "title": "配列の要素を順に足す",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "for...of",
+            "累積"
+          ]
+        },
+        {
+          "question_id": "JS-046",
+          "number_in_stage": 6,
+          "title": "includes と indexOf",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "includes",
+            "indexOf"
+          ]
+        },
+        {
+          "question_id": "JS-047",
+          "number_in_stage": 7,
+          "title": "const の配列と push",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "const",
+            "push"
+          ]
+        },
+        {
+          "question_id": "JS-048",
+          "number_in_stage": 8,
+          "title": "1つ多くまわるループ",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "for",
+            "length",
+            "NaN",
+            "範囲外"
+          ]
+        },
+        {
+          "question_id": "JS-049",
+          "number_in_stage": 9,
+          "title": "slice と join",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "slice",
+            "join"
+          ]
+        },
+        {
+          "question_id": "JS-050",
+          "number_in_stage": 10,
+          "title": "偶数だけを集める",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "配列",
+            "push",
+            "for...of",
+            "%",
+            "join"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "名前と値のセットをまとめる「オブジェクト」を学びます（ステージ6）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S04"
+      }
+    },
+    {
+      "id": "S06",
+      "number": 6,
+      "title": "オブジェクト",
+      "subtitle": "プロパティ、ネスト、Object.keys、配列との組み合わせ",
+      "learning_goals": [
+        "オブジェクトを作り、プロパティの読み出し・追加・更新・削除ができる",
+        "ドット記法と角括弧記法を使い分けられる",
+        "オブジェクトの中のオブジェクト（ネスト）や、オブジェクトの配列を扱える",
+        "Object.keys で全プロパティを順に処理できる",
+        "存在しないプロパティ（undefined）の中身を読むと TypeError になることを説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "変数・演算子・if・for（ステージ1〜4）",
+        "配列と for...of（ステージ5）"
+      ],
+      "prerequisite_stage_ids": [
+        "S05"
+      ],
+      "topics": [
+        "オブジェクトリテラル { キー: 値 }",
+        "ドット記法と角括弧記法",
+        "プロパティの追加・更新・削除、in 演算子",
+        "ネストしたオブジェクト、オブジェクトの配列",
+        "Object.keys と JSON.stringify",
+        "undefined のプロパティを読むエラー"
+      ],
+      "common_pitfalls": [
+        "変数に入れたキー名で取り出すときは、user.key ではなく user[key]",
+        "存在しないプロパティを読むと undefined。その中身をさらに読むと TypeError",
+        "プロパティの存在確認に includes は使えない（in 演算子を使う）",
+        "const のオブジェクトも、プロパティは変更できる"
+      ],
+      "lesson_id": "LESSON-S06",
+      "question_plan": [
+        {
+          "question_id": "JS-051",
+          "number_in_stage": 1,
+          "title": "プロパティの読み出し",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "オブジェクト",
+            "プロパティ",
+            "undefined"
+          ]
+        },
+        {
+          "question_id": "JS-052",
+          "number_in_stage": 2,
+          "title": "追加・更新・削除",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "プロパティの追加・更新・削除",
+            "JSON.stringify"
+          ]
+        },
+        {
+          "question_id": "JS-053",
+          "number_in_stage": 3,
+          "title": "変数に入れたキー名で取り出す",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "角括弧記法",
+            "ドット記法"
+          ]
+        },
+        {
+          "question_id": "JS-054",
+          "number_in_stage": 4,
+          "title": "ネストしたプロパティ",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "ネスト"
+          ]
+        },
+        {
+          "question_id": "JS-055",
+          "number_in_stage": 5,
+          "title": "undefined の中身を読むエラー",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "undefined",
+            "TypeError",
+            "ネスト"
+          ]
+        },
+        {
+          "question_id": "JS-056",
+          "number_in_stage": 6,
+          "title": "Object.keys でくり返す",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "Object.keys",
+            "for...of",
+            "角括弧記法"
+          ]
+        },
+        {
+          "question_id": "JS-057",
+          "number_in_stage": 7,
+          "title": "オブジェクトの配列",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "オブジェクトの配列",
+            "length"
+          ]
+        },
+        {
+          "question_id": "JS-058",
+          "number_in_stage": 8,
+          "title": "プロパティの存在確認",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "in演算子"
+          ]
+        },
+        {
+          "question_id": "JS-059",
+          "number_in_stage": 9,
+          "title": "数え方のミス",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "オブジェクト",
+            "カウント",
+            "論理エラー"
+          ]
+        },
+        {
+          "question_id": "JS-060",
+          "number_in_stage": 10,
+          "title": "買い物かごの合計金額",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "オブジェクトの配列",
+            "for...of",
+            "累積"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "処理に名前を付けて部品にする「関数」を学びます（ステージ7）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S05"
+      }
+    },
+    {
+      "id": "S07",
+      "number": 7,
+      "title": "関数",
+      "subtitle": "引数・戻り値・アロー関数・スコープ・コールバック",
+      "learning_goals": [
+        "function とアロー関数で関数を定義し、呼び出せる",
+        "引数・戻り値・デフォルト引数を使える",
+        "return と console.log の違いを説明できる",
+        "関数の中の変数（ローカル変数）とブロックスコープを理解する",
+        "map・filter・forEach に関数を渡して、配列を処理できる"
+      ],
+      "prerequisite_knowledge": [
+        "変数・演算子・if・for（ステージ1〜4）",
+        "配列とオブジェクト（ステージ5〜6）"
+      ],
+      "prerequisite_stage_ids": [
+        "S06"
+      ],
+      "topics": [
+        "function による関数宣言と呼び出し",
+        "引数・戻り値・デフォルト引数",
+        "return がない関数の戻り値（undefined）",
+        "アロー関数 ( ) => { }",
+        "スコープ（関数・ブロックの中の変数）",
+        "コールバック（map / filter / forEach）"
+      ],
+      "common_pitfalls": [
+        "関数は定義しただけでは実行されない（関数名() で呼び出す）",
+        "return を書かないと、戻り値は undefined になる",
+        "アロー関数で { } を使うと、return を明示しないと undefined になる",
+        "return は関数を終了する（ループの中に書くと1回で終わる）",
+        "関数名だけを渡す（addEventListener(\"click\", fn)）と、関数名() で呼び出すは別"
+      ],
+      "lesson_id": "LESSON-S07",
+      "question_plan": [
+        {
+          "question_id": "JS-061",
+          "number_in_stage": 1,
+          "title": "戻り値を計算に使う",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "return",
+            "戻り値"
+          ]
+        },
+        {
+          "question_id": "JS-062",
+          "number_in_stage": 2,
+          "title": "return のない関数の戻り値",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "return",
+            "undefined",
+            "console.log"
+          ]
+        },
+        {
+          "question_id": "JS-063",
+          "number_in_stage": 3,
+          "title": "定義しただけでは動かない",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "関数の定義",
+            "関数の呼び出し"
+          ]
+        },
+        {
+          "question_id": "JS-064",
+          "number_in_stage": 4,
+          "title": "アロー関数の記号",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "アロー関数"
+          ]
+        },
+        {
+          "question_id": "JS-065",
+          "number_in_stage": 5,
+          "title": "デフォルト引数",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "デフォルト引数",
+            "**"
+          ]
+        },
+        {
+          "question_id": "JS-066",
+          "number_in_stage": 6,
+          "title": "合計が1にしかならない",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "return",
+            "for",
+            "ループ"
+          ]
+        },
+        {
+          "question_id": "JS-067",
+          "number_in_stage": 7,
+          "title": "スコープ",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "スコープ",
+            "ローカル変数",
+            "ブロックスコープ"
+          ]
+        },
+        {
+          "question_id": "JS-068",
+          "number_in_stage": 8,
+          "title": "map と filter",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "map",
+            "filter",
+            "コールバック"
+          ]
+        },
+        {
+          "question_id": "JS-069",
+          "number_in_stage": 9,
+          "title": "アロー関数の return 忘れ",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "アロー関数",
+            "return"
+          ]
+        },
+        {
+          "question_id": "JS-070",
+          "number_in_stage": 10,
+          "title": "平均を返す関数",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "関数",
+            "return",
+            "配列",
+            "for...of"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "関数をイベントに結びつける準備として、ステージ8でまず HTML の要素を操作します"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S06"
+      }
+    },
+    {
+      "id": "S08",
+      "number": 8,
+      "title": "DOM操作",
+      "subtitle": "要素の取得・書き換え・class・要素の追加",
+      "learning_goals": [
+        "DOM が、ブラウザが HTML から作る要素の木構造であることを説明できる",
+        "querySelector・querySelectorAll で要素を取得できる",
+        "textContent・value・classList・style で要素の内容や見た目を変更できる",
+        "createElement と appendChild で要素を作って追加できる",
+        "textContent と innerHTML の違い（安全性）を説明できる",
+        "<script> を、操作したい要素より後ろに書く理由を説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "変数・if・for・配列・オブジェクト・関数（ステージ1〜7）",
+        "HTML の基本（要素・id・class。HTML/CSS コースのステージ1〜6程度）"
+      ],
+      "prerequisite_stage_ids": [
+        "S07"
+      ],
+      "topics": [
+        "DOM とは（document）",
+        "querySelector / querySelectorAll / getElementById",
+        "textContent と innerHTML",
+        "classList（add / remove / toggle / contains）",
+        "style と属性（setAttribute / value）",
+        "createElement / appendChild / remove",
+        "<script> を書く位置"
+      ],
+      "common_pitfalls": [
+        "querySelector が要素を見つけられないと null になり、その先を読むと TypeError になる",
+        "querySelector は最初の1つ、querySelectorAll は全部（配列のような一覧）を返す",
+        "id は # 、class は . をセレクタの先頭に付ける",
+        "input の中身は textContent ではなく value",
+        "style のプロパティ名は background-color ではなく backgroundColor",
+        "ユーザーの入力を innerHTML に入れると危険（textContent を使う）"
+      ],
+      "lesson_id": "LESSON-S08",
+      "question_plan": [
+        {
+          "question_id": "JS-071",
+          "number_in_stage": 1,
+          "title": "DOM とは何か",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "DOM",
+            "document"
+          ]
+        },
+        {
+          "question_id": "JS-072",
+          "number_in_stage": 2,
+          "title": "querySelector と querySelectorAll",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "querySelector",
+            "querySelectorAll",
+            "textContent"
+          ]
+        },
+        {
+          "question_id": "JS-073",
+          "number_in_stage": 3,
+          "title": "textContent と innerHTML",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "textContent",
+            "innerHTML",
+            "安全性"
+          ]
+        },
+        {
+          "question_id": "JS-074",
+          "number_in_stage": 4,
+          "title": "class を付ける",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "classList",
+            "add"
+          ]
+        },
+        {
+          "question_id": "JS-075",
+          "number_in_stage": 5,
+          "title": "セレクタの書き間違い",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "querySelector",
+            "セレクタ",
+            "null"
+          ]
+        },
+        {
+          "question_id": "JS-076",
+          "number_in_stage": 6,
+          "title": "要素を作って追加する",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "createElement",
+            "appendChild",
+            "for"
+          ]
+        },
+        {
+          "question_id": "JS-077",
+          "number_in_stage": 7,
+          "title": "入力欄に文字を入れる",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "value",
+            "input"
+          ]
+        },
+        {
+          "question_id": "JS-078",
+          "number_in_stage": 8,
+          "title": "style のプロパティ名",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "style",
+            "キャメルケース"
+          ]
+        },
+        {
+          "question_id": "JS-079",
+          "number_in_stage": 9,
+          "title": "classList の操作",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "classList",
+            "toggle"
+          ]
+        },
+        {
+          "question_id": "JS-080",
+          "number_in_stage": 10,
+          "title": "配列からリストを作る",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "createElement",
+            "appendChild",
+            "for...of",
+            "DOM操作"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "ボタンを押したときに DOM を書き換える「イベント処理」へ進みます（ステージ9）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S07"
+      }
+    },
+    {
+      "id": "S09",
+      "number": 9,
+      "title": "イベント処理",
+      "subtitle": "addEventListener・イベントオブジェクト・input・submit・バブリング",
+      "learning_goals": [
+        "addEventListener で、クリックなどのイベントに関数を結びつけられる",
+        "関数を「渡す」（fn）ことと「呼び出す」（fn()）ことの違いを説明できる",
+        "イベントオブジェクト（e.target・e.target.value）を使える",
+        "click・input・submit などのイベントを使い分けられる",
+        "preventDefault と、イベントのバブリングの基本を説明できる",
+        "ボタンを押すと表示が変わる、簡単な動きのあるページを書ける"
+      ],
+      "prerequisite_knowledge": [
+        "関数・アロー関数・コールバック（ステージ7）",
+        "DOM 操作（ステージ8）"
+      ],
+      "prerequisite_stage_ids": [
+        "S08"
+      ],
+      "topics": [
+        "イベントと addEventListener",
+        "関数を渡す／呼び出すの違い",
+        "イベントオブジェクト（e.target）",
+        "input・change・submit・keydown",
+        "preventDefault",
+        "バブリングとイベント委譲の基本"
+      ],
+      "common_pitfalls": [
+        "addEventListener(\"click\", fn()) と書くと、関数がその場で実行されてしまう",
+        "イベント名は click であって、onclick ではない（on を付けない）",
+        "querySelectorAll の結果にはまとめて addEventListener できない（1つずつ付ける）",
+        "フォームの submit は、preventDefault しないとページが再読み込みされる",
+        "入力欄の値は e.target.value（textContent ではない）"
+      ],
+      "lesson_id": "LESSON-S09",
+      "question_plan": [
+        {
+          "question_id": "JS-081",
+          "number_in_stage": 1,
+          "title": "関数を渡す書き方",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "addEventListener",
+            "コールバック"
+          ]
+        },
+        {
+          "question_id": "JS-082",
+          "number_in_stage": 2,
+          "title": "クリックするたびに増えるカウンター",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "addEventListener",
+            "クリック",
+            "変数の保持"
+          ]
+        },
+        {
+          "question_id": "JS-083",
+          "number_in_stage": 3,
+          "title": "クリックのイベント名",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "イベント名",
+            "click"
+          ]
+        },
+        {
+          "question_id": "JS-084",
+          "number_in_stage": 4,
+          "title": "関数を呼び出してしまった",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "addEventListener",
+            "関数を渡す"
+          ]
+        },
+        {
+          "question_id": "JS-085",
+          "number_in_stage": 5,
+          "title": "e.target は押された要素",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "イベントオブジェクト",
+            "e.target",
+            "for...of"
+          ]
+        },
+        {
+          "question_id": "JS-086",
+          "number_in_stage": 6,
+          "title": "フォーム送信を止める",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "preventDefault",
+            "submit"
+          ]
+        },
+        {
+          "question_id": "JS-087",
+          "number_in_stage": 7,
+          "title": "入力された文字を読み取る",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "input イベント",
+            "value"
+          ]
+        },
+        {
+          "question_id": "JS-088",
+          "number_in_stage": 8,
+          "title": "一覧にまとめてリスナーを付けた",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "querySelectorAll",
+            "for...of",
+            "TypeError"
+          ]
+        },
+        {
+          "question_id": "JS-089",
+          "number_in_stage": 9,
+          "title": "イベントのバブリング",
+          "type": "predict_output",
+          "difficulty": 4,
+          "concepts": [
+            "バブリング",
+            "イベント委譲"
+          ]
+        },
+        {
+          "question_id": "JS-090",
+          "number_in_stage": 10,
+          "title": "カウンターを作る",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "addEventListener",
+            "if",
+            "DOM操作"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "DOM 操作とイベント処理を組み合わせて、ページで動く簡単なアプリを作ります（ステージ10）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S08"
+      }
+    },
+    {
+      "id": "S10",
+      "number": 10,
+      "title": "簡単なWebアプリ制作",
+      "subtitle": "データと表示を分けて、動くページを組み立てる",
+      "learning_goals": [
+        "「データを更新する → 画面を書き換える」という流れでアプリを組み立てられる",
+        "入力欄の値が文字列であることを意識し、Number() で数値にできる",
+        "空の入力など、想定外の入力に対応できる",
+        "カウンター・ToDo・タブ切替など、簡単なWebアプリを自分で書ける",
+        "ここまでの JavaScript の知識（変数・配列・関数・DOM・イベント）を組み合わせられる"
+      ],
+      "prerequisite_knowledge": [
+        "ステージ1〜9のすべて（特に配列・関数・DOM 操作・イベント処理）"
+      ],
+      "prerequisite_stage_ids": [
+        "S09"
+      ],
+      "topics": [
+        "データ（配列・数）と表示（DOM）を分けて考える",
+        "入力値の取得（value）と数値への変換（Number）",
+        "空の入力のチェック（trim）",
+        "要素の追加と削除（createElement / appendChild / remove）",
+        "class や hidden での表示の切り替え",
+        "完成したアプリの全体像を読む"
+      ],
+      "common_pitfalls": [
+        "input の value は、数字を入れても文字列（\"1\" + \"2\" は \"12\"）",
+        "配列のデータを変えただけでは、画面は変わらない（render し直す）",
+        "空の入力や、スペースだけの入力を忘れる",
+        "追加・削除のあとに、件数などの表示を更新し忘れる",
+        "一度に全部を作ろうとせず、1つの機能ずつ作って確かめる"
+      ],
+      "lesson_id": "LESSON-S10",
+      "question_plan": [
+        {
+          "question_id": "JS-091",
+          "number_in_stage": 1,
+          "title": "アプリの作り方の基本",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "アプリ設計",
+            "データと表示"
+          ]
+        },
+        {
+          "question_id": "JS-092",
+          "number_in_stage": 2,
+          "title": "データを変えただけでは画面は変わらない",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "render",
+            "データと表示"
+          ]
+        },
+        {
+          "question_id": "JS-093",
+          "number_in_stage": 3,
+          "title": "入力値を数値にする",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "Number()",
+            "value",
+            "型変換"
+          ]
+        },
+        {
+          "question_id": "JS-094",
+          "number_in_stage": 4,
+          "title": "入力欄の値が連結されてしまう",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "Number()",
+            "文字列の連結",
+            "value"
+          ]
+        },
+        {
+          "question_id": "JS-095",
+          "number_in_stage": 5,
+          "title": "toggle を2回",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "classList",
+            "toggle",
+            "click"
+          ]
+        },
+        {
+          "question_id": "JS-096",
+          "number_in_stage": 6,
+          "title": "文字数カウンター",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "input イベント",
+            "value",
+            "length"
+          ]
+        },
+        {
+          "question_id": "JS-097",
+          "number_in_stage": 7,
+          "title": "ToDo を追加する",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "createElement",
+            "appendChild",
+            "trim",
+            "addEventListener"
+          ]
+        },
+        {
+          "question_id": "JS-098",
+          "number_in_stage": 8,
+          "title": "タブの切り替え",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "dataset",
+            "hidden",
+            "for...of",
+            "イベント処理"
+          ]
+        },
+        {
+          "question_id": "JS-099",
+          "number_in_stage": 9,
+          "title": "完了にして残りを数える",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "classList.toggle",
+            "イベント処理",
+            "DOM操作"
+          ]
+        },
+        {
+          "question_id": "JS-100",
+          "number_in_stage": 10,
+          "title": "削除ボタンつきの ToDo アプリ",
+          "type": "code_write",
+          "difficulty": 5,
+          "concepts": [
+            "DOM操作",
+            "イベント処理",
+            "関数",
+            "createElement",
+            "remove"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "この先は、localStorage での保存、fetch での通信、ファイル分割・モジュール、フレームワークなどへ進めます（このコースでは扱いません）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S09"
+      }
+    }
+  ]
+}

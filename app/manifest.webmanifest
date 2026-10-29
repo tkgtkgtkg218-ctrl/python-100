@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Python はじめの100問",
-  "short_name": "Python100問",
-  "description": "短い教科書を読んで、すぐ問題を解く。Python 初心者向けの10ステージ・全100問の学習アプリ。",
+  "name": "はじめの100問 — Python・JavaScript・HTML/CSS",
+  "short_name": "はじめの100問",
+  "description": "短い教科書を読んで、すぐ問題を解く。Python・JavaScript・HTML/CSS の初心者向け学習アプリ（各10ステージ・全100問）。",
   "lang": "ja",
   "dir": "ltr",
   "start_url": "./",

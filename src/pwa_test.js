@@ -1,4 +1,4 @@
-/* PWA の実ブラウザ検証（ヘッドレス Chrome を DevTools Protocol で操作）。
+﻿/* PWA の実ブラウザ検証（ヘッドレス Chrome を DevTools Protocol で操作）。
  *   node src/pwa_test.js <phase> <profileDir> [url]
  *   phase1: オンラインで開く → Service Worker 登録・キャッシュ・インストール可否・Pyodide 採点
  *   phase2: サーバー停止＋ CDN 名前解決不能（--host-resolver-rules）で、同じプロファイルを開く → オフライン動作
@@ -19,7 +19,7 @@ class CDP {
 }
 
 async function main() {
-  const extra = phase === "phase2" ? ["--host-resolver-rules=MAP cdn.jsdelivr.net ~NOTFOUND"] : [];
+  const extra = phase === "phase2" ? ["--host-resolver-rules=MAP cdn.jsdelivr.net ~NOTFOUND" + (process.env.BLOCK_HOST ? ", MAP " + process.env.BLOCK_HOST + " ~NOTFOUND" : "")] : [];
   const proc = spawn(CHROME, ["--headless=new", "--remote-debugging-port=" + PORT, "--user-data-dir=" + profile, "--no-first-run", "--no-default-browser-check", ...extra, "about:blank"], { stdio: "ignore" });
   const results = {};
   try {
@@ -32,8 +32,8 @@ async function main() {
     await cdp.send("Page.enable");
     await cdp.send("Runtime.enable");
     await cdp.send("Page.navigate", { url: URL_ });
-    for (let i = 0; i < 60; i++) { await sleep(250); try { if ((await cdp.eval("document.querySelectorAll('.stage-card').length")) === 10) break; } catch (e) { /* 読み込み中 */ } }
-    results.stageCards = await cdp.eval("document.querySelectorAll('.stage-card').length");
+    for (let i = 0; i < 60; i++) { await sleep(250); try { if ((await cdp.eval("document.querySelectorAll('.course-card').length")) === 3) break; } catch (e) { /* 読み込み中 */ } }
+    results.courseCards = await cdp.eval("document.querySelectorAll('.course-card').length");
     results.title = await cdp.eval("document.title");
     // Service Worker が制御するまで待つ
     for (let i = 0; i < 80; i++) { if (await cdp.eval("!!navigator.serviceWorker.controller")) break; await sleep(250); }
@@ -55,10 +55,21 @@ async function main() {
       results.pyodide = await cdp.eval(`(async () => {
         const t0 = performance.now();
         const info = await PyRunner.ready();
-        const q = JSON.parse(document.getElementById('data').textContent).questions.questions.find(x => x.id === 'PY-060');
+        const q = JSON.parse(document.getElementById('data').textContent).courses.find(c => c.key === 'py').questions.questions.find(x => x.id === 'PY-060');
         const g = await PyRunner.gradeCode(q, q.answer.reference_solution);
         const bad = await PyRunner.gradeCode(q, q.answer.rejected_examples[0].code);
         return { python: info.python, referencePasses: g.correct, rejectedFails: !bad.correct, ms: Math.round(performance.now() - t0) };
+      })()`);
+      results.webCourses = await cdp.eval(`(async () => {
+        const D = JSON.parse(document.getElementById('data').textContent);
+        const out = {};
+        for (const key of ['js', 'htmlcss']) {
+          const q = D.courses.find((c) => c.key === key).questions.questions.find((x) => x.type === 'code_write');
+          const ok = await WebRunner.grade(q, q.answer.reference_solution);
+          const bad = await WebRunner.grade(q, q.answer.rejected_examples[0].code);
+          out[key] = { id: q.id, referencePasses: ok.correct, rejectedFails: !bad.correct };
+        }
+        return out;
       })()`);
       results.pyodideCacheEntries = await cdp.eval("caches.open('pypath-pyodide-v0.26.4').then(c => c.keys()).then(k => k.map(r => r.url.split('/').pop()))");
     }
@@ -72,7 +83,7 @@ async function main() {
       await sleep(2000);
       results.cacheKeysAfterUpdate = await cdp.eval("caches.keys()");
     }
-    ws.close();
+    await sleep(1500); // localStorage がディスクに書かれるのを待つ\n    ws.close();
   } catch (e) {
     results.error = String(e && e.stack || e);
   } finally {

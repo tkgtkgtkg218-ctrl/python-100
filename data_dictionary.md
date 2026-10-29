@@ -1,6 +1,8 @@
 # データ仕様書（Data Dictionary）
 
-対象ファイル: `curriculum.json` / `lessons.json` / `questions.json`（UTF-8、コメント・末尾カンマなし、`schema_version` 1.0.0）
+対象ファイル: Python コースの `curriculum.json` / `lessons.json` / `questions.json`（ルート。`schema_version` 1.0.0）、および JavaScript・HTML/CSS コースの同名3ファイル（`courses/javascript-basics-ja/`・`courses/htmlcss-basics-ja/`。`schema_version` 1.1.0）。UTF-8、コメント・末尾カンマなし。
+
+> 追加コースで増えた項目は、**末尾の「6. JavaScript / HTML・CSS コースで追加された項目」**にまとめてあります（Python コースの項目は、すべてそのまま使えます）。
 
 凡例: **必須**=常に存在 / 条件付=特定の `type`・`answer_mode` のときのみ / 任意=ないことがある。型: string, int, bool, array, object, null。
 
@@ -210,3 +212,65 @@ questions[].stage_id ───────────────────�
 - `code` は `\n` を含む文字列。画面では等幅フォントで表示し、インデントを保持する。
 - 入力式 `bug_fix` では、`code` の `target_line` 行の**インデントを保ったまま**、行の中身だけを学習者の入力で置き換えて表示・実行する。
 - 進捗データ（回答履歴・クリア状況）は本データの外（アプリ側のストレージ）に持つ。推奨スキーマは `docs/08_app_spec.md` を参照。
+
+## 6. JavaScript / HTML・CSS コースで追加された項目
+
+ファイル構成・ID・参照関係は Python コースと同じです（ID の接頭辞は `JS-001`〜`JS-100`、`HC-001`〜`HC-100`。ステージ ID は各コース内で `S01`〜`S10`）。アプリは、3コースのデータを `public/index.html` に埋め込み、`{"courses": [{key, tagline, curriculum, lessons, questions}]}` の形で読み込みます（`key` は `py` / `js` / `htmlcss`）。
+
+### 6.1 curriculum.json の `course`（追加項目）
+| 項目 | 型 | 区分 | 意味 |
+|---|---|---|---|
+| `subject_kind` | string | 追加コースで必須 | `programming_language`（JavaScript）/ `markup_and_stylesheet_languages`（HTML/CSS）。**HTML と CSS はプログラミング言語ではない**ため、教材の用語・画面の文言がこれに従う |
+| `environment_checked` | string | 追加コースで必須 | 実行検証に使った環境（例: Google Chrome（ヘッドレス））。Python コースの `language_version_checked` に相当 |
+| `ui` | object | 追加コースで必須 | 画面の文言。`type_labels`（問題形式の表示名。HTML/CSS では `predict_output` が「表示の予測」、`code_write` が「HTML/CSSを書く」）、`write_button`、`run_button`（JavaScript は「実行して試す」、HTML/CSS は「プレビューする」）、`run_output_label` |
+
+### 6.2 lessons.json の `examples[]`（追加項目）
+| 項目 | 型 | 区分 | 意味 |
+|---|---|---|---|
+| `language` | string | 追加コースで必須 | `javascript` / `html` / `css`（コードの表示用） |
+| `context_html` | string | 任意 | 例の CSS・JavaScript が対象にする HTML（コードの前に表示する） |
+| `preview` | object / null | 任意 | 実際に表示して見せるための指定 `{format, given_html?, viewport?}`。`format` は 6.4 を参照。`null`・なしなら表示しない |
+| `verify` | object | 任意 | 機械検証の指定 `{format, given_html?, actions?, viewport?, expr, allow_errors?}`。`expr` が true になることを、ブラウザで確認する |
+| `expected_output` | string | 任意 | JavaScript の `console.log` の出力。HTML/CSS の例では空 |
+
+### 6.3 questions.json の問題（追加項目）
+| 項目 | 型 | 区分 | 意味 |
+|---|---|---|---|
+| `code_language` | string | 必須 | `javascript` / `html` / `css`。コードの表示用 |
+| `context_html` | string | 任意 | 問題のコード（CSS・JavaScript）が対象にする HTML。`check.given_html` と同じ値が入る |
+| `check` | object | 任意 | その問題の正解を、ブラウザで機械検証・プレビューするための指定（下記）。画面では、解答後に「実際の表示を見る」として使う |
+| `prefix_html` | string | `code_write`（page エンジン）で任意 | 提示済みの HTML（CSS・DOM 操作の問題）。学習者のコードと組み合わせて読み込む |
+| `answer_format` | string | `code_write` で必須 | 学習者のコードの種類。`javascript`（console.log・関数）/ `javascript_dom`（`prefix_html` の中で動く JavaScript）/ `html_document`（HTML 文書全体）/ `html_body`（body の中身）/ `css`（`prefix_html` に適用する CSS） |
+| `grading.engine` | string | `code_write` で必須 | `js_worker`（Web Worker で JavaScript を実行）/ `page`（隔離した iframe に読み込んで式で判定）。Python コースにはなく、あれば Pyodide |
+| `grading.required_patterns` / `required_any_patterns` / `forbidden_patterns` | array<{pattern, message}> | `code_write` で任意 | 学習者のコードに、正規表現で、含まれるべき（すべて / いずれか）・含まれてはいけない書き方を指定する |
+| `grading.viewport` | int | 任意 | `page` エンジンで、iframe の幅（px）の既定値 |
+
+`check`（検証・プレビュー用）:
+| 項目 | 型 | 意味 |
+|---|---|---|
+| `format` | string | コードを読み込む方法（6.4）。`javascript` は、`console.log` の出力だけで確認する問題（この場合 `check` は付けず、`expected_output` を使う） |
+| `given_html` | string | `css` / `javascript_dom` のときの、提示済みの HTML |
+| `expr` | string | 穴埋め・間違い探しで、**正しい答え**のときだけ true になる式。誤答では false になることを確認している |
+| `probe` / `choice_values` / `expected` | string / object / any | 予測問題で、表示結果を値として取り出す式（`probe`）。選択式は、選択肢ID → 正解となる値の対応（`choice_values`）、入力式は期待値（`expected`）。**選択肢の文章ではなく、ブラウザの実測値**と照合している |
+| `actions` | array<string / number> | `expr` / `probe` の前に実行する操作（クリックなどを行う式。数値は待ち時間 ms） |
+| `viewport` | int | 画面の幅（px）。メディアクエリの確認用 |
+
+### 6.4 コードを読み込む方法（`format` / `answer_format`）
+| 値 | 組み立て方 |
+|---|---|
+| `html_document` | 学習者のコードを、HTML 文書全体として読み込む（`<!doctype html>` の有無による標準/互換モードの違いも再現される） |
+| `html_body` | `<!doctype html>`・`<html lang="ja">`・head（meta charset・title）を付けて、body の中に、学習者のコードを入れる |
+| `css` | 上と同じ文書の head に `<style>` として学習者の CSS を入れ、body に `given_html` を入れる |
+| `javascript_dom` | body に `given_html` を入れ、その後ろに `<script>` として学習者の JavaScript を入れる |
+
+### 6.5 `grading.tests[]`（追加の種類）
+| `kind` | 項目 | 意味 |
+|---|---|---|
+| `stdout` | `setup`, `expected_stdout`, `visible` | Python と同じ。`console.log` の出力（引数は空白で区切って1行、行ごとに改行）を、正規化して比較。`setup` は学習者のコードの前に実行する JavaScript |
+| `call` | `call`, `expected`, `setup`, `visible` | `call` の式を評価した戻り値を JSON にし、`expected`（**JSON 文字列**。例 `"5"`, `"\"abc\""`, `"[1,2]"`）と、構造として同じか（オブジェクトのキーの順序は無視）で比較 |
+| `page` | `desc`, `expr`, `actions?`, `given_html?`, `viewport?`, `visible` | `desc`（画面に出す説明文）。ページを読み込み、`actions` を順に実行したあと、`expr` が true になるかで判定。`given_html` / `viewport` をテストごとに指定すると、別の入力・画面幅でも動くかを確認できる（非公開テストでよく使う）。**同じ `actions`・`given_html`・`viewport` のテストは、1つの iframe にまとめて評価する** |
+
+### 6.6 実装上の追加の注意
+- 選択式の選択肢の順序は、データ作成時（`src/build_web.py`）に、正解の位置が偏らないよう、決定的に並べ替えてあります（JavaScript: 1番目16・2番目16・3番目15、HTML/CSS: 19・19・18）。選択肢ID（`c1`〜`c3`）は、並べ替え後の順に付け直されています。アプリは、表示時にもランダムに並べ替えます。
+- `page` エンジンの学習者のコードは、**`sandbox="allow-scripts"` のみ**（`allow-same-origin` なし）の iframe で動かします。親ページの `localStorage`・DOM には触れません。HTML・CSS のみの問題でも、同じ仕組みで読み込みます。
+- 画像（`img`）を使う問題は、通信を伴わないよう、画像ファイルの有無に依存しない出題（`alt`・属性の確認、データ URI の画像）にしてあります。

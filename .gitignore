@@ -8,3 +8,4 @@ src/claims_results.json
 .vercel/
 .DS_Store
 Thumbs.db
+courses/*/verify_results.json

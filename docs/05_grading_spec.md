@@ -112,3 +112,28 @@
 ```
 
 非公開テストが失敗した場合は、入力値を見せず「別の入力でも確かめてみましょう」とだけ伝える。
+
+## 5.9 JavaScript / HTML・CSS コースの採点
+
+選択・穴埋め・予測・間違い探しは、5.2〜5.4 と同じ（JavaScript 版の `app/grader.js`）。違いは「コード作成」と、「表示・動きに関わる問題の検証」です。
+
+### 採点エンジン（`grading.engine`）
+| engine | 対象 | 実行場所 | 判定 | 時間制限 |
+|---|---|---|---|---|
+| `js_worker` | JavaScript の関数・出力（ステージ1〜7） | Web Worker（`new Function` で実行。`fetch` 等は無効化） | `stdout`: `console.log` の出力を正規化して比較 / `call`: 式の戻り値を JSON にして、構造として比較（キーの順序は無視） | 1テスト 3秒。超過で Worker を強制終了し、残りのテストは実行しない |
+| `page` | DOM 操作・イベント処理・HTML・CSS | `sandbox="allow-scripts"`（`allow-same-origin` なし）の iframe。blob URL で読み込む | 読み込み後、`actions`（クリック・入力など）を順に実行し、`expr` が true かを判定 | 1グループ 4秒。超過で iframe を取り除く |
+
+### 静的チェック
+正規表現で、含まれるべき書き方（`required_patterns`＝すべて、`required_any_patterns`＝いずれか）・含まれてはいけない書き方を確認する（例: ステージ4の合計は、`for` か `while` が必須）。DOM 操作の問題では、実行前に、`while (true)` などのあからさまな無限ループも止める。
+
+### テストの書き方（`page`）
+- `expr` は、画面の状態を表す JavaScript の式（例: `document.querySelectorAll('#list > li').length === 3`、`getComputedStyle(el).color === 'rgb(255, 0, 0)'`、`document.compatMode === 'CSS1Compat'`、`input.validity.valueMissing`）。HTML の文字列を、正規表現で調べる方法は使わない（**書き方が違っても、同じ表示・同じ動きなら正解にするため**）。
+- `actions` で、クリック（`el.click()`）・入力（`value` の代入と `dispatchEvent(new Event('input'))`）・待機（数値 = ms）を再現する。
+- 非公開テストで、`given_html`（提示 HTML の差し替え）・`viewport`（画面幅）・操作の順番を変えて、**決め打ちの解答を防ぐ**。
+
+### 検証（データ作成者向け）
+`node src/web_verify_run.js courses/<コースID>` が、アプリと同じ実行基盤（`app/webrunner.js`）で、全問題の、正解・誤答・別解・不合格例・初期コード・教科書の例を検証する。`python src/verify_web_struct.py` は、データ構造の整合性を確認する。`node src/app_e2e.js <URL>` は、実際の画面を操作して、全コース・全問題に回答する。
+
+### 安全性（確認済み・未確認）
+- 確認済み（`#/js/selftest`・`#/htmlcss/selftest` で再実行可）: Worker の無限ループが時間切れで止まる／Worker から `fetch`・`document` が使えない／出力が 64KB で打ち切られる／iframe から `parent.document`・`localStorage` に触れない／iframe 内のスクリプトの無限ループが時間切れで止まる（**Chrome のみ**）。
+- 未確認: Safari・Firefox での、iframe の無限ループ（親ページが固まる可能性）／メモリを使い切るコード／Content-Security-Policy を設定した環境での JavaScript 採点（`new Function` を使うため、`unsafe-eval` が必要）。

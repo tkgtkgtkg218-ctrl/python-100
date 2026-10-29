@@ -1,0 +1,22 @@
+[
+  {"kind": "js", "code": "const price = 100;\nprice = 200;", "error": "TypeError", "note": "const への再代入（S01）"},
+  {"kind": "js", "code": "let a = 1;\nlet a = 2;", "error": "SyntaxError", "note": "let の二重宣言（S01）"},
+  {"kind": "js", "code": "let greeting = Hello;", "error": "ReferenceError", "note": "引用符なしの文字（S01）"},
+  {"kind": "js", "code": "let userName = \"Hana\";\nconsole.log(username);", "error": "ReferenceError", "note": "大文字小文字の違い（S01）"},
+  {"kind": "js", "code": "let n = 3;\nif (n = 5) { console.log(\"five\"); } else { console.log(\"not five\"); }", "error": null, "note": "if の条件に = を書いてもエラーにならない（S03）"},
+  {"kind": "js", "code": "const colors = [\"a\"];\ncolors(0);", "error": "TypeError", "note": "配列を ( ) で呼ぶ（S05）"},
+  {"kind": "js", "code": "const a = [1, 2, 3];\nconsole.log(a[5]);", "error": null, "note": "範囲外の添字はエラーにならない（S05）"},
+  {"kind": "js", "code": "const a = [1, 2, 3];\na.add(4);", "error": "TypeError", "note": "配列に add はない（S05）"},
+  {"kind": "js", "code": "const a = [1, 2, 3];\na.push 4;", "error": "SyntaxError", "note": "( ) なしのメソッド呼び出し（S05）"},
+  {"kind": "js", "code": "const a = [1];\na.push(2);", "error": null, "note": "const の配列に push できる（S05）"},
+  {"kind": "js", "code": "const user = { name: \"Hana\" };\nconsole.log(user.address.city);", "error": "TypeError", "note": "undefined の中身を読む（S06）"},
+  {"kind": "js", "code": "const user = { age: 1 };\nuser.includes(\"age\");", "error": "TypeError", "note": "オブジェクトに includes はない（S06）"},
+  {"kind": "js", "code": "const box = { style: {} };\nbox.style.background-color = \"red\";", "error": "SyntaxError", "note": "ハイフン付きのプロパティ名（S08）"},
+  {"kind": "js", "code": "const add = (a, b) => { a + b };\nif (add(1, 2) !== undefined) { throw new Error('x'); }", "error": null, "note": "{ } のアロー関数は undefined を返す（S07）"},
+  {"kind": "js", "code": "{ let y = 1; }\nconsole.log(y);", "error": "ReferenceError", "note": "ブロックの外から let の変数を使う（S07）"},
+  {"kind": "js", "code": "const el = null;\nel.textContent = \"OK\";", "error": "TypeError", "note": "null の textContent に代入する（S08）"},
+  {"kind": "js", "code": "const x = \"abc\" * 2;\nif (!Number.isNaN(x)) { throw new Error('x'); }", "error": null, "note": "数値にできない計算は NaN（S02）"},
+  {"kind": "js", "code": "const b = \"1\" + \"2\";\nif (b !== \"12\") { throw new Error('x'); }", "error": null, "note": "文字列の + は連結（S10）"},
+  {"kind": "page", "format": "javascript_dom", "given_html": "<button class=\"btn\">A</button><button class=\"btn\">B</button>", "code": "document.querySelectorAll('.btn').addEventListener('click', () => {});", "expr": "window.__errs.some(function (e) { return e.indexOf('TypeError') === 0; })", "note": "NodeList に addEventListener は使えない（S09）"},
+  {"kind": "page", "format": "javascript_dom", "given_html": "<input id=\"a\" value=\"1\"><input id=\"b\" value=\"2\">", "code": "window.__r = document.querySelector('#a').value + document.querySelector('#b').value;", "expr": "window.__r === '12' && typeof document.querySelector('#a').value === 'string'", "note": "input の value は文字列（S10）"}
+]

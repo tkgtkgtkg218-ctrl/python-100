@@ -1,54 +1,60 @@
-# Python はじめの100問 — 教材データ一式
+# はじめの100問 — Python・JavaScript・HTML/CSS（学習アプリと教材データ）
 
-プログラミング学習アプリ用の、Python 初心者向け教材・問題・検証データです（10ステージ × 10問 = 100問）。
+初心者向けに、「短い教科書を読む → その場で問題を解く → 解説で理解する」を繰り返す学習アプリと、その教材データです。3コース × 10ステージ × 10問 = **全300問**。
 
-## アプリに取り込むファイル
-| ファイル | 内容 |
+| コース | 内容 | データ |
+|---|---|---|
+| Python | 基本構文・条件分岐・繰り返し・リスト・関数・エラー・辞書・ミニプログラム | ルートの `curriculum.json` / `lessons.json` / `questions.json`（`PY-001`〜`PY-100`） |
+| JavaScript | ブラウザで動くプログラムを作る。変数・演算子・条件分岐・繰り返し・配列・オブジェクト・関数・DOM操作・イベント処理・簡単なWebアプリ | `courses/javascript-basics-ja/`（`JS-001`〜`JS-100`） |
+| HTML/CSS | Webページの構造とデザイン。HTML の基本・文章・リンクと画像・リスト・フォーム・CSS・ボックスモデル・Flexbox・レスポンシブ | `courses/htmlcss-basics-ja/`（`HC-001`〜`HC-100`） |
+
+HTML と CSS は、プログラミング言語ではなく、それぞれマークアップ言語・スタイルシート言語です（JavaScript はプログラミング言語）。
+
+## アプリ
+- 公開用の PWA 一式は `public/`（`index.html` / `manifest.webmanifest` / `sw.js` / `icons/`）。ビルド済みなので、そのまま静的ホスティングできます（`vercel.json` で `outputDirectory: public` を指定済み）。
+- `app/index.html` は、ダブルクリックで開ける単一HTML（PWA 機能なし）です。
+- 自動採点は全300問。コード作成は、**Python = Pyodide（Web Worker）**、**JavaScript = Web Worker**、**HTML/CSS・DOM操作 = sandbox 付き iframe** で、テストを実行して採点します。「実行して試す」「プレビューする」で、採点せずに結果を確認できます。
+- 進捗は、ブラウザの localStorage にコース別に保存されます。
+- 開発用画面: コースのステージ一覧の下の「コード採点の自己テスト」（`#/py/selftest` `#/js/selftest` `#/htmlcss/selftest`）。「すべてのステージを開く」でロックを外せます。
+- 初回だけネットワークが必要なもの: Python のコード作成（jsDelivr から Pyodide を取得）。JavaScript・HTML/CSS コースは、初回の読み込み後、**オフラインでも**学習・採点できます。
+
+## 公開する（GitHub + Vercel）
+1. GitHub にリポジトリを作り、このフォルダを push する。
+2. Vercel のダッシュボードで **Add New → Project** → そのリポジトリを **Import** → Framework Preset は **Other**（Build Command などは空のまま）→ **Deploy**。
+3. 更新するとき: `python src/build_app.py` → `public/` ごとコミットして push → Vercel が自動で再デプロイ → 利用者の画面に「新しいバージョンがあります。［更新する］」が出る。学習の進捗は消えません。
+
+## 教材データを直して作り直す
+教材の**原本**は、Python = `src/s01.py`〜`s10.py`、JavaScript = `src/web/js/s01.py`〜、HTML/CSS = `src/web/htmlcss/s01.py`〜 です。JSON・`docs/`・`courses/*/docs/`・`public/` は生成物なので、直接編集せず、原本を直して再生成してください。
+
+```bash
+# Python コース
+python src/verify.py && python src/claims.py && python src/check_scope.py && python src/gen_docs.py
+# JavaScript / HTML・CSS コース（JSON を作る → 構造を確認 → ブラウザで実行検証 → 文書を作る）
+python src/build_web.py
+python src/verify_web_struct.py
+node src/web_verify_run.js courses/javascript-basics-ja
+node src/web_verify_run.js courses/htmlcss-basics-ja
+python src/gen_docs.py courses/javascript-basics-ja && python src/gen_docs.py courses/htmlcss-basics-ja
+# アプリを作り直す
+python src/make_icons.py   # アイコン（初回のみ）
+python src/build_app.py
+```
+`node src/web_verify_run.js` などのブラウザ検証には、Google Chrome（Windows の標準の場所）が必要です（`CHROME` 環境変数で場所を変えられます）。
+
+## 確認用のスクリプト
+| コマンド | 内容 |
 |---|---|
-| `curriculum.json` | ステージ構成（目標・前提・出題計画・クリア条件） |
-| `lessons.json` | 各ステージの教科書（本文・コード例・解説・よくある間違い・理解度チェック） |
-| `questions.json` | 全100問（`PY-001`〜`PY-100`）。正解・解説・誤答理由・ヒント・採点方法つき |
-| `data_dictionary.md` | 上記3ファイルの項目仕様 |
-
-## ブラウザ試作（`app/index.html`）
-`app/index.html` をブラウザで開くだけで動きます（サーバー不要。データは埋め込み済み）。
-- 画面: ステージ一覧 / 教科書 / 問題回答＋フィードバック / ステージ結果 / 学習進捗。進捗は localStorage に保存。
-- 自動採点: 全100問。コード作成（13問）は **Pyodide（Python 3.12）を Web Worker で動かし、`test_cases` を実行して採点**します（「実行して試す」ボタンも使えます）。
-- **注意**: コード作成の採点には、初回にネットワーク（jsDelivr から Pyodide を取得。サイズ・初回の読み込み時間は未計測）が必要です。読み込めない場合は、画面の案内に従って自己採点に切り替えられます。
-- 開発用: ステージ一覧の下の「コード採点の自己テスト」（`#/selftest`）で、13問の模範解答・別解・不合格例・初期コードの判定と、時間切れ・禁止機能の動作を確認できます。
-- 「開発用: すべてのステージを開く」で、ロックを外して全ステージを確認できます。
-- 再ビルド: `python src/build_app.py`（`app/grader.js`・`app/app.js`・`app/style.css` を編集したあと）。
-- 採点器の照合: `python src/parity_test.py`（JS 採点器と Python 参照実装の判定が一致するかを確認）。
-
-## PWA として公開する（GitHub + Vercel）
-`public/` が公開用のPWA一式です（`index.html` / `manifest.webmanifest` / `sw.js` / `icons/`）。ビルド済みなので、Vercel 側でビルドする必要はありません（`vercel.json` で `outputDirectory: public` を指定済み）。
-
-1. GitHub に新しいリポジトリを作り、このフォルダを push する。
-2. Vercel のダッシュボードで **Add New → Project** → GitHub のそのリポジトリを **Import** → Framework Preset は **Other**（Build Command などは空のまま）→ **Deploy**。
-3. 発行された `https://<プロジェクト名>.vercel.app` を、スマホの Chrome / Safari で開く。Chrome は「インストール」ボタン、iPhone は「共有 → ホーム画面に追加」でアプリになる。
-4. 更新するとき: 教材（`src/s01.py`〜）やアプリ（`app/*.js` など）を直す → `python src/build_app.py` → `public/` ごとコミットして push → Vercel が自動で再デプロイ → 利用者の画面に「新しいバージョンがあります。［更新する］」が出る。学習の進捗（localStorage）は更新しても消えない。
-
-PWA の確認項目（ヘッドレス Chrome で実測。`node src/pwa_test.js`）: Service Worker の登録、インストール可否（エラー0件）、アプリ本体と Pyodide のキャッシュ、サーバー停止＋CDN 遮断でのオフライン起動と採点、更新バナーと古いキャッシュの削除。
+| `python src/parity_test.py` | JavaScript の採点器（`app/grader.js`）と、Python の参照実装の判定が一致するか |
+| `node src/app_e2e.js <URL> [py\|js\|htmlcss\|all]` | 実際の画面を操作して、全問題に、正解と誤答を入力（ヘッドレス Chrome） |
+| `node src/pwa_test.js phase1\|phase2\|phase3 <プロファイル> <URL>` | PWA（Service Worker・インストール可否・オフライン・更新）の確認 |
+| `node src/web_eval.js <format> <ファイル> "<式>"` | HTML/CSS/JS の断片を、採点基盤と同じ仕組みで読み込み、式の値を表示 |
 
 ## ドキュメント
 | ファイル | 内容 |
 |---|---|
-| `docs/01_design_policy.md` | 1. 教材設計方針 |
-| `docs/02_curriculum.md` | 2. カリキュラム一覧 |
-| `docs/03_textbook.md` | 3. 教科書本文 |
-| `docs/04_question_book.md` | 4. 全100問（解答・解説つき） |
-| `docs/05_grading_spec.md` | 5. 採点仕様 |
-| `validation_report.md` | 6. 事実確認・品質検証レポート |
-| `data_dictionary.md` | 7. JSONデータ仕様書 |
-| `docs/08_app_spec.md` | 8. Webアプリの画面・機能仕様 |
-| `docs/09_final_checklist.md` | 9. 最終チェックリスト |
-
-## 再生成・再検証（Python 3.10 以上。動作確認は 3.12.10）
-`s01.py`〜`s10.py` が教材の原本です。JSONと `docs/02〜04` は生成物なので、直接編集せず原本を直して再生成してください。
-
-```bash
-python src/verify.py        # JSON生成 + 全問の実行検証
-python src/claims.py        # 「○○Errorになる」という記述の実行検証
-python src/check_scope.py   # 未習構文の混入チェック
-python src/gen_docs.py      # docs/02〜04 を再生成
-```
+| `docs/01_design_policy.md` 〜 `docs/09_final_checklist.md` | Python コースの、設計方針・カリキュラム・教科書・問題集・採点仕様・画面仕様・チェックリスト |
+| `docs/10_web_courses.md` | JavaScript・HTML/CSS コースの、設計方針・仮定・用語の方針・採点の仕組み |
+| `courses/<コース>/docs/` | 各コースの、カリキュラム一覧・教科書本文・全100問の問題集（解答つき） |
+| `validation_report.md` | Python コースの検証レポート |
+| `courses/validation_report_web.md` | JavaScript・HTML/CSS コースの検証レポート |
+| `data_dictionary.md` | JSON データ仕様書（6 が追加コースの項目） |

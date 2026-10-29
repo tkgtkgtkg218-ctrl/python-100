@@ -1,0 +1,1672 @@
+{
+  "course_id": "htmlcss-basics-ja",
+  "schema_version": "1.1.0",
+  "lessons": [
+    {
+      "id": "LESSON-S01",
+      "stage_id": "S01",
+      "title": "HTMLの基本構造",
+      "intro": "Webページは、「何が見出しで、何が段落で、どこにリンクがあるか」という構造をもっています。その構造を、文章に目印（タグ）を付けて表すのが HTML です。まずは HTML の用語と、どのページにも共通する骨組みを覚えましょう。",
+      "sections": [
+        {
+          "id": "S01-L1",
+          "title": "HTML とは・要素と属性",
+          "read_minutes": 3,
+          "body": [
+            "HTML（HyperText Markup Language）は、文章の構造や意味をタグで示す「マークアップ言語」です。計算や条件分岐を書くプログラミング言語ではありません。見た目を整えるのは CSS（スタイルシート言語）、動きを付けるのは JavaScript（プログラミング言語）で、HTML・CSS・JavaScript がそれぞれ別の役割を担当します。",
+            "HTML は「実行」するのではなく、ブラウザが読み取って画面に表示します。.html という拡張子でファイルを UTF-8 で保存し、ブラウザで開けば確認できます。",
+            "HTML の基本単位は要素です。要素は、開始タグ（<p>）、内容（こんにちは）、終了タグ（</p>）でできています。終了タグには / が付きます。要素の中に別の要素を入れることを入れ子といい、閉じる順番は開いた順の逆にします。",
+            "開始タグの中に、追加の情報を属性（名前=\"値\"）で書けます。例: <p class=\"note\"> の class が属性名、note が属性値です。属性値は引用符で囲みます。<br> や <meta> のように内容を持たない要素（空要素）は、終了タグを書きません。"
+          ],
+          "glossary": [
+            {
+              "term": "マークアップ言語",
+              "definition": "文章にタグ（目印）を付けて、構造や意味を表す言語。HTML が代表例。"
+            },
+            {
+              "term": "要素",
+              "definition": "開始タグ・内容・終了タグのまとまり。"
+            },
+            {
+              "term": "タグ",
+              "definition": "< > で囲んだ目印。開始タグと終了タグがある。"
+            },
+            {
+              "term": "属性",
+              "definition": "開始タグの中に書く、要素への追加情報。名前=\"値\" の形。"
+            },
+            {
+              "term": "空要素",
+              "definition": "内容を持たず、終了タグを書かない要素（br, meta, img など）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S01-E1",
+              "title": "要素の構成と属性",
+              "language": "html",
+              "code": "<p class=\"note\">こんにちは、<strong>HTML</strong>です。</p>",
+              "line_notes": [
+                "<p class=\"note\"> が開始タグ、class が属性名、note が属性値です。",
+                "「こんにちは、…です。」が内容で、</p> が終了タグです。",
+                "<strong> は、p 要素の内容の中に入れ子になった要素です。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.querySelector('p.note').getAttribute('class') === 'note' && document.querySelector('p.note > strong').textContent === 'HTML'"
+              }
+            },
+            {
+              "id": "S01-E2",
+              "title": "入れ子と空要素",
+              "language": "html",
+              "code": "<p>1行目<br>2行目</p>",
+              "line_notes": [
+                "<br> は改行を表す空要素で、終了タグはありません。",
+                "p 要素の内容の中に br 要素が入っています。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.querySelectorAll('p > br').length === 1"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S01-L2",
+          "title": "HTML文書の骨組み",
+          "read_minutes": 3,
+          "body": [
+            "どのHTMLファイルも、次の骨組みから始めます。1行目の <!doctype html> は文書型宣言で、「これは現在の標準的な HTML です」とブラウザに伝えます。書き忘れると、ブラウザが古い表示ルール（互換モード）に切り替わり、レイアウトが意図とずれることがあります。",
+            "<html lang=\"ja\"> は文書全体を表す要素で、lang 属性で言語（日本語）を示します。その中は2つに分かれます。head には画面に直接は表示されない情報（文字コード <meta charset=\"utf-8\">、ページのタイトル <title> など）を、body には画面に表示する内容を書きます。",
+            "title はブラウザのタブや検索結果に表示されます。本文の見出し（h1 など）とは別のものです。",
+            "ソースコード中の改行や連続する空白は、表示するときには1つの空白としてまとめられます。改行したい場所には、<br> や段落（p 要素）を使います。<!-- と --> で囲んだ部分はコメントで、画面には表示されません。"
+          ],
+          "glossary": [
+            {
+              "term": "文書型宣言",
+              "definition": "<!doctype html>。文書の先頭に書き、標準モードで表示するようブラウザに伝える。"
+            },
+            {
+              "term": "head",
+              "definition": "文書についての情報（文字コード・タイトルなど）を書く部分。"
+            },
+            {
+              "term": "body",
+              "definition": "画面に表示する内容を書く部分。"
+            },
+            {
+              "term": "コメント",
+              "definition": "<!-- ... --> で囲んだ、表示されないメモ。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S01-E3",
+              "title": "最小のHTML文書",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>ぼくのページ</title>\n</head>\n<body>\n  <h1>ようこそ</h1>\n</body>\n</html>",
+              "line_notes": [
+                "1行目: 文書型宣言。必ず先頭に書きます。",
+                "2行目: 文書全体を表す html 要素。lang=\"ja\" で日本語であることを示します。",
+                "4行目: 文字コードを UTF-8 と指定します（空要素なので終了タグはありません）。",
+                "5行目: ブラウザのタブに表示されるタイトルです。",
+                "8行目: 画面に表示される見出しです。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "document.compatMode === 'CSS1Compat' && document.title === 'ぼくのページ' && document.documentElement.lang === 'ja' && document.querySelector('body > h1').textContent === 'ようこそ'"
+              }
+            },
+            {
+              "id": "S01-E4",
+              "title": "空白・改行・コメント",
+              "language": "html",
+              "code": "<p>こんにちは     世界\n   です</p>\n<!-- この行は表示されない -->\n<p>おわり</p>",
+              "line_notes": [
+                "1〜2行目: 連続する空白や改行は、表示では1つの空白にまとめられます（「こんにちは 世界 です」）。",
+                "3行目: コメントは画面に表示されません。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.querySelectorAll('p').length === 2 && document.querySelector('p').innerText === 'こんにちは 世界 です'"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "doctype の書き忘れ",
+          "wrong_code": "<html lang=\"ja\">\n<body>…</body>\n</html>",
+          "why": "<!doctype html> がないと、古い表示ルール（互換モード）で表示されます。",
+          "fix": "文書の先頭に <!doctype html> を書く"
+        },
+        {
+          "title": "終了タグの書き忘れ",
+          "wrong_code": "<h1>見出し\n<p>本文</p>",
+          "why": "h1 を閉じていないため、p 要素が h1 の中に入ってしまいます。ブラウザは推測で補うので、意図と違う構造になります。",
+          "fix": "<h1>見出し</h1>"
+        },
+        {
+          "title": "入れ子の順序が逆",
+          "wrong_code": "<p><strong>強調</p></strong>",
+          "why": "開いた順の逆に閉じる必要があります。順序が崩れると、ブラウザが推測で直し、構造が意図とずれることがあります。",
+          "fix": "<p><strong>強調</strong></p>"
+        },
+        {
+          "title": "属性値を引用符で囲まない",
+          "wrong_code": "<p class=big note>",
+          "why": "空白で値が切れ、note が別の属性として扱われます。属性値は引用符で囲みます。",
+          "fix": "<p class=\"big note\">"
+        }
+      ],
+      "checkpoints": [
+        "HTML はマークアップ言語（プログラミング言語ではない）",
+        "要素 ＝ 開始タグ ＋ 内容 ＋ 終了タグ",
+        "属性は 名前=\"値\" の形で開始タグに書く",
+        "空要素（br, meta など）に終了タグはない",
+        "<!doctype html> を先頭に書く",
+        "head は画面に表示されない情報、body は表示する内容",
+        "ソースの連続した空白・改行は、表示では1つの空白になる"
+      ],
+      "next_bridge": "骨組みが書けるようになりました。問題で、タグや属性の用語、ブラウザの表示のされ方を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S02",
+      "stage_id": "S02",
+      "title": "見出し・段落・テキスト",
+      "intro": "文章を読みやすくするには、見出しで内容を区切り、段落で文をまとめ、大事な部分を強調します。HTML では、これらを要素で表します。大切なのは、要素を「見た目」ではなく「意味・構造」で選ぶことです。見た目は、あとで CSS で整えられます。",
+      "sections": [
+        {
+          "id": "S02-L1",
+          "title": "見出し・段落・強調",
+          "read_minutes": 3,
+          "body": [
+            "見出しは h1（最も大きな見出し）から h6 までの6段階です。数字は文章の階層を表します。h1 はページ全体の題名、h2 はその中の大きな節、h3 は h2 の中の小節、というように使い、h1 → h3 のように階層を飛ばすのは避けます。「文字を大きくしたいから」ではなく、「この部分が見出しだから」使います。",
+            "段落は p 要素で表します。文章のまとまりごとに p を分けます。段落の間を空けたいからといって、br を並べるのは誤りです。br は、住所や詩のように、1つの段落の中で改行したいときだけに使う空要素で、終了タグはありません。hr は、内容の区切り（話題の転換）を表す水平線です。",
+            "strong は「重要」、em は「強調（話し言葉で強く読む）」という意味を持ちます。単に太字・斜体にしたいだけの見た目の指定は CSS で行います。ブラウザの標準では、strong は太字、em は斜体で表示されます。",
+            "div と span は、意味を持たない、まとまりのための要素です。ほかに適切な意味のある要素がないときに、CSS や JavaScript の目印として使います。"
+          ],
+          "glossary": [
+            {
+              "term": "セマンティクス",
+              "definition": "要素が持つ意味。見た目ではなく、役割で要素を選ぶ考え方。"
+            },
+            {
+              "term": "見出し（h1〜h6）",
+              "definition": "文章の構造を表す6段階の見出し。数字が小さいほど上の階層。"
+            },
+            {
+              "term": "段落（p）",
+              "definition": "文のまとまり。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S02-E1",
+              "title": "見出しと段落と強調",
+              "language": "html",
+              "code": "<h1>旅の記録</h1>\n<p>京都に行きました。</p>\n<h2>1日目</h2>\n<p>清水寺で<strong>夕日</strong>を見ました。</p>\n<p>住所:<br>京都市東山区<br>清水1丁目</p>\n<hr>\n<p>おわり</p>",
+              "line_notes": [
+                "h1 がページの題名、h2 がその中の節です。",
+                "<strong> は、内容が重要であることを表します。",
+                "<br> は、段落の中で改行するための空要素です。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "Array.from(document.body.children).map(function (e) { return e.tagName; }).join(',') === 'H1,P,H2,P,P,HR,P' && document.querySelectorAll('p > strong').length === 1 && document.querySelectorAll('br').length === 2"
+              }
+            },
+            {
+              "id": "S02-E2",
+              "title": "文字参照",
+              "language": "html",
+              "code": "<p>&lt;p&gt; は段落を表すタグです。</p>\n<p>AT&amp;T</p>",
+              "line_notes": [
+                "&lt; は <、&gt; は >、&amp; は & を表す文字参照です。",
+                "そのまま < や & を書くと、タグの始まりなどと誤解されることがあります。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.querySelectorAll('p')[0].textContent === '<p> は段落を表すタグです。' && document.querySelectorAll('p')[1].textContent === 'AT&T'"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S02-L2",
+          "title": "ブロックとインライン",
+          "read_minutes": 2,
+          "body": [
+            "要素は、画面での並び方によって、大きく2種類に分けられます。ブロックレベルの要素（p、h1〜h6、div など）は、前後で改行され、1つが1行（以上）を占めます。インラインの要素（span、strong、em、a など）は、文章の流れの中に並び、改行されません。",
+            "この違いは、ブラウザの標準の表示（display プロパティの初期値）です。のちに学ぶ CSS の display で、変更できます。インライン要素の中にブロック要素を入れるのは避け、ブロック要素の中にインライン要素を入れる構造を基本にします。",
+            "p 要素の中に見出し（h2 など）を入れることはできません。p の途中で見出しの開始タグがあると、ブラウザが p を自動で閉じてしまい、意図と違う構造になります。"
+          ],
+          "glossary": [
+            {
+              "term": "ブロックレベル要素",
+              "definition": "前後で改行され、1つ以上の行を占める要素（p、div、h1 など）。"
+            },
+            {
+              "term": "インライン要素",
+              "definition": "文章の流れの中に並び、改行されない要素（span、strong、a など）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S02-E3",
+              "title": "インラインとブロックの表示",
+              "language": "html",
+              "code": "<span>りんご</span><span>みかん</span>\n<div>ぶどう</div><div>もも</div>",
+              "line_notes": [
+                "span は横に並びます（インライン）。",
+                "div は1つずつ改行されて縦に並びます（ブロック）。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "(function () { var s = document.querySelectorAll('span'), d = document.querySelectorAll('div'); return s[0].getBoundingClientRect().top === s[1].getBoundingClientRect().top && d[0].getBoundingClientRect().top < d[1].getBoundingClientRect().top; })()"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "文字を大きくするために見出しを使う",
+          "wrong_code": "<h1>お知らせ（大きい文字にしたいだけ）</h1>",
+          "why": "見出しは構造を表すものです。大きさだけが目的なら、p に CSS（font-size）を指定します。",
+          "fix": "<p>お知らせ</p> に CSS で大きさを指定"
+        },
+        {
+          "title": "br で段落の間を空ける",
+          "wrong_code": "文章1<br><br>文章2",
+          "why": "段落の構造を表せません。段落ごとに p 要素で分け、間隔は CSS で調整します。",
+          "fix": "<p>文章1</p><p>文章2</p>"
+        },
+        {
+          "title": "br の終了タグを書く",
+          "wrong_code": "<br>1行目</br>",
+          "why": "br は空要素で終了タグはありません。</br> は、ブラウザには <br> として扱われ、改行が2つになります。",
+          "fix": "1行目<br>2行目"
+        },
+        {
+          "title": "p の中に見出しを入れる",
+          "wrong_code": "<p>はじめに<h2>見出し</h2></p>",
+          "why": "h2 の開始タグの時点で p が自動的に閉じられ、あとの </p> は余分な空の p になります。",
+          "fix": "<p>はじめに</p>\n<h2>見出し</h2>"
+        }
+      ],
+      "checkpoints": [
+        "見出し h1〜h6 は構造のために使い、階層を飛ばさない",
+        "段落は p。段落の間を空けるために br は使わない",
+        "strong は重要、em は強調。見た目だけなら CSS",
+        "div と span は意味を持たないまとまり",
+        "ブロックは改行される、インラインは文章の流れに並ぶ",
+        "< は &lt;、& は &amp; と書く"
+      ],
+      "next_bridge": "文章の構造を、要素で表せるようになりました。問題で、要素の意味や、ブラウザでの表示を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S03",
+      "stage_id": "S03",
+      "title": "リンクと画像",
+      "intro": "Web（ウェブ）の「ウェブ（蜘蛛の巣）」は、ページとページがリンクでつながっていることに由来します。HTML では、a 要素でリンクを、img 要素で画像を表します。どちらも、「ファイルの場所（パス）」を正しく書くことが大切です。",
+      "sections": [
+        {
+          "id": "S03-L1",
+          "title": "リンク（a 要素）",
+          "read_minutes": 3,
+          "body": [
+            "リンクは a 要素で作り、リンク先を href 属性で指定します。<a href=\"https://example.com/\">外部サイト</a> のように、a 要素の内容が、画面に表示されるリンクの文字です。「こちら」ではなく「ねこの解説サイト」のように、リンク先が分かる文字にします。",
+            "href には、いくつかの書き方があります。(1) 絶対URL: https://example.com/ のように、ページのアドレス全体。(2) 相対パス: about.html（同じフォルダ）、pages/info.html（下のフォルダ）、../index.html（1つ上のフォルダ）のように、いま書いているファイルの場所を基準にした書き方。(3) ページ内リンク: #section のように、同じページの id が section の場所へ移動。(4) メールリンク: mailto:info@example.com。",
+            "リンク先を新しいタブで開くには target=\"_blank\" を付けます。このとき、リンク先のページから元のページを操作されるのを防ぐため、rel=\"noopener noreferrer\" も併せて付けるのが安全です。"
+          ],
+          "glossary": [
+            {
+              "term": "href",
+              "definition": "a 要素のリンク先を指定する属性（Hypertext REFerence）。"
+            },
+            {
+              "term": "絶対URL",
+              "definition": "https:// から始まる、ページのアドレス全体。"
+            },
+            {
+              "term": "相対パス",
+              "definition": "いま書いているファイルの場所を基準にした、ファイルの場所の書き方。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S03-E1",
+              "title": "いろいろなリンク",
+              "language": "html",
+              "code": "<p><a href=\"https://example.com/\">外部サイト</a></p>\n<p><a href=\"about.html\">概要ページ</a></p>\n<p><a href=\"#bottom\">ページの下へ</a></p>\n<p><a href=\"mailto:info@example.com\">メールを送る</a></p>\n<p id=\"bottom\">ここがページの下</p>",
+              "line_notes": [
+                "1行目: 絶対URL。",
+                "2行目: 相対パス（同じフォルダの about.html）。",
+                "3行目: ページ内リンク。id が bottom の要素へ移動します。",
+                "4行目: メールソフトを開くリンク。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "(function () { var a = document.querySelectorAll('a'); return a.length === 4 && a[0].getAttribute('href') === 'https://example.com/' && a[2].hash === '#bottom' && a[3].protocol === 'mailto:' && !!document.getElementById('bottom'); })()"
+              }
+            },
+            {
+              "id": "S03-E2",
+              "title": "新しいタブで開く",
+              "language": "html",
+              "code": "<a href=\"https://example.com/\" target=\"_blank\" rel=\"noopener noreferrer\">新しいタブで開く</a>",
+              "line_notes": [
+                "target=\"_blank\" で新しいタブに開きます。",
+                "rel=\"noopener noreferrer\" は、セキュリティとプライバシーのために付けます。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "(function () { var a = document.querySelector('a'); return a.target === '_blank' && a.relList.contains('noopener') && a.relList.contains('noreferrer'); })()"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S03-L2",
+          "title": "画像（img 要素）",
+          "read_minutes": 3,
+          "body": [
+            "画像は img 要素で表します。img は内容を持たない空要素で、終了タグは書きません。src 属性に画像ファイルの場所を、alt 属性にその画像を言葉で説明した代替テキストを書きます。alt は、画像が表示できないときや、目の見えない人が読み上げソフトで読むときに使われる、大切な属性です。",
+            "alt には、画像の内容や、その画像が伝えたいことを書きます。「画像」「写真」のような言葉だけにはしません。飾りだけの画像（意味を持たないもの）には、alt=\"\"（空）と書き、読み上げでは読み飛ばされるようにします。",
+            "width と height 属性で、画像の表示の大きさ（px）を指定できます。あらかじめ指定しておくと、画像が読み込まれる前から場所が確保され、読み込み後に表示が動く（ガタつく）のを防げます。",
+            "画像に説明文（キャプション）を付けたいときは、figure 要素の中に img と figcaption 要素を入れます。"
+          ],
+          "glossary": [
+            {
+              "term": "alt",
+              "definition": "画像の代替テキスト。画像が表示できないときや、読み上げで使われる。"
+            },
+            {
+              "term": "src",
+              "definition": "画像ファイルの場所を指定する属性（SouRCe）。"
+            },
+            {
+              "term": "figure / figcaption",
+              "definition": "図とその説明（キャプション）をまとめる要素。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S03-E3",
+              "title": "画像の表示",
+              "language": "html",
+              "code": "<img src=\"images/cat.jpg\" alt=\"窓辺で寝ている黒いねこ\" width=\"300\" height=\"200\">",
+              "line_notes": [
+                "src は画像の場所（このファイルから見た相対パス）です。",
+                "alt は画像の内容を言葉で説明します。",
+                "width と height は、表示する大きさ（px）です。画像ファイルがあれば、その画像が 300×200 で表示されます（この例のファイルは用意していないので、プレビューには alt の文字が出ます）。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "(function () { var i = document.querySelector('img'); return i.getAttribute('src') === 'images/cat.jpg' && i.alt === '窓辺で寝ている黒いねこ' && i.getAttribute('width') === '300' && i.getAttribute('height') === '200'; })()"
+              }
+            },
+            {
+              "id": "S03-E4",
+              "title": "図とキャプション",
+              "language": "html",
+              "code": "<figure>\n  <img src=\"images/cat.jpg\" alt=\"窓辺で寝ている黒いねこ\" width=\"300\" height=\"200\">\n  <figcaption>図1: 窓辺のねこ</figcaption>\n</figure>",
+              "line_notes": [
+                "figure の中に、img と figcaption をまとめます。",
+                "figcaption は、画像の下に表示される説明文です。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.querySelector('figure > img') !== null && document.querySelector('figure > figcaption').textContent === '図1: 窓辺のねこ'"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "href と src の取り違え",
+          "wrong_code": "<a src=\"about.html\">概要</a>",
+          "why": "リンク先を指定するのは href です。src では、リンクとして働きません。",
+          "fix": "<a href=\"about.html\">概要</a>"
+        },
+        {
+          "title": "alt を書かない",
+          "wrong_code": "<img src=\"cat.jpg\">",
+          "why": "代替テキストがないと、画像が見られない人に内容が伝わりません。",
+          "fix": "<img src=\"cat.jpg\" alt=\"窓辺で寝ているねこ\">"
+        },
+        {
+          "title": "ページ内リンクの id が合っていない",
+          "wrong_code": "<a href=\"#section2\">…</a>\n<h2 id=\"sec2\">…</h2>",
+          "why": "# のあとの文字が、移動先の id と完全に同じでないと、移動できません。",
+          "fix": "<a href=\"#sec2\">"
+        },
+        {
+          "title": "新しいタブで開くのに rel がない",
+          "wrong_code": "<a href=\"…\" target=\"_blank\">",
+          "why": "target=\"_blank\" を使うときは、rel=\"noopener noreferrer\" も付けると安全です。",
+          "fix": "<a href=\"…\" target=\"_blank\" rel=\"noopener noreferrer\">"
+        }
+      ],
+      "checkpoints": [
+        "リンク先は href、画像の場所は src",
+        "相対パスは、いま書いているファイルが基準（../ は1つ上）",
+        "ページ内リンクは #id",
+        "target=\"_blank\" には rel=\"noopener noreferrer\"",
+        "img は空要素。alt を必ず書く（飾りなら alt=\"\"）",
+        "figure と figcaption で、画像に説明を付けられる"
+      ],
+      "next_bridge": "リンクと画像で、ページ同士や、画像と文章をつなげられるようになりました。問題で、パスや alt の書き方を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S04",
+      "stage_id": "S04",
+      "title": "リストとページ構造",
+      "intro": "項目を並べるときに使うのがリスト、ページの「頭・メニュー・本文・足」を表すときに使うのが、header・nav・main・footer などの構造の要素です。要素の意味を正しく選ぶと、人にも、検索エンジンや読み上げソフトにも、ページの構造が伝わります。",
+      "sections": [
+        {
+          "id": "S04-L1",
+          "title": "リスト（ul / ol / li）",
+          "read_minutes": 3,
+          "body": [
+            "順序に意味のない項目の並び（買い物リスト、メニューなど）は ul（unordered list）、順序に意味のある並び（手順、ランキングなど）は ol（ordered list）で表します。どちらも、項目1つずつを li（list item）要素で書き、li は ul・ol の直接の子にします。",
+            "標準の表示では、ul の項目には黒い丸（●）、ol には 1. 2. 3. の番号が付きます。この見た目は CSS で変えられます。ol には start=\"3\" のように、始まりの番号を指定する属性もあります。",
+            "リストを入れ子にするときは、li の中に、別の ul（または ol）を入れます。ul の中に、直接 ul を書くのは誤りです。"
+          ],
+          "glossary": [
+            {
+              "term": "ul",
+              "definition": "順序のないリスト（unordered list）。"
+            },
+            {
+              "term": "ol",
+              "definition": "順序のあるリスト（ordered list）。"
+            },
+            {
+              "term": "li",
+              "definition": "リストの項目（list item）。ul・ol の直接の子にする。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S04-E1",
+              "title": "ul と ol",
+              "language": "html",
+              "code": "<ul>\n  <li>りんご</li>\n  <li>みかん</li>\n</ul>\n<ol start=\"3\">\n  <li>卵を割る</li>\n  <li>かき混ぜる</li>\n</ol>",
+              "line_notes": [
+                "ul の項目には、標準では黒い丸が付きます。",
+                "ol の項目には、標準では番号が付きます。start=\"3\" で、3から始まります。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "getComputedStyle(document.querySelector('ul > li')).listStyleType === 'disc' && getComputedStyle(document.querySelector('ol > li')).listStyleType === 'decimal' && document.querySelector('ol').start === 3"
+              }
+            },
+            {
+              "id": "S04-E2",
+              "title": "リストの入れ子",
+              "language": "html",
+              "code": "<ul>\n  <li>果物\n    <ul>\n      <li>りんご</li>\n      <li>みかん</li>\n    </ul>\n  </li>\n  <li>野菜</li>\n</ul>",
+              "line_notes": [
+                "「果物」の li の中に、さらに ul を入れています。",
+                "入れ子の ul は、li の直接の子ではなく、li の内容の一部です。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.querySelectorAll('li').length === 4 && document.querySelectorAll('body > ul > li').length === 2 && document.querySelector('ul > li > ul > li').textContent === 'りんご'"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S04-L2",
+          "title": "ページの構造を表す要素",
+          "read_minutes": 3,
+          "body": [
+            "ページの大まかな構造は、意味を持つ要素で表せます。header はページ（や記事）の頭の部分（ロゴや題名）、nav はメニューなどのナビゲーション、main はそのページの主要な内容（1ページに1つ）、footer は足の部分（著作権表示など）です。",
+            "section は内容のひとまとまり（章や節）、article は単独で成り立つ記事・投稿、aside は補足的な内容（関連リンクなど）です。どれにも当てはまらず、デザインのためだけに囲みたいとき、意味を持たない div を使います。",
+            "nav の中のメニューは、リンク（a）の並びなので、ul と li で書くのが一般的です。header や footer は、ページ全体にも、section や article の中にも使えます。"
+          ],
+          "glossary": [
+            {
+              "term": "header / footer",
+              "definition": "ページ（や節）の頭・足の部分を表す要素。"
+            },
+            {
+              "term": "nav",
+              "definition": "ナビゲーション（メニュー）を表す要素。"
+            },
+            {
+              "term": "main",
+              "definition": "そのページの主要な内容を表す要素。1ページに1つ。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S04-E3",
+              "title": "ページの骨組み",
+              "language": "html",
+              "code": "<header>\n  <h1>ぼくのサイト</h1>\n  <nav>\n    <ul>\n      <li><a href=\"index.html\">ホーム</a></li>\n      <li><a href=\"about.html\">概要</a></li>\n    </ul>\n  </nav>\n</header>\n<main>\n  <article>\n    <h2>はじめまして</h2>\n    <p>ようこそ。</p>\n  </article>\n</main>\n<footer>\n  <p>© 2026 ぼくのサイト</p>\n</footer>",
+              "line_notes": [
+                "header の中に、題名とメニュー（nav）を入れています。",
+                "main の中に、主要な内容の記事（article）を入れています。",
+                "footer に、著作権表示を入れています。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "Array.from(document.body.children).map(function (e) { return e.tagName; }).join(',') === 'HEADER,MAIN,FOOTER' && document.querySelectorAll('nav li > a').length === 2 && document.querySelectorAll('main > article > h2').length === 1"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "li を直接 body に置く",
+          "wrong_code": "<li>りんご</li>\n<li>みかん</li>",
+          "why": "li は ul か ol の直接の子にします。そうでない li は、リストとして扱われません。",
+          "fix": "<ul>\n  <li>りんご</li>\n  <li>みかん</li>\n</ul>"
+        },
+        {
+          "title": "ul の中に直接 ul を入れる",
+          "wrong_code": "<ul>\n  <li>果物</li>\n  <ul><li>りんご</li></ul>\n</ul>",
+          "why": "入れ子のリストは、li の中に入れます。ul の直接の子は li だけです。",
+          "fix": "<li>果物\n  <ul><li>りんご</li></ul>\n</li>"
+        },
+        {
+          "title": "終了タグ </li> の書き間違い",
+          "wrong_code": "<li>りんご<li>",
+          "why": "</li> のつもりで <li> と書くと、新しい項目が始まり、空の li ができます。",
+          "fix": "<li>りんご</li>"
+        },
+        {
+          "title": "何でも div で書く",
+          "wrong_code": "<div class=\"header\">…</div>",
+          "why": "意味のある要素（header・nav・main・footer）があるなら、そちらを使うと、構造が伝わります。",
+          "fix": "<header>…</header>"
+        }
+      ],
+      "checkpoints": [
+        "順序なしは ul、順序ありは ol。項目は li",
+        "li は ul・ol の直接の子",
+        "リストの入れ子は、li の中に ul・ol を入れる",
+        "header・nav・main・footer でページの構造を表す",
+        "section・article・aside は内容のまとまり",
+        "意味のある要素がないときだけ div"
+      ],
+      "next_bridge": "ページの骨組みが、意味のある要素で書けるようになりました。問題で、リストと構造の書き方を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S05",
+      "stage_id": "S05",
+      "title": "フォーム",
+      "intro": "お問い合わせ、会員登録、検索ボックス。ユーザーが情報を入力して送るためのしくみが、フォームです。HTML では、form 要素の中に、入力欄（input など）を並べて書きます。入力欄の種類や、入力のルールを HTML で指定すると、ブラウザが、種類に合った入力の補助やチェックをしてくれます。",
+      "sections": [
+        {
+          "id": "S05-L1",
+          "title": "フォームと入力欄の基本",
+          "read_minutes": 3,
+          "body": [
+            "form 要素は、入力欄をまとめて、送信の単位にします。action 属性は送信先（サーバー側のアドレス）、method 属性は送信方法です。GET は入力内容がアドレスの末尾に付いて送られ、検索のように何度やっても結果が変わらない処理向きです。POST は入力内容がアドレスに現れずに送られ、登録・パスワードなど、データを送る処理に向いています。",
+            "input 要素は、type 属性で入力欄の種類を決めます。text（1行の文字）、email（メールアドレス）、password（入力が伏せ字になる）、number（数値）、checkbox（複数選択）、radio（1つだけ選ぶ）などがあります。存在しない type を書くと、text として扱われます。",
+            "name 属性は、送信するデータの項目名になります。name がない入力欄の値は送信されません。radio は、name を同じにしたものが1つのグループになり、そのうち1つだけが選べます。",
+            "label 要素は、入力欄の説明の文字です。for 属性に、対応する入力欄の id を書いて関連付けると、label の文字をクリックしたときに入力欄が選ばれ、読み上げソフトも関連を理解できます。入力欄のヒントを表示する placeholder は、入力すると消えるので、label の代わりにはなりません。"
+          ],
+          "glossary": [
+            {
+              "term": "form",
+              "definition": "入力欄をまとめて、送信の単位にする要素。"
+            },
+            {
+              "term": "name 属性",
+              "definition": "送信するデータの項目名。"
+            },
+            {
+              "term": "label",
+              "definition": "入力欄の説明の文字。for と id で入力欄に関連付ける。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S05-E1",
+              "title": "基本のフォーム",
+              "language": "html",
+              "code": "<form action=\"/send\" method=\"post\">\n  <label for=\"name\">お名前</label>\n  <input id=\"name\" type=\"text\" name=\"name\">\n  <label for=\"mail\">メールアドレス</label>\n  <input id=\"mail\" type=\"email\" name=\"mail\">\n  <button type=\"submit\">送信</button>\n</form>",
+              "line_notes": [
+                "method=\"post\" は、入力内容を、アドレスに出さずに送ります。",
+                "label の for と、input の id が同じなので、関連付けられます。",
+                "button の type=\"submit\" で、フォームを送信します。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "(function () { var f = document.querySelector('form'); var ls = f.querySelectorAll('label'); return f.method === 'post' && ls[0].control === document.getElementById('name') && ls[1].control === document.getElementById('mail') && document.getElementById('mail').type === 'email'; })()"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S05-L2",
+          "title": "選択式の入力欄と入力チェック",
+          "read_minutes": 3,
+          "body": [
+            "radio と checkbox は、1つ1つを label と一緒に書きます。選択肢の中から1つを選ぶ select は、中に option 要素を並べます。option の value が送信される値、内容が画面に表示される文字です。selected 属性を付けた option が、最初に選ばれた状態になります。複数行の文章は、textarea 要素に入れます。",
+            "入力のルールも HTML で書けます。required は必須項目（空のままだと送信できない）、type=\"email\" はメールアドレスの形式のチェック、min と max は数値の範囲、minlength は文字数の下限です。ブラウザが、送信するときに自動でチェックし、満たしていなければメッセージを出します。",
+            "ただし、ブラウザのチェックは、操作が簡単に回避できます。実際のサービスでは、サーバー側でも、入力を必ずチェックします。"
+          ],
+          "glossary": [
+            {
+              "term": "required",
+              "definition": "必須項目であることを表す属性。空のままだと送信できない。"
+            },
+            {
+              "term": "select / option",
+              "definition": "選択肢の中から選ぶ入力欄 / その1つ1つの選択肢。"
+            },
+            {
+              "term": "textarea",
+              "definition": "複数行の文章を入力する欄。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S05-E2",
+              "title": "radio・checkbox・select",
+              "language": "html",
+              "code": "<form>\n  <p>サイズ:\n    <label><input type=\"radio\" name=\"size\" value=\"s\"> S</label>\n    <label><input type=\"radio\" name=\"size\" value=\"m\" checked> M</label>\n  </p>\n  <p><label><input type=\"checkbox\" name=\"gift\"> ギフト包装</label></p>\n  <p><label for=\"area\">地域</label>\n    <select id=\"area\" name=\"area\">\n      <option value=\"tokyo\">東京</option>\n      <option value=\"osaka\" selected>大阪</option>\n    </select>\n  </p>\n</form>",
+              "line_notes": [
+                "radio は name が同じ（size）なので、1つだけ選べます。checked で最初に選ばれた状態になります。",
+                "select の中の option は、selected が付いた「大阪」が最初に選ばれています。",
+                "input を label で囲む書き方でも、関連付けができます。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.querySelector('input[name=size]:checked').value === 'm' && document.getElementById('area').value === 'osaka' && document.querySelector('input[type=checkbox]').checked === false"
+              }
+            },
+            {
+              "id": "S05-E3",
+              "title": "入力チェック",
+              "language": "html",
+              "code": "<form>\n  <input id=\"a\" type=\"email\" name=\"a\" required>\n  <input id=\"b\" type=\"email\" name=\"b\" value=\"abc\">\n</form>",
+              "line_notes": [
+                "a は required で、空のままなので、「未入力」のエラーになります。",
+                "b は、メールアドレスの形式ではない文字（abc）が入っているので、「形式が違う」エラーになります。"
+              ],
+              "preview": {
+                "format": "html_body"
+              },
+              "verify": {
+                "format": "html_body",
+                "expr": "document.getElementById('a').validity.valueMissing === true && document.getElementById('b').validity.typeMismatch === true && document.querySelector('form').checkValidity() === false"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "label の for と input の id が違う",
+          "wrong_code": "<label for=\"user\">名前</label>\n<input id=\"name\" type=\"text\">",
+          "why": "for は、関連付けたい input の id と同じ値にします。違うと関連付けられません。",
+          "fix": "<label for=\"name\">名前</label>"
+        },
+        {
+          "title": "radio の name がそろっていない",
+          "wrong_code": "<input type=\"radio\" name=\"a\">\n<input type=\"radio\" name=\"b\">",
+          "why": "name が違うと、別々のグループになり、両方を選べてしまいます。同じ name にそろえます。",
+          "fix": "<input type=\"radio\" name=\"size\"> を2つとも同じ name に"
+        },
+        {
+          "title": "name 属性を付けない",
+          "wrong_code": "<input type=\"text\">",
+          "why": "name がない入力欄の値は、フォームを送信しても送られません。",
+          "fix": "<input type=\"text\" name=\"user\">"
+        },
+        {
+          "title": "属性値を引用符で囲まない",
+          "wrong_code": "<input placeholder=ここに 名前を入力>",
+          "why": "空白で値が切れ、「名前を入力」が別の属性になります。空白を含む値は、引用符で囲みます。",
+          "fix": "<input placeholder=\"ここに 名前を入力\">"
+        }
+      ],
+      "checkpoints": [
+        "form の action は送信先、method は送信方法（GET / POST）",
+        "input の type で入力欄の種類が決まる",
+        "name が送信するデータの項目名",
+        "label の for と input の id を同じにして関連付ける",
+        "radio は name をそろえて1つのグループにする",
+        "required や type=\"email\" で、ブラウザが入力をチェックする"
+      ],
+      "next_bridge": "フォームで、ユーザーの入力を受け取る入口が作れるようになりました。問題で、ブラウザの動きと属性の書き方を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S06",
+      "stage_id": "S06",
+      "title": "CSSの基本",
+      "intro": "HTML で文章の構造を書いたら、次は見た目を整えます。見た目を指定するのが CSS（Cascading Style Sheets）です。CSS は、HTML と同じく、プログラミング言語ではなく、「スタイルシート言語」です。「この要素は、こういう見た目にしてね」という指定のルールを書きます。",
+      "sections": [
+        {
+          "id": "S06-L1",
+          "title": "CSS のルールと適用方法",
+          "read_minutes": 3,
+          "body": [
+            "CSS は、ルールセット（ルール）の集まりです。1つのルールは、セレクタ { 宣言; 宣言; } の形です。セレクタは「どの要素に」、宣言は「どう変えるか」を表します。宣言は、プロパティ: 値; の形で、例えば color: red; は、プロパティ color（文字色）の値を red にする、という意味です。",
+            "CSS を HTML に適用する方法は3つあります。(1) head の中の style 要素に書く。(2) 別ファイルに書いて、head の中に <link rel=\"stylesheet\" href=\"style.css\"> で読み込む。(3) 要素の style 属性に直接書く。ページ全体で共通のスタイルを管理しやすい (2) が、実際のサイト作りの基本です。(3) は、特定の1か所だけに使います。",
+            "/* ... */ で囲んだ部分はコメントで、ブラウザに無視されます。HTML のコメント（<!-- -->）とは書き方が違います。",
+            "CSS は、書き間違いがあっても、エラーメッセージは出ません。間違った宣言は無視されるだけなので、見た目が変わらないときは、綴りや ; を確認します。"
+          ],
+          "glossary": [
+            {
+              "term": "セレクタ",
+              "definition": "スタイルを適用する対象を選ぶ部分（h1、.warn、#main など）。"
+            },
+            {
+              "term": "宣言",
+              "definition": "プロパティ: 値; の1組。"
+            },
+            {
+              "term": "プロパティ",
+              "definition": "変えたい見た目の項目（color、background-color など）。"
+            },
+            {
+              "term": "値",
+              "definition": "プロパティに指定する内容（red など）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S06-E1",
+              "title": "style 要素に書く",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head>\n  <meta charset=\"utf-8\">\n  <title>CSS</title>\n  <style>\n    /* 見出しの文字を赤にする */\n    h1 {\n      color: red;\n    }\n  </style>\n</head>\n<body>\n  <h1>ようこそ</h1>\n</body>\n</html>",
+              "line_notes": [
+                "7〜9行目が1つのルールです。h1 がセレクタ、{ } の中が宣言ブロックです。",
+                "color が プロパティ、red が値です。宣言の終わりには ; を付けます。",
+                "6行目の /* */ はコメントです。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "getComputedStyle(document.querySelector('h1')).color === 'rgb(255, 0, 0)'"
+              }
+            },
+            {
+              "id": "S06-E2",
+              "title": "外部ファイルを読み込む",
+              "language": "html",
+              "code": "<head>\n  <meta charset=\"utf-8\">\n  <title>CSS</title>\n  <link rel=\"stylesheet\" href=\"style.css\">\n</head>",
+              "line_notes": [
+                "style.css というファイルに、CSS を書いておき、link 要素で読み込みます。",
+                "rel=\"stylesheet\" は、「このファイルはスタイルシートです」という意味です。"
+              ],
+              "preview": null,
+              "verify": {
+                "format": "html_document",
+                "expr": "document.querySelector('link').rel === 'stylesheet' && document.querySelector('link').getAttribute('href') === 'style.css'",
+                "allow_errors": true
+              }
+            }
+          ]
+        },
+        {
+          "id": "S06-L2",
+          "title": "セレクタ・色・優先順位",
+          "read_minutes": 3,
+          "body": [
+            "セレクタには、主に3つの種類があります。要素セレクタ（p など、その名前の要素すべて）、クラスセレクタ（.warn など、class=\"warn\" の要素すべて）、id セレクタ（#main など、id=\"main\" の要素1つ）です。class はいくつの要素にも付けられ、id はページの中で1つだけに付けます。",
+            "文字の色は color、背景の色は background-color で指定します。色は、red・blue・yellow・green などの名前で指定できます（ほかの指定方法は、ステージ7で学びます）。",
+            "同じ要素に、複数のルールが当たるときは、詳細度の高いものが優先されます。詳細度は、id セレクタ > クラスセレクタ > 要素セレクタの順です。詳細度が同じときは、あとに書いたものが優先されます（後勝ち）。",
+            "color などの一部のプロパティは、子要素に引き継がれます（継承）。親に color を指定すると、子の p も同じ色になります。background-color や border など、継承されないプロパティもあります。"
+          ],
+          "glossary": [
+            {
+              "term": "クラスセレクタ",
+              "definition": ".名前 の形で、class が一致する要素すべてを選ぶセレクタ。"
+            },
+            {
+              "term": "id セレクタ",
+              "definition": "#名前 の形で、id が一致する要素を選ぶセレクタ。"
+            },
+            {
+              "term": "詳細度",
+              "definition": "複数のルールが競合したとき、どれが優先されるかを決める強さ。"
+            },
+            {
+              "term": "継承",
+              "definition": "親要素の指定が、子要素に引き継がれること。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S06-E3",
+              "title": "クラスとid",
+              "language": "css",
+              "context_html": "<p class=\"warn\">A</p>\n<p>B</p>\n<p id=\"main\" class=\"warn\">C</p>",
+              "code": ".warn {\n  color: red;\n}\n#main {\n  background-color: yellow;\n}",
+              "line_notes": [
+                ".warn は、class=\"warn\" の p（A と C）を選びます。",
+                "#main は、id=\"main\" の p（C）だけを選びます。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<p class=\"warn\">A</p>\n<p>B</p>\n<p id=\"main\" class=\"warn\">C</p>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<p class=\"warn\">A</p>\n<p>B</p>\n<p id=\"main\" class=\"warn\">C</p>",
+                "expr": "(function () { var p = document.querySelectorAll('p'); var c = function (e) { return getComputedStyle(e).color; }; return c(p[0]) === 'rgb(255, 0, 0)' && c(p[1]) !== 'rgb(255, 0, 0)' && c(p[2]) === 'rgb(255, 0, 0)' && getComputedStyle(p[2]).backgroundColor === 'rgb(255, 255, 0)' && getComputedStyle(p[0]).backgroundColor !== 'rgb(255, 255, 0)'; })()"
+              }
+            },
+            {
+              "id": "S06-E4",
+              "title": "優先順位",
+              "language": "css",
+              "context_html": "<div class=\"box\">\n  <p id=\"x\" class=\"c\">文章</p>\n</div>",
+              "code": ".box { color: green; }\np { color: blue; }\n.c { color: orange; }\n#x { color: red; }",
+              "line_notes": [
+                "p には、4つのルールが当たりそうですが、id セレクタ（#x）が最も強いので、赤になります。",
+                ".box の green は、p 自身を選ぶルールがあるので、継承の指定より、そのルールが優先されます。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"box\">\n  <p id=\"x\" class=\"c\">文章</p>\n</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"box\">\n  <p id=\"x\" class=\"c\">文章</p>\n</div>",
+                "expr": "getComputedStyle(document.getElementById('x')).color === 'rgb(255, 0, 0)'"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "; の書き忘れ",
+          "wrong_code": "p { color: red background-color: yellow; }",
+          "why": "color の値が「red background-color: yellow」という、不正な値になり、color と背景色の両方が無視されます。",
+          "fix": "p { color: red; background-color: yellow; }"
+        },
+        {
+          "title": "プロパティ名の綴りミス",
+          "wrong_code": "p { colour: red; }",
+          "why": "colour というプロパティはありません。エラーにならず、無視されるだけなので気づきにくいミスです。",
+          "fix": "p { color: red; }"
+        },
+        {
+          "title": "class に . を付け忘れる",
+          "wrong_code": "warn { color: red; }",
+          "why": "warn という名前の要素（<warn>）を選ぶことになり、class=\"warn\" の要素には当たりません。",
+          "fix": ".warn { color: red; }"
+        },
+        {
+          "title": "HTML のコメントを CSS に書く",
+          "wrong_code": "<!-- 見出し -->\nh1 { color: red; }",
+          "why": "CSS のコメントは /* */ です。<!-- --> は、CSS では正しいコメントではありません。",
+          "fix": "/* 見出し */"
+        }
+      ],
+      "checkpoints": [
+        "ルールは セレクタ { プロパティ: 値; }",
+        "適用方法は style 要素・link・style 属性",
+        "要素・.クラス・#id のセレクタ",
+        "文字色は color、背景色は background-color",
+        "詳細度は id > class > 要素、同じなら後勝ち",
+        "color は子に継承される。書き間違いはエラーにならず無視される"
+      ],
+      "next_bridge": "CSS のルールの読み書きができるようになりました。問題で、セレクタと優先順位を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S07",
+      "stage_id": "S07",
+      "title": "文字と色の装飾",
+      "intro": "文字の大きさ・太さ・色・行の間隔を整えるだけで、ページはぐっと読みやすくなります。この回では、CSS で文字を整えるための基本のプロパティと、「単位」の考え方、そして、スタイルを適用する対象を細かく選ぶセレクタを学びます。",
+      "sections": [
+        {
+          "id": "S07-L1",
+          "title": "色・文字・単位",
+          "read_minutes": 3,
+          "body": [
+            "色の指定方法は、いくつかあります。名前（red）、16進数（#ff0000 や、短い #f00）、rgb(255, 0, 0)（赤・緑・青の強さを 0〜255 で指定）です。これらは、書き方が違うだけで、同じ色（この例ではすべて赤）を表せます。",
+            "文字の大きさは font-size、太さは font-weight（normal / bold / 100〜900 の数値）、書体は font-family（sans-serif など）、行の高さは line-height です。line-height は、単位なしの数値（1.5 など）にすると、文字の大きさの1.5倍になり、文字を大きくしても、読みやすい行間が保たれます。text-align は文字の水平方向の揃え（left / center / right）、text-decoration は下線などの装飾（underline / none）です。",
+            "長さの単位には、px（画面の点の数。固定）、em（親要素の文字の大きさに対する倍率）、rem（html 要素の文字の大きさに対する倍率。標準は 16px）、%（親に対する割合）があります。文字の大きさには、ユーザーがブラウザで文字サイズを変更したときに追従できる、rem や em を使うのが推奨されます。数値のあとの単位は省略できず、20 だけだと無効です（0 だけは単位なしで書けます）。"
+          ],
+          "glossary": [
+            {
+              "term": "rem",
+              "definition": "html 要素（ルート）の文字の大きさを 1 とする単位。標準では 1rem = 16px。"
+            },
+            {
+              "term": "em",
+              "definition": "その要素の親の文字の大きさを 1 とする単位。"
+            },
+            {
+              "term": "line-height",
+              "definition": "1行の高さ（行間）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S07-E1",
+              "title": "同じ色の書き方",
+              "language": "css",
+              "context_html": "<p class=\"a\">A</p>\n<p class=\"b\">B</p>\n<p class=\"c\">C</p>\n<p class=\"d\">D</p>",
+              "code": ".a { color: red; }\n.b { color: #ff0000; }\n.c { color: #f00; }\n.d { color: rgb(255, 0, 0); }",
+              "line_notes": [
+                "4つの書き方は、すべて同じ赤を表します。",
+                "#f00 は、#ff0000 の短縮形です（各桁を2回ずつ繰り返したもの）。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<p class=\"a\">A</p>\n<p class=\"b\">B</p>\n<p class=\"c\">C</p>\n<p class=\"d\">D</p>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<p class=\"a\">A</p>\n<p class=\"b\">B</p>\n<p class=\"c\">C</p>\n<p class=\"d\">D</p>",
+                "expr": "Array.from(document.querySelectorAll('p')).every(function (p) { return getComputedStyle(p).color === 'rgb(255, 0, 0)'; })"
+              }
+            },
+            {
+              "id": "S07-E2",
+              "title": "単位の違い",
+              "language": "css",
+              "context_html": "<div class=\"outer\">\n  <p class=\"e\">A</p>\n  <p class=\"r\">B</p>\n  <p class=\"p\">C</p>\n</div>",
+              "code": ".outer { font-size: 20px; }\n.e { font-size: 2em; }\n.r { font-size: 2rem; }\n.p { font-size: 150%; }",
+              "line_notes": [
+                "2em は、親（.outer）の 20px の2倍で 40px。",
+                "2rem は、html 要素（標準 16px）の2倍で 32px。",
+                "150% は、親の 20px の 1.5倍で 30px。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"outer\">\n  <p class=\"e\">A</p>\n  <p class=\"r\">B</p>\n  <p class=\"p\">C</p>\n</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"outer\">\n  <p class=\"e\">A</p>\n  <p class=\"r\">B</p>\n  <p class=\"p\">C</p>\n</div>",
+                "expr": "['e', 'r', 'p'].map(function (c) { return getComputedStyle(document.querySelector('.' + c)).fontSize; }).join(',') === '40px,32px,30px'"
+              }
+            },
+            {
+              "id": "S07-E3",
+              "title": "文字の整え方",
+              "language": "css",
+              "context_html": "<p class=\"t\">こんにちは。文字を整えます。</p>",
+              "code": ".t {\n  font-size: 20px;\n  font-weight: bold;\n  line-height: 1.5;\n  text-align: center;\n  text-decoration: underline;\n}",
+              "line_notes": [
+                "line-height: 1.5 は、文字の大きさ（20px）の1.5倍で、30px になります。",
+                "font-weight: bold は、数値の 700 と同じです。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<p class=\"t\">こんにちは。文字を整えます。</p>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<p class=\"t\">こんにちは。文字を整えます。</p>",
+                "expr": "(function () { var s = getComputedStyle(document.querySelector('.t')); return s.fontSize === '20px' && s.fontWeight === '700' && s.lineHeight === '30px' && s.textAlign === 'center' && s.textDecorationLine === 'underline'; })()"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S07-L2",
+          "title": "セレクタの組み合わせ",
+          "read_minutes": 3,
+          "body": [
+            "セレクタは、組み合わせて、適用する対象を細かく選べます。div p のように空白で区切ると、子孫セレクタです。div の中にある（何段階下でもよい）p をすべて選びます。div > p のように > でつなぐと、子セレクタです。div の直接の子の p だけを選びます。h1, h2 のようにカンマで区切ると、グループ化で、h1 と h2 の両方に、同じスタイルを適用します。",
+            "疑似クラスは、要素の状態を表します。a:hover は、マウスポインターが乗っているときのリンク、:first-child は、最初の子要素です。マウスを乗せたときに色を変えるなど、動きのある見た目を CSS だけで作れます。",
+            "セレクタが複雑になると、詳細度が高くなり、あとから上書きしにくくなります。基本は、class を付けて、クラスセレクタで指定するのが、管理しやすい方法です。"
+          ],
+          "glossary": [
+            {
+              "term": "子孫セレクタ",
+              "definition": "空白で区切る。内側にある要素を、深さを問わず選ぶ。"
+            },
+            {
+              "term": "子セレクタ",
+              "definition": "> でつなぐ。直接の子だけを選ぶ。"
+            },
+            {
+              "term": "疑似クラス",
+              "definition": ":hover のように、要素の状態に応じて適用するセレクタ。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S07-E4",
+              "title": "子セレクタとグループ化",
+              "language": "css",
+              "context_html": "<div>\n  <p>A</p>\n  <section>\n    <p>B</p>\n  </section>\n</div>\n<h1>見出し1</h1>\n<h2>見出し2</h2>",
+              "code": "div > p {\n  color: red;\n}\nh1, h2 {\n  color: blue;\n}",
+              "line_notes": [
+                "div > p は、div の直接の子の p（A）だけを選びます。section の中の p（B）は選ばれません。",
+                "h1, h2 は、h1 と h2 の両方を選びます。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div>\n  <p>A</p>\n  <section>\n    <p>B</p>\n  </section>\n</div>\n<h1>見出し1</h1>\n<h2>見出し2</h2>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div>\n  <p>A</p>\n  <section>\n    <p>B</p>\n  </section>\n</div>\n<h1>見出し1</h1>\n<h2>見出し2</h2>",
+                "expr": "(function () { var c = function (s) { return getComputedStyle(document.querySelector(s)).color; }; return c('div > p') === 'rgb(255, 0, 0)' && c('section p') !== 'rgb(255, 0, 0)' && c('h1') === 'rgb(0, 0, 255)' && c('h2') === 'rgb(0, 0, 255)'; })()"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "単位を付けない",
+          "wrong_code": "font-size: 20;",
+          "why": "0 以外の数値には、単位が必要です。単位がないと、宣言全体が無効になります。",
+          "fix": "font-size: 20px;"
+        },
+        {
+          "title": "グループ化にカンマを付けない",
+          "wrong_code": "h1 h2 { color: red; }",
+          "why": "空白は子孫セレクタです。「h1 の中の h2」という意味になり、並んだ h1・h2 には当たりません。",
+          "fix": "h1, h2 { color: red; }"
+        },
+        {
+          "title": "text-align: middle",
+          "wrong_code": "text-align: middle;",
+          "why": "middle という値はありません。中央揃えは center です。",
+          "fix": "text-align: center;"
+        },
+        {
+          "title": "px 固定ばかりにする",
+          "wrong_code": "html { font-size: 14px; }  /* すべて px */",
+          "why": "ブラウザの文字サイズの設定が効きにくくなります。文字の大きさには rem や em を使うと、利用者の設定に追従できます。",
+          "fix": "font-size: 1rem;"
+        }
+      ],
+      "checkpoints": [
+        "色は、名前・#rrggbb・rgb() で指定できる",
+        "文字の大きさ・太さ・行間・揃え・装飾のプロパティ",
+        "em は親、rem は html、% は親が基準",
+        "line-height は単位なしの数値が扱いやすい",
+        "空白は子孫、> は子、カンマはグループ化",
+        ":hover は、マウスが乗っているときの状態"
+      ],
+      "next_bridge": "文字と色を整えられるようになりました。問題で、単位とセレクタの理解を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S08",
+      "stage_id": "S08",
+      "title": "ボックスモデル",
+      "intro": "ブラウザは、HTML のすべての要素を、四角い箱として配置します。余白・枠線・大きさを自由に決められるのは、この「ボックスモデル」の仕組みがあるからです。レイアウトの基本中の基本なので、箱の4層の構造を、しっかり押さえましょう。",
+      "sections": [
+        {
+          "id": "S08-L1",
+          "title": "ボックスモデルと大きさ",
+          "read_minutes": 3,
+          "body": [
+            "1つの要素の箱は、内側から順に、内容（content）、内側の余白（padding）、枠線（border）、外側の余白（margin）の4層でできています。padding は背景色が広がる範囲の内側、margin は背景色が付かない、他の要素との間の距離です。",
+            "width と height は、標準（box-sizing: content-box）では、内容（content）の大きさです。width: 200px、padding: 20px、border: 5px のとき、箱の見た目の幅は、200 + 20×2 + 5×2 = 250px になります。box-sizing: border-box を指定すると、width が、padding と border を含めた幅になり、見た目の幅が、width のとおり 200px になります。レイアウトの計算が楽になるため、実際の制作では、全体に border-box を指定することが多くあります。",
+            "padding と margin は、値の数で意味が変わります。1つ（10px）は4辺すべて、2つ（10px 20px）は上下と左右、3つは上・左右・下、4つ（10px 20px 30px 40px）は上・右・下・左の順（時計回り）です。border は、太さ・線の種類・色を、border: 2px solid red; のようにまとめて書きます。線の種類（solid など）を忘れると、枠線は表示されません。"
+          ],
+          "glossary": [
+            {
+              "term": "padding",
+              "definition": "枠線の内側の余白。背景色が付く。"
+            },
+            {
+              "term": "border",
+              "definition": "要素を囲む枠線。"
+            },
+            {
+              "term": "margin",
+              "definition": "枠線の外側の余白。他の要素との距離。背景色は付かない。"
+            },
+            {
+              "term": "box-sizing",
+              "definition": "width・height が、どの範囲の大きさを指すかを決めるプロパティ。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S08-E1",
+              "title": "content-box と border-box",
+              "language": "css",
+              "context_html": "<div class=\"a\">A</div>\n<div class=\"b\">B</div>",
+              "code": ".a, .b {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid black;\n}\n.b {\n  box-sizing: border-box;\n}",
+              "line_notes": [
+                "A は標準（content-box）なので、見た目の幅は 200 + 40 + 10 = 250px になります。",
+                "B は border-box なので、padding と border を含めて、見た目の幅が 200px になります。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"a\">A</div>\n<div class=\"b\">B</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"a\">A</div>\n<div class=\"b\">B</div>",
+                "expr": "document.querySelector('.a').offsetWidth === 250 && document.querySelector('.b').offsetWidth === 200"
+              }
+            },
+            {
+              "id": "S08-E2",
+              "title": "余白の省略記法",
+              "language": "css",
+              "context_html": "<div class=\"box\">箱</div>",
+              "code": ".box {\n  padding: 10px 20px 30px 40px;\n  margin: 5px 15px;\n}",
+              "line_notes": [
+                "padding の4つの値は、上・右・下・左の順です。",
+                "margin の2つの値は、上下（5px）と、左右（15px）です。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"box\">箱</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"box\">箱</div>",
+                "expr": "(function () { var s = getComputedStyle(document.querySelector('.box')); return s.paddingTop === '10px' && s.paddingRight === '20px' && s.paddingBottom === '30px' && s.paddingLeft === '40px' && s.marginTop === '5px' && s.marginLeft === '15px'; })()"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S08-L2",
+          "title": "中央寄せ・margin の重なり・display",
+          "read_minutes": 3,
+          "body": [
+            "ブロック要素を水平方向の中央に置くには、width を指定して、margin: 0 auto; と書きます。左右の margin が auto だと、余った幅が左右に等しく分けられます。width を指定しないと、ブロック要素は親の幅いっぱいに広がるため、中央に寄っているように見えません。",
+            "上下に隣り合う要素の margin は、足されず、大きいほうの値に重なります（相殺）。例えば、上の要素の下の margin が 20px、下の要素の上の margin が 20px なら、間隔は 40px ではなく 20px です。",
+            "display は、要素の表示の仕方を決めます。block は前後で改行され、width・height が効きます。inline は文章の流れに並び、width・height・上下の margin が効きません。inline-block は、文章の流れに並びつつ、width・height が効きます。none は、要素を表示せず、場所も取りません。",
+            "border-radius で角を丸くできます（例: border-radius: 8px;）。background-color は、padding の範囲まで広がります。"
+          ],
+          "glossary": [
+            {
+              "term": "margin の相殺",
+              "definition": "上下に隣り合う margin が足されず、大きいほうの値に重なること。"
+            },
+            {
+              "term": "display",
+              "definition": "要素の表示の仕方（block・inline・inline-block・none など）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S08-E3",
+              "title": "中央寄せと角丸",
+              "language": "css",
+              "context_html": "<div class=\"card\">カード</div>",
+              "code": ".card {\n  width: 300px;\n  margin: 0 auto;\n  padding: 16px;\n  border: 1px solid gray;\n  border-radius: 8px;\n  background-color: lightyellow;\n}",
+              "line_notes": [
+                "width を指定して、margin: 0 auto で中央に寄せています。",
+                "background-color は、padding の範囲まで広がります。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"card\">カード</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"card\">カード</div>",
+                "expr": "(function () { var e = document.querySelector('.card'); var r = e.getBoundingClientRect(); return Math.abs(r.left + r.width / 2 - document.documentElement.clientWidth / 2) < 1 && getComputedStyle(e).borderTopLeftRadius === '8px'; })()"
+              }
+            },
+            {
+              "id": "S08-E4",
+              "title": "display の違い",
+              "language": "css",
+              "context_html": "<span class=\"a\">A</span><span class=\"b\">B</span><span class=\"c\">C</span>",
+              "code": "span {\n  width: 100px;\n  height: 30px;\n}\n.b {\n  display: inline-block;\n}\n.c {\n  display: none;\n}",
+              "line_notes": [
+                "A は、インラインなので、width と height が効きません。",
+                "B は、inline-block なので、幅 100px が効きます。",
+                "C は、display: none なので、表示されず、場所も取りません。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<span class=\"a\">A</span><span class=\"b\">B</span><span class=\"c\">C</span>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<span class=\"a\">A</span><span class=\"b\">B</span><span class=\"c\">C</span>",
+                "expr": "document.querySelector('.a').offsetWidth < 100 && document.querySelector('.b').offsetWidth === 100 && document.querySelector('.c').offsetWidth === 0"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "width だけで見た目の幅が決まると思う",
+          "wrong_code": "width: 200px; padding: 20px; border: 5px solid;  /* 見た目は 200px のつもり */",
+          "why": "標準では、padding と border が width の外側に足されます。見た目は 250px になります。",
+          "fix": "box-sizing: border-box; を指定する"
+        },
+        {
+          "title": "width なしで margin: 0 auto",
+          "wrong_code": ".box { margin: 0 auto; }",
+          "why": "ブロック要素は、width がないと、親の幅いっぱいに広がるので、中央に寄りません。",
+          "fix": ".box { width: 300px; margin: 0 auto; }"
+        },
+        {
+          "title": "border の線の種類を書かない",
+          "wrong_code": "border: 2px red;",
+          "why": "線の種類（solid など）がないと、無効になり、枠線が表示されません。",
+          "fix": "border: 2px solid red;"
+        },
+        {
+          "title": "span に width を指定する",
+          "wrong_code": "span { width: 100px; }",
+          "why": "インライン要素には、width が効きません。display: inline-block や block にします。",
+          "fix": "span { display: inline-block; width: 100px; }"
+        }
+      ],
+      "checkpoints": [
+        "箱は、内容・padding・border・margin の4層",
+        "width は標準では内容の幅。border-box なら padding・border を含む",
+        "値が4つなら上右下左、2つなら上下と左右",
+        "border は 太さ 線の種類 色",
+        "中央寄せは width と margin: 0 auto",
+        "上下の margin は重なる（相殺）。インラインには width が効かない"
+      ],
+      "next_bridge": "箱の大きさと余白を、計算して決められるようになりました。問題で、ボックスモデルの理解を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S09",
+      "stage_id": "S09",
+      "title": "Flexbox",
+      "intro": "ボタンを横に並べる、メニューを左右に振り分ける、カードを均等に並べる、要素を中央に置く。昔は、このような配置に工夫が必要でした。現在の CSS では、Flexbox（フレキシブルボックス）を使うと、少ない記述で実現できます。",
+      "sections": [
+        {
+          "id": "S09-L1",
+          "title": "Flexbox の基本",
+          "read_minutes": 3,
+          "body": [
+            "親要素に display: flex; を指定すると、親は Flex コンテナ、その直接の子は Flex アイテムになります。アイテムは、標準では、横一列（行方向）に並びます。block 要素の子は、通常は縦に並ぶので、display: flex の効果が分かりやすい変化です。",
+            "アイテムが並ぶ方向を主軸、それに垂直な方向を交差軸といいます。flex-direction で主軸の向きを決めます（row = 横、column = 縦。標準は row）。",
+            "justify-content は、主軸方向の並べ方です。flex-start（始点に寄せる。標準）・center（中央）・flex-end（終点に寄せる）・space-between（両端に寄せて間を均等に）・space-around・space-evenly などがあります。align-items は、交差軸方向の揃え方で、stretch（標準）・flex-start・center・flex-end があります。縦方向の中央揃えには、親に高さが必要です。",
+            "gap は、アイテムの間隔を一括で決めます。アイテムが親の幅に収まらないときは、標準では縮みますが、flex-wrap: wrap を指定すると、折り返して、次の行に並びます。"
+          ],
+          "glossary": [
+            {
+              "term": "Flex コンテナ",
+              "definition": "display: flex を指定した親要素。"
+            },
+            {
+              "term": "Flex アイテム",
+              "definition": "Flex コンテナの直接の子要素。"
+            },
+            {
+              "term": "主軸 / 交差軸",
+              "definition": "アイテムが並ぶ方向 / それに垂直な方向。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S09-E1",
+              "title": "横に並べる",
+              "language": "css",
+              "context_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+              "code": ".container {\n  display: flex;\n}\n.item {\n  width: 50px;\n  height: 50px;\n  background-color: lightblue;\n}",
+              "line_notes": [
+                "親（.container）に display: flex を指定すると、子（.item）が横一列に並びます。",
+                "display: flex がなければ、div は、ブロック要素なので、縦に並びます。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+                "expr": "(function () { var t = Array.from(document.querySelectorAll('.item')).map(function (e) { return Math.round(e.getBoundingClientRect().top); }); var l = Array.from(document.querySelectorAll('.item')).map(function (e) { return Math.round(e.getBoundingClientRect().left); }); return t.every(function (v) { return v === t[0]; }) ? 'row' : (l.every(function (v) { return v === l[0]; }) ? 'column' : 'other'); })() === 'row'"
+              }
+            },
+            {
+              "id": "S09-E2",
+              "title": "並べ方と揃え方",
+              "language": "css",
+              "context_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+              "code": ".container {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 300px;\n  height: 120px;\n}\n.item {\n  width: 50px;\n  height: 50px;\n  background-color: lightblue;\n}",
+              "line_notes": [
+                "space-between で、最初のアイテムを左端、最後のアイテムを右端に寄せ、間を均等にします。",
+                "align-items: center で、縦方向（交差軸）の中央に揃えます。親に height があるので、効果が出ます。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+                "expr": "(function () { var c = document.querySelector('.container').getBoundingClientRect(); var it = document.querySelectorAll('.item'); var f = it[0].getBoundingClientRect(), l = it[2].getBoundingClientRect(); return Math.round(f.left) === Math.round(c.left) && Math.round(l.right) === Math.round(c.right) && Math.abs((f.top + f.height / 2) - (c.top + c.height / 2)) < 1; })()"
+              }
+            },
+            {
+              "id": "S09-E3",
+              "title": "gap と折り返し",
+              "language": "css",
+              "context_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+              "code": ".container {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 10px;\n  width: 200px;\n}\n.item {\n  width: 80px;\n  height: 50px;\n  background-color: lightblue;\n}",
+              "line_notes": [
+                "80px + 10px + 80px = 170px は 200px に収まるので、2つ並びます。",
+                "3つ目は、収まらないので、flex-wrap: wrap により次の行に折り返します。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"item\">1</div>\n  <div class=\"item\">2</div>\n  <div class=\"item\">3</div>\n</div>",
+                "expr": "(function () { var it = Array.from(document.querySelectorAll('.item')).map(function (e) { return e.getBoundingClientRect(); }); return Math.round(it[0].top) === Math.round(it[1].top) && it[2].top > it[0].top && Math.round(it[1].left - it[0].right) === 10; })()"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S09-L2",
+          "title": "アイテムの伸び縮み",
+          "read_minutes": 2,
+          "body": [
+            "flex プロパティで、アイテムが、余った幅をどう分け合うかを決められます。flex: 1 を、すべてのアイテムに指定すると、親の幅を等分します。flex: 1 と flex: 2 のアイテムを並べると、余った幅が、1 : 2 の割合で分けられます（幅は、1 : 2 の比になります）。",
+            "flex: 1 は、flex-grow（余った幅を分け合う割合）が 1 であることを表す書き方（flex: 1 1 0 の省略）です。カードを横に均等に並べるときや、検索ボックスを、残りの幅いっぱいに伸ばしたいときに使います。",
+            "親に display: flex、justify-content: center、align-items: center を指定すると、子要素を、親の中央に置けます。以前は難しかった「縦横の中央寄せ」が、簡単に書けます。"
+          ],
+          "glossary": [
+            {
+              "term": "flex: 1",
+              "definition": "余った幅を、他のアイテムと等しい割合で分け合って、伸びる指定。"
+            },
+            {
+              "term": "flex-grow",
+              "definition": "余った幅を、どれだけの割合で分けてもらうかを決める値。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S09-E4",
+              "title": "flex で幅を分ける",
+              "language": "css",
+              "context_html": "<div class=\"container\">\n  <div class=\"a\">A</div>\n  <div class=\"b\">B</div>\n</div>",
+              "code": ".container {\n  display: flex;\n  width: 300px;\n}\n.a {\n  flex: 1;\n}\n.b {\n  flex: 2;\n}",
+              "line_notes": [
+                "300px を 1 : 2 で分けるので、A は 100px、B は 200px になります。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"a\">A</div>\n  <div class=\"b\">B</div>\n</div>"
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"container\">\n  <div class=\"a\">A</div>\n  <div class=\"b\">B</div>\n</div>",
+                "expr": "Math.round(document.querySelector('.a').getBoundingClientRect().width) === 100 && Math.round(document.querySelector('.b').getBoundingClientRect().width) === 200"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "子に display: flex を書く",
+          "wrong_code": ".item { display: flex; }",
+          "why": "並べたい要素（子）ではなく、それを囲む親に指定します。",
+          "fix": ".container { display: flex; }"
+        },
+        {
+          "title": "flex の指定なしに justify-content を使う",
+          "wrong_code": ".container { justify-content: center; }",
+          "why": "display: flex を指定した親にだけ効きます。ほかの親には効果がありません。",
+          "fix": ".container { display: flex; justify-content: center; }"
+        },
+        {
+          "title": "display の値の書き間違い",
+          "wrong_code": "display: flexbox;",
+          "why": "flexbox という値はなく、無効になります。正しくは flex です。",
+          "fix": "display: flex;"
+        },
+        {
+          "title": "縦の中央揃えに高さがない",
+          "wrong_code": ".container { display: flex; align-items: center; }",
+          "why": "親の高さが、中身の高さしかないと、縦方向に余白がなく、中央揃えの効果が見えません。",
+          "fix": ".container { height: 200px; }"
+        }
+      ],
+      "checkpoints": [
+        "display: flex は、並べたい子の親に指定する",
+        "主軸は並ぶ方向、交差軸はそれに垂直な方向",
+        "justify-content は主軸方向、align-items は交差軸方向",
+        "gap でアイテムの間隔、flex-wrap: wrap で折り返し",
+        "flex: 1 で余った幅を等分する",
+        "中央寄せは、display: flex + justify-content + align-items"
+      ],
+      "next_bridge": "Flexbox で、横並びや中央寄せが書けるようになりました。問題で、主軸と交差軸の考え方を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S10",
+      "stage_id": "S10",
+      "title": "レスポンシブデザインと簡単なページ制作",
+      "intro": "Webページは、大きな PC の画面でも、小さなスマートフォンの画面でも見られます。画面の幅に合わせて、レイアウトを変えられるように作る考え方を「レスポンシブウェブデザイン」といいます。これまで学んだ HTML と CSS の知識を総動員して、どんな幅でも読みやすいページを作りましょう。",
+      "sections": [
+        {
+          "id": "S10-L1",
+          "title": "viewport と柔軟な幅",
+          "read_minutes": 3,
+          "body": [
+            "スマートフォンのブラウザは、PC 向けに作られたページを見られるように、標準では、広い幅（約 980px）で表示を作り、それを縮小して画面に収めます。そのため、スマホ向けに作ったページでも、小さく表示されてしまいます。これを防ぐのが、head に書く viewport の meta 要素です: <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">。「画面の幅を、そのまま表示の幅にする」という意味です。",
+            "画面幅に合わせて伸び縮みする箱は、固定の幅（width: 800px）ではなく、柔軟な指定で作ります。max-width: 600px; margin: 0 auto; と書くと、画面が広いときは 600px で中央に寄り、狭いときは画面の幅いっぱいに縮みます。幅を % で指定するのも、親の幅に合わせる方法です。",
+            "画像は、max-width: 100%; height: auto; を指定すると、親の幅を超えず、縦横の比率を保ったまま縮みます。"
+          ],
+          "glossary": [
+            {
+              "term": "レスポンシブウェブデザイン",
+              "definition": "画面の幅に合わせて、レイアウトを変える、Web ページの作り方。"
+            },
+            {
+              "term": "viewport",
+              "definition": "ブラウザの表示領域。meta 要素で、その幅の扱いを指定する。"
+            },
+            {
+              "term": "max-width",
+              "definition": "要素の幅の上限。これより広くならない。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S10-E1",
+              "title": "viewport の meta 要素",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>レスポンシブ</title>\n</head>\n<body>\n  <p>スマホでも読みやすいページ</p>\n</body>\n</html>",
+              "line_notes": [
+                "5行目が、viewport の指定です。width=device-width で、表示の幅を、画面の幅に合わせます。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "document.querySelector('meta[name=viewport]').content.indexOf('width=device-width') >= 0"
+              }
+            },
+            {
+              "id": "S10-E2",
+              "title": "max-width で伸び縮み",
+              "language": "css",
+              "context_html": "<div class=\"wrap\">中身</div>",
+              "code": "body { margin: 0; }\n.wrap {\n  max-width: 600px;\n  margin: 0 auto;\n  background-color: lightyellow;\n}",
+              "line_notes": [
+                "画面が 600px より広ければ、幅 600px で中央に寄ります。",
+                "画面が 600px より狭ければ、画面の幅いっぱいになります。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"wrap\">中身</div>",
+                "viewport": 800
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"wrap\">中身</div>",
+                "viewport": 800,
+                "expr": "document.querySelector('.wrap').getBoundingClientRect().width === 600"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S10-L2",
+          "title": "メディアクエリとページの組み立て",
+          "read_minutes": 3,
+          "body": [
+            "メディアクエリは、画面の幅などの条件に合うときだけ、スタイルを適用する仕組みです。@media (min-width: 600px) { ... } は「画面の幅が 600px 以上のとき」、@media (max-width: 600px) { ... } は「600px 以下のとき」です。条件には、かっこが必要です。",
+            "モバイルファーストは、まず、狭い画面（スマホ）向けのスタイルを基本として書き、広い画面で変えたいところだけ、min-width のメディアクエリで上書きする考え方です。スマホ向けは、シンプルな縦並びが基本なので、記述が少なくなります。",
+            "Flexbox は、レスポンシブと相性の良い仕組みです。flex-wrap: wrap で、幅が足りないときに折り返したり、メディアクエリで flex-direction を column と row に切り替えたりして、横並びと縦並びを切り替えられます。",
+            "ページを作るときは、(1) HTML で、header・main・footer などの構造を書く、(2) 基本のスタイル（文字・色・余白）を整える、(3) 画面幅ごとのレイアウトを、メディアクエリで調整する、の順で進めると、整理しやすくなります。"
+          ],
+          "glossary": [
+            {
+              "term": "メディアクエリ",
+              "definition": "@media で、画面の幅などの条件に応じて、スタイルを切り替える仕組み。"
+            },
+            {
+              "term": "モバイルファースト",
+              "definition": "スマホ向けのスタイルを基本にして、広い画面向けを、あとから追加する設計の考え方。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S10-E3",
+              "title": "メディアクエリ",
+              "language": "css",
+              "context_html": "<p>画面の幅で色が変わります</p>",
+              "code": "p {\n  color: black;\n}\n@media (min-width: 600px) {\n  p {\n    color: red;\n  }\n}",
+              "line_notes": [
+                "標準では黒です。",
+                "画面の幅が 600px 以上のときだけ、赤になります。この例では、画面幅 800px で表示しています。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<p>画面の幅で色が変わります</p>",
+                "viewport": 800
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<p>画面の幅で色が変わります</p>",
+                "viewport": 800,
+                "expr": "getComputedStyle(document.querySelector('p')).color === 'rgb(255, 0, 0)'"
+              }
+            },
+            {
+              "id": "S10-E4",
+              "title": "モバイルファーストの横並び",
+              "language": "css",
+              "context_html": "<div class=\"cards\">\n  <div class=\"card\">A</div>\n  <div class=\"card\">B</div>\n  <div class=\"card\">C</div>\n</div>",
+              "code": ".cards {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.card {\n  padding: 16px;\n  background-color: lightblue;\n}\n@media (min-width: 600px) {\n  .cards {\n    flex-direction: row;\n  }\n  .card {\n    flex: 1;\n  }\n}",
+              "line_notes": [
+                "基本は、縦並び（column）です。スマホ向けのスタイルです。",
+                "画面の幅が 600px 以上のときだけ、横並び（row）に切り替わります。"
+              ],
+              "preview": {
+                "format": "css",
+                "given_html": "<div class=\"cards\">\n  <div class=\"card\">A</div>\n  <div class=\"card\">B</div>\n  <div class=\"card\">C</div>\n</div>",
+                "viewport": 800
+              },
+              "verify": {
+                "format": "css",
+                "given_html": "<div class=\"cards\">\n  <div class=\"card\">A</div>\n  <div class=\"card\">B</div>\n  <div class=\"card\">C</div>\n</div>",
+                "viewport": 800,
+                "expr": "(function () { var t = Array.from(document.querySelectorAll('.card')).map(function (e) { return Math.round(e.getBoundingClientRect().top); }); return t.length === 3 && t.every(function (v) { return v === t[0]; }); })()"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "viewport の meta 要素を書かない",
+          "wrong_code": "<head>\n  <meta charset=\"utf-8\">\n  <title>…</title>\n</head>",
+          "why": "スマホでは、PC 向けの広い幅で表示を作って縮小されるため、文字が小さくなります。",
+          "fix": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+        },
+        {
+          "title": "固定の幅で、横にはみ出す",
+          "wrong_code": ".photo { width: 800px; }",
+          "why": "画面が 800px より狭いと、はみ出して、横スクロールになります。",
+          "fix": ".photo { width: 800px; max-width: 100%; }"
+        },
+        {
+          "title": "メディアクエリのかっこを忘れる",
+          "wrong_code": "@media min-width: 600px { … }",
+          "why": "条件は、かっこで囲む必要があります。かっこがないと、無効になって無視されます。",
+          "fix": "@media (min-width: 600px) { … }"
+        },
+        {
+          "title": "min-width と max-width の取り違え",
+          "wrong_code": "@media (min-width: 600px) { …スマホ向け… }",
+          "why": "min-width は「その幅以上」です。狭い画面向けに使うなら、max-width（以下）です。",
+          "fix": "@media (max-width: 600px) { … }"
+        }
+      ],
+      "checkpoints": [
+        "viewport の meta 要素で、画面の幅に合わせる",
+        "固定の幅ではなく、max-width や % で柔軟に",
+        "メディアクエリは @media (min-width: 〇〇px) のようにかっこ付き",
+        "min-width は以上、max-width は以下",
+        "モバイルファースト: 基本は狭い画面向け、広い画面は min-width で追加",
+        "Flexbox（flex-direction・flex-wrap）と組み合わせる"
+      ],
+      "next_bridge": "最後のステージです。メディアクエリや max-width を読み解く問題と、ページを1から作る問題があります。ここまで学んだことを、総動員しましょう。"
+    }
+  ]
+}

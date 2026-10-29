@@ -1,0 +1,18 @@
+[
+  {"kind": "page", "format": "html_body", "code": "<p class=big note>テキスト</p>", "expr": "document.querySelector('p').getAttribute('class') === 'big' && document.querySelector('p').hasAttribute('note')", "note": "引用符のない属性値は、空白で切れる（S01・S05）"},
+  {"kind": "page", "format": "html_body", "code": "<h1>見出し\n<p>本文</p>", "expr": "document.querySelector('p').parentElement.tagName === 'H1'", "note": "h1 を閉じ忘れると、p が h1 の中に入る（S01）"},
+  {"kind": "page", "format": "html_body", "code": "<a src=\"about.html\">概要</a>", "expr": "document.querySelector('a').getAttribute('href') === null", "note": "a の src では、リンク先にならない（S03）"},
+  {"kind": "page", "format": "html_body", "code": "<p>はじめに<h2>見出し</h2></p>", "expr": "document.querySelectorAll('p').length === 2 && document.querySelector('h2').parentElement.tagName === 'BODY'", "note": "p の中に h2 を書くと、p が自動で閉じられ、空の p ができる（S02）"},
+  {"kind": "page", "format": "html_body", "code": "<br>1行目</br>", "expr": "document.querySelectorAll('br').length === 2", "note": "</br> は <br> として扱われる（S02）"},
+  {"kind": "page", "format": "html_body", "code": "<ul><li>りんご<li></ul>", "expr": "document.querySelectorAll('li').length === 2", "note": "<li> を2回書くと、空の li ができる（S04）"},
+  {"kind": "page", "format": "html_body", "code": "<input type=\"mail\" name=\"mail\">", "expr": "document.querySelector('input').type === 'text'", "note": "存在しない type は text になる（S05）"},
+  {"kind": "page", "format": "html_body", "code": "<input type=\"radio\" name=\"a\" checked><input type=\"radio\" name=\"b\" checked>", "expr": "document.querySelectorAll('input:checked').length === 2", "note": "name が違う radio は、両方選べる（S05）"},
+  {"kind": "page", "format": "html_body", "code": "<input type=\"checkbox\" name=\"gift\">", "expr": "document.querySelector('input').checked === false", "note": "checkbox は、checked がなければ未選択（S05）"},
+  {"kind": "page", "format": "css", "given_html": "<h1>見出し</h1>", "code": "h1 { text-align: middle; }", "expr": "getComputedStyle(document.querySelector('h1')).textAlign === 'start'", "note": "text-align: middle は無効で、標準のまま（S07）"},
+  {"kind": "page", "format": "css", "given_html": "<p>テスト</p>", "code": "p { font-size: 20; }", "expr": "getComputedStyle(document.querySelector('p')).fontSize === '16px'", "note": "単位のない font-size は無効（S07）"},
+  {"kind": "page", "format": "css", "given_html": "<div class=\"box\">箱</div>", "code": ".box { border: 2px red; }", "expr": "getComputedStyle(document.querySelector('.box')).borderTopWidth === '0px'", "note": "線の種類のない border は表示されない（S08）"},
+  {"kind": "page", "format": "css", "given_html": "<div class=\"box\">箱</div>", "code": ".box { margin: 0 auto; }", "expr": "document.querySelector('.box').getBoundingClientRect().width === document.documentElement.clientWidth - 16", "note": "width がないブロックは、親の幅いっぱい（S08）"},
+  {"kind": "page", "format": "css", "given_html": "<div class=\"container\"><div class=\"item\" style=\"width:50px;height:50px\"></div></div>", "code": ".container { display: flexbox; }", "expr": "getComputedStyle(document.querySelector('.container')).display === 'block'", "note": "display: flexbox は無効（S09）"},
+  {"kind": "page", "format": "css", "given_html": "<p>テスト</p>", "viewport": 500, "code": "@media max-width: 600px { p { color: red; } }", "expr": "getComputedStyle(document.querySelector('p')).color === 'rgb(0, 0, 0)'", "note": "かっこのないメディアクエリは無効（S10）"},
+  {"kind": "page", "format": "css", "given_html": "<p class=\"warn\">A</p>", "code": "warn { color: red; }", "expr": "getComputedStyle(document.querySelector('p')).color === 'rgb(0, 0, 0)'", "note": "class に . を付けないと、要素セレクタになる（S06）"}
+]

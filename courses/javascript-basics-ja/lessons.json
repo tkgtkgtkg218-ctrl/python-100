@@ -1,0 +1,1539 @@
+{
+  "course_id": "javascript-basics-ja",
+  "schema_version": "1.1.0",
+  "lessons": [
+    {
+      "id": "LESSON-S01",
+      "stage_id": "S01",
+      "title": "変数とデータ型",
+      "intro": "Webページの文章や構造は HTML、見た目は CSS で作ります。そこに「動き」を足すのが JavaScript です。ボタンを押したら表示が変わる、入力内容をチェックする、といったことができます。まずはコードを書いて結果を確かめる基本の道具、console.log と変数から始めましょう。",
+      "sections": [
+        {
+          "id": "S01-L1",
+          "title": "JavaScript と console.log",
+          "read_minutes": 3,
+          "body": [
+            "JavaScript は、Webブラウザの中で動くプログラミング言語です。HTML がページの構造、CSS が見た目を担当し、JavaScript が動きや計算を担当します（HTML と CSS はプログラミング言語ではなく、それぞれマークアップ言語・スタイルシート言語と呼びます）。",
+            "コードを動かす場所は2つあります。1つは HTML の中の <script> タグ、もう1つはブラウザの開発者ツール（多くのブラウザで F12 キー）にある「コンソール」です。このコースの問題では、書いたコードが自動で実行されます。",
+            "console.log(値) と書くと、値が開発者ツールのコンソールに表示されます。ページの画面には表示されません。結果を確かめるときの一番基本の道具です。複数の値を , で区切ると、間に空白を入れて1行に表示されます。",
+            "// から行末まではコメントで、実行されません。文の終わりには ; （セミコロン）を付けるのが一般的です。JavaScript は大文字と小文字を区別します（console.log は正しく、Console.log はエラーです）。"
+          ],
+          "glossary": [
+            {
+              "term": "コンソール",
+              "definition": "開発者ツールの中にある、メッセージやエラーを確認する画面。"
+            },
+            {
+              "term": "文",
+              "definition": "実行の1つのまとまり。ふつう ; で終える。"
+            },
+            {
+              "term": "コメント",
+              "definition": "// で始まる、人間向けのメモ。実行されない。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S01-E1",
+              "title": "いちばん短いコード",
+              "language": "javascript",
+              "code": "console.log(\"Hello\");\nconsole.log(10);\nconsole.log(\"a\", \"b\");",
+              "expected_output": "Hello\n10\na b",
+              "line_notes": [
+                "1行目: 文字列 Hello を表示します（引用符は表示されません）。",
+                "2行目: 数値は引用符なしで書けます。",
+                "3行目: カンマで区切ると、間に空白を入れて1行に表示されます。"
+              ]
+            },
+            {
+              "id": "S01-E2",
+              "title": "HTMLの中に書く（script タグ）",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>はじめて</title></head>\n<body>\n  <p>画面にはこの文章だけが表示されます</p>\n  <script>\n    console.log(\"コンソールに表示されます\");\n  </script>\n</body>\n</html>",
+              "expected_output": "",
+              "line_notes": [
+                "6〜8行目: <script> タグの中に JavaScript を書きます。",
+                "console.log の結果は画面ではなく、開発者ツールのコンソールに出ます。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "document.scripts.length === 1 && document.querySelector('p').textContent.includes('画面')"
+              }
+            },
+            {
+              "id": "S01-E3",
+              "title": "コメント",
+              "language": "javascript",
+              "code": "// あいさつを表示する\nconsole.log(\"Hi\"); // 行の途中からでもOK\n// console.log(\"Bye\");",
+              "expected_output": "Hi",
+              "line_notes": [
+                "// 以降は実行されません。3行目のようにコードを一時的に無効にするのにも使えます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S01-L2",
+          "title": "変数とデータ型",
+          "read_minutes": 3,
+          "body": [
+            "変数は、値に付ける名前です。let 名前 = 値; で宣言して値を入れます。あとから値を変えたいときは、let の変数に再び = で代入します。値を変えない変数は const で宣言します。const の変数に再代入するとエラー（TypeError）になります。",
+            "変数名には英字・数字・_ ・$ が使えますが、数字で始められません。大文字と小文字は区別されます。単語をつなぐときは userName のように、2語目の頭を大文字にする書き方（キャメルケース）が一般的です。",
+            "値には種類（データ型）があります。数値は number、文字列は string（\"\" か '' か `` で囲む）、真偽値は boolean（true / false）です。値がまだ入っていない変数は undefined、「意図的に空」を表す値は null です。",
+            "typeof 値 で型を調べられます。\"42\" のように引用符で囲むと数値ではなく文字列です。"
+          ],
+          "glossary": [
+            {
+              "term": "変数",
+              "definition": "値に付けた名前。"
+            },
+            {
+              "term": "宣言",
+              "definition": "let や const で変数を作ること。"
+            },
+            {
+              "term": "データ型",
+              "definition": "値の種類。number、string、boolean など。"
+            },
+            {
+              "term": "undefined",
+              "definition": "値がまだ入っていないことを表す値。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S01-E4",
+              "title": "let と const",
+              "language": "javascript",
+              "code": "let score = 50;\nscore = 80;\nconst name = \"Hana\";\nconsole.log(score);\nconsole.log(name);",
+              "expected_output": "80\nHana",
+              "line_notes": [
+                "2行目: let の変数には、あとから値を入れ直せます（上書き）。",
+                "3行目: const の変数は、あとから変更できません。"
+              ]
+            },
+            {
+              "id": "S01-E5",
+              "title": "データ型を調べる",
+              "language": "javascript",
+              "code": "console.log(typeof 42);\nconsole.log(typeof \"42\");\nconsole.log(typeof true);\nlet x;\nconsole.log(x);\nconsole.log(typeof x);\nconsole.log(typeof null);",
+              "expected_output": "number\nstring\nboolean\nundefined\nundefined\nobject",
+              "line_notes": [
+                "2行目: 引用符で囲んだ \"42\" は文字列です。",
+                "4〜6行目: 値を入れていない変数は undefined です。",
+                "7行目: typeof null が \"object\" になるのは、JavaScript の歴史的な仕様です。null の型は覚えなくても構いません。"
+              ]
+            },
+            {
+              "id": "S01-E6",
+              "title": "const に再代入するとエラー",
+              "language": "javascript",
+              "code": "const price = 100;\nprice = 200;",
+              "expected_output": "",
+              "expected_error": "TypeError",
+              "line_notes": [
+                "const の変数に再代入すると TypeError（Assignment to constant variable）になります。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "const の変数を書き換える",
+          "wrong_code": "const count = 0;\ncount = 1;",
+          "why": "const は再代入できず TypeError になります。書き換える変数は let で宣言します。",
+          "fix": "let count = 0;"
+        },
+        {
+          "title": "引用符を付け忘れる",
+          "wrong_code": "let greeting = Hello;",
+          "why": "引用符がない Hello は変数名と見なされ、ReferenceError になります。",
+          "fix": "let greeting = \"Hello\";"
+        },
+        {
+          "title": "大文字・小文字の違い",
+          "wrong_code": "let userName = \"Hana\";\nconsole.log(username);",
+          "why": "userName と username は別の名前です。宣言されていない名前を使うと ReferenceError になります。",
+          "fix": "console.log(userName);"
+        },
+        {
+          "title": "同じ名前を二重に宣言する",
+          "wrong_code": "let a = 1;\nlet a = 2;",
+          "why": "同じスコープで let の同名宣言はできず、SyntaxError になります。2回目は代入だけにします。",
+          "fix": "let a = 1;\na = 2;"
+        }
+      ],
+      "checkpoints": [
+        "JavaScript はブラウザで動くプログラミング言語（HTML・CSS とは役割が違う）",
+        "console.log の出力はコンソールに出る",
+        "let は再代入できる、const は再代入できない",
+        "number / string / boolean / undefined / null",
+        "typeof で型を調べられる",
+        "大文字と小文字は区別される"
+      ],
+      "next_bridge": "変数に値を入れられるようになりました。問題で、コードを読んで結果を予想したり、エラーの原因を探したりしてみましょう。"
+    },
+    {
+      "id": "LESSON-S02",
+      "stage_id": "S02",
+      "title": "演算子",
+      "intro": "変数に入れた値を、計算したり、つなげたり、比べたりするのが演算子です。次のステージの「条件分岐」は、ここで学ぶ比較演算子と論理演算子の結果を使って動きます。",
+      "sections": [
+        {
+          "id": "S02-L1",
+          "title": "計算・代入・文字列の連結",
+          "read_minutes": 3,
+          "body": [
+            "算術演算子は + - * / % ** です。% は割った余り、** は累乗（べき乗）です。JavaScript の / は小数まで計算する割り算で、7 / 2 は 3.5 になります（整数の商を返す演算子はありません）。掛け算・割り算は足し算・引き算より先に計算され、( ) で順序を変えられます。",
+            "x += 5 は x = x + 5 の短い書き方です。-= *= /= も同様で、x++ は x に 1 を足す書き方です。",
+            "文字列同士を + でつなぐと、文字列の連結になります。文字列と数値を + でつなぐと、数値が文字列になって連結されます（\"5\" + 3 は \"53\"）。変数を文字列に埋め込むには、バッククォート ` で囲んだテンプレートリテラルの中に ${式} と書くのが読みやすい方法です。"
+          ],
+          "glossary": [
+            {
+              "term": "演算子",
+              "definition": "+ や * など、計算や比較を表す記号。"
+            },
+            {
+              "term": "代入演算子",
+              "definition": "= や += のように、変数に値を入れる演算子。"
+            },
+            {
+              "term": "テンプレートリテラル",
+              "definition": "バッククォート（`）で囲み、${ } で値を埋め込める文字列。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S02-E1",
+              "title": "いろいろな計算",
+              "language": "javascript",
+              "code": "console.log(7 + 2);\nconsole.log(7 / 2);\nconsole.log(7 % 2);\nconsole.log(2 ** 3);\nconsole.log(2 + 3 * 4);\nconsole.log((2 + 3) * 4);",
+              "expected_output": "9\n3.5\n1\n8\n14\n20",
+              "line_notes": [
+                "2行目: / は小数も含めた割り算です。",
+                "3行目: % は余りです。",
+                "5〜6行目: 掛け算が先。( ) で順序を変えられます。"
+              ]
+            },
+            {
+              "id": "S02-E2",
+              "title": "代入演算子と文字列",
+              "language": "javascript",
+              "code": "let total = 10;\ntotal += 5;\ntotal++;\nconsole.log(total);\nconst name = \"Hana\";\nconst age = 12;\nconsole.log(\"名前: \" + name);\nconsole.log(`${name}さんは${age}歳です`);\nconsole.log(\"5\" + 3);",
+              "expected_output": "16\n名前: Hana\nHanaさんは12歳です\n53",
+              "line_notes": [
+                "2行目: total = total + 5 と同じ。3行目: ++ は 1 増やします。",
+                "8行目: テンプレートリテラルの ${ } の部分が変数の値に置き換わります。",
+                "9行目: 文字列と数値の + は連結になるので、結果は 8 ではなく \"53\" です。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S02-L2",
+          "title": "比較・論理演算子と型変換",
+          "read_minutes": 3,
+          "body": [
+            "比較演算子は結果が true か false になります。等しいかは === 、等しくないかは !== 、大小は < > <= >= です。= は代入なので、比較には使えません。",
+            "== も等しいかを調べますが、型が違うと自動で変換して比べるため、5 == \"5\" が true になるなど分かりにくい結果になります。=== は型も含めて比べるので、基本は === を使います。",
+            "論理演算子は && （かつ）、|| （または）、! （否定）です。a && b は両方 true のときだけ true、a || b はどちらか一方でも true なら true です。",
+            "- * / を使うと、文字列は数値に自動変換されます（\"10\" / 2 は 5）。数値にできない文字列だと NaN（Not a Number）になります。自分で変換するときは Number(\"10\") を使います。"
+          ],
+          "glossary": [
+            {
+              "term": "===",
+              "definition": "型も含めて等しいかを調べる比較演算子（厳密等価）。"
+            },
+            {
+              "term": "型変換",
+              "definition": "値のデータ型が、自動または Number() などで別の型に変わること。"
+            },
+            {
+              "term": "NaN",
+              "definition": "数値として計算できなかったときの値（Not a Number）。typeof は number。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S02-E3",
+              "title": "比較と論理演算",
+              "language": "javascript",
+              "code": "console.log(5 === 5);\nconsole.log(5 === \"5\");\nconsole.log(5 == \"5\");\nconsole.log(5 !== 3);\nconsole.log(3 > 2 && 2 > 5);\nconsole.log(3 > 2 || 2 > 5);\nconsole.log(!true);",
+              "expected_output": "true\nfalse\ntrue\ntrue\nfalse\ntrue\nfalse",
+              "line_notes": [
+                "2行目: 数値の 5 と文字列の \"5\" は、=== では等しくありません。",
+                "3行目: == は型を変換して比べるので true になります（分かりにくいため使わないのが基本です）。"
+              ]
+            },
+            {
+              "id": "S02-E4",
+              "title": "型変換と NaN",
+              "language": "javascript",
+              "code": "console.log(\"10\" / 2);\nconsole.log(\"abc\" * 2);\nconsole.log(Number(\"10\") + 5);\nconsole.log(\"10\" + 5);\nconsole.log(typeof NaN);",
+              "expected_output": "5\nNaN\n15\n105\nnumber",
+              "line_notes": [
+                "1行目: / は文字列を数値に変換して計算します。",
+                "2行目: 数値にできない文字列との計算は NaN になります。",
+                "3〜4行目: Number() で数値にすると足し算になり、しないと連結になります。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "= と === の取り違え",
+          "wrong_code": "console.log(n = 5);",
+          "why": "= は代入です。n に 5 を入れた結果（5）が表示されます。等しいかを調べるには ===。",
+          "fix": "console.log(n === 5);"
+        },
+        {
+          "title": "文字列と数値の足し算",
+          "wrong_code": "console.log(\"3\" + 4);",
+          "why": "文字列と数値を + でつなぐと、連結になり \"34\" になります。計算したいときは Number() で数値にします。",
+          "fix": "console.log(Number(\"3\") + 4);"
+        },
+        {
+          "title": "テンプレートリテラルで引用符を使う",
+          "wrong_code": "console.log(\"${name}さん\");",
+          "why": "\" \" の中では ${ } は展開されず、そのまま表示されます。バッククォート（`）で囲みます。",
+          "fix": "console.log(`${name}さん`);"
+        },
+        {
+          "title": "整数の割り算を期待する",
+          "wrong_code": "console.log(7 / 2);  // 3 と思い込む",
+          "why": "JavaScript の / は小数も計算し、3.5 になります。切り捨てたいときは Math.floor(7 / 2) を使います。",
+          "fix": "console.log(Math.floor(7 / 2));"
+        }
+      ],
+      "checkpoints": [
+        "/ は小数も計算する、% は余り、** は累乗",
+        "+= や ++ で変数を更新できる",
+        "文字列 + 数値 は連結になる",
+        "等しいかは ===（= は代入）",
+        "&& は かつ、|| は または、! は否定",
+        "数値にできない計算は NaN になる"
+      ],
+      "next_bridge": "比較や論理演算の結果は true / false になります。問題で、式の結果を正確に読み取る練習をしましょう。"
+    },
+    {
+      "id": "LESSON-S03",
+      "stage_id": "S03",
+      "title": "条件分岐",
+      "intro": "プログラムは、条件によって動きを変えられます。「80点以上なら合格」「入力が空なら警告を出す」のような判断を、if 文で書きます。Webページでも、フォームのチェックや表示の切り替えで毎日のように使います。",
+      "sections": [
+        {
+          "id": "S03-L1",
+          "title": "if / else if / else",
+          "read_minutes": 3,
+          "body": [
+            "if (条件) { ... } と書くと、条件が true のときだけ { } の中が実行されます。条件が false のときの処理は else { ... } に書きます。",
+            "3つ以上に分けたいときは else if (条件) { ... } を続けます。上から順に調べ、最初に条件が成り立ったブロックだけが実行され、残りは調べません。そのため、厳しい条件（例: 90点以上）から順に書きます。",
+            "条件には、ステージ2の比較演算子・論理演算子を使います。「60点以上」は score >= 60、境界の 60 点を含むかどうかは >= と > で変わります。{ } の中の行は、見やすくするために字下げ（インデント）しますが、JavaScript では字下げは動作に影響しません。"
+          ],
+          "glossary": [
+            {
+              "term": "条件分岐",
+              "definition": "条件によって、実行する処理を切り替えること。"
+            },
+            {
+              "term": "ブロック",
+              "definition": "{ } で囲んだ、ひとまとまりの処理。"
+            },
+            {
+              "term": "境界値",
+              "definition": "ちょうど切り替わる値（60点以上なら 60 など）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S03-E1",
+              "title": "if と else",
+              "language": "javascript",
+              "code": "const score = 55;\nif (score >= 60) {\n  console.log(\"合格\");\n} else {\n  console.log(\"不合格\");\n}\nconsole.log(\"終わり\");",
+              "expected_output": "不合格\n終わり",
+              "line_notes": [
+                "2行目: score >= 60 が false なので、else 側が実行されます。",
+                "7行目: if 文の外にあるので、常に実行されます。"
+              ]
+            },
+            {
+              "id": "S03-E2",
+              "title": "else if",
+              "language": "javascript",
+              "code": "const score = 85;\nif (score >= 90) {\n  console.log(\"A\");\n} else if (score >= 80) {\n  console.log(\"B\");\n} else if (score >= 70) {\n  console.log(\"C\");\n} else {\n  console.log(\"D\");\n}",
+              "expected_output": "B",
+              "line_notes": [
+                "上から順に調べ、score >= 80 が最初に true になるので B を表示して終わります。score >= 70 も true ですが、調べられません。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S03-L2",
+          "title": "truthy / falsy・三項演算子・switch",
+          "read_minutes": 3,
+          "body": [
+            "if の条件には、true / false 以外の値も書けます。その場合、値は真偽に変換されます。偽（falsy）として扱われるのは、false、0、\"\"（空文字列）、null、undefined、NaN の6つだけで、それ以外は真（truthy）です。\"0\" や \"false\" のように、中身が空でない文字列は truthy です。",
+            "a && b、a || b は、true / false ではなく、どちらかの値そのものを返します。a || b は a が truthy なら a、そうでなければ b を返します（「a がなければ b」の意味で、初期値を決めるときに使います）。a && b は a が falsy なら a、そうでなければ b を返します。",
+            "条件 ? 値1 : 値2 は三項演算子で、条件が truthy なら値1、そうでなければ値2になります。短い if / else を1行で書きたいときに使います。",
+            "switch (式) { case 値: ... break; default: ... } は、1つの値によって分岐します。case の最後に break を書かないと、次の case の処理も続けて実行されます。"
+          ],
+          "glossary": [
+            {
+              "term": "truthy / falsy",
+              "definition": "条件に使ったとき、真として扱われる値 / 偽として扱われる値。"
+            },
+            {
+              "term": "三項演算子",
+              "definition": "条件 ? A : B の形で、条件によって値を選ぶ演算子。"
+            },
+            {
+              "term": "break",
+              "definition": "switch や繰り返しから抜ける文。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S03-E3",
+              "title": "falsy な値と || の動き",
+              "language": "javascript",
+              "code": "if (0) { console.log(\"a\"); } else { console.log(\"b\"); }\nif (\"\") { console.log(\"c\"); } else { console.log(\"d\"); }\nif (\"0\") { console.log(\"e\"); } else { console.log(\"f\"); }\nconsole.log(0 || \"初期値\");\nconsole.log(\"あり\" && \"続き\");",
+              "expected_output": "b\nd\ne\n初期値\n続き",
+              "line_notes": [
+                "1行目: 0 は falsy なので else 側。",
+                "3行目: \"0\" は空でない文字列なので truthy です。",
+                "4行目: 0 は falsy なので、右の \"初期値\" が返ります。"
+              ]
+            },
+            {
+              "id": "S03-E4",
+              "title": "三項演算子と switch",
+              "language": "javascript",
+              "code": "const age = 20;\nconsole.log(age >= 18 ? \"成人\" : \"未成年\");\nconst n = 2;\nswitch (n) {\n  case 1:\n    console.log(\"one\");\n    break;\n  case 2:\n    console.log(\"two\");\n    break;\n  default:\n    console.log(\"other\");\n}",
+              "expected_output": "成人\ntwo",
+              "line_notes": [
+                "2行目: 条件が true なので \"成人\" が選ばれます。",
+                "8〜9行目: n が 2 なので two を表示し、break で switch を抜けます。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "if の条件で = を使う",
+          "wrong_code": "if (n = 5) { ... }",
+          "why": "= は代入です。n に 5 を入れ、その結果（5、truthy）で条件が常に真になります。エラーにならないので気づきにくいミスです。",
+          "fix": "if (n === 5) { ... }"
+        },
+        {
+          "title": "else if の順序",
+          "wrong_code": "if (score >= 60) {...} else if (score >= 80) {...}",
+          "why": "上から順に調べるので、80点以上でも最初の条件が先に成り立ちます。厳しい条件から書きます。",
+          "fix": "先に score >= 80 を調べる"
+        },
+        {
+          "title": "switch の break 忘れ",
+          "wrong_code": "case 1:\n  console.log(\"one\");\ncase 2:\n  console.log(\"two\");",
+          "why": "break がないと、case 1 のあとも続けて case 2 の処理が実行されます。",
+          "fix": "各 case の最後に break; を書く"
+        },
+        {
+          "title": "\"0\" は falsy だと思う",
+          "wrong_code": "if (\"0\") { ... }",
+          "why": "空でない文字列は truthy です。falsy なのは数値の 0 です。",
+          "fix": "数値にしたいなら Number(\"0\") を使う"
+        }
+      ],
+      "checkpoints": [
+        "if / else if / else は上から順に調べ、最初に成り立ったものだけ実行される",
+        "厳しい条件から書く。境界値は >= と > で変わる",
+        "falsy は false・0・\"\"・null・undefined・NaN",
+        "a || b は「a がなければ b」",
+        "条件 ? A : B（三項演算子）",
+        "switch は case の最後に break"
+      ],
+      "next_bridge": "条件分岐は、これから学ぶ繰り返しや関数と組み合わせて使います。まず問題で、条件の順序や境界値を正確に読む練習をしましょう。"
+    },
+    {
+      "id": "LESSON-S04",
+      "stage_id": "S04",
+      "title": "繰り返し",
+      "intro": "同じ処理を何十回、何百回とくり返すのは、コンピューターの得意技です。ページの中の複数の要素を順番に処理したり、リストを1つずつ画面に出したりするときにも使います。",
+      "sections": [
+        {
+          "id": "S04-L1",
+          "title": "for 文と while 文",
+          "read_minutes": 3,
+          "body": [
+            "for (初期化; 条件; 更新) { ... } は、決まった回数のくり返しに使います。例: for (let i = 0; i < 3; i++) は、i を 0 から始め、i < 3 の間、くり返すたびに i++ で 1 増やします。つまり i は 0, 1, 2 になり、3 回くり返します。i < 3 の 3 自体は含まれません。",
+            "while (条件) { ... } は、条件が true の間くり返します。回数が決まっていないときや、条件で終わりを決めたいときに使います。ループの中で、条件に使う変数を変化させないと、条件がずっと true のままになり、終わらなくなります（無限ループ）。",
+            "合計を求めるときは、ループの前に let total = 0; と用意し、ループの中で total += i; のように足していきます。"
+          ],
+          "glossary": [
+            {
+              "term": "ループ",
+              "definition": "同じ処理をくり返す仕組み。"
+            },
+            {
+              "term": "無限ループ",
+              "definition": "終わる条件が成り立たず、いつまでも終わらないループ。"
+            },
+            {
+              "term": "累積",
+              "definition": "ループの中で値を足し込み、合計などを作ること。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S04-E1",
+              "title": "for 文",
+              "language": "javascript",
+              "code": "for (let i = 0; i < 3; i++) {\n  console.log(i);\n}\nlet total = 0;\nfor (let i = 1; i <= 5; i++) {\n  total += i;\n}\nconsole.log(total);",
+              "expected_output": "0\n1\n2\n15",
+              "line_notes": [
+                "1行目: i は 0 → 1 → 2 と増え、3 になると条件が false になって終わります。",
+                "5行目: 1 から 5 まで含めるときは、i <= 5 と書きます。"
+              ]
+            },
+            {
+              "id": "S04-E2",
+              "title": "while 文",
+              "language": "javascript",
+              "code": "let count = 3;\nwhile (count > 0) {\n  console.log(count);\n  count--;\n}\nconsole.log(\"発射\");",
+              "expected_output": "3\n2\n1\n発射",
+              "line_notes": [
+                "4行目: count を減らさないと、条件がずっと true のままで無限ループになります。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S04-L2",
+          "title": "break・continue・入れ子のループ",
+          "read_minutes": 3,
+          "body": [
+            "break は、その場でループ全体を終了します。continue は、その回の残りの処理を飛ばして、次の回へ進みます。",
+            "ループの中にさらにループを書くことができます（入れ子）。外側が 1 回進むたびに、内側のループは最初から最後まで回ります。文字を足し込んで図形を作る、表を作る、といった場面で使います。"
+          ],
+          "glossary": [
+            {
+              "term": "break",
+              "definition": "ループ全体をその場で終了する。"
+            },
+            {
+              "term": "continue",
+              "definition": "その回の残りを飛ばして、次の回へ進む。"
+            },
+            {
+              "term": "入れ子（ネスト）",
+              "definition": "ループの中にループを書くこと。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S04-E3",
+              "title": "continue と break",
+              "language": "javascript",
+              "code": "for (let i = 1; i <= 5; i++) {\n  if (i === 3) {\n    continue;\n  }\n  if (i === 5) {\n    break;\n  }\n  console.log(i);\n}",
+              "expected_output": "1\n2\n4",
+              "line_notes": [
+                "i が 3 のとき: continue で console.log を飛ばし、次の回へ。",
+                "i が 5 のとき: break でループを終了。5 は表示されません。"
+              ]
+            },
+            {
+              "id": "S04-E4",
+              "title": "入れ子のループ",
+              "language": "javascript",
+              "code": "for (let i = 1; i <= 3; i++) {\n  let line = \"\";\n  for (let j = 0; j < i; j++) {\n    line += \"*\";\n  }\n  console.log(line);\n}",
+              "expected_output": "*\n**\n***",
+              "line_notes": [
+                "外側の i が 1, 2, 3 と進むたびに、内側のループが i 回まわり、* を足します。",
+                "line は外側のループの回ごとに空文字列に戻ります。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "回数の数え間違い（i < 5）",
+          "wrong_code": "for (let i = 1; i < 5; i++)  // 1〜5 のつもり",
+          "why": "i < 5 は 5 を含みません（1〜4）。5 まで含めるには i <= 5 と書きます。",
+          "fix": "for (let i = 1; i <= 5; i++)"
+        },
+        {
+          "title": "while の更新忘れ",
+          "wrong_code": "let n = 3;\nwhile (n > 0) {\n  console.log(n);\n}",
+          "why": "n が変わらないので条件がずっと true。ページが固まる無限ループになります。",
+          "fix": "ループの中に n--; を書く"
+        },
+        {
+          "title": "合計の初期化忘れ",
+          "wrong_code": "let total;\nfor (...) { total += i; }",
+          "why": "total が undefined のまま足すと、結果は NaN になります。ループの前に 0 を入れます。",
+          "fix": "let total = 0;"
+        },
+        {
+          "title": "continue と break の取り違え",
+          "wrong_code": "if (i === 3) { break; }  // 3 だけ飛ばしたい",
+          "why": "break は 3 でループ全体が終わります。3 だけ飛ばしたいなら continue です。",
+          "fix": "if (i === 3) { continue; }"
+        }
+      ],
+      "checkpoints": [
+        "for (初期化; 条件; 更新) の3つの役割",
+        "i < 3 は 0・1・2 の3回（3 は含まれない）",
+        "合計は先に 0 を用意して += で足す",
+        "while は条件が true の間くり返す。中で条件の変数を更新する",
+        "break は終了、continue は次の回へ",
+        "入れ子では、外側が1回進むごとに内側が最初から回る"
+      ],
+      "next_bridge": "くり返しは、たくさんのデータに使うと本領を発揮します。まず問題で、回数や範囲を正確に追う練習をしましょう。"
+    },
+    {
+      "id": "LESSON-S05",
+      "stage_id": "S05",
+      "title": "配列",
+      "intro": "100 人分の点数を、100 個の変数に入れるのは大変です。配列を使うと、複数の値を1つの名前でまとめて扱えます。ステージ4の for と組み合わせると、データを順番に処理できます。Webページの中の「リスト」を扱うときにも欠かせません。",
+      "sections": [
+        {
+          "id": "S05-L1",
+          "title": "配列の基本",
+          "read_minutes": 3,
+          "body": [
+            "配列は、値を [ ] の中に , で区切って並べて作ります。例: const fruits = [\"りんご\", \"みかん\", \"ぶどう\"];。要素は番号（添字）で取り出し、番号は 0 から始まります。最初の要素は fruits[0] です。",
+            "fruits.length は要素の数（ここでは 3）で、最後の要素は fruits[fruits.length - 1] です。存在しない番号（fruits[5] など）を読んでも、エラーにはならず undefined になります。",
+            "fruits[1] = \"レモン\"; で要素を置き換え、push(値) で末尾に追加、pop() で末尾から取り出して削除します。const で宣言した配列にも、push などで中身を変更できます。const が禁止するのは、変数そのものへの再代入（fruits = [] など）だけです。"
+          ],
+          "glossary": [
+            {
+              "term": "配列",
+              "definition": "複数の値を順番に並べてまとめたデータ。"
+            },
+            {
+              "term": "要素",
+              "definition": "配列の中の1つ1つの値。"
+            },
+            {
+              "term": "添字（インデックス）",
+              "definition": "要素の位置を表す番号。0 から始まる。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S05-E1",
+              "title": "取り出しと長さ",
+              "language": "javascript",
+              "code": "const fruits = [\"りんご\", \"みかん\", \"ぶどう\"];\nconsole.log(fruits[0]);\nconsole.log(fruits[fruits.length - 1]);\nconsole.log(fruits.length);\nconsole.log(fruits[5]);",
+              "expected_output": "りんご\nぶどう\n3\nundefined",
+              "line_notes": [
+                "2行目: 添字 0 は最初の要素。",
+                "3行目: 最後の要素の添字は length - 1。",
+                "5行目: 範囲外はエラーにならず undefined になります。"
+              ]
+            },
+            {
+              "id": "S05-E2",
+              "title": "置き換え・追加・削除",
+              "language": "javascript",
+              "code": "const nums = [10, 20, 30];\nnums[1] = 99;\nnums.push(40);\nconst last = nums.pop();\nconsole.log(nums.join(\",\"));\nconsole.log(last);\nconsole.log(nums.length);",
+              "expected_output": "10,99,30\n40\n3",
+              "line_notes": [
+                "4行目: pop() は末尾の要素を取り出して削除し、その値を返します。",
+                "5行目: join(\",\") は、要素を , でつないだ文字列にします。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S05-L2",
+          "title": "配列を調べる・順に処理する",
+          "read_minutes": 3,
+          "body": [
+            "includes(値) は、その値が含まれているかを true / false で返します。indexOf(値) は、最初に見つかった位置を返し、なければ -1 を返します。slice(開始, 終了) は一部を新しい配列として取り出し、終了の位置の要素は含まれません。",
+            "配列の要素を1つずつ処理するには、添字を使う for のほか、for (const x of 配列) { ... } が使えます。for...of は、要素が順に x に入ります。添字で回すときは、i < arr.length と書きます（i <= arr.length だと1つ多くなります）。",
+            "console.log に配列をそのまま渡すと、配列全体が表示されます（表示の形式は環境によって少し違います）。このコースの問題では、join で文字列にして表示します。"
+          ],
+          "glossary": [
+            {
+              "term": "for...of",
+              "definition": "配列などの要素を、1つずつ取り出して処理する繰り返し。"
+            },
+            {
+              "term": "slice",
+              "definition": "配列の一部を、新しい配列として取り出すメソッド。終了の位置は含まれない。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S05-E3",
+              "title": "includes・indexOf・slice",
+              "language": "javascript",
+              "code": "const colors = [\"赤\", \"青\", \"緑\", \"黄\"];\nconsole.log(colors.includes(\"青\"));\nconsole.log(colors.indexOf(\"緑\"));\nconsole.log(colors.indexOf(\"白\"));\nconsole.log(colors.slice(1, 3).join(\"-\"));",
+              "expected_output": "true\n2\n-1\n青-緑",
+              "line_notes": [
+                "4行目: 見つからないと -1 です。",
+                "5行目: slice(1, 3) は添字 1 と 2 の2つだけ（3 は含まれません）。"
+              ]
+            },
+            {
+              "id": "S05-E4",
+              "title": "for...of で合計",
+              "language": "javascript",
+              "code": "const scores = [70, 85, 90];\nlet total = 0;\nfor (const s of scores) {\n  total += s;\n}\nconsole.log(total);\nlet count = 0;\nfor (let i = 0; i < scores.length; i++) {\n  count++;\n}\nconsole.log(count);",
+              "expected_output": "245\n3",
+              "line_notes": [
+                "3行目: scores の要素が1つずつ s に入ります。",
+                "8行目: 添字で回すときは i < scores.length と書きます。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "1番目を [1] と思う",
+          "wrong_code": "console.log(fruits[1]);  // 最初の要素のつもり",
+          "why": "添字は 0 から始まります。fruits[1] は2番目の要素です。",
+          "fix": "console.log(fruits[0]);"
+        },
+        {
+          "title": "push を [ ] で書く",
+          "wrong_code": "arr.push[4];",
+          "why": "push は関数なので ( ) で呼びます。[ ] だと何も追加されず、エラーにもなりません。",
+          "fix": "arr.push(4);"
+        },
+        {
+          "title": "i <= arr.length",
+          "wrong_code": "for (let i = 0; i <= arr.length; i++)",
+          "why": "最後に arr[arr.length]（undefined）まで読んでしまい、合計が NaN になるなどのミスになります。",
+          "fix": "for (let i = 0; i < arr.length; i++)"
+        },
+        {
+          "title": "const の配列は変更できないと思う",
+          "wrong_code": "const list = [1];\nlist.push(2);  // エラーになると思い込む",
+          "why": "const は再代入を禁止するだけで、配列の中身の変更はできます。",
+          "fix": "list = [3]; のような再代入が TypeError になる"
+        }
+      ],
+      "checkpoints": [
+        "添字は 0 から。最後は arr[arr.length - 1]",
+        "範囲外の添字は undefined（エラーにならない）",
+        "push は末尾に追加、pop は末尾から削除",
+        "includes・indexOf（見つからないと -1）・join・slice",
+        "for...of で要素を順に取り出せる",
+        "const の配列にも push できる"
+      ],
+      "next_bridge": "配列で、順番のあるデータを扱えるようになりました。問題で、添字と範囲の扱いを確かめましょう。"
+    },
+    {
+      "id": "LESSON-S06",
+      "stage_id": "S06",
+      "title": "オブジェクト",
+      "intro": "配列は「順番」でデータを並べました。オブジェクトは「名前（キー）」でデータを並べます。「名前は Hana、年齢は 12」のように、1つのものについての複数の情報をまとめられます。Webページの要素の情報や、サーバーから届くデータなど、JavaScript のあらゆる場面で使われます。",
+      "sections": [
+        {
+          "id": "S06-L1",
+          "title": "オブジェクトの基本",
+          "read_minutes": 3,
+          "body": [
+            "オブジェクトは { } の中に キー: 値 を , で区切って書きます。例: const user = { name: \"Hana\", age: 12 };。値は user.name のようにドット記法で、または user[\"name\"] のように角括弧記法で取り出します。存在しないキーを読むと undefined になります。",
+            "変数に入れたキー名で取り出したいときは、角括弧記法を使います。const key = \"age\"; user[key] は 12 ですが、user.key は「key という名前のプロパティ」を探すので undefined になります。",
+            "user.age = 13; で更新、user.city = \"東京\"; で追加、delete user.name; で削除です。\"age\" in user で、プロパティがあるかを true / false で調べられます。const のオブジェクトでも、プロパティの変更はできます。",
+            "JSON.stringify(オブジェクト) は、オブジェクトを JSON という文字列にします。console.log でオブジェクトの中身を確かめるときに便利です。"
+          ],
+          "glossary": [
+            {
+              "term": "オブジェクト",
+              "definition": "キーと値のペア（プロパティ）をまとめたデータ。"
+            },
+            {
+              "term": "プロパティ",
+              "definition": "オブジェクトの中の、キーと値の1組。"
+            },
+            {
+              "term": "JSON",
+              "definition": "データを文字列で表す形式。JSON.stringify でオブジェクトを変換できる。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S06-E1",
+              "title": "読み出し",
+              "language": "javascript",
+              "code": "const user = { name: \"Hana\", age: 12 };\nconsole.log(user.name);\nconsole.log(user[\"age\"]);\nconsole.log(user.city);\nconst key = \"age\";\nconsole.log(user[key]);\nconsole.log(user.key);\nconsole.log(\"age\" in user);",
+              "expected_output": "Hana\n12\nundefined\n12\nundefined\ntrue",
+              "line_notes": [
+                "4行目: 存在しないキーを読むと undefined です。",
+                "6行目: 変数のキー名で取り出すには角括弧記法を使います。",
+                "7行目: user.key は「key」という名前のプロパティを探すので undefined です。"
+              ]
+            },
+            {
+              "id": "S06-E2",
+              "title": "追加・更新・削除",
+              "language": "javascript",
+              "code": "const user = { name: \"Hana\", age: 12 };\nuser.age = 13;\nuser.city = \"東京\";\ndelete user.name;\nconsole.log(JSON.stringify(user));",
+              "expected_output": "{\"age\":13,\"city\":\"東京\"}",
+              "line_notes": [
+                "2行目: 既にあるプロパティは更新されます。",
+                "3行目: ないプロパティは追加されます。",
+                "4行目: delete でプロパティが削除されます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S06-L2",
+          "title": "ネスト・オブジェクトの配列・Object.keys",
+          "read_minutes": 3,
+          "body": [
+            "オブジェクトの値には、別のオブジェクトや配列も入れられます（ネスト）。book.author.name のように、ドットをつなげて奥まで読みます。途中が undefined だと、その先を読んだときに TypeError（Cannot read properties of undefined）になります。",
+            "オブジェクトを要素にもつ配列は、ユーザー一覧や商品一覧によく使われます。users[1].name のように、添字とドットを組み合わせて読みます。",
+            "Object.keys(オブジェクト) は、キーの配列を返します。for (const key of Object.keys(obj)) と組み合わせると、すべてのプロパティを順に処理できます。値は obj[key] で取り出します。"
+          ],
+          "glossary": [
+            {
+              "term": "ネスト",
+              "definition": "入れ物の中に、さらに入れ物を入れること。"
+            },
+            {
+              "term": "Object.keys",
+              "definition": "オブジェクトのキーを、配列として返す。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S06-E3",
+              "title": "ネストと配列",
+              "language": "javascript",
+              "code": "const book = { title: \"JS入門\", author: { name: \"Taro\", age: 30 } };\nconsole.log(book.author.name);\nconst users = [{ name: \"A\", age: 20 }, { name: \"B\", age: 17 }];\nconsole.log(users[1].name);\nconsole.log(users.length);\nconsole.log(users[0].age + users[1].age);",
+              "expected_output": "Taro\nB\n2\n37",
+              "line_notes": [
+                "2行目: ドットをつなげて、奥のプロパティを読みます。",
+                "4行目: users[1] は2番目のオブジェクトです。"
+              ]
+            },
+            {
+              "id": "S06-E4",
+              "title": "Object.keys でくり返す",
+              "language": "javascript",
+              "code": "const scores = { math: 80, english: 70 };\nlet total = 0;\nfor (const key of Object.keys(scores)) {\n  console.log(key + \": \" + scores[key]);\n  total += scores[key];\n}\nconsole.log(total);",
+              "expected_output": "math: 80\nenglish: 70\n150",
+              "line_notes": [
+                "3行目: Object.keys(scores) は [\"math\", \"english\"] です。",
+                "4行目: scores[key] で、そのキーの値を取り出します。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "変数のキー名を user.key と書く",
+          "wrong_code": "const key = \"age\";\nconsole.log(user.key);",
+          "why": "user.key は、key という名前のプロパティを探します。変数の値をキー名にしたいときは user[key]。",
+          "fix": "console.log(user[key]);"
+        },
+        {
+          "title": "存在しないプロパティの中身を読む",
+          "wrong_code": "console.log(user.address.city);",
+          "why": "user.address が undefined なので、その中の city を読もうとして TypeError になります。",
+          "fix": "address を持たせる、または存在を確認してから読む"
+        },
+        {
+          "title": "プロパティの確認に includes を使う",
+          "wrong_code": "user.includes(\"age\")",
+          "why": "includes は配列・文字列のメソッドで、オブジェクトにはありません（TypeError）。in 演算子を使います。",
+          "fix": "\"age\" in user"
+        },
+        {
+          "title": "カウントの初期値",
+          "wrong_code": "counts[ch] = 0;  // 初めて出てきた文字",
+          "why": "初めて出てきた時点で1回出ているので、初期値は 1 です。",
+          "fix": "counts[ch] = 1;"
+        }
+      ],
+      "checkpoints": [
+        "{ キー: 値 } で作り、ドット記法か角括弧記法で読む",
+        "変数のキー名は角括弧記法で取り出す",
+        "追加・更新は代入、削除は delete、存在確認は in",
+        "存在しないプロパティは undefined、その中身を読むと TypeError",
+        "Object.keys と for...of で全プロパティを処理できる",
+        "オブジェクトの配列は users[0].name のように読む"
+      ],
+      "next_bridge": "オブジェクトで、「名前付きのデータ」を扱えるようになりました。問題で、プロパティの読み出しや、ネストした構造の扱いを確かめましょう。"
+    },
+    {
+      "id": "LESSON-S07",
+      "stage_id": "S07",
+      "title": "関数",
+      "intro": "同じ処理を何度も書くのは大変で、間違いのもとです。処理に名前を付けて「部品」にしたものが関数です。ここまで使ってきた console.log や push も関数でした。ページのボタンを押したときの動き（ステージ9）は、関数を渡して書くので、この回の内容が土台になります。",
+      "sections": [
+        {
+          "id": "S07-L1",
+          "title": "関数を作って呼び出す",
+          "read_minutes": 3,
+          "body": [
+            "function 関数名(引数) { ... } で関数を定義します。定義しただけでは実行されず、関数名(値) と書いて呼び出したときに実行されます。呼び出し時に渡す値を引数といい、関数の中では引数の名前で使えます。",
+            "return 値; は、結果を呼び出し元へ返して、関数を終了します。return がない関数の戻り値は undefined です。console.log は画面（コンソール）に表示するだけで、値は返しません。結果を別の計算に使うなら return を使います。",
+            "アロー関数 const add = (a, b) => a + b; は、関数を短く書く方法です。{ } で囲んだときは、結果を返すために return が必要です。引数にデフォルト値を決めたいときは、function power(base, exp = 2) のように = で書きます。"
+          ],
+          "glossary": [
+            {
+              "term": "関数",
+              "definition": "名前を付けた処理のまとまり。"
+            },
+            {
+              "term": "引数",
+              "definition": "関数に渡す材料の値。"
+            },
+            {
+              "term": "戻り値",
+              "definition": "関数が return で返す結果。"
+            },
+            {
+              "term": "アロー関数",
+              "definition": "=> を使った、関数の短い書き方。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S07-E1",
+              "title": "引数と戻り値",
+              "language": "javascript",
+              "code": "function add(a, b) {\n  return a + b;\n}\nconsole.log(add(3, 4));\nconsole.log(add(3, 4) * 2);\nfunction show(x) {\n  console.log(x);\n}\nconst r = show(5);\nconsole.log(r);",
+              "expected_output": "7\n14\n5\nundefined",
+              "line_notes": [
+                "5行目: 呼び出しは戻り値に置き換わって計算が進みます。",
+                "9〜10行目: show は何も返さないので、r は undefined です。"
+              ]
+            },
+            {
+              "id": "S07-E2",
+              "title": "アロー関数とデフォルト引数",
+              "language": "javascript",
+              "code": "const double = (n) => n * 2;\nconsole.log(double(4));\nconst add = (a, b) => {\n  return a + b;\n};\nconsole.log(add(1, 2));\nfunction power(base, exp = 2) {\n  return base ** exp;\n}\nconsole.log(power(3));\nconsole.log(power(2, 5));",
+              "expected_output": "8\n3\n9\n32",
+              "line_notes": [
+                "1行目: { } がなければ、式の結果がそのまま戻り値になります。",
+                "3〜5行目: { } を使うときは return が必要です。",
+                "11行目: exp を省略すると、デフォルトの 2 が使われます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S07-L2",
+          "title": "スコープとコールバック",
+          "read_minutes": 3,
+          "body": [
+            "関数の中で宣言した変数は、その関数の中だけで使えます（ローカル変数）。同じ名前の外の変数とは別物で、外の値は変わりません。let / const は { } の中だけで有効な「ブロックスコープ」です。{ } の外から使うと ReferenceError になります。",
+            "関数は値として、別の関数に渡せます。渡された関数を、あとで呼び出してもらう仕組みをコールバックといいます。配列のメソッドの forEach（各要素に処理）、map（各要素を変換した新しい配列）、filter（条件に合う要素だけの新しい配列）は、コールバックを受け取ります。",
+            "ステージ9のイベント処理でも、「クリックされたらこの関数を呼んで」と、関数を渡します。このとき、関数名のあとに ( ) を付けない点に注意します。fn は関数そのもの、fn() は関数を呼び出した結果です。"
+          ],
+          "glossary": [
+            {
+              "term": "ローカル変数",
+              "definition": "関数やブロックの中だけで有効な変数。"
+            },
+            {
+              "term": "コールバック",
+              "definition": "あとで呼び出してもらうために、別の関数に渡す関数。"
+            },
+            {
+              "term": "map / filter",
+              "definition": "配列の各要素を変換する / 条件に合う要素を選ぶメソッド。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S07-E3",
+              "title": "スコープ",
+              "language": "javascript",
+              "code": "let x = 100;\nfunction f() {\n  let x = 10;\n  return x + 1;\n}\nconsole.log(f());\nconsole.log(x);\n{\n  let y = 1;\n}\nconsole.log(typeof y);",
+              "expected_output": "11\n100\nundefined",
+              "line_notes": [
+                "3行目: 関数の中の x は別の変数です。外の x は変わりません。",
+                "10行目: y は { } の中だけの変数なので、外では存在しません（typeof は undefined を返します）。"
+              ]
+            },
+            {
+              "id": "S07-E4",
+              "title": "map・filter・forEach",
+              "language": "javascript",
+              "code": "const nums = [1, 2, 3, 4];\nconsole.log(nums.map((n) => n * 2).join(\",\"));\nconsole.log(nums.filter((n) => n % 2 === 0).join(\",\"));\nnums.forEach((n) => {\n  console.log(\"値: \" + n);\n});",
+              "expected_output": "2,4,6,8\n2,4\n値: 1\n値: 2\n値: 3\n値: 4",
+              "line_notes": [
+                "2行目: map は、各要素を2倍にした新しい配列を返します。",
+                "3行目: filter は、関数が true を返した要素だけを集めます。",
+                "4行目: forEach は、各要素に対して関数を呼び出します（戻り値は使いません）。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "定義しただけで呼び出さない",
+          "wrong_code": "function greet() {\n  console.log(\"hi\");\n}",
+          "why": "定義だけでは何も起きません。greet() と呼び出します。",
+          "fix": "greet();"
+        },
+        {
+          "title": "return の代わりに console.log",
+          "wrong_code": "function area(w, h) {\n  console.log(w * h);\n}\nconst x = area(3, 4) + 1;",
+          "why": "area は何も返さない（undefined）ので、undefined + 1 は NaN になります。",
+          "fix": "console.log を return に変える"
+        },
+        {
+          "title": "アロー関数の { } で return を忘れる",
+          "wrong_code": "const add = (a, b) => { a + b };",
+          "why": "{ } を使うと、return がないので undefined が返ります。",
+          "fix": "const add = (a, b) => a + b;"
+        },
+        {
+          "title": "return をループの中に書く",
+          "wrong_code": "for (const n of nums) {\n  s += n;\n  return s;\n}",
+          "why": "return でその場で関数が終了し、1回目で終わってしまいます。",
+          "fix": "return s; をループの外に書く"
+        }
+      ],
+      "checkpoints": [
+        "関数は定義だけでは実行されず、関数名() で呼び出す",
+        "return は値を返して関数を終了する。なければ undefined",
+        "console.log は表示するだけ。値は返さない",
+        "アロー関数の { } では return が必要",
+        "関数の中の変数は外とは別物（ローカル変数）",
+        "map・filter・forEach には関数を渡す（関数名のあとに ( ) は付けない）"
+      ],
+      "next_bridge": "関数が使えると、処理を部品として組み合わせられます。問題で、戻り値や return の働きを確かめましょう。"
+    },
+    {
+      "id": "LESSON-S08",
+      "stage_id": "S08",
+      "title": "DOM操作",
+      "intro": "ここからが、JavaScript の本領です。ブラウザは、HTML を読み取ると、ページの内容を「要素の木」のようなデータ（DOM）に作り変えます。JavaScript は、この DOM を書き換えることで、ページの文字・見た目・構造を、あとから変えられます。この回では、「要素を取り出して、書き換える」基本の流れを学びます。",
+      "sections": [
+        {
+          "id": "S08-L1",
+          "title": "DOM と要素の取得・書き換え",
+          "read_minutes": 3,
+          "body": [
+            "DOM（Document Object Model）は、ブラウザが HTML をもとに作る、要素の木構造のデータです。JavaScript では document というオブジェクトを入り口にして、DOM の要素を読み書きします。DOM を書き換えても、HTML ファイルそのものは変わらず、いま表示しているページだけが変わります。",
+            "要素を取り出すには、CSS のセレクタを使います。document.querySelector(\"#title\") は id が title の要素、document.querySelector(\".note\") は class が note の最初の1つです。該当するものすべては document.querySelectorAll(\".note\") で、配列に似た一覧が返ります（添字や for...of で扱えます）。見つからないと null になります。",
+            "要素の文字を変えるには textContent を使います。入力欄（input）の中身は value です。textContent に入れた文字列は、HTML ではなく、ただの文字として表示されます。HTML として解釈させる innerHTML は、ユーザーの入力を入れると、悪意のあるコードを実行される危険があるため、文字を入れたいときは textContent を使います。",
+            "<script> は、操作したい要素より後ろ（body の最後など）に書きます。ブラウザは HTML を上から順に読むので、要素がまだ作られていない位置のスクリプトからは、その要素を取得できません。"
+          ],
+          "glossary": [
+            {
+              "term": "DOM",
+              "definition": "ブラウザが HTML から作る、要素の木構造のデータ。JavaScript から読み書きできる。"
+            },
+            {
+              "term": "querySelector",
+              "definition": "CSS のセレクタで、最初に見つかった要素を取り出すメソッド。"
+            },
+            {
+              "term": "textContent",
+              "definition": "要素の中の文字列。書き換えると画面の文字が変わる。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S08-E1",
+              "title": "要素を取り出して書き換える",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>DOM</title></head>\n<body>\n  <h1 id=\"title\">変更前</h1>\n  <p class=\"note\">A</p>\n  <p class=\"note\">B</p>\n  <script>\n    document.querySelector(\"#title\").textContent = \"変更後\";\n    const notes = document.querySelectorAll(\".note\");\n    notes[1].textContent = \"Bを書き換えた\";\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "8行目: id が title の要素の文字を書き換えます。",
+                "9〜10行目: class が note の要素を、すべて取り出し、2つ目（添字 1）の文字を書き換えます。",
+                "<script> は、要素より後ろに書かれているので、要素を取り出せます。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "document.getElementById('title').textContent === '変更後' && document.querySelectorAll('.note')[1].textContent === 'Bを書き換えた' && document.querySelectorAll('.note')[0].textContent === 'A'"
+              }
+            },
+            {
+              "id": "S08-E2",
+              "title": "入力欄の value",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>value</title></head>\n<body>\n  <input id=\"name\" type=\"text\">\n  <script>\n    const input = document.querySelector(\"#name\");\n    input.value = \"Hana\";\n    console.log(input.value);\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "input の中身は、textContent ではなく value で読み書きします。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "document.getElementById('name').value === 'Hana'"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S08-L2",
+          "title": "class・style・要素の追加",
+          "read_minutes": 3,
+          "body": [
+            "要素の class を操作するには classList を使います。classList.add(\"on\") で追加、remove(\"on\") で削除、toggle(\"on\") で「あれば削除、なければ追加」、contains(\"on\") で持っているかを調べます。見た目は CSS で class に書いておき、JavaScript では class を付け外しする方法が、保守しやすい基本の形です。",
+            "style プロパティで、直接スタイルを変えることもできます。CSS のプロパティ名のハイフンは取り除き、次の文字を大文字にします（background-color は el.style.backgroundColor）。属性は el.setAttribute(\"href\", \"b.html\") や el.getAttribute(\"href\") で扱います。",
+            "要素を新しく作って追加するには、document.createElement(\"li\") で要素を作り、textContent などで中身を設定し、親要素.appendChild(要素) で追加します。要素を削除するには el.remove() です。配列のデータからリストを作るときに、for と組み合わせてよく使います。"
+          ],
+          "glossary": [
+            {
+              "term": "classList",
+              "definition": "要素の class を操作するための機能。add / remove / toggle / contains。"
+            },
+            {
+              "term": "createElement",
+              "definition": "新しい要素を作るメソッド。作っただけでは画面に出ない。"
+            },
+            {
+              "term": "appendChild",
+              "definition": "親要素の末尾に、子要素を追加するメソッド。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S08-E3",
+              "title": "classList と style",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head>\n  <meta charset=\"utf-8\"><title>class</title>\n  <style>.on { color: red; }</style>\n</head>\n<body>\n  <p id=\"msg\">こんにちは</p>\n  <script>\n    const msg = document.querySelector(\"#msg\");\n    msg.classList.add(\"on\");\n    msg.style.fontSize = \"24px\";\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "10行目: class を付けると、CSS の .on のルールが適用されて赤くなります。",
+                "11行目: style で直接、文字の大きさを変えます（font-size → fontSize）。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "getComputedStyle(document.getElementById('msg')).color === 'rgb(255, 0, 0)' && getComputedStyle(document.getElementById('msg')).fontSize === '24px'"
+              }
+            },
+            {
+              "id": "S08-E4",
+              "title": "要素を作って追加する",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>追加</title></head>\n<body>\n  <ul id=\"list\"></ul>\n  <script>\n    const fruits = [\"りんご\", \"みかん\", \"ぶどう\"];\n    const list = document.querySelector(\"#list\");\n    for (const fruit of fruits) {\n      const li = document.createElement(\"li\");\n      li.textContent = fruit;\n      list.appendChild(li);\n    }\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "10行目: li 要素を作ります（まだ画面には出ません）。",
+                "11行目: 中身の文字を設定します。",
+                "12行目: ul の末尾に追加すると、画面に表示されます。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "expr": "document.querySelectorAll('#list > li').length === 3 && document.querySelector('#list > li:last-child').textContent === 'ぶどう'"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "セレクタの typo・# と . の取り違え",
+          "wrong_code": "document.querySelector(\"#mgs\").textContent = \"OK\";",
+          "why": "該当する要素がないと null が返り、null の textContent に代入しようとして TypeError になります。id は #、class は . です。",
+          "fix": "document.querySelector(\"#msg\")"
+        },
+        {
+          "title": "style にハイフン付きの名前",
+          "wrong_code": "box.style.background-color = \"red\";",
+          "why": "ハイフンは引き算として読まれ、SyntaxError になります。backgroundColor と書きます。",
+          "fix": "box.style.backgroundColor = \"red\";"
+        },
+        {
+          "title": "input の値に textContent",
+          "wrong_code": "input.textContent = \"Hana\";",
+          "why": "input は中身を持たない要素なので、文字は表示されません。value を使います。",
+          "fix": "input.value = \"Hana\";"
+        },
+        {
+          "title": "ユーザーの入力を innerHTML に入れる",
+          "wrong_code": "el.innerHTML = userInput;",
+          "why": "入力が HTML として解釈され、悪意のあるコードが実行される危険があります。",
+          "fix": "el.textContent = userInput;"
+        }
+      ],
+      "checkpoints": [
+        "DOM は HTML から作られる要素の木。書き換えてもファイルは変わらない",
+        "querySelector は最初の1つ、querySelectorAll は全部。見つからなければ null",
+        "文字は textContent、入力欄は value",
+        "classList の add / remove / toggle / contains",
+        "style は backgroundColor のようにキャメルケース",
+        "createElement → 中身を設定 → appendChild"
+      ],
+      "next_bridge": "ページを書き換える方法が分かりました。問題では、実際の HTML と組み合わせたコードを読み、書いてみましょう。ボタンで動かす方法は、次のステージで学びます。"
+    },
+    {
+      "id": "LESSON-S09",
+      "stage_id": "S09",
+      "title": "イベント処理",
+      "intro": "ボタンを押したとき、文字を入力したとき、フォームを送ったとき。ユーザーが何かしたときに動く処理を書くのが「イベント処理」です。前の回で書いた DOM の書き換えを、ユーザーの操作に結びつけると、動きのあるページになります。",
+      "sections": [
+        {
+          "id": "S09-L1",
+          "title": "addEventListener と関数を渡すこと",
+          "read_minutes": 3,
+          "body": [
+            "要素.addEventListener(\"イベント名\", 関数) で、「そのイベントが起きたら、この関数を呼んでください」とブラウザに頼みます。クリックのイベント名は click です（onclick ではなく、on を付けません）。",
+            "関数には、関数名だけを書いて渡します。addEventListener(\"click\", inc) と書くと、クリックされたときにブラウザが inc を呼び出します。inc() と ( ) を付けると、登録する時点で inc が実行され、その戻り値（undefined）が渡されてしまうため、クリックしても何も起きません。",
+            "関数は、イベントオブジェクト（慣習で e と書く）を受け取ります。e.target は、イベントが起きた要素です。入力欄の値は e.target.value で読めます。",
+            "querySelectorAll の結果（要素の一覧）には、addEventListener を直接呼べません。for...of などで、1つずつ取り出して付けます。"
+          ],
+          "glossary": [
+            {
+              "term": "イベント",
+              "definition": "クリック、入力、送信など、ユーザーの操作やブラウザの出来事。"
+            },
+            {
+              "term": "イベントリスナー",
+              "definition": "イベントが起きたときに呼び出される関数。addEventListener で登録する。"
+            },
+            {
+              "term": "e.target",
+              "definition": "イベントが起きた要素。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S09-E1",
+              "title": "クリックしたら数を増やす",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>カウンター</title></head>\n<body>\n  <button id=\"plus\">+1</button>\n  <p id=\"count\">0</p>\n  <script>\n    let count = 0;\n    const out = document.querySelector(\"#count\");\n    document.querySelector(\"#plus\").addEventListener(\"click\", () => {\n      count++;\n      out.textContent = count;\n    });\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "10行目: \"click\" は、クリックのイベント名です。",
+                "10〜13行目: クリックのたびに、この関数が呼ばれ、count が1ずつ増えます。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "document.getElementById('plus').click()",
+                  "document.getElementById('plus').click()",
+                  "document.getElementById('plus').click()"
+                ],
+                "expr": "document.getElementById('count').textContent === '3'"
+              }
+            },
+            {
+              "id": "S09-E2",
+              "title": "入力に反応する（input イベント）",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>input</title></head>\n<body>\n  <input id=\"name\" type=\"text\">\n  <p id=\"out\"></p>\n  <script>\n    document.querySelector(\"#name\").addEventListener(\"input\", (e) => {\n      document.querySelector(\"#out\").textContent = \"こんにちは、\" + e.target.value;\n    });\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "input イベントは、入力欄の中身が変わるたびに起きます。",
+                "e.target は入力欄の要素で、e.target.value が現在の入力内容です。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "(function(){var t=document.getElementById('name'); t.value='Hana'; t.dispatchEvent(new Event('input'));})()"
+                ],
+                "expr": "document.getElementById('out').textContent === 'こんにちは、Hana'"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S09-L2",
+          "title": "いろいろなイベント・preventDefault・バブリング",
+          "read_minutes": 3,
+          "body": [
+            "よく使うイベント: click（クリック）、input（入力のたび）、change（値が確定したとき）、submit（フォームの送信）、keydown（キーを押した）、DOMContentLoaded（HTML の読み込み完了）。",
+            "フォームの submit イベントは、そのままだとページを送信先へ移動（または再読み込み）します。それを止めて、JavaScript で処理したいときは、関数の中で e.preventDefault() を呼びます。",
+            "子要素で起きたイベントは、親要素へも伝わります（バブリング）。内側の要素のイベントリスナーが先、その外側の要素のものが後に呼ばれます。この性質を使って、親要素1つにリスナーを付け、e.target で「どの子がクリックされたか」を判断する方法をイベント委譲といいます。要素に data-名前=\"値\" という属性を付けておくと、JavaScript では el.dataset.名前 で読めます。"
+          ],
+          "glossary": [
+            {
+              "term": "preventDefault",
+              "definition": "イベントの標準の動作（フォーム送信によるページ移動など）を止めるメソッド。"
+            },
+            {
+              "term": "バブリング",
+              "definition": "子要素で起きたイベントが、親要素へ順に伝わること。"
+            },
+            {
+              "term": "イベント委譲",
+              "definition": "親要素にリスナーを付け、e.target で子要素を判断する書き方。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S09-E3",
+              "title": "フォームと preventDefault",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>submit</title></head>\n<body>\n  <form id=\"form\">\n    <input id=\"word\" type=\"text\" value=\"こんにちは\">\n    <button type=\"submit\">送信</button>\n  </form>\n  <p id=\"msg\"></p>\n  <script>\n    document.querySelector(\"#form\").addEventListener(\"submit\", (e) => {\n      e.preventDefault();\n      document.querySelector(\"#msg\").textContent = \"送信: \" + document.querySelector(\"#word\").value;\n    });\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "11行目: submit イベントで、ページ移動を止めて（preventDefault）、自分の処理を行います。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "document.getElementById('form').dispatchEvent(new Event('submit', { cancelable: true }))"
+                ],
+                "expr": "document.getElementById('msg').textContent === '送信: こんにちは'"
+              }
+            },
+            {
+              "id": "S09-E4",
+              "title": "イベント委譲",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>委譲</title></head>\n<body>\n  <ul id=\"menu\">\n    <li data-name=\"home\">ホーム</li>\n    <li data-name=\"about\">概要</li>\n    <li data-name=\"contact\">連絡先</li>\n  </ul>\n  <p id=\"out\"></p>\n  <script>\n    document.querySelector(\"#menu\").addEventListener(\"click\", (e) => {\n      document.querySelector(\"#out\").textContent = e.target.dataset.name;\n    });\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "ul に1つだけリスナーを付けています。li をクリックすると、バブリングで ul に伝わります。",
+                "e.target は実際にクリックされた li で、data-name の値は dataset.name で読めます。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "document.querySelectorAll('#menu li')[1].click()"
+                ],
+                "expr": "document.getElementById('out').textContent === 'about'"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "関数を渡さず、呼び出してしまう",
+          "wrong_code": "btn.addEventListener(\"click\", inc());",
+          "why": "inc() は登録の時点で実行され、その戻り値（undefined）が渡されます。クリックしても何も起きません。",
+          "fix": "btn.addEventListener(\"click\", inc);"
+        },
+        {
+          "title": "イベント名に on を付ける",
+          "wrong_code": "btn.addEventListener(\"onclick\", fn);",
+          "why": "イベント名は click です。onclick というイベントはなく、何も起きません。",
+          "fix": "btn.addEventListener(\"click\", fn);"
+        },
+        {
+          "title": "一覧にまとめて addEventListener",
+          "wrong_code": "document.querySelectorAll(\".btn\").addEventListener(\"click\", fn);",
+          "why": "querySelectorAll の結果は要素の一覧で、addEventListener を持っていません（TypeError）。for...of で1つずつ付けます。",
+          "fix": "for (const b of buttons) { b.addEventListener(\"click\", fn); }"
+        },
+        {
+          "title": "preventDefault を忘れる",
+          "wrong_code": "form.addEventListener(\"submit\", (e) => { ... });",
+          "why": "標準の動作（ページ移動・再読み込み）が起き、画面の書き換えが消えてしまいます。",
+          "fix": "関数の最初に e.preventDefault();"
+        }
+      ],
+      "checkpoints": [
+        "addEventListener(\"イベント名\", 関数) で結びつける",
+        "関数は渡す（fn）。fn() は呼び出し",
+        "イベント名は click・input・submit など（on を付けない）",
+        "e.target は起きた要素、入力欄の値は e.target.value",
+        "フォーム送信は preventDefault で止める",
+        "イベントは子から親へ伝わる（バブリング）"
+      ],
+      "next_bridge": "「ユーザーの操作で動く」ページが書けるようになりました。問題で、イベント処理のコードを読み、書いてみましょう。"
+    },
+    {
+      "id": "LESSON-S10",
+      "stage_id": "S10",
+      "title": "簡単なWebアプリ制作",
+      "intro": "最後のステージです。新しい文法はほとんどありません。変数・配列・関数・DOM・イベントを組み合わせて、ページの中で動く小さなアプリを作ります。コツは、いきなり全部を書かず、「何を覚えておくか（データ）」「画面にどう見せるか（表示）」「どの操作で何が起きるか（イベント）」を分けて考えることです。",
+      "sections": [
+        {
+          "id": "S10-L1",
+          "title": "アプリづくりの考え方",
+          "read_minutes": 3,
+          "body": [
+            "アプリは、「データを更新する → 画面を書き換える」の繰り返しです。例えば、ToDo アプリでは、「項目の一覧」がデータで、画面の li の並びが表示です。データだけを書き換えても、画面は自動では変わりません。データを変えたあと、表示を書き換える処理（render など）を呼ぶ必要があります。",
+            "入力欄の value は、数字を入れていても文字列です。そのまま + で足すと連結になるので、計算に使うときは Number(文字列) で数値にします。",
+            "ユーザーは、想定外の入力をします。空の入力や、スペースだけの入力は、追加しない、のようにチェックしましょう。文字列の前後の空白は trim() で取り除けます。",
+            "作る順番は、(1) 表示だけ作る、(2) 1つのボタンの動きだけ作る、(3) 想定外の入力に対応する、と、少しずつ確かめながら進めるのが安全です。"
+          ],
+          "glossary": [
+            {
+              "term": "状態（データ）",
+              "definition": "アプリが覚えておく値。数や配列など。"
+            },
+            {
+              "term": "render（描画）",
+              "definition": "データをもとに、画面（DOM）を書き換える処理。"
+            },
+            {
+              "term": "trim",
+              "definition": "文字列の前後の空白を取り除くメソッド。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S10-E1",
+              "title": "入力値は文字列",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>足し算</title></head>\n<body>\n  <input id=\"a\" value=\"1\">\n  <input id=\"b\" value=\"2\">\n  <button id=\"calc\">足す</button>\n  <p id=\"result\"></p>\n  <script>\n    document.querySelector(\"#calc\").addEventListener(\"click\", () => {\n      const a = Number(document.querySelector(\"#a\").value);\n      const b = Number(document.querySelector(\"#b\").value);\n      document.querySelector(\"#result\").textContent = a + b;\n    });\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "11〜12行目: value は文字列なので、Number() で数値にしてから足します。",
+                "Number() を付けないと、\"1\" + \"2\" が \"12\" になります。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "document.getElementById('calc').click()"
+                ],
+                "expr": "document.getElementById('result').textContent === '3'"
+              }
+            },
+            {
+              "id": "S10-E2",
+              "title": "ToDo の追加（空のチェックつき）",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>ToDo</title></head>\n<body>\n  <input id=\"todoInput\" type=\"text\">\n  <button id=\"addBtn\">追加</button>\n  <ul id=\"todoList\"></ul>\n  <script>\n    const input = document.querySelector(\"#todoInput\");\n    const list = document.querySelector(\"#todoList\");\n    document.querySelector(\"#addBtn\").addEventListener(\"click\", () => {\n      const text = input.value.trim();\n      if (text === \"\") {\n        return;\n      }\n      const li = document.createElement(\"li\");\n      li.textContent = text;\n      list.appendChild(li);\n      input.value = \"\";\n    });\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "12行目: trim() で前後の空白を取り除きます。",
+                "13〜15行目: 空なら何も追加せず、return でこの関数を終わります。",
+                "20行目: 追加したあと、入力欄を空に戻します。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "document.getElementById('todoInput').value='牛乳を買う'; document.getElementById('addBtn').click()",
+                  "document.getElementById('todoInput').value='   '; document.getElementById('addBtn').click()",
+                  "document.getElementById('todoInput').value='宿題'; document.getElementById('addBtn').click()"
+                ],
+                "expr": "document.querySelectorAll('#todoList > li').length === 2 && document.querySelectorAll('#todoList > li')[0].textContent === '牛乳を買う' && document.getElementById('todoInput').value === ''"
+              }
+            }
+          ]
+        },
+        {
+          "id": "S10-L2",
+          "title": "いろいろなアプリの作り方",
+          "read_minutes": 3,
+          "body": [
+            "タブの切り替えは、「どのパネルを見せるか」を切り替える処理です。各ボタンに data-target=\"p1\" のように、対応するパネルの id を持たせておくと、クリックされたボタンの dataset.target で、見せるパネルが分かります。パネルは hidden 属性（el.hidden = true / false）で、表示と非表示を切り替えられます。",
+            "一覧の項目を、クリックで「完了」にするには、classList.toggle(\"done\") を使います。残りの件数などは、クリックのたびに数え直して表示します。項目ごとにリスナーを付けるほか、親要素にまとめて付けて e.target で判断する（イベント委譲）書き方もあります。",
+            "削除ボタンつきのリストでは、li の中に button を作り、そのクリックで li.remove() を呼びます。追加と削除のたびに、件数の表示も更新します。",
+            "ここから先は、入力内容をブラウザに保存する localStorage、サーバーと通信する fetch、コードを複数ファイルに分けるモジュール、フレームワークなどへ進めます。このコースの範囲は、ここまでです。"
+          ],
+          "glossary": [
+            {
+              "term": "dataset",
+              "definition": "data-名前=\"値\" という属性を、JavaScript から el.dataset.名前 で読み書きする機能。"
+            },
+            {
+              "term": "remove",
+              "definition": "要素を DOM から取り除くメソッド。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S10-E3",
+              "title": "タブの切り替え",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>タブ</title></head>\n<body>\n  <button class=\"tab\" data-target=\"p1\">タブ1</button>\n  <button class=\"tab\" data-target=\"p2\">タブ2</button>\n  <div id=\"p1\" class=\"panel\">内容1</div>\n  <div id=\"p2\" class=\"panel\" hidden>内容2</div>\n  <script>\n    const tabs = document.querySelectorAll(\".tab\");\n    const panels = document.querySelectorAll(\".panel\");\n    for (const tab of tabs) {\n      tab.addEventListener(\"click\", () => {\n        for (const p of panels) {\n          p.hidden = p.id !== tab.dataset.target;\n        }\n      });\n    }\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "12行目: すべてのタブに、同じ処理のリスナーを付けています。",
+                "14〜15行目: クリックされたタブの data-target と同じ id のパネルだけを、表示します。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "document.querySelectorAll('.tab')[1].click()"
+                ],
+                "expr": "document.getElementById('p1').hidden === true && document.getElementById('p2').hidden === false"
+              }
+            },
+            {
+              "id": "S10-E4",
+              "title": "クリックで完了にして、残りの件数を表示",
+              "language": "html",
+              "code": "<!doctype html>\n<html lang=\"ja\">\n<head><meta charset=\"utf-8\"><title>完了</title></head>\n<body>\n  <ul id=\"list\"><li>A</li><li>B</li><li>C</li></ul>\n  <p>残り: <span id=\"remaining\">3</span>件</p>\n  <script>\n    const items = document.querySelectorAll(\"#list li\");\n    const remaining = document.querySelector(\"#remaining\");\n    function update() {\n      let n = 0;\n      for (const li of items) {\n        if (!li.classList.contains(\"done\")) {\n          n++;\n        }\n      }\n      remaining.textContent = n;\n    }\n    for (const li of items) {\n      li.addEventListener(\"click\", () => {\n        li.classList.toggle(\"done\");\n        update();\n      });\n    }\n  </script>\n</body>\n</html>",
+              "line_notes": [
+                "10〜18行目: done の class がない li を数えて、残りの件数を表示します。",
+                "21〜22行目: クリックで done を付け外しし、そのたびに件数を更新します。"
+              ],
+              "preview": {
+                "format": "html_document"
+              },
+              "verify": {
+                "format": "html_document",
+                "actions": [
+                  "document.querySelectorAll('#list li')[0].click()",
+                  "document.querySelectorAll('#list li')[2].click()"
+                ],
+                "expr": "document.getElementById('remaining').textContent === '1'"
+              }
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "入力値をそのまま足す",
+          "wrong_code": "const a = document.querySelector(\"#a\").value;\nconst b = document.querySelector(\"#b\").value;\nresult.textContent = a + b;",
+          "why": "value は文字列なので、\"1\" + \"2\" は \"12\" になります。Number() で数値にします。",
+          "fix": "Number(a) + Number(b)"
+        },
+        {
+          "title": "データだけ更新して画面を更新しない",
+          "wrong_code": "todos.push(text);  // render() を呼ばない",
+          "why": "配列を変えても、画面の DOM は自動では変わりません。",
+          "fix": "データを変えたあとに render() を呼ぶ"
+        },
+        {
+          "title": "空の入力を追加してしまう",
+          "wrong_code": "const text = input.value;\nconst li = document.createElement(\"li\");",
+          "why": "空やスペースだけの入力でも、空の項目が追加されます。trim() で取り除き、空なら return します。",
+          "fix": "if (input.value.trim() === \"\") { return; }"
+        },
+        {
+          "title": "削除のあとに件数を更新しない",
+          "wrong_code": "del.addEventListener(\"click\", () => { li.remove(); });",
+          "why": "項目は消えても、「N件」の表示は古いままです。",
+          "fix": "li.remove(); updateTotal();"
+        }
+      ],
+      "checkpoints": [
+        "データを更新する → 画面を書き換える（render）",
+        "input の value は文字列。計算には Number()",
+        "空の入力は trim() で確認して無視する",
+        "追加・削除のあとは、件数などの表示も更新する",
+        "表示の切り替えは hidden や class の付け外し",
+        "小さく作って、1つずつ確かめる"
+      ],
+      "next_bridge": "JavaScript の最後のステージです。読む問題と、自分でアプリを書く問題があります。1つの機能ずつ、確かめながら作っていきましょう。"
+    }
+  ]
+}

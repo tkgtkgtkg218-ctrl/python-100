@@ -3,7 +3,7 @@
  *    内容が変わるとバージョンが変わるため、新しい Service Worker が入り、古いキャッシュは破棄される。
  *  - Pyodide（コード採点用の Python 実行環境）: jsDelivr からの取得を初回に自動でキャッシュし、以降はオフラインで使える。
  *  - 学習の進捗は localStorage にあり、更新しても消えない。 */
-const VERSION = "0aeeb65ced";
+const VERSION = "3455b4aecd";
 const SHELL_CACHE = "pypath-shell-" + VERSION;
 const PYODIDE_PREFIX = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/";
 const PYODIDE_CACHE = "pypath-pyodide-v0.26.4"; // バージョン固定なので、アプリ更新では消さない
