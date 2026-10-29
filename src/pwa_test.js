@@ -51,6 +51,7 @@ async function main() {
       await cdp.eval("localStorage.setItem('pypath.v1', JSON.stringify({stages:{S01:{answers:{'PY-001':{firstCorrect:true,tries:1,last:'c2'}},cleared:false,bestStars:0,attempts:1}},unlockAll:false}))");
     }
     if (phase === "phase1" || phase === "phase2") {
+      results.rawStorage = await cdp.eval("(localStorage.getItem('pypath.v1') || 'null').slice(0, 160)");
       results.progressKept = await cdp.eval("JSON.parse(localStorage.getItem('pypath.v1')||'{}').stages?.S01?.answers?.['PY-001']?.firstCorrect === true");
       results.pyodide = await cdp.eval(`(async () => {
         const t0 = performance.now();
@@ -83,7 +84,11 @@ async function main() {
       await sleep(2000);
       results.cacheKeysAfterUpdate = await cdp.eval("caches.keys()");
     }
-    await sleep(1500); // localStorage がディスクに書かれるのを待つ\n    ws.close();
+    await sleep(1500); // localStorage がディスクに書かれるのを待つ
+    // Chrome を、強制終了せずに閉じる（localStorage などをディスクへ書き込ませるため）
+    cdp.send("Browser.close").catch(() => {});
+    await sleep(2500);
+    ws.close();
   } catch (e) {
     results.error = String(e && e.stack || e);
   } finally {
