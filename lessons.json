@@ -1,0 +1,1441 @@
+{
+  "course_id": "python-basics-ja",
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "LESSON-S01",
+      "stage_id": "S01",
+      "title": "はじめの一歩",
+      "intro": "プログラミングは「コンピューターへの指示書」を書くことです。最初に覚えるのは、結果を画面に表示する print() だけ。これさえ使えれば、以降のすべての学習で「動かして確かめる」ことができます。",
+      "sections": [
+        {
+          "id": "S01-L1",
+          "title": "print() で画面に表示する",
+          "read_minutes": 2,
+          "body": [
+            "Python で画面に何かを表示したいときは print() を使います。括弧 ( ) の中に表示したいものを書きます。",
+            "文字（文字列）を表示するときは、必ず引用符 \" \" か ' ' で囲みます。引用符は「ここからここまでは、ただの文字だよ」という目印です。数値は引用符なしで書けます。",
+            "print() は表示したあとに自動で改行（次の行に移動）します。そのため print() を3回書くと、3行に分かれて表示されます。コードは上の行から順番に1行ずつ実行されます。"
+          ],
+          "glossary": [
+            {
+              "term": "プログラム / コード",
+              "definition": "コンピューターに出す指示を書いたもの。"
+            },
+            {
+              "term": "実行",
+              "definition": "書いた指示をコンピューターに動かしてもらうこと。"
+            },
+            {
+              "term": "関数",
+              "definition": "決まった仕事をしてくれる命令のこと。print() は「表示する」関数です。"
+            },
+            {
+              "term": "文字列",
+              "definition": "文字のならび。引用符で囲んで書く。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S01-E1",
+              "title": "いちばん短いプログラム",
+              "code": "print(\"Hello\")",
+              "expected_output": "Hello",
+              "line_notes": [
+                "1行目: print( ) の中の文字列 \"Hello\" を画面に表示します。出力に引用符は出ません。"
+              ]
+            },
+            {
+              "id": "S01-E2",
+              "title": "上から順に実行される",
+              "code": "print(\"おはよう\")\nprint(\"こんにちは\")\nprint(2024)",
+              "expected_output": "おはよう\nこんにちは\n2024",
+              "line_notes": [
+                "1行目: おはよう を表示して改行します。",
+                "2行目: 次にこんにちは を表示します。",
+                "3行目: 数値 2024 は引用符なしで書けます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S01-L2",
+          "title": "複数の値・コメント・エラー",
+          "read_minutes": 2,
+          "body": [
+            "print() の括弧の中に , （カンマ）で区切って複数の値を書くと、間に空白1つを入れて1行に表示されます。カンマ自体は表示されません。",
+            "# から行末まではコメントです。人間へのメモで、Python は無視します。コードを一時的に動かしたくないときにも使えます。",
+            "Python は大文字と小文字を区別します。print は正しいですが Print は別物としてエラーになります。エラーが出ても失敗ではありません。最後の行に原因のヒントが書かれています。"
+          ],
+          "glossary": [
+            {
+              "term": "コメント",
+              "definition": "# から行末までのメモ。実行されない。"
+            },
+            {
+              "term": "エラー",
+              "definition": "Python が指示を理解できなかったときに出る知らせ。原因のヒントが書かれている。"
+            },
+            {
+              "term": "構文エラー（SyntaxError）",
+              "definition": "書き方のルール（文法）が間違っているときのエラー。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S01-E3",
+              "title": "複数の値を並べる",
+              "code": "print(\"Python\", \"は\", \"楽しい\")",
+              "expected_output": "Python は 楽しい",
+              "line_notes": [
+                "カンマで区切った3つの値が、間に空白1つを入れて1行に表示されます。"
+              ]
+            },
+            {
+              "id": "S01-E4",
+              "title": "コメント",
+              "code": "# あいさつを表示する\nprint(\"Hi\")  # ここもコメント",
+              "expected_output": "Hi",
+              "line_notes": [
+                "1行目: コメントだけの行。何も起きません。",
+                "2行目: print は実行され、# 以降は無視されます。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "大文字で書く",
+          "wrong_code": "Print(\"Hello\")",
+          "why": "Python は大文字・小文字を区別するため、Print という名前は存在せず NameError になります。",
+          "fix": "print(\"Hello\")"
+        },
+        {
+          "title": "引用符の閉じ忘れ・不一致",
+          "wrong_code": "print(\"Hello')",
+          "why": "引用符は開始と終了で同じ種類にそろえます。そろっていないと SyntaxError になります。",
+          "fix": "print(\"Hello\")"
+        },
+        {
+          "title": "引用符を付けない",
+          "wrong_code": "print(Hello)",
+          "why": "引用符がない Hello は文字ではなく「名前」として扱われ、NameError になります。",
+          "fix": "print(\"Hello\")"
+        },
+        {
+          "title": "全角の括弧",
+          "wrong_code": "print（\"Hello\"）",
+          "why": "コードの記号は半角で書きます。全角の括弧は SyntaxError になります。",
+          "fix": "print(\"Hello\")"
+        }
+      ],
+      "checkpoints": [
+        "print() は画面に表示する",
+        "文字列は引用符で囲む（数値は不要）",
+        "コードは上から順番に実行される",
+        ", で区切ると空白1つで区切られて1行に表示される",
+        "# 以降はコメントで実行されない",
+        "大文字・小文字は区別される"
+      ],
+      "next_bridge": "では問題で確かめましょう。コードを読んで、何が表示されるか予想してみてください。間違えても大丈夫。解説が次の理解につながります。"
+    },
+    {
+      "id": "LESSON-S02",
+      "stage_id": "S02",
+      "title": "データを扱う",
+      "intro": "データに名前を付けておくと、何度でも使い回せて、あとから値を変えることもできます。この名前が「変数」です。計算や文字列の組み立ても、変数と組み合わせると一気にプログラムらしくなります。",
+      "sections": [
+        {
+          "id": "S02-L1",
+          "title": "変数にデータを入れる",
+          "read_minutes": 3,
+          "body": [
+            "名前 = 値 と書くと、右の値に左の名前を付けて覚えておけます。これを代入といいます。= は数学の「等しい」ではなく「右を左に入れる」という意味です。",
+            "同じ名前にもう一度代入すると、前の値は消えて新しい値に置き換わります（上書き）。x += 1 は x = x + 1 の短い書き方で、同じように x -= 1 は x = x - 1 の短い書き方です。",
+            "変数名には英字・数字・アンダースコア（_）が使えますが、数字で始めることはできず、空白も入れられません。大文字と小文字は区別されます。",
+            "値には種類（型）があります。整数は int、小数は float、文字列は str です。type() で調べられます。"
+          ],
+          "glossary": [
+            {
+              "term": "変数",
+              "definition": "値に付けた名前。値を入れておく箱のようなもの。"
+            },
+            {
+              "term": "代入",
+              "definition": "= で変数に値を入れること。"
+            },
+            {
+              "term": "型",
+              "definition": "値の種類。int（整数）、float（小数）、str（文字列）など。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S02-E1",
+              "title": "変数に入れて表示",
+              "code": "name = \"Taro\"\nage = 15\nprint(name)\nprint(age)",
+              "expected_output": "Taro\n15",
+              "line_notes": [
+                "1行目: \"Taro\" に name という名前を付けます。",
+                "2行目: 15 に age という名前を付けます。",
+                "3〜4行目: 名前を書くと、入っている値が表示されます（引用符は不要）。"
+              ]
+            },
+            {
+              "id": "S02-E2",
+              "title": "上書きと +=",
+              "code": "score = 50\nscore = 80\nscore += 5\nprint(score)",
+              "expected_output": "85",
+              "line_notes": [
+                "2行目: score が 80 に上書きされ、50 は消えます。",
+                "3行目: score = score + 5 と同じ。80 + 5 = 85 になります。"
+              ]
+            },
+            {
+              "id": "S02-E3",
+              "title": "型を調べる",
+              "code": "print(type(10))\nprint(type(3.14))\nprint(type(\"10\"))",
+              "expected_output": "<class 'int'>\n<class 'float'>\n<class 'str'>",
+              "line_notes": [
+                "引用符で囲んだ \"10\" は数値ではなく文字列（str）です。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S02-L2",
+          "title": "計算と文字列の組み立て",
+          "read_minutes": 3,
+          "body": [
+            "計算には + - * / を使います。/ は割り切れても必ず小数（float）になります。// は小数点以下を切り捨てた商、% は余り、** は累乗です。",
+            "計算の順番は数学と同じで、* / // % は + - より先です。先に計算したい部分は ( ) で囲みます。",
+            "文字列も + で連結でき、* 数 で繰り返せます。変数を文字列に埋め込むには、先頭に f を付けた f\"...\" の中で {変数名} と書きます（f文字列）。"
+          ],
+          "glossary": [
+            {
+              "term": "演算子",
+              "definition": "+ や * のように、計算や操作を表す記号。"
+            },
+            {
+              "term": "連結",
+              "definition": "文字列と文字列をつなげること。"
+            },
+            {
+              "term": "f文字列",
+              "definition": "f\"...{変数}...\" の形で、文字列に変数の値を埋め込む書き方。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S02-E4",
+              "title": "いろいろな計算",
+              "code": "print(7 + 2)\nprint(7 * 2)\nprint(7 / 2)\nprint(7 // 2)\nprint(7 % 2)\nprint(2 ** 3)\nprint(2 + 3 * 4)\nprint((2 + 3) * 4)",
+              "expected_output": "9\n14\n3.5\n3\n1\n8\n14\n20",
+              "line_notes": [
+                "3行目: / は小数の結果 3.5 です。",
+                "4行目: // は切り捨て。7 ÷ 2 の商は 3。",
+                "5行目: % は余り。7 を 2 で割った余りは 1。",
+                "7〜8行目: かけ算が先。( ) で順番を変えられます。"
+              ]
+            },
+            {
+              "id": "S02-E5",
+              "title": "文字列の連結とf文字列",
+              "code": "a = \"Py\"\nb = \"thon\"\nprint(a + b)\nprint(a * 3)\nname = \"Hana\"\nage = 12\nprint(f\"{name}さんは{age}歳です\")",
+              "expected_output": "Python\nPyPyPy\nHanaさんは12歳です",
+              "line_notes": [
+                "3行目: 文字列同士を + でつなぎます。",
+                "4行目: 文字列を3回繰り返します。",
+                "7行目: {name} と {age} の部分が変数の値に置き換わります。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "変数名に空白",
+          "wrong_code": "my score = 80",
+          "why": "変数名に空白は使えず SyntaxError になります。_ でつなぎます。",
+          "fix": "my_score = 80"
+        },
+        {
+          "title": "数字で始まる変数名",
+          "wrong_code": "2nd = 10",
+          "why": "変数名は数字で始められません（SyntaxError）。",
+          "fix": "second = 10"
+        },
+        {
+          "title": "/ の結果が整数だと思う",
+          "wrong_code": "print(10 / 2)  # 5 と思いがち",
+          "why": "/ の結果は割り切れても float なので 5.0 と表示されます。",
+          "fix": "整数の商がほしいときは 10 // 2"
+        },
+        {
+          "title": "計算順序の勘違い",
+          "wrong_code": "average = a + b / 2",
+          "why": "b / 2 が先に計算されます。足し算を先にしたいなら ( ) で囲みます。",
+          "fix": "average = (a + b) / 2"
+        }
+      ],
+      "checkpoints": [
+        "= は「右の値を左の名前に入れる」",
+        "代入すると前の値は上書きされる",
+        "変数名は数字で始められず、空白も使えない",
+        "/ は必ず float、// は切り捨て、% は余り、** は累乗",
+        "掛け算・割り算は足し算・引き算より先",
+        "文字列は + で連結、* で繰り返し、f文字列で変数を埋め込める"
+      ],
+      "next_bridge": "変数と計算が使えると、「得点が80以上なら合格」のような判断ができるようになります。まずは問題で、変数と計算を使いこなしてみましょう。"
+    },
+    {
+      "id": "LESSON-S03",
+      "stage_id": "S03",
+      "title": "条件によって動きを変える",
+      "intro": "ここまでのプログラムは、上から順に全部実行されるだけでした。条件によって動きを変えられると、「合格なら祝う」「雨なら傘」といった判断をプログラムに任せられます。",
+      "sections": [
+        {
+          "id": "S03-L1",
+          "title": "比較とTrue / False",
+          "read_minutes": 2,
+          "body": [
+            "2つの値を比べると、結果は True（正しい）か False（正しくない）のどちらかになります。これを真偽値（bool 型）といいます。",
+            "比較には == （等しい）、 != （等しくない）、 < 、 > 、 <= （以下）、 >= （以上）を使います。等しいかを調べるときは = を2つ重ねた == です。= 1つは代入なので間違えないようにしましょう。"
+          ],
+          "glossary": [
+            {
+              "term": "真偽値（bool）",
+              "definition": "True か False のどちらかの値。"
+            },
+            {
+              "term": "比較演算子",
+              "definition": "2つの値を比べて True / False を返す記号。"
+            },
+            {
+              "term": "条件",
+              "definition": "True か False になる式。if の判断材料。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S03-E1",
+              "title": "比較の結果を表示",
+              "code": "print(5 > 3)\nprint(5 == 3)\nprint(5 != 3)\nprint(\"a\" == \"a\")",
+              "expected_output": "True\nFalse\nTrue\nTrue",
+              "line_notes": [
+                "1行目: 5 は 3 より大きいので True。",
+                "2行目: 5 と 3 は等しくないので False。",
+                "4行目: 文字列も == で比べられます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S03-L2",
+          "title": "if / elif / else と条件の組み合わせ",
+          "read_minutes": 3,
+          "body": [
+            "if 条件: の下に、字下げ（インデント）した行を書くと、条件が True のときだけ実行されます。条件の末尾のコロン（:）を忘れずに。字下げは半角空白4つが一般的で、同じまとまりの行は同じ深さにそろえます。",
+            "else: は「if の条件が成り立たなかったとき」の処理です。さらに細かく分けたいときは elif 条件: を使います。上から順に調べ、最初に成立した1つだけが実行され、残りは調べません。",
+            "条件は and（かつ）、or（または）、not（否定）で組み合わせられます。and は両方が True のとき、or はどちらか一方でも True のとき True です。"
+          ],
+          "glossary": [
+            {
+              "term": "インデント",
+              "definition": "行頭の字下げ。どの行が if の中かを表す。"
+            },
+            {
+              "term": "分岐",
+              "definition": "条件によって実行する処理を切り替えること。"
+            },
+            {
+              "term": "ブロック",
+              "definition": "同じ深さにインデントされた、ひとまとまりの行。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S03-E2",
+              "title": "if と else",
+              "code": "score = 70\nif score >= 60:\n    print(\"合格\")\nelse:\n    print(\"不合格\")\nprint(\"終わり\")",
+              "expected_output": "合格\n終わり",
+              "line_notes": [
+                "2行目: score >= 60 が True なので、字下げした3行目が実行されます。",
+                "4〜5行目: 条件が成り立たないときの処理。今回は飛ばされます。",
+                "6行目: 字下げがないので if の外。いつも実行されます。"
+              ]
+            },
+            {
+              "id": "S03-E3",
+              "title": "elif で細かく分ける",
+              "code": "score = 75\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
+              "expected_output": "B",
+              "line_notes": [
+                "score >= 90 は False。次の elif を調べ、75 >= 70 が True なので B を表示し、残りは調べません。"
+              ]
+            },
+            {
+              "id": "S03-E4",
+              "title": "and と not",
+              "code": "age = 20\nhas_ticket = True\nif age >= 18 and has_ticket:\n    print(\"入場OK\")\nprint(not has_ticket)",
+              "expected_output": "入場OK\nFalse",
+              "line_notes": [
+                "3行目: 年齢条件とチケット条件の両方が True のときだけ実行されます。",
+                "5行目: not は True と False を反転します。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "条件に = を使う",
+          "wrong_code": "if score = 60:",
+          "why": "= は代入です。等しいかの比較は == を使います（SyntaxError）。",
+          "fix": "if score == 60:"
+        },
+        {
+          "title": "コロンの付け忘れ",
+          "wrong_code": "if score >= 60\n    print(\"合格\")",
+          "why": "if・elif・else の行の末尾には : が必要です（SyntaxError）。",
+          "fix": "if score >= 60:"
+        },
+        {
+          "title": "インデントの忘れ",
+          "wrong_code": "if score >= 60:\nprint(\"合格\")",
+          "why": "if の中で実行する行は字下げが必要です（IndentationError）。",
+          "fix": "    print(\"合格\")  # 半角空白4つ"
+        },
+        {
+          "title": "境界値の取り違え",
+          "wrong_code": "if score > 60:  # 60点は不合格に",
+          "why": "「60以上」は >=。> だと60は含まれません。",
+          "fix": "if score >= 60:"
+        }
+      ],
+      "checkpoints": [
+        "比較の結果は True / False",
+        "等しいかは == 、= は代入",
+        "if / elif / else の行末には : が必要",
+        "インデントが if の中を表す",
+        "elif は上から調べ、最初に成立した1つだけ実行",
+        "and は両方 True、or はどちらか True"
+      ],
+      "next_bridge": "条件分岐が使えると、同じ判断を何度もしたくなります。次のステージでその「繰り返し」を学びます。まずは問題で、条件を正確に読む練習をしましょう。"
+    },
+    {
+      "id": "LESSON-S04",
+      "stage_id": "S04",
+      "title": "処理を繰り返す",
+      "intro": "コンピューターの得意技は「同じことを何度でも正確に繰り返す」ことです。100回の表示も、数行のコードで書けるようになります。",
+      "sections": [
+        {
+          "id": "S04-L1",
+          "title": "for と range()",
+          "read_minutes": 3,
+          "body": [
+            "決まった回数だけ繰り返すには for を使います。for i in range(3): と書くと、字下げした部分が3回実行され、i には 0, 1, 2 が順に入ります。",
+            "range(n) は 0 から n-1 まで。range(開始, 終了) は「開始から終了の1つ手前」まで。range(開始, 終了, 間隔) は間隔ごとに進みます。終了の値そのものは含まれない点が最大の注意点です。",
+            "合計を求めるときは、ループの前に total = 0 と用意し、ループの中で total += i のように足していきます。"
+          ],
+          "glossary": [
+            {
+              "term": "ループ（繰り返し）",
+              "definition": "同じ処理を何度も実行する仕組み。"
+            },
+            {
+              "term": "range()",
+              "definition": "連続する整数の列を作る関数。終了の値は含まない。"
+            },
+            {
+              "term": "累積",
+              "definition": "ループの中で値を足し込んで、合計などを作っていくこと。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S04-E1",
+              "title": "range(3)",
+              "code": "for i in range(3):\n    print(i)",
+              "expected_output": "0\n1\n2",
+              "line_notes": [
+                "i には 0, 1, 2 が順に入り、3 は含まれません。字下げした print が3回実行されます。"
+              ]
+            },
+            {
+              "id": "S04-E2",
+              "title": "開始・終了・間隔",
+              "code": "for i in range(2, 10, 3):\n    print(i)",
+              "expected_output": "2\n5\n8",
+              "line_notes": [
+                "2 から始まり 3 ずつ増えます。次は 11 ですが 10 未満という条件から外れるので終了します。"
+              ]
+            },
+            {
+              "id": "S04-E3",
+              "title": "1から5までの合計",
+              "code": "total = 0\nfor i in range(1, 6):\n    total += i\nprint(total)",
+              "expected_output": "15",
+              "line_notes": [
+                "1行目: 合計を入れる変数を 0 で用意します。",
+                "2行目: i は 1,2,3,4,5。",
+                "3行目: i を total に足します。",
+                "4行目: 字下げがないのでループの後に1回だけ実行されます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S04-L2",
+          "title": "while と break / continue",
+          "read_minutes": 3,
+          "body": [
+            "while 条件: は、条件が True の間、字下げした部分を繰り返します。回数が決まっていないときや、条件で終わりを決めたいときに使います。",
+            "条件に使う変数をループの中で変化させないと、条件がずっと True のままになり、プログラムが終わりません（無限ループ）。",
+            "break はその場でループを終了し、continue はその回の残りを飛ばして次の回へ進みます。"
+          ],
+          "glossary": [
+            {
+              "term": "無限ループ",
+              "definition": "終了条件が成立せず、いつまでも終わらないループ。"
+            },
+            {
+              "term": "break",
+              "definition": "ループ全体を途中で終了する。"
+            },
+            {
+              "term": "continue",
+              "definition": "その回の残りを飛ばして、次の回に進む。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S04-E4",
+              "title": "カウントダウン",
+              "code": "count = 3\nwhile count > 0:\n    print(count)\n    count -= 1\nprint(\"発射\")",
+              "expected_output": "3\n2\n1\n発射",
+              "line_notes": [
+                "2行目: count が 0 より大きい間、繰り返します。",
+                "4行目: count を1ずつ減らします。これがないと無限ループです。",
+                "5行目: ループが終わったあとに1回だけ実行されます。"
+              ]
+            },
+            {
+              "id": "S04-E5",
+              "title": "continue と break",
+              "code": "for i in range(1, 6):\n    if i == 3:\n        continue\n    if i == 5:\n        break\n    print(i)",
+              "expected_output": "1\n2\n4",
+              "line_notes": [
+                "i が 3 のとき: continue で print を飛ばし、次の回へ。",
+                "i が 5 のとき: break でループを終了。5 は表示されません。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "終了の値を含むと思う",
+          "wrong_code": "for i in range(1, 5):  # 1〜5 のつもり",
+          "why": "range(1, 5) は 1,2,3,4。5 は含まれません。",
+          "fix": "for i in range(1, 6):"
+        },
+        {
+          "title": "while の中で更新を忘れる",
+          "wrong_code": "n = 3\nwhile n > 0:\n    print(n)",
+          "why": "n が変わらないので条件がずっと True。無限ループになります。",
+          "fix": "ループの中に n -= 1 を加える"
+        },
+        {
+          "title": "合計の初期化忘れ",
+          "wrong_code": "for i in range(1, 6):\n    total += i",
+          "why": "total を先に 0 で用意していないので NameError になります。",
+          "fix": "ループの前に total = 0"
+        },
+        {
+          "title": "字下げの位置",
+          "wrong_code": "for i in range(3):\n    total += i\n    print(total)  # 毎回表示される",
+          "why": "ループの外に出したい処理は字下げをそろえて外に書きます。",
+          "fix": "print(total) の字下げを外す"
+        }
+      ],
+      "checkpoints": [
+        "range(n) は 0〜n-1、終了は含まれない",
+        "range(開始, 終了, 間隔)",
+        "合計は先に 0 を用意して += で足す",
+        "while は条件が True の間繰り返す",
+        "while の中で条件の変数を更新する",
+        "break は終了、continue は次の回へ"
+      ],
+      "next_bridge": "繰り返しは「たくさんのデータ」に使うと本領を発揮します。その前に、問題で range の範囲や while の動きを正確に追う練習をしましょう。"
+    },
+    {
+      "id": "LESSON-S05",
+      "stage_id": "S05",
+      "title": "データをまとめる",
+      "intro": "100人分の点数に100個の変数を作るのは大変です。リストなら、たくさんの値を1つの名前でまとめて扱えます。ステージ4の for と組み合わせると、データ処理が一気に楽になります。",
+      "sections": [
+        {
+          "id": "S05-L1",
+          "title": "リストと要素の取り出し",
+          "read_minutes": 3,
+          "body": [
+            "リストは [ ] の中に値を , で区切って並べて作ります。例: fruits = [\"りんご\", \"みかん\", \"ぶどう\"]。",
+            "要素は番号（インデックス）で取り出します。番号は 0 から始まるので、最初の要素は fruits[0] です。-1 は「最後」、-2 は「最後から2番目」を表します。",
+            "len(リスト) で要素の数がわかります。要素が3つなら有効な番号は 0, 1, 2 だけで、fruits[3] は範囲外なので IndexError になります。",
+            "fruits[1] = \"レモン\" のように代入すると、その位置の要素が置き換わります。末尾に追加するには fruits.append(\"もも\") を使います。"
+          ],
+          "glossary": [
+            {
+              "term": "リスト",
+              "definition": "複数の値を順番に並べてまとめたデータ。"
+            },
+            {
+              "term": "要素",
+              "definition": "リストの中の1つ1つの値。"
+            },
+            {
+              "term": "インデックス",
+              "definition": "要素の位置を表す番号。0から始まる。"
+            },
+            {
+              "term": "IndexError",
+              "definition": "存在しない番号で要素を取り出そうとしたときのエラー。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S05-E1",
+              "title": "取り出しと長さ",
+              "code": "fruits = [\"りんご\", \"みかん\", \"ぶどう\"]\nprint(fruits[0])\nprint(fruits[2])\nprint(fruits[-1])\nprint(len(fruits))",
+              "expected_output": "りんご\nぶどう\nぶどう\n3",
+              "line_notes": [
+                "2行目: 0番目、つまり最初の要素。",
+                "3行目: 2番目（3つ目）の要素。",
+                "4行目: -1 は最後の要素。3行目と同じ結果になります。",
+                "5行目: 要素の数は 3 です。"
+              ]
+            },
+            {
+              "id": "S05-E2",
+              "title": "置き換えと追加",
+              "code": "nums = [10, 20, 30]\nnums[1] = 99\nnums.append(40)\nprint(nums)",
+              "expected_output": "[10, 99, 30, 40]",
+              "line_notes": [
+                "2行目: 1番目（2つ目）の 20 が 99 に置き換わります。",
+                "3行目: 末尾に 40 が追加されます。",
+                "4行目: リストをそのまま print すると [ ] 付きで表示されます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S05-L2",
+          "title": "リストを処理する",
+          "read_minutes": 3,
+          "body": [
+            "for s in scores: と書くと、scores の要素が1つずつ s に入ります。range で番号を作らなくても、要素を直接取り出せます。",
+            "sum(リスト) は合計、max(リスト) は最大値、min(リスト) は最小値を返します。値 in リスト は、その値がリストに含まれるかを True / False で返します。",
+            "リスト[開始:終了] で一部を取り出せます（スライス）。終了の番号の要素は含まれません。"
+          ],
+          "glossary": [
+            {
+              "term": "スライス",
+              "definition": "リストの一部分を [開始:終了] で取り出すこと。終了は含まない。"
+            },
+            {
+              "term": "メソッド",
+              "definition": "データに対して . を付けて呼び出す機能。append() など。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S05-E3",
+              "title": "for と sum / max / min",
+              "code": "scores = [70, 85, 90]\nfor s in scores:\n    print(s)\nprint(sum(scores), max(scores), min(scores))",
+              "expected_output": "70\n85\n90\n245 90 70",
+              "line_notes": [
+                "2〜3行目: 要素が1つずつ s に入り、表示されます。",
+                "4行目: 合計・最大値・最小値をまとめて表示します。"
+              ]
+            },
+            {
+              "id": "S05-E4",
+              "title": "in とスライス",
+              "code": "colors = [\"赤\", \"青\", \"緑\", \"黄\"]\nprint(\"青\" in colors)\nprint(\"白\" in colors)\nprint(colors[1:3])",
+              "expected_output": "True\nFalse\n['青', '緑']",
+              "line_notes": [
+                "2〜3行目: in は含まれているかを調べます。",
+                "4行目: 1番目から、3番目の手前（2番目）まで。3番目は含まれません。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "1番目を [1] と思う",
+          "wrong_code": "print(fruits[1])  # 最初の要素のつもり",
+          "why": "インデックスは 0 から。fruits[1] は2番目の要素です。",
+          "fix": "print(fruits[0])"
+        },
+        {
+          "title": "範囲外のインデックス",
+          "wrong_code": "nums = [1, 2, 3]\nprint(nums[3])",
+          "why": "有効な番号は 0〜2 です。3 は範囲外で IndexError になります。",
+          "fix": "print(nums[2])"
+        },
+        {
+          "title": "丸括弧で取り出す",
+          "wrong_code": "print(nums(0))",
+          "why": "要素の取り出しは角括弧 [ ]。丸括弧は関数を呼ぶ記号なので TypeError になります。",
+          "fix": "print(nums[0])"
+        },
+        {
+          "title": "スライスの終わりを含むと思う",
+          "wrong_code": "colors[1:3]  # 1〜3番目のつもり",
+          "why": "終了の番号は含まれません。1番目と2番目の2つが取り出されます。",
+          "fix": "3番目まで含めたいなら colors[1:4]"
+        }
+      ],
+      "checkpoints": [
+        "インデックスは 0 から始まる",
+        "-1 は最後の要素",
+        "len() は要素の数、最後の番号は len() - 1",
+        "append は末尾に追加、[番号] = 値 は置き換え",
+        "for s in リスト: で要素を順に取り出せる",
+        "sum / max / min / in が使える",
+        "スライスの終わりは含まれない"
+      ],
+      "next_bridge": "リストの基本が使えるようになりました。0 始まりの番号と、範囲の端に注意しながら、問題を解いてみましょう。"
+    },
+    {
+      "id": "LESSON-S06",
+      "stage_id": "S06",
+      "title": "処理を部品化する",
+      "intro": "同じ処理を何度も書くのは大変で、間違いの元です。処理に名前を付けて「部品」にしておけば、何度でも呼び出せます。この部品が関数です。ここまでに使ってきた print() や len() も関数でした。",
+      "sections": [
+        {
+          "id": "S06-L1",
+          "title": "関数を作って呼び出す",
+          "read_minutes": 3,
+          "body": [
+            "def 関数名(引数): の下に字下げして処理を書くと、関数を定義できます。定義しただけでは何も実行されず、関数名(...) と書いて呼び出したときに初めて実行されます。",
+            "引数は、関数に渡す材料です。def add(a, b): の a と b が引数で、add(3, 4) のように呼び出し時に具体的な値を渡します。",
+            "return 値 と書くと、その値を呼び出し元に返し、関数はそこで終了します。返された値は変数に入れたり、他の計算に使ったりできます。"
+          ],
+          "glossary": [
+            {
+              "term": "関数",
+              "definition": "名前を付けた処理のまとまり。"
+            },
+            {
+              "term": "引数",
+              "definition": "関数に渡す材料の値。"
+            },
+            {
+              "term": "戻り値",
+              "definition": "関数が return で返す結果の値。"
+            },
+            {
+              "term": "呼び出し",
+              "definition": "関数名(...) と書いて、関数を実行すること。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S06-E1",
+              "title": "引数なしの関数",
+              "code": "def greet():\n    print(\"こんにちは\")\n\ngreet()\ngreet()",
+              "expected_output": "こんにちは\nこんにちは",
+              "line_notes": [
+                "1〜2行目: greet という関数を定義するだけ。ここでは表示されません。",
+                "4〜5行目: 呼び出すたびに実行されるので2回表示されます。"
+              ]
+            },
+            {
+              "id": "S06-E2",
+              "title": "引数と戻り値",
+              "code": "def add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(result)\nprint(add(10, 20))",
+              "expected_output": "7\n30",
+              "line_notes": [
+                "4行目: 3と4を渡し、返ってきた7を result に入れます。",
+                "6行目: 呼び出しの結果をそのまま print に渡すこともできます。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S06-L2",
+          "title": "print と return、デフォルト引数、ローカル変数",
+          "read_minutes": 3,
+          "body": [
+            "print は画面に表示するだけで、値は返しません。return がない関数を呼び出すと、結果は None（「何もない」を表す特別な値）になります。計算結果を他の場所で使いたいときは return を使います。",
+            "引数に def power(base, exp=2): のように = で初期値を書くと、呼び出し時に省略できます（デフォルト引数）。",
+            "関数の中で作った変数は、その関数の中だけで使えるローカル変数です。外にある同じ名前の変数とは別物で、外の値は変わりません。"
+          ],
+          "glossary": [
+            {
+              "term": "None",
+              "definition": "「値がない」ことを表す特別な値。return のない関数の結果。"
+            },
+            {
+              "term": "デフォルト引数",
+              "definition": "省略したときに使われる初期値付きの引数。"
+            },
+            {
+              "term": "ローカル変数",
+              "definition": "関数の中だけで有効な変数。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S06-E3",
+              "title": "print と return の違い",
+              "code": "def show(x):\n    print(x)\n\ndef double(x):\n    return x * 2\n\nr = show(5)\nprint(r)\nprint(double(5))",
+              "expected_output": "5\nNone\n10",
+              "line_notes": [
+                "7行目: show(5) の中で 5 が表示されます。show は何も返さないので r は None。",
+                "8行目: None が表示されます。",
+                "9行目: double は 10 を返し、それを print が表示します。"
+              ]
+            },
+            {
+              "id": "S06-E4",
+              "title": "デフォルト引数",
+              "code": "def power(base, exp=2):\n    return base ** exp\n\nprint(power(3))\nprint(power(2, 5))",
+              "expected_output": "9\n32",
+              "line_notes": [
+                "4行目: exp を省略したので 2 が使われ、3 の2乗で 9。",
+                "5行目: exp に 5 を渡したので 2 の5乗で 32。"
+              ]
+            },
+            {
+              "id": "S06-E5",
+              "title": "ローカル変数",
+              "code": "def f():\n    x = 10\n    return x\n\nx = 100\nprint(f())\nprint(x)",
+              "expected_output": "10\n100",
+              "line_notes": [
+                "関数 f の中の x は別の変数なので、外の x は 100 のままです。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "定義しただけで呼び出さない",
+          "wrong_code": "def greet():\n    print(\"hi\")",
+          "why": "定義だけでは何も起きません。greet() と呼び出す必要があります。",
+          "fix": "greet()"
+        },
+        {
+          "title": "return の代わりに print",
+          "wrong_code": "def area(w, h):\n    print(w * h)\nx = area(3, 4) + 1",
+          "why": "area は何も返さない（None）ので、None + 1 で TypeError になります。",
+          "fix": "print を return に変える"
+        },
+        {
+          "title": "引数の数が合わない",
+          "wrong_code": "def add(a, b):\n    return a + b\nadd(3)",
+          "why": "引数 b が足りず TypeError になります。",
+          "fix": "add(3, 4)"
+        },
+        {
+          "title": "return をループの中に書く",
+          "wrong_code": "for n in nums:\n    s += n\n    return s",
+          "why": "return でその場で関数が終了し、最初の1回で終わってしまいます。",
+          "fix": "return s をループの外（字下げを戻す）に書く"
+        }
+      ],
+      "checkpoints": [
+        "def で定義し、関数名(...) で呼び出す",
+        "引数は材料、戻り値は結果",
+        "return は値を返して関数を終了する",
+        "print は表示するだけ。return がなければ None",
+        "デフォルト引数は省略可能",
+        "関数内の変数は外とは別物"
+      ],
+      "next_bridge": "関数は「入力 → 処理 → 結果」の部品です。問題では、関数の呼び出しの流れを一歩ずつ追いかけてみましょう。"
+    },
+    {
+      "id": "LESSON-S07",
+      "stage_id": "S07",
+      "title": "エラーを見つけて修正する",
+      "intro": "プログラミングで一番多い時間は、エラーと向き合う時間です。エラーはPythonからの「ここが分かりません」というメッセージで、原因を教えてくれる味方です。読み方のコツを身につければ、怖くなくなります。",
+      "sections": [
+        {
+          "id": "S07-L1",
+          "title": "エラーメッセージを読む",
+          "read_minutes": 3,
+          "body": [
+            "エラーが出ると、長い文章が表示されます（トレースバック）。まず見るのは最後の行です。そこにエラーの種類（例: NameError）と、短い説明が書かれています。途中の行には、エラーが起きた行番号が書かれています。",
+            "よく出るエラー: SyntaxError は書き方の間違い（括弧・引用符・コロンなど）。NameError は存在しない名前を使った（スペルミスや代入前）。TypeError は型に合わない操作（例: 文字列 + 数値）。ValueError は型は合っているが値が不適切（例: int(\"abc\")）。ZeroDivisionError は 0 で割った。",
+            "エラー名と原因を結びつける習慣をつけましょう。IndentationError は字下げの間違いで、SyntaxError の仲間です。"
+          ],
+          "glossary": [
+            {
+              "term": "トレースバック",
+              "definition": "エラー発生時に表示される、どこで何が起きたかの記録。"
+            },
+            {
+              "term": "デバッグ",
+              "definition": "プログラムの間違い（バグ）を見つけて直すこと。"
+            },
+            {
+              "term": "バグ",
+              "definition": "プログラムの間違い。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S07-E1",
+              "title": "NameError の例",
+              "code": "print(Hello)",
+              "expected_output": "",
+              "expected_error": "NameError",
+              "line_notes": [
+                "最後の行は NameError: name 'Hello' is not defined。Hello という名前が見つからない、という意味です。"
+              ]
+            },
+            {
+              "id": "S07-E2",
+              "title": "TypeError の例",
+              "code": "print(\"年齢は\" + 20)",
+              "expected_output": "",
+              "expected_error": "TypeError",
+              "line_notes": [
+                "文字列と数値は + でつなげません。最後の行に型の組み合わせが違うという内容が出ます。"
+              ]
+            },
+            {
+              "id": "S07-E3",
+              "title": "ZeroDivisionError の例",
+              "code": "print(10 / 0)",
+              "expected_output": "",
+              "expected_error": "ZeroDivisionError",
+              "line_notes": [
+                "0 で割ることはできません。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S07-L2",
+          "title": "型の変換・try/except・デバッグ",
+          "read_minutes": 3,
+          "body": [
+            "int(\"5\") は文字列を整数に、float(\"2.5\") は小数に、str(20) は文字列に変換します。文字列と数値を + でつなぐときは str() で文字列にそろえます。",
+            "エラーが起きるかもしれない処理は try: に入れ、except エラー名: でエラー時の処理を書きます。エラーが起きなければ except は実行されません。",
+            "エラーが出ないのに結果が違うときは、print で途中の値を表示して「自分の想像」と「実際の値」を比べます。これが一番基本的なデバッグです。"
+          ],
+          "glossary": [
+            {
+              "term": "型変換",
+              "definition": "int() や str() などで値の型を変えること。"
+            },
+            {
+              "term": "例外",
+              "definition": "実行中に起きるエラーのこと。try / except で受け止められる。"
+            },
+            {
+              "term": "論理エラー",
+              "definition": "エラーメッセージが出ないが、考え方の間違いで結果が正しくない状態。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S07-E4",
+              "title": "型の変換",
+              "code": "a = \"5\"\nb = int(a) + 3\nprint(b)\nprint(\"年齢は\" + str(20) + \"歳\")\nprint(float(\"2.5\") * 2)",
+              "expected_output": "8\n年齢は20歳\n5.0",
+              "line_notes": [
+                "2行目: \"5\" を整数 5 に変えてから足します。",
+                "4行目: 20 を文字列 \"20\" にして連結します。",
+                "5行目: float の 2.5 を2倍して 5.0。"
+              ]
+            },
+            {
+              "id": "S07-E5",
+              "title": "try / except",
+              "code": "try:\n    n = int(\"abc\")\nexcept ValueError:\n    n = 0\nprint(n)",
+              "expected_output": "0",
+              "line_notes": [
+                "2行目: \"abc\" は整数にできず ValueError が起きます。",
+                "3〜4行目: ValueError を受け止めて n を 0 にします。プログラムは止まらず続行します。"
+              ]
+            },
+            {
+              "id": "S07-E6",
+              "title": "print で途中の値を調べる",
+              "code": "total = 0\nfor i in range(1, 4):\n    total += i\n    print(\"i =\", i, \"total =\", total)",
+              "expected_output": "i = 1 total = 1\ni = 2 total = 3\ni = 3 total = 6",
+              "line_notes": [
+                "ループの途中の値を表示すると、想定どおりに変化しているか確認できます。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "文字列と数値を + でつなぐ",
+          "wrong_code": "print(\"合計は\" + 10)",
+          "why": "型が違うため TypeError。数値を str() で文字列にします。",
+          "fix": "print(\"合計は\" + str(10))"
+        },
+        {
+          "title": "括弧の閉じ忘れ",
+          "wrong_code": "print(\"hi\"",
+          "why": "括弧が閉じていないと SyntaxError になります。",
+          "fix": "print(\"hi\")"
+        },
+        {
+          "title": "エラーの種類で except を書く",
+          "wrong_code": "try:\n    n = int(\"abc\")\nexcept ZeroDivisionError:\n    n = 0",
+          "why": "起きるエラーは ValueError なので、受け止められずプログラムが止まります。",
+          "fix": "except ValueError:"
+        },
+        {
+          "title": "エラーがないから正しいと思う",
+          "wrong_code": "total = i  # 足すつもり",
+          "why": "エラーにならなくても、結果が違うことがあります。print で確かめます。",
+          "fix": "total += i"
+        }
+      ],
+      "checkpoints": [
+        "エラーはまず最後の行を読む",
+        "SyntaxError=書き方、NameError=名前、TypeError=型、ValueError=値、ZeroDivisionError=0で割る",
+        "int() float() str() で型を変換",
+        "try / except でエラーを受け止める（エラー名を合わせる）",
+        "エラーが出なくても間違いはある。print で確かめる"
+      ],
+      "next_bridge": "エラーの種類を見分けられると、直すのがぐっと速くなります。問題で「エラー名」と「原因」の対応を確かめましょう。"
+    },
+    {
+      "id": "LESSON-S08",
+      "stage_id": "S08",
+      "title": "文字列・データの操作",
+      "intro": "実際のデータは「名前に余計な空白がある」「カンマ区切りの文字列」「名前と点数のセット」など、そのままでは使いにくい形をしています。文字列メソッドと辞書は、そうしたデータを整える基本の道具です。",
+      "sections": [
+        {
+          "id": "S08-L1",
+          "title": "文字列メソッド",
+          "read_minutes": 3,
+          "body": [
+            "文字列には、. を付けて呼び出す便利なメソッドがあります。strip() は前後の空白を取り除き、upper() / lower() は大文字・小文字にし、replace(古, 新) は置き換え、count(文字) は数えます。",
+            "split(\",\") は文字列を区切り文字で分けてリストにします。引数を省略した split() は空白で区切ります（連続する空白は1つとして扱われます）。逆に \"-\".join(リスト) は、リストの要素を - でつないだ1つの文字列にします。",
+            "文字列はリストと同じように扱える部分もあります。text[0] で1文字目、text[-1] で最後の文字を取り出せ、len(text) で文字数がわかり、for で1文字ずつ取り出せます。",
+            "重要: 文字列は変更できません。メソッドは「新しい文字列」を返すだけで、元の変数は変わりません。結果を使いたいときは、変数に代入し直します。"
+          ],
+          "glossary": [
+            {
+              "term": "メソッド",
+              "definition": "データに . を付けて呼び出す機能。文字列なら s.upper() のように使う。"
+            },
+            {
+              "term": "区切り文字",
+              "definition": "split で分ける目印にする文字（例: カンマ）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S08-E1",
+              "title": "strip・upper・lower・replace",
+              "code": "s = \"  Hello Python  \"\nprint(s.strip())\nprint(s.strip().upper())\nprint(s.strip().lower())\nprint(len(s.strip()))\nprint(s.strip().replace(\"Python\", \"World\"))\nprint(s.strip()[0])\nprint(s.strip()[-1])",
+              "expected_output": "Hello Python\nHELLO PYTHON\nhello python\n12\nHello World\nH\nn",
+              "line_notes": [
+                "2行目: 前後の空白を除いた文字列。",
+                "3行目: メソッドをつなげて書けます（strip してから upper）。",
+                "5行目: 空白を除いた \"Hello Python\" は12文字です。",
+                "7〜8行目: 文字列もリストと同じように、[0] で最初の文字、[-1] で最後の文字を取り出せます。"
+              ]
+            },
+            {
+              "id": "S08-E2",
+              "title": "split・join・count・in",
+              "code": "words = \"apple,banana,cherry\".split(\",\")\nprint(words)\nprint(\"-\".join(words))\nprint(\"to be  or\".split())\nprint(\"a,b,a\".count(\"a\"))\nprint(\"banana\" in \"apple,banana,cherry\")",
+              "expected_output": "['apple', 'banana', 'cherry']\napple-banana-cherry\n['to', 'be', 'or']\n2\nTrue",
+              "line_notes": [
+                "1〜2行目: カンマで分けると3要素のリストになります。",
+                "3行目: リストの要素を - でつなぎます。",
+                "4行目: 引数なしの split() は空白で区切り、連続する空白も1つ扱い。"
+              ]
+            },
+            {
+              "id": "S08-E3",
+              "title": "元の文字列は変わらない",
+              "code": "name = \"taro\"\nname.upper()\nprint(name)\nname = name.upper()\nprint(name)",
+              "expected_output": "taro\nTARO",
+              "line_notes": [
+                "2行目: 大文字の文字列を作って捨てただけ。name は変わりません。",
+                "4行目: 結果を name に代入し直すと変わります。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S08-L2",
+          "title": "辞書（ディクショナリ）",
+          "read_minutes": 3,
+          "body": [
+            "辞書は「キー」と「値」のペアをまとめるデータです。{ } の中に キー: 値 を , で区切って書きます。例えば { \"Taro\": 20, \"Hana\": 18 } のように書くと、名前から年齢を引く使い方ができます。",
+            "辞書[キー] で値を取り出し、辞書[キー] = 値 で追加または更新します（既にあるキーなら上書き）。キー in 辞書 で存在を調べます。存在しないキーを [ ] で取り出すと KeyError になりますが、辞書.get(キー, 初期値) なら安全です。",
+            "for キー, 値 in 辞書.items(): で、すべてのペアを順に取り出せます。辞書は追加した順序を保って表示されます。"
+          ],
+          "glossary": [
+            {
+              "term": "辞書（dict）",
+              "definition": "キーと値のペアをまとめたデータ。"
+            },
+            {
+              "term": "キー",
+              "definition": "値を探すための名前（見出し）。"
+            },
+            {
+              "term": "KeyError",
+              "definition": "辞書に存在しないキーで取り出そうとしたときのエラー。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S08-E4",
+              "title": "取り出し・追加・更新",
+              "code": "ages = {\"Taro\": 20, \"Hana\": 18}\nprint(ages[\"Taro\"])\nages[\"Ken\"] = 25\nages[\"Hana\"] = 19\nprint(ages)\nprint(\"Ken\" in ages)\nprint(len(ages))",
+              "expected_output": "20\n{'Taro': 20, 'Hana': 19, 'Ken': 25}\nTrue\n3",
+              "line_notes": [
+                "3行目: 新しいキー Ken を追加。",
+                "4行目: 既にあるキー Hana は上書き（追加されません）。",
+                "5行目: 辞書をそのまま print すると { } 付きで表示されます。"
+              ]
+            },
+            {
+              "id": "S08-E5",
+              "title": "get と items",
+              "code": "stock = {\"apple\": 3, \"banana\": 5}\nprint(stock.get(\"apple\"))\nprint(stock.get(\"grape\", 0))\nfor key, value in stock.items():\n    print(key, value)",
+              "expected_output": "3\n0\napple 3\nbanana 5",
+              "line_notes": [
+                "3行目: キーがなければ、2つ目の引数（0）を返します。",
+                "4行目: items() はキーと値のペアを順に取り出します。"
+              ]
+            },
+            {
+              "id": "S08-E6",
+              "title": "文字を数える",
+              "code": "counts = {}\nfor ch in \"abca\":\n    if ch in counts:\n        counts[ch] += 1\n    else:\n        counts[ch] = 1\nprint(counts)",
+              "expected_output": "{'a': 2, 'b': 1, 'c': 1}",
+              "line_notes": [
+                "1行目: 空の辞書を用意します。",
+                "2行目: 文字列も for で1文字ずつ取り出せます。",
+                "3〜6行目: すでにあれば +1、なければ 1 で新しく作ります。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "メソッドの結果を使わない",
+          "wrong_code": "name = \"taro\"\nname.upper()\nprint(name)  # taro のまま",
+          "why": "メソッドは新しい文字列を返すだけで、元の変数は変わりません。",
+          "fix": "name = name.upper()"
+        },
+        {
+          "title": "存在しないキーを取り出す",
+          "wrong_code": "stock = {\"apple\": 3}\nprint(stock[\"grape\"])",
+          "why": "キーがないと KeyError になります。",
+          "fix": "print(stock.get(\"grape\", 0))"
+        },
+        {
+          "title": "items() を忘れる",
+          "wrong_code": "for name, count in stock:",
+          "why": "辞書をそのまま for に渡すとキーだけが取り出され、展開に失敗します。",
+          "fix": "for name, count in stock.items():"
+        },
+        {
+          "title": "カウントの初期値",
+          "wrong_code": "counts[ch] = 0  # 初めて出てきた文字",
+          "why": "初めて出てきた時点で1回出ているので、初期値は 1 です。",
+          "fix": "counts[ch] = 1"
+        }
+      ],
+      "checkpoints": [
+        "strip / upper / lower / replace / split / join / count",
+        "文字列メソッドは元の文字列を変えない",
+        "辞書は キー: 値 のペア",
+        "辞書[キー] で取り出し、辞書[キー] = 値 で追加・更新",
+        "存在しないキーは KeyError、get なら安全",
+        "items() でキーと値を一緒に取り出せる"
+      ],
+      "next_bridge": "データを整えて、まとめる道具がそろいました。次のステージでは、これまで学んだ部品をつなげた「ミニプログラム」を読み解きます。"
+    },
+    {
+      "id": "LESSON-S09",
+      "stage_id": "S09",
+      "title": "ミニプログラムを読み解く",
+      "intro": "ここまでで、Python の基本部品がひと通りそろいました。実際のプログラムはそれらの組み合わせです。このステージでは、完成した小さなプログラムを「読んで理解する」力を養います。読む力は、書く力の土台になります。",
+      "sections": [
+        {
+          "id": "S09-L1",
+          "title": "プログラムの読み方とおみくじ",
+          "read_minutes": 3,
+          "body": [
+            "長いコードを読むコツは、変数の値を1行ずつ追うことです。紙やメモに「変数名と今の値」を書き出しながら、上から順に進みます。迷ったら、まず if の条件が True か False かを判断し、実行される行だけを追います。",
+            "おみくじのように結果を運で決めるときは、random モジュールを使います。import random と書き、random.randint(1, 6) とすると 1 から 6 までの整数がランダムに返ります。range と違って、終わりの 6 も含まれます。",
+            "ランダムな値は実行のたびに変わり、結果を確定できません。そこで、n = 7 のように値を決めて、処理の部分だけを確認するのが基本です。"
+          ],
+          "glossary": [
+            {
+              "term": "トレース",
+              "definition": "変数の値の変化を、1行ずつ追いかけて確かめること。"
+            },
+            {
+              "term": "モジュール",
+              "definition": "便利な機能を集めた部品。import で使えるようにする。"
+            },
+            {
+              "term": "random.randint(a, b)",
+              "definition": "a 以上 b 以下の整数をランダムに1つ返す。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S09-E1",
+              "title": "おみくじの判定部分",
+              "code": "n = 7\nif n >= 9:\n    result = \"大吉\"\nelif n >= 5:\n    result = \"中吉\"\nelse:\n    result = \"小吉\"\nprint(result)",
+              "expected_output": "中吉",
+              "line_notes": [
+                "n = 7 は 9 以上ではなく、5 以上なので elif の中吉が選ばれます。"
+              ]
+            },
+            {
+              "id": "S09-E2",
+              "title": "randint の範囲",
+              "code": "import random\nn = random.randint(1, 6)\nprint(n >= 1 and n <= 6)",
+              "expected_output": "True",
+              "line_notes": [
+                "n の値は毎回変わりますが、必ず 1 以上 6 以下なので、最後の式はいつも True になります。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S09-L2",
+          "title": "簡易計算機と集計",
+          "read_minutes": 3,
+          "body": [
+            "簡易計算機は、関数に2つの数と計算の種類（演算子の文字）を渡し、if / elif で処理を切り替える作りになります。対応していない種類は else で知らせます。",
+            "成績の集計では、リストを for で順に調べ、if で条件に合うものを数えたり、合計したりします。辞書とリストを組み合わせると、買い物かごの合計のような処理も書けます。",
+            "これらはすべて、ステージ1〜8で学んだ部品の組み合わせです。分解して1つずつ読めば、難しくありません。"
+          ],
+          "glossary": [
+            {
+              "term": "演算子",
+              "definition": "+ や - など計算を表す記号。ここでは文字列 \"+\" として関数に渡す。"
+            },
+            {
+              "term": "集計",
+              "definition": "データを数えたり合計したりして、全体の特徴をまとめること。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S09-E3",
+              "title": "簡易計算機",
+              "code": "def calc(a, op, b):\n    if op == \"+\":\n        return a + b\n    elif op == \"-\":\n        return a - b\n    elif op == \"*\":\n        return a * b\n    else:\n        return \"未対応\"\n\nprint(calc(6, \"*\", 7))\nprint(calc(6, \"%\", 7))",
+              "expected_output": "42\n未対応",
+              "line_notes": [
+                "11行目: \"*\" なので 6 * 7 = 42 が返ります。",
+                "12行目: \"%\" は対応していないので else の「未対応」が返ります。"
+              ]
+            },
+            {
+              "id": "S09-E4",
+              "title": "成績の集計",
+              "code": "scores = [55, 80, 62, 90, 45]\npassed = 0\nfor s in scores:\n    if s >= 60:\n        passed += 1\nprint(\"合格者:\", passed)\nprint(\"平均:\", sum(scores) / len(scores))\nprint(\"最高:\", max(scores))",
+              "expected_output": "合格者: 3\n平均: 66.4\n最高: 90",
+              "line_notes": [
+                "2〜5行目: 60点以上の人数を数えます（80, 62, 90 の3人）。",
+                "7行目: 平均は 332 ÷ 5 = 66.4。"
+              ]
+            },
+            {
+              "id": "S09-E5",
+              "title": "買い物かごの合計",
+              "code": "prices = {\"りんご\": 120, \"みかん\": 80}\ncart = [\"りんご\", \"みかん\", \"りんご\"]\ntotal = 0\nfor item in cart:\n    total += prices[item]\nprint(total)",
+              "expected_output": "320",
+              "line_notes": [
+                "かごの中身を1つずつ取り出し、辞書から価格を引いて足します。りんごは2回入っているので120を2回足します。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "randint の終わりを含まないと思う",
+          "wrong_code": "random.randint(1, 6)  # 1〜5 と思う",
+          "why": "randint は両端を含みます。1〜6 の整数が返ります。",
+          "fix": "1〜6 が返る、と読む"
+        },
+        {
+          "title": "elif の順序",
+          "wrong_code": "if score >= 60: ...\nelif score >= 80: ...",
+          "why": "上から調べて最初に成立した所で終わるため、80以上でも60以上が先に成立します。厳しい条件（大きい値）から並べます。",
+          "fix": "先に score >= 80 を調べる"
+        },
+        {
+          "title": "境界値の見落とし",
+          "wrong_code": "if len(w) > 4:  # 4文字以上のつもり",
+          "why": "4文字以上は >= 4（または > 3）です。",
+          "fix": "if len(w) >= 4:"
+        },
+        {
+          "title": "一気に読もうとする",
+          "wrong_code": "（長いコードを眺めて暗算する）",
+          "why": "変数の値を1行ずつ書き出して追うと、間違いが見つかりやすくなります。",
+          "fix": "表に書いてトレースする"
+        }
+      ],
+      "checkpoints": [
+        "変数の値を1行ずつ追って読む",
+        "randint(a, b) は a と b を含む",
+        "elif は厳しい条件から並べる",
+        "リスト + for + if で数えたり合計したりできる",
+        "辞書 + リストで、キーを引いて集計できる",
+        "境界値（以上・より大きい）を確認する"
+      ],
+      "next_bridge": "ミニプログラムを読む練習です。コードを少しずつ追いかけて、結果を確かめましょう。最後の問題では、おみくじの判定を自分で書きます。"
+    },
+    {
+      "id": "LESSON-S10",
+      "stage_id": "S10",
+      "title": "総合演習",
+      "intro": "最後のステージです。新しい文法はほとんどありません。これまでの部品を組み合わせて、自分でプログラムを組み立てます。ポイントは「いきなり書かず、小さく分けて考える」こと。うまく書けなくても、読んで理解した定番パターンが、必ず武器になります。",
+      "sections": [
+        {
+          "id": "S10-L1",
+          "title": "分解して考える・ループの入れ子",
+          "read_minutes": 3,
+          "body": [
+            "プログラムを書く前に、「何を受け取り（入力）、どう処理し（処理）、何を返す・表示するか（出力）」を言葉で書きます。次に、小さな値（例: リストが [3, 9, 4]）で、手で計算してみます。これが設計図になります。",
+            "ループの中にループを書くこともできます（入れ子）。外側のループが1回進むごとに、内側のループが最初から最後まで回ります。字下げの深さで、どのループの中かを判断します。",
+            "文字列に文字を足し込むときは line += \"*\" のように書きます。ステージ2の += は文字列にも使えます。"
+          ],
+          "glossary": [
+            {
+              "term": "入れ子（ネスト）",
+              "definition": "ループや if の中に、さらにループや if を書くこと。"
+            },
+            {
+              "term": "境界値",
+              "definition": "ちょうど切り替わる値や、端の値（0、1つだけ、空など）。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S10-E1",
+              "title": "入れ子のループ",
+              "code": "for i in range(1, 4):\n    line = \"\"\n    for j in range(i):\n        line += \"*\"\n    print(line)",
+              "expected_output": "*\n**\n***",
+              "line_notes": [
+                "外側: i は 1, 2, 3。",
+                "内側: i 回だけ * を足します。i=2 なら ** になります。",
+                "5行目: 内側のループが終わるたびに1行表示されます。"
+              ]
+            },
+            {
+              "id": "S10-E2",
+              "title": "最大値を求める",
+              "code": "nums = [3, 9, 4]\nbiggest = nums[0]\nfor n in nums:\n    if n > biggest:\n        biggest = n\nprint(biggest)",
+              "expected_output": "9",
+              "line_notes": [
+                "2行目: まず最初の要素を暫定の最大値とします。",
+                "4〜5行目: もっと大きい値が見つかったら更新します。"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "S10-L2",
+          "title": "定番パターン: FizzBuzz と回文",
+          "read_minutes": 3,
+          "body": [
+            "FizzBuzz は、3の倍数なら Fizz、5の倍数なら Buzz、両方の倍数（15の倍数）なら FizzBuzz、それ以外は数字を返す有名な練習問題です。15 の倍数は 3 の倍数でもあるので、必ず 15 の判定を最初に書きます。",
+            "回文は、前から読んでも後ろから読んでも同じ文字列（level など）です。i 番目の文字と、後ろから i 番目の文字（text[-1 - i]）が同じかをくり返し確かめます。一つでも違えば False です。",
+            "どちらも、新しい文法はありません。条件の順序と、境界の値（空の文字列、1文字など）に気を付ければ、これまでの知識で書けます。"
+          ],
+          "glossary": [
+            {
+              "term": "FizzBuzz",
+              "definition": "倍数の判定を練習する定番の課題。"
+            },
+            {
+              "term": "回文",
+              "definition": "前から読んでも後ろから読んでも同じになる文字列。"
+            }
+          ],
+          "examples": [
+            {
+              "id": "S10-E3",
+              "title": "FizzBuzz の関数",
+              "code": "def fizzbuzz(n):\n    if n % 15 == 0:\n        return \"FizzBuzz\"\n    elif n % 3 == 0:\n        return \"Fizz\"\n    elif n % 5 == 0:\n        return \"Buzz\"\n    else:\n        return str(n)\n\nfor i in range(1, 6):\n    print(fizzbuzz(i))",
+              "expected_output": "1\n2\nFizz\n4\nBuzz",
+              "line_notes": [
+                "2行目: 15 の倍数を最初に判定します。",
+                "8行目: それ以外は数字を文字列にして返します。"
+              ]
+            },
+            {
+              "id": "S10-E4",
+              "title": "回文の判定",
+              "code": "def is_palindrome(text):\n    for i in range(len(text)):\n        if text[i] != text[-1 - i]:\n            return False\n    return True\n\nprint(is_palindrome(\"level\"))\nprint(is_palindrome(\"abc\"))",
+              "expected_output": "True\nFalse",
+              "line_notes": [
+                "3行目: 前から i 番目と、後ろから i 番目を比べます（i=0 なら最初と最後）。",
+                "4行目: 1つでも違えばすぐ False を返して終了します。",
+                "5行目: 最後まで違いがなければ True です。"
+              ]
+            }
+          ]
+        }
+      ],
+      "common_mistakes": [
+        {
+          "title": "FizzBuzz の判定順序",
+          "wrong_code": "if n % 3 == 0:\n    return \"Fizz\"\nelif n % 15 == 0:\n    return \"FizzBuzz\"",
+          "why": "15 は3の倍数でもあるので、最初の条件で Fizz になってしまいます。15 を先に判定します。",
+          "fix": "n % 15 == 0 を最初にする"
+        },
+        {
+          "title": "最大値の初期値を 0 にする",
+          "wrong_code": "biggest = 0",
+          "why": "すべて負の数のリストだと、本当の最大値より大きい 0 が残ってしまいます。最初の要素を使うのが安全です。",
+          "fix": "biggest = nums[0]"
+        },
+        {
+          "title": "return をループの内側に書きすぎる",
+          "wrong_code": "for ...:\n    if ...:\n        return False\n    else:\n        return True",
+          "why": "最初の1回で結果が確定してしまいます。True は、ループが終わってから返します。",
+          "fix": "return True をループの外に出す"
+        },
+        {
+          "title": "境界値を試さない",
+          "wrong_code": "（通常の値だけで確認する）",
+          "why": "空・1つだけ・ちょうどの値でも動くか確認します。",
+          "fix": "端の値で手動チェックする"
+        }
+      ],
+      "checkpoints": [
+        "入力・処理・出力に分けて考える",
+        "小さな値で手計算してから書く",
+        "入れ子のループは字下げで判断する",
+        "最大値は暫定の最大を更新する",
+        "条件の順序と境界値に注意する",
+        "困ったら print で値を確認する"
+      ],
+      "next_bridge": "ここからは、これまでの総まとめです。読んで予想する問題と、自分で書く問題があります。焦らず、小さく分けて、1つずつ確かめながら進みましょう。"
+    }
+  ]
+}

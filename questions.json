@@ -1,0 +1,5571 @@
+{
+  "course_id": "python-basics-ja",
+  "schema_version": "1.0.0",
+  "question_count": 100,
+  "questions": [
+    {
+      "id": "PY-001",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 1,
+      "title": "print() の役割",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "print関数",
+        "出力"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "Python の print() は、何をするための命令ですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "紙に文字を印刷する"
+        },
+        {
+          "id": "c2",
+          "text": "画面に文字や数値を表示する"
+        },
+        {
+          "id": "c3",
+          "text": "キーボードから文字を受け取る"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "print() は括弧の中の値を画面に出力する関数だから。",
+      "explanation": "プログラムが何を計算しているかは、そのままでは見えません。print() を使うと、結果や途中経過を画面に表示して確かめられます。今後のすべてのステージで使う基本の道具です。",
+      "wrong_answer_reasons": {
+        "c1": "print は英語で「印刷」ですが、Python の print() はプリンターを動かす命令ではなく、画面（出力欄）に表示する命令です。",
+        "c3": "それは「入力」の役割で、print() の仕事ではありません。print() は結果を外に出す（出力する）ための命令です。"
+      },
+      "hint": "print は「印刷」ですが、パソコンの画面で何が起きるかを考えてみましょう。",
+      "feedback_correct": "正解！print() は画面に表示する命令です。",
+      "feedback_incorrect": "惜しい！print() は「画面に表示する」命令です。解説を読んで確認しましょう。"
+    },
+    {
+      "id": "PY-002",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 2,
+      "title": "文字列には引用符が必要",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "文字列",
+        "引用符",
+        "print関数"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "画面に「こんにちは」と表示したいとき、正しいコードはどれですか？",
+      "code": null,
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "print(\"こんにちは\")"
+        },
+        {
+          "id": "c2",
+          "text": "print(こんにちは)"
+        },
+        {
+          "id": "c3",
+          "text": "print \"こんにちは\""
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "文字列は引用符で囲み、print には括弧が必要だから。",
+      "explanation": "引用符は「ここからここまでは、ただの文字」という目印です。目印がないと Python は命令や名前だと勘違いします。さらに print は関数なので、print( ) の括弧を忘れないようにしましょう。",
+      "wrong_answer_reasons": {
+        "c2": "引用符がないと、Python は「こんにちは」を文字ではなく名前（あとで習う変数名のようなもの）だと考えます。そのような名前は存在しないので NameError になります。",
+        "c3": "Python 3 の print は関数なので、必ず括弧 ( ) を付けて print(...) の形で書きます。括弧がないと SyntaxError になります。"
+      },
+      "hint": "文字には「目印」を付けます。また print の後ろには何が必要でしょう？",
+      "feedback_correct": "正解！文字列は引用符で囲み、print は括弧付きで書きます。",
+      "feedback_incorrect": "惜しい！「引用符」と「括弧」の2つがそろっている選択肢を探しましょう。"
+    },
+    {
+      "id": "PY-003",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 3,
+      "title": "3行の print の結果",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "実行順序",
+        "print関数",
+        "改行"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、画面にはどう表示されますか？",
+      "code": "print(\"朝\")\nprint(\"昼\")\nprint(\"夜\")",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "夜\n昼\n朝"
+        },
+        {
+          "id": "c2",
+          "text": "朝昼夜"
+        },
+        {
+          "id": "c3",
+          "text": "朝\n昼\n夜"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "expected_output": "朝\n昼\n夜"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "上から順に実行され、print() は毎回改行するため。",
+      "explanation": "print() は表示のあとに改行を入れます。上の行から順番に実行されるので、朝→昼→夜の順に1行ずつ表示されます。",
+      "wrong_answer_reasons": {
+        "c1": "コードは上の行から順番に実行されます。下から実行されることはありません。",
+        "c2": "print() は表示したあとに自動で改行します。そのため3つの print() は1行ではなく3行に分かれます。"
+      },
+      "hint": "実行は上の行から順番。そして print のあとはどうなる？",
+      "feedback_correct": "正解！上から順に、1行ずつ表示されます。",
+      "feedback_incorrect": "惜しい！「上から順に実行」と「print の後は改行」を思い出しましょう。"
+    },
+    {
+      "id": "PY-004",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 4,
+      "title": "カンマで区切ると？",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "print関数",
+        "複数の値"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、画面にはどう表示されますか？",
+      "code": "print(\"Hello\", \"Python\")",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "HelloPython"
+        },
+        {
+          "id": "c2",
+          "text": "Hello Python"
+        },
+        {
+          "id": "c3",
+          "text": "Hello, Python"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "Hello Python"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "複数の値は空白1つで区切って1行に表示されるため。",
+      "explanation": "print(\"A\", \"B\") のように , で区切ると、A と B の間に半角空白が1つ入って1行で表示されます。カンマ自体は出力に現れません。",
+      "wrong_answer_reasons": {
+        "c1": "print() に値をカンマで区切って渡すと、値の間に空白が1つ入ります。くっついて表示されることはありません。",
+        "c3": "カンマは「値の区切り」を示す記号で、画面には表示されません。表示されるのは間の空白1つだけです。"
+      },
+      "hint": "カンマは区切りの合図です。出力にカンマは出るでしょうか？",
+      "feedback_correct": "正解！カンマで区切ると、間に空白1つが入ります。",
+      "feedback_incorrect": "惜しい！カンマは出力されず、代わりに空白1つが入ります。"
+    },
+    {
+      "id": "PY-005",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 5,
+      "title": "コメントは実行されない",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 1,
+      "concepts": [
+        "コメント",
+        "実行順序"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、画面にはどう表示されますか？表示される内容を入力してください（複数行の場合は改行して入力）。",
+      "code": "print(\"A\")\n# print(\"B\")\nprint(\"C\")",
+      "answer": {
+        "expected_output": "A\nC"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "2行目は # で始まるコメントのため実行されないから。",
+      "explanation": "# から行末まではコメントとして無視されます。2行目はまるごとコメントなので、実行されるのは1行目と3行目だけです。コードを一時的に無効にしたいときにもこの方法が使えます。",
+      "common_mistakes": [
+        {
+          "answer": "A\nB\nC",
+          "reason": "# で始まる行はコメントです。Python は無視するので B は表示されません。"
+        },
+        {
+          "answer": "C",
+          "reason": "1行目の print(\"A\") はコメントではないので実行されます。"
+        }
+      ],
+      "hint": "# から先は Python が読み飛ばします。",
+      "feedback_correct": "正解！コメントの行は実行されません。",
+      "feedback_incorrect": "惜しい！# で始まる行は無視されます。どの行が実行されるか数え直してみましょう。"
+    },
+    {
+      "id": "PY-006",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 6,
+      "title": "エラーの原因（大文字）",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "大文字小文字の区別",
+        "NameError"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると NameError になります。原因はどれですか？",
+      "code": "Print(\"Hello\")",
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Hello を引用符で囲んでいること"
+        },
+        {
+          "id": "c2",
+          "text": "括弧 ( ) を使っていること"
+        },
+        {
+          "id": "c3",
+          "text": "Print の P が大文字になっていること"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "fixed_code": "print(\"Hello\")",
+        "expected_output": "Hello",
+        "buggy_error": "NameError"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "Python は大文字・小文字を区別し、Print という名前は存在しないから。",
+      "explanation": "Python では print と Print は別の名前です。print は用意されていますが Print はないので、NameError（その名前は定義されていません）になります。エラーメッセージの最後の行に name 'Print' is not defined と書かれます。",
+      "wrong_answer_reasons": {
+        "c1": "文字列を引用符で囲むのは正しい書き方です。ここは原因ではありません。",
+        "c2": "print は関数なので括弧が必要です。ここも正しい書き方です。"
+      },
+      "hint": "エラー文には name 'Print' is not defined と出ます。Print と print を見比べてみましょう。",
+      "feedback_correct": "正解！Python は大文字と小文字を区別します。",
+      "feedback_incorrect": "惜しい！エラーメッセージに出てくる名前をよく見てみましょう。"
+    },
+    {
+      "id": "PY-007",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 7,
+      "title": "引用符のそろえ方",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "引用符",
+        "SyntaxError"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードは SyntaxError になります。エラーなく動くように直したものはどれですか？",
+      "code": "print(\"Hello')",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "print(Hello')"
+        },
+        {
+          "id": "c2",
+          "text": "print('Hello\")"
+        },
+        {
+          "id": "c3",
+          "text": "print('Hello')"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "fixed_code": "print('Hello')",
+        "expected_output": "Hello",
+        "buggy_error": "SyntaxError",
+        "target_line": 1,
+        "choice_is_replacement_line": true
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "引用符は開始と終了を同じ種類（\" \" か ' '）にそろえる必要があるから。",
+      "explanation": "文字列は \"...\" か '...' のどちらでも書けますが、始まりと終わりは同じ種類でなければなりません。元のコードは \" で始まり ' で終わっているので、どこで文字列が終わるか分からず SyntaxError になります。",
+      "wrong_answer_reasons": {
+        "c1": "引用符が片側にしかなく、閉じ引用符だけが残っています。これでも SyntaxError になります。",
+        "c2": "今度は ' で始めて \" で終わっていて、種類がそろっていません。引用符は開始と終了で同じ種類にします。"
+      },
+      "hint": "始まりの引用符と終わりの引用符を見比べてみましょう。",
+      "feedback_correct": "正解！引用符は始まりと終わりをそろえます。",
+      "feedback_incorrect": "惜しい！始まりと終わりの引用符が同じ種類になっている選択肢を探しましょう。"
+    },
+    {
+      "id": "PY-008",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 8,
+      "title": "文字列を表示する",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 1,
+      "concepts": [
+        "文字列",
+        "引用符"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "画面に Python と表示されるように、空欄 __1__ に入れるものを入力してください。",
+      "code": "print(__1__)",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "\"Python\""
+            ],
+            "quote_insensitive": true
+          }
+        ],
+        "expected_output": "Python"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "文字列 Python を表すには引用符で囲む必要があるから。",
+      "explanation": "空欄には \"Python\"（または 'Python'）と、引用符ごと入力します。引用符は画面には出ませんが、「これは文字列です」という大切な目印です。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "Python",
+          "reason": "引用符がないと名前として扱われ、NameError になります。文字列は引用符で囲みます。"
+        }
+      ],
+      "hint": "文字列にはどんな記号が必要でしたか？",
+      "feedback_correct": "正解！引用符で囲んだ文字列を渡しました。",
+      "feedback_incorrect": "惜しい！引用符も含めて入力してみましょう。"
+    },
+    {
+      "id": "PY-009",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 9,
+      "title": "文字と数値を並べる",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 1,
+      "concepts": [
+        "print関数",
+        "複数の値",
+        "数値"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください。",
+      "code": "print(\"年齢:\", 20)",
+      "answer": {
+        "expected_output": "年齢: 20"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "文字列と数値を , で区切ると、空白1つを挟んで表示されるから。",
+      "explanation": "数値の 20 は引用符なしで書けます。print は値の間に空白を1つ入れるので「年齢: 20」と表示されます（コロンの後ろの空白は print が入れたものです）。",
+      "common_mistakes": [
+        {
+          "answer": "年齢:20",
+          "reason": "カンマで区切ると、間に空白が1つ入ります。"
+        },
+        {
+          "answer": "\"年齢:\", 20",
+          "reason": "コードそのものではなく、実行したときに画面に出る結果を答えます。引用符やカンマは表示されません。"
+        }
+      ],
+      "hint": "カンマの代わりに何が入るでしょう？ 引用符は表示されません。",
+      "feedback_correct": "正解！値の間に空白が1つ入ります。",
+      "feedback_incorrect": "惜しい！引用符やカンマは表示されず、値の間に空白が入ります。"
+    },
+    {
+      "id": "PY-010",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S01",
+      "stage_number": 1,
+      "number_in_stage": 10,
+      "title": "2行のあいさつ",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 2,
+      "concepts": [
+        "print関数",
+        "文字列",
+        "実行順序"
+      ],
+      "preconditions": "ステージ1で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "画面に次の2行が表示されるプログラムを書いてください。\n\nこんにちは\nPython",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "# ここにコードを書きましょう\n",
+      "answer": {
+        "reference_solution": "print(\"こんにちは\")\nprint(\"Python\")",
+        "alternative_solutions": [
+          "print('こんにちは')\nprint('Python')",
+          "print(\"こんにちは\\nPython\")"
+        ],
+        "rejected_examples": [
+          {
+            "code": "print(\"こんにちは\", \"Python\")",
+            "reason": "カンマで区切ると同じ行に空白区切りで表示されます。2行にするには print を2回使います。"
+          },
+          {
+            "code": "print(\"こんにちは Python\")",
+            "reason": "1行で表示されてしまいます。2行に分けるには print を2回書きます。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "stdout",
+            "setup": "",
+            "expected_stdout": "こんにちは\nPython\n",
+            "visible": true
+          }
+        ],
+        "required_ast_nodes": [],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "print() を2回使うとそれぞれの結果が別の行に表示されるから。",
+      "explanation": "print は毎回改行するので、print(\"こんにちは\") と print(\"Python\") を順に書けば2行になります。1つの print にカンマで並べると同じ行に表示される点に注意しましょう。",
+      "hint": "1行ごとに print() を1回使います。",
+      "feedback_correct": "正解！最初のプログラムが書けました。",
+      "feedback_incorrect": "惜しい！出力が「2行」になっているか確認しましょう。"
+    },
+    {
+      "id": "PY-011",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 1,
+      "title": "x = 5 の意味",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "変数",
+        "代入"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "Python で x = 5 と書いたとき、最も近い意味はどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "x と 5 が等しいかどうかを調べる"
+        },
+        {
+          "id": "c2",
+          "text": "5 という値に x という名前を付けて覚えておく"
+        },
+        {
+          "id": "c3",
+          "text": "x を使って 5 を画面に表示する"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "= は右の値を左の名前に入れる（代入する）記号だから。",
+      "explanation": "数学の「x は 5 に等しい」と違い、Python の = は代入です。右の値に左の名前を付けて保存します。あとで print(x) とすると 5 が表示されます。",
+      "wrong_answer_reasons": {
+        "c1": "等しいかどうかを調べるときは、別の記号 ==（ステージ3で学習）を使います。= は調べるのではなく「入れる」命令です。",
+        "c3": "表示するのは print() の役割です。x = 5 だけでは何も表示されません。"
+      },
+      "hint": "= は「右から左へ入れる」と読みます。",
+      "feedback_correct": "正解！= は代入。値に名前を付けて覚えます。",
+      "feedback_incorrect": "惜しい！= は「等しい」ではなく「入れる」です。"
+    },
+    {
+      "id": "PY-012",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 2,
+      "title": "上書きと +=",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "変数",
+        "再代入",
+        "+="
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、何が表示されますか？",
+      "code": "score = 50\nscore = 80\nscore += 10\nprint(score)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "60"
+        },
+        {
+          "id": "c2",
+          "text": "90"
+        },
+        {
+          "id": "c3",
+          "text": "140"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "90"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "2行目で80に上書きされ、3行目で10が足されるから。",
+      "explanation": "同じ名前に代入すると前の値は消えます。score は 50 → 80 に変わり、score += 10 は score = score + 10 なので 80 + 10 = 90 になります。",
+      "wrong_answer_reasons": {
+        "c1": "2行目で score は 80 に上書きされ、50 は残っていません。60 は 50 + 10 の結果です。",
+        "c3": "代入は足し算ではなく上書きです。50 と 80 を合計したりはしません。"
+      },
+      "hint": "1行ずつ、score の中身がどう変わるか書き出してみましょう。",
+      "feedback_correct": "正解！上書きされた 80 に 10 が足されます。",
+      "feedback_incorrect": "惜しい！score の値を1行ずつ追いかけてみましょう。"
+    },
+    {
+      "id": "PY-013",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 3,
+      "title": "使えない変数名",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 1,
+      "concepts": [
+        "変数名のルール"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "変数名として使えないものはどれですか？",
+      "code": null,
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "my_score"
+        },
+        {
+          "id": "c2",
+          "text": "score2"
+        },
+        {
+          "id": "c3",
+          "text": "2score"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "変数名は数字で始めることができないから。",
+      "explanation": "変数名には英字・数字・_ が使えますが、数字で始められません。2score は数字で始まるので SyntaxError になります。score2 のように数字を後ろに置けば使えます。",
+      "wrong_answer_reasons": {
+        "c1": "英字とアンダースコア（_）は変数名に使えます。これは正しい名前です。",
+        "c2": "数字は2文字目以降なら使えます。これは正しい名前です。"
+      },
+      "hint": "名前の「最初の1文字」に注目しましょう。",
+      "feedback_correct": "正解！数字で始まる名前は使えません。",
+      "feedback_incorrect": "惜しい！最初の文字が数字になっているものを探しましょう。"
+    },
+    {
+      "id": "PY-014",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 4,
+      "title": "商と余りと累乗",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "//",
+        "%",
+        "**",
+        "算術演算子"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "print(7 // 2)\nprint(7 % 2)\nprint(2 ** 3)",
+      "answer": {
+        "expected_output": "3\n1\n8"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "// は切り捨ての商、% は余り、** は累乗だから。",
+      "explanation": "7 ÷ 2 は商が 3 で余りが 1。2 ** 3 は 2×2×2 = 8 です。割り算の記号は / // % の3種類があり、結果が違う点に注意しましょう。",
+      "common_mistakes": [
+        {
+          "answer": "3.5\n1\n8",
+          "reason": "7 // 2 は小数点以下を切り捨てた商なので 3 です。3.5 になるのは 7 / 2 です。"
+        },
+        {
+          "answer": "3\n1\n6",
+          "reason": "** は掛け算ではなく累乗です。2 ** 3 は 2 を3回かけた 8 です。"
+        }
+      ],
+      "hint": "7 を 2 で割ると「3 あまり 1」です。",
+      "feedback_correct": "正解！//・%・** の違いを押さえました。",
+      "feedback_incorrect": "惜しい！割り算の3種類と累乗の意味を見直しましょう。"
+    },
+    {
+      "id": "PY-015",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 5,
+      "title": "割り算の型",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "/",
+        "型",
+        "float",
+        "type"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、何が表示されますか？",
+      "code": "print(type(10 / 2))",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "<class 'int'>"
+        },
+        {
+          "id": "c2",
+          "text": "<class 'float'>"
+        },
+        {
+          "id": "c3",
+          "text": "<class 'str'>"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "<class 'float'>"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "/ は割り切れる場合でも結果が float になるから。",
+      "explanation": "Python の / は「普通の割り算」で、結果は常に小数の float です。10 / 2 は 5.0 になります。整数の商がほしいときは // を使います。",
+      "wrong_answer_reasons": {
+        "c1": "10 / 2 は割り切れて 5 になりそうですが、/ の結果は必ず float（5.0）になります。",
+        "c3": "計算の結果が文字列になることはありません。文字列は引用符で作る型です。"
+      },
+      "hint": "10 / 2 の結果を print すると、5 でしょうか、5.0 でしょうか。",
+      "feedback_correct": "正解！/ の結果はいつも float です。",
+      "feedback_incorrect": "惜しい！/ は割り切れても小数（5.0）になります。"
+    },
+    {
+      "id": "PY-016",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 6,
+      "title": "文字列の足し算とかけ算",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "文字列の連結",
+        "文字列の繰り返し"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "a = \"Py\"\nb = \"thon\"\nprint(a + b)\nprint(a * 2)",
+      "answer": {
+        "expected_output": "Python\nPyPy"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "文字列の + は連結、* 数 は繰り返しだから。",
+      "explanation": "\"Py\" + \"thon\" は \"Python\"。\"Py\" * 2 は \"PyPy\" です。数値の + * とは意味が違いますが、文字列にも同じ記号が使えます。",
+      "common_mistakes": [
+        {
+          "answer": "Py thon\nPyPy",
+          "reason": "+ で連結すると間に空白は入りません。空白が入るのは print にカンマで渡したときです。"
+        },
+        {
+          "answer": "Python\nPy2",
+          "reason": "文字列 * 数 は、その回数だけ文字列を繰り返します。"
+        }
+      ],
+      "hint": "+ は「つなぐ」、* は「繰り返す」です。空白は入りません。",
+      "feedback_correct": "正解！+ は連結、* は繰り返しです。",
+      "feedback_incorrect": "惜しい！文字列の + と * の意味を確認しましょう。"
+    },
+    {
+      "id": "PY-017",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 7,
+      "title": "f文字列に変数を埋め込む",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "f文字列",
+        "変数"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "変数 name と age の値を使って「Hanaさんは12歳です」と表示したい。空欄 __1__ と __2__ に入れるものを答えてください。",
+      "code": "name = \"Hana\"\nage = 12\nprint(f\"__1__さんは__2__歳です\")",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "{name}"
+            ],
+            "quote_insensitive": false
+          },
+          {
+            "id": "b2",
+            "marker": "__2__",
+            "accepted": [
+              "{age}"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "Hanaさんは12歳です"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "f文字列では { } の中に変数名を書くと値に置き換わるから。",
+      "explanation": "f\"...\" の中で {name} と書くと、変数 name の値 Hana に置き換わります。波括弧を忘れると、name という文字がそのまま表示されます。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "name",
+          "reason": "波括弧 { } がないと、name という文字がそのまま表示されます。"
+        },
+        {
+          "blank": "b2",
+          "answer": "age",
+          "reason": "波括弧 { } がないと、age という文字がそのまま表示されます。"
+        }
+      ],
+      "hint": "変数名を { } で囲みます。",
+      "feedback_correct": "正解！{変数名} で値を埋め込めます。",
+      "feedback_incorrect": "惜しい！波括弧 { } で変数名を囲みましょう。"
+    },
+    {
+      "id": "PY-018",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 8,
+      "title": "変数名のエラー",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "変数名のルール",
+        "SyntaxError"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードは SyntaxError になります。正しい直し方はどれですか？",
+      "code": "my score = 80\nprint(my score)",
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "80 を引用符で囲む"
+        },
+        {
+          "id": "c2",
+          "text": "= を == に変える"
+        },
+        {
+          "id": "c3",
+          "text": "my score を my_score のように _ でつなぐ"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "fixed_code": "my_score = 80\nprint(my_score)",
+        "expected_output": "80",
+        "buggy_error": "SyntaxError"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "変数名には空白が使えず、_ でつなぐのが一般的だから。",
+      "explanation": "my score は2つの別の名前が並んでいるように見えるため、Python は文法を理解できず SyntaxError になります。単語の区切りには _ を使います。",
+      "wrong_answer_reasons": {
+        "c1": "原因は変数名の空白です。80 を文字列にしても、変数名の問題は残ります。",
+        "c2": "== は等しいか調べる記号です。ここで必要なのは代入で、問題は変数名にあります。"
+      },
+      "hint": "変数名の中に、使えない文字が入っていませんか？",
+      "feedback_correct": "正解！変数名の空白は _ に置き換えます。",
+      "feedback_incorrect": "惜しい！エラーの原因は変数名にあります。"
+    },
+    {
+      "id": "PY-019",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 9,
+      "title": "平均の計算ミス",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "計算の優先順位",
+        "括弧"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "a と b の平均を求めるつもりですが、7.0 ではなく 12.0 と表示されます。3行目を正しく書き直して入力してください（3行目の内容だけを入力）。",
+      "code": "a = 10\nb = 4\naverage = a + b / 2\nprint(average)",
+      "answer": {
+        "target_line": 3,
+        "accepted": [
+          "average = (a + b) / 2",
+          "average=(a + b) / 2",
+          "average = (a+b) / 2",
+          "average=(a+b) / 2",
+          "average = (a + b)/2",
+          "average=(a + b)/2",
+          "average = (a+b)/2",
+          "average=(a+b)/2",
+          "average = (b + a) / 2",
+          "average=(b + a) / 2",
+          "average = (b+a) / 2",
+          "average=(b+a) / 2",
+          "average = (b + a)/2",
+          "average=(b + a)/2",
+          "average = (b+a)/2",
+          "average=(b+a)/2"
+        ],
+        "quote_insensitive": false,
+        "fixed_code": "a = 10\nb = 4\naverage = (a + b) / 2\nprint(average)",
+        "expected_output": "7.0",
+        "buggy_output": "12.0"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "割り算が足し算より先に計算されるため、足し算を ( ) で囲む必要があるから。",
+      "explanation": "a + b / 2 は b / 2 が先に計算され、10 + 2.0 = 12.0 になります。(a + b) / 2 と書けば先に足し算が行われ、14 / 2 = 7.0 です。計算順序を変えたいときは ( ) を使います。",
+      "common_mistakes": [
+        {
+          "answer": "average = a + b / 2",
+          "reason": "元のコードのままです。割り算が先に計算されるため、足し算を先にするには ( ) が必要です。"
+        }
+      ],
+      "hint": "先に足し算してから割るには、どうすればよいでしょう？",
+      "feedback_correct": "正解！( ) で足し算を先に計算させました。",
+      "feedback_incorrect": "惜しい！割り算が先に計算されている点に注目しましょう。"
+    },
+    {
+      "id": "PY-020",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S02",
+      "stage_number": 2,
+      "number_in_stage": 10,
+      "title": "長方形の面積",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 2,
+      "concepts": [
+        "変数",
+        "掛け算",
+        "print関数"
+      ],
+      "preconditions": "ステージ1〜2で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "変数 width（横）と height（縦）に長方形の大きさが入っています。面積（width × height）を print で表示するコードを書いてください。数値を直接書かず、変数を使うこと。",
+      "code": null,
+      "prefix_code": "width = 5\nheight = 3",
+      "starter_code": "# width と height はあらかじめ用意されています\n",
+      "answer": {
+        "reference_solution": "print(width * height)",
+        "alternative_solutions": [
+          "area = width * height\nprint(area)",
+          "print(height * width)",
+          "print(width*height)"
+        ],
+        "rejected_examples": [
+          {
+            "code": "print(15)",
+            "reason": "決まった数値を書くと、width や height が変わったときに正しい結果になりません。変数を使いましょう。"
+          },
+          {
+            "code": "print(width + height)",
+            "reason": "面積は縦×横です。足し算ではありません。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "stdout",
+            "setup": "width = 5\nheight = 3",
+            "expected_stdout": "15\n",
+            "visible": true
+          },
+          {
+            "kind": "stdout",
+            "setup": "width = 7\nheight = 2",
+            "expected_stdout": "14\n",
+            "visible": false
+          },
+          {
+            "kind": "stdout",
+            "setup": "width = 0\nheight = 9",
+            "expected_stdout": "0\n",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "変数を使った式なら、値が変わっても正しい面積が表示されるから。",
+      "explanation": "print(width * height) のように変数同士をかけ算します。結果をいったん area などの変数に入れてから表示する書き方でも正解です。",
+      "hint": "* でかけ算できます。変数名をそのまま式の中に書きましょう。",
+      "feedback_correct": "正解！変数を使って面積を計算できました。",
+      "feedback_incorrect": "惜しい！変数 width と height を使った式になっていますか？"
+    },
+    {
+      "id": "PY-021",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 1,
+      "title": "等しいかどうかを調べる",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "比較演算子",
+        "==",
+        "代入との違い"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "変数 x が 10 に等しいかどうかを調べる条件として、正しい書き方はどれですか？",
+      "code": null,
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "x = 10"
+        },
+        {
+          "id": "c2",
+          "text": "x == 10"
+        },
+        {
+          "id": "c3",
+          "text": "x === 10"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "Python で「等しいか」を調べる比較演算子は == だから。",
+      "explanation": "= は右の値を左の変数に入れる代入、== は左右が等しいかを調べる比較です。if x == 10: のように、条件の中では必ず == を使います。",
+      "wrong_answer_reasons": {
+        "c1": "= は代入です。条件の中で使うと SyntaxError になります。等しいかを調べるには == を使います。",
+        "c3": "=== は他の言語（JavaScript など）の書き方で、Python にはありません。"
+      },
+      "hint": "= を2つ並べる記号です。",
+      "feedback_correct": "正解！等しいかどうかは == で調べます。",
+      "feedback_incorrect": "惜しい！= は代入、== が「等しい」です。"
+    },
+    {
+      "id": "PY-022",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 2,
+      "title": "以上と等しくない",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "比較演算子",
+        "真偽値"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "print(10 >= 10)\nprint(3 != 3)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "True\nTrue"
+        },
+        {
+          "id": "c2",
+          "text": "True\nFalse"
+        },
+        {
+          "id": "c3",
+          "text": "False\nFalse"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "True\nFalse"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "10 >= 10 は等しいので True、3 != 3 は等しいので False になるから。",
+      "explanation": ">= は「より大きい、または等しい」です。10 と 10 は等しいので True。!= は「等しくない」ですが、3 と 3 は等しいので結果は False です。",
+      "wrong_answer_reasons": {
+        "c1": "3 != 3 は「3 と 3 が等しくない」という主張です。3 と 3 は等しいので、この主張は False です。",
+        "c3": ">= は「以上」で、等しい場合も含みます。10 >= 10 は True です。"
+      },
+      "hint": ">= は「等しい場合を含む」。!= は「等しくないか」を問います。",
+      "feedback_correct": "正解！境界（等しい場合）の扱いを押さえました。",
+      "feedback_incorrect": "惜しい！>= に「等しい」が含まれる点と、!= の意味を確認しましょう。"
+    },
+    {
+      "id": "PY-023",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 3,
+      "title": "if の外にある行",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "if",
+        "else",
+        "インデント"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "score = 55\nif score >= 60:\n    print(\"合格\")\nelse:\n    print(\"不合格\")\nprint(\"終わり\")",
+      "answer": {
+        "expected_output": "不合格\n終わり"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "55は60未満なのでelse側が実行され、字下げのない最後の行は常に実行されるから。",
+      "explanation": "score >= 60 は False なので else の「不合格」が表示されます。6行目は字下げがなく if 文の外なので、条件に関係なく最後に必ず実行されます。インデントが処理の範囲を決めています。",
+      "common_mistakes": [
+        {
+          "answer": "不合格",
+          "reason": "最後の print(\"終わり\") は字下げされていないので if/else の外にあり、必ず実行されます。"
+        },
+        {
+          "answer": "合格\n終わり",
+          "reason": "55 >= 60 は False なので、「合格」は表示されません。"
+        }
+      ],
+      "hint": "字下げされていない行は、いつ実行されるでしょう？",
+      "feedback_correct": "正解！字下げの有無で実行される範囲が変わります。",
+      "feedback_incorrect": "惜しい！条件の結果と、字下げのない行の扱いを確認しましょう。"
+    },
+    {
+      "id": "PY-024",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 4,
+      "title": "elif は最初の1つだけ",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "elif",
+        "条件分岐の順序"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、何が表示されますか？",
+      "code": "score = 85\nif score >= 90:\n    print(\"A\")\nelif score >= 80:\n    print(\"B\")\nelif score >= 70:\n    print(\"C\")\nelse:\n    print(\"D\")",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "A"
+        },
+        {
+          "id": "c2",
+          "text": "B\nC"
+        },
+        {
+          "id": "c3",
+          "text": "B"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "expected_output": "B"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "85 >= 90 は False、次の 85 >= 80 が True で、その後の elif は調べないから。",
+      "explanation": "if / elif / else は上から順に条件を調べ、最初に True になったブロックだけを実行します。85 は 80 以上なので B を表示して終了です。85 >= 70 も True ですが、調べられません。",
+      "wrong_answer_reasons": {
+        "c1": "85 >= 90 は False なので、A のブロックは実行されません。",
+        "c2": "elif は上から順に調べ、最初に成立した1つで終了します。B が表示されたあと C の条件は調べられません。"
+      },
+      "hint": "最初に True になった所で、残りは無視されます。",
+      "feedback_correct": "正解！最初に成立した1つだけが実行されます。",
+      "feedback_incorrect": "惜しい！上から順に、最初に True になる所を探しましょう。"
+    },
+    {
+      "id": "PY-025",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 5,
+      "title": "インデントの役割",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "インデント",
+        "ブロック"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "if 文の下の行を字下げ（インデント）する理由として、正しいものはどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "条件が成り立ったときに実行する範囲を示すため"
+        },
+        {
+          "id": "c2",
+          "text": "見た目を整えるだけで、なくても動作は変わらない"
+        },
+        {
+          "id": "c3",
+          "text": "その行がコメントとして扱われるため"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "Python は字下げでどの行が if の中かを判断するから。",
+      "explanation": "多くの言語では { } で範囲を示しますが、Python は字下げで範囲を表します。字下げされた行が if のブロックで、条件が True のときだけ実行されます。",
+      "wrong_answer_reasons": {
+        "c2": "Python ではインデントが文法の一部です。ないとエラーになったり、実行される範囲が変わったりします。",
+        "c3": "コメントは # で始めます。字下げされた行は普通に実行されるコードです。"
+      },
+      "hint": "字下げした行と、しない行で実行のされ方がどう変わるか思い出しましょう。",
+      "feedback_correct": "正解！インデントは処理の範囲を示します。",
+      "feedback_incorrect": "惜しい！インデントは見た目だけではなく文法の一部です。"
+    },
+    {
+      "id": "PY-026",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 6,
+      "title": "条件で = を使っている",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "==",
+        "SyntaxError",
+        "if"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードは SyntaxError になります。「成人」と表示されるように直したものはどれですか？",
+      "code": "age = 18\nif age = 18:\n    print(\"成人\")",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "if age == 18:"
+        },
+        {
+          "id": "c2",
+          "text": "if age => 18:"
+        },
+        {
+          "id": "c3",
+          "text": "if (age = 18):"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "fixed_code": "age = 18\nif age == 18:\n    print(\"成人\")",
+        "expected_output": "成人",
+        "buggy_error": "SyntaxError",
+        "target_line": 2,
+        "choice_is_replacement_line": true
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "等しいかを調べるには、代入の = ではなく比較の == を使うから。",
+      "explanation": "if の条件は True / False になる式でなければならず、代入の = は使えません。等しいかを調べるときは == と書きます。",
+      "wrong_answer_reasons": {
+        "c2": "「以上」は >= です。=> という記号は Python にはなく、SyntaxError になります。",
+        "c3": "括弧で囲んでも = は代入のままです。条件の中では代入できないので SyntaxError になります。"
+      },
+      "hint": "条件の中は「調べる」場面です。代入と比較の記号はどれでしたか？",
+      "feedback_correct": "正解！条件には == を使います。",
+      "feedback_incorrect": "惜しい！等しいかを調べる記号は == です。"
+    },
+    {
+      "id": "PY-027",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 7,
+      "title": "else のコロン",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "else",
+        "コロン",
+        "SyntaxError"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードは SyntaxError になります。4行目を正しく書き直して入力してください（4行目の内容だけを入力）。",
+      "code": "x = 2\nif x > 3:\n    print(\"big\")\nelse\n    print(\"small\")",
+      "answer": {
+        "target_line": 4,
+        "accepted": [
+          "else:",
+          "else :"
+        ],
+        "quote_insensitive": false,
+        "fixed_code": "x = 2\nif x > 3:\n    print(\"big\")\nelse:\n    print(\"small\")",
+        "expected_output": "small",
+        "buggy_error": "SyntaxError"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "if・elif・else の行の末尾にはコロン（:）が必要だから。",
+      "explanation": "Python は else の後ろの : を見て「ここからブロックが始まる」と判断します。コロンがないと文法が成り立たず SyntaxError になります。",
+      "common_mistakes": [
+        {
+          "answer": "else",
+          "reason": "コロン（:）がないままです。if・elif・else の行末には : が必要です。"
+        }
+      ],
+      "hint": "if の行の終わりと見比べてみましょう。",
+      "feedback_correct": "正解！else の後ろにはコロンが必要です。",
+      "feedback_incorrect": "惜しい！if の行の終わりと見比べてみましょう。"
+    },
+    {
+      "id": "PY-028",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 8,
+      "title": "両方の条件を満たすとき",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "and",
+        "or",
+        "論理演算"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "「18歳以上 かつ チケットを持っている」ときだけ「入場OK」と表示したい。空欄 __1__ に入れる語を答えてください。（この例では、チケットを持っていないので「入場できません」と表示されるのが正しい動作です）",
+      "code": "age = 20\nhas_ticket = False\nif age >= 18 __1__ has_ticket:\n    print(\"入場OK\")\nelse:\n    print(\"入場できません\")",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "and"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "入場できません"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "「かつ」は両方が True のときだけ True になる and で表すから。",
+      "explanation": "and は2つの条件がどちらも True のときだけ True です。この例では has_ticket が False なので、全体は False になり else 側が実行されます。or なら片方が True で全体が True になってしまい、条件の意図と合いません。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "or",
+          "reason": "or は「どちらか一方でも True なら True」です。年齢条件が True なので「入場OK」と表示されてしまいます。"
+        }
+      ],
+      "hint": "「両方」を満たす必要があるとき、どの語を使うでしょう？",
+      "feedback_correct": "正解！「かつ」は and です。",
+      "feedback_incorrect": "惜しい！and と or の違いを見直しましょう。"
+    },
+    {
+      "id": "PY-029",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 9,
+      "title": "and・or・not の結果",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "and",
+        "or",
+        "not",
+        "比較演算子"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "a = 5\nprint(a > 3 and a < 10)\nprint(a < 3 or a > 4)\nprint(not a == 5)",
+      "answer": {
+        "expected_output": "True\nTrue\nFalse"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "1行目は両方True、2行目は片方True、3行目はTrueの反転でFalseだから。",
+      "explanation": "a は 5。1行目: 5 > 3 も 5 < 10 も True なので and は True。2行目: 5 < 3 は False、5 > 4 は True で、or は片方でも True なら True。3行目: a == 5 は True で、not で反転して False です。",
+      "common_mistakes": [
+        {
+          "answer": "True\nFalse\nTrue",
+          "reason": "2行目は a < 3 が False でも a > 4 が True なので、or 全体は True です。3行目は a == 5 が True なので not で False になります。"
+        },
+        {
+          "answer": "True\nTrue\nTrue",
+          "reason": "3行目は not が True を False に反転します。"
+        }
+      ],
+      "hint": "1つずつ True / False に置き換えてから、and・or・not を当てはめます。",
+      "feedback_correct": "正解！論理演算子を正しく読めています。",
+      "feedback_incorrect": "惜しい！式を小さく分けて、True / False に置き換えてみましょう。"
+    },
+    {
+      "id": "PY-030",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S03",
+      "stage_number": 3,
+      "number_in_stage": 10,
+      "title": "合否判定",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 3,
+      "concepts": [
+        "if",
+        "else",
+        "比較演算子",
+        "境界値"
+      ],
+      "preconditions": "ステージ1〜3で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "変数 score に点数が入っています。60点以上なら「合格」、そうでなければ「不合格」と表示するコードを書いてください。",
+      "code": null,
+      "prefix_code": "score = 70",
+      "starter_code": "# score はあらかじめ用意されています\n",
+      "answer": {
+        "reference_solution": "if score >= 60:\n    print(\"合格\")\nelse:\n    print(\"不合格\")",
+        "alternative_solutions": [
+          "if score < 60:\n    print(\"不合格\")\nelse:\n    print(\"合格\")",
+          "if score >= 60:\n    print('合格')\nelif score < 60:\n    print('不合格')"
+        ],
+        "rejected_examples": [
+          {
+            "code": "if score > 60:\n    print(\"合格\")\nelse:\n    print(\"不合格\")",
+            "reason": "60点ちょうどが「不合格」になります。60「以上」は >= です。"
+          },
+          {
+            "code": "print(\"合格\")",
+            "reason": "常に「合格」と表示されます。条件によって切り替えるには if が必要です。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "stdout",
+            "setup": "score = 70",
+            "expected_stdout": "合格\n",
+            "visible": true
+          },
+          {
+            "kind": "stdout",
+            "setup": "score = 60",
+            "expected_stdout": "合格\n",
+            "visible": false
+          },
+          {
+            "kind": "stdout",
+            "setup": "score = 59",
+            "expected_stdout": "不合格\n",
+            "visible": false
+          },
+          {
+            "kind": "stdout",
+            "setup": "score = 0",
+            "expected_stdout": "不合格\n",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "If"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "境界の60を含めるため >= を使い、if / else で2通りに分けるから。",
+      "explanation": "60 以上は score >= 60 と書きます。60 ちょうどのときを間違えやすいので、境界の値を必ず確認しましょう。else を使えば「それ以外」をまとめて書けます。",
+      "hint": "60「以上」を表す記号は？ else は「それ以外」です。",
+      "feedback_correct": "正解！境界値も正しく扱えました。",
+      "feedback_incorrect": "惜しい！60点ちょうどのときの結果を確認しましょう。"
+    },
+    {
+      "id": "PY-031",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 1,
+      "title": "range(3) の中身",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "for",
+        "range"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "for i in range(3):\n    print(i)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1\n2\n3"
+        },
+        {
+          "id": "c2",
+          "text": "0\n1\n2"
+        },
+        {
+          "id": "c3",
+          "text": "0\n1\n2\n3"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "0\n1\n2"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "range(3) は 0,1,2 の3つの整数を作るから。",
+      "explanation": "range(n) は 0 から始まり n の1つ手前まで、合計 n 個の整数を作ります。for はその値を1つずつ i に入れて、字下げした部分を実行します。",
+      "wrong_answer_reasons": {
+        "c1": "range(3) は 1 からではなく 0 から始まります。",
+        "c3": "range(3) の 3 は「終了」で、その値自体は含まれません。3回繰り返し、i は 0,1,2 です。"
+      },
+      "hint": "range(3) は「3回」繰り返します。始まりはいくつ？",
+      "feedback_correct": "正解！range(3) は 0,1,2 です。",
+      "feedback_incorrect": "惜しい！range(n) は 0 から始まり、n は含まれません。"
+    },
+    {
+      "id": "PY-032",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 2,
+      "title": "間隔つき range",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "range",
+        "間隔(step)"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "for i in range(1, 10, 3):\n    print(i)",
+      "answer": {
+        "expected_output": "1\n4\n7"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "1から3ずつ増やし、10未満の値（1, 4, 7）だけが出るから。",
+      "explanation": "range(開始, 終了, 間隔) は、開始から間隔ずつ増やし、終了より小さい間だけ値を作ります。1→4→7→10 ですが、10 は終了と同じで含まれないため 7 で終わります。",
+      "common_mistakes": [
+        {
+          "answer": "1\n4\n7\n10",
+          "reason": "終了の値 10 は含まれません。range(1, 10, 3) は 10 より小さい値だけです。"
+        },
+        {
+          "answer": "1\n3\n5\n7\n9",
+          "reason": "3つ目の値 3 は「間隔」で、1 から 3 ずつ増えます（2 ずつではありません）。"
+        }
+      ],
+      "hint": "1, 1+3, 1+3+3 ... と書き出し、10 に届いたら止めます。",
+      "feedback_correct": "正解！間隔ごとに進み、終了は含みません。",
+      "feedback_incorrect": "惜しい！3つ目の数字は「間隔」です。"
+    },
+    {
+      "id": "PY-033",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 3,
+      "title": "条件で繰り返す",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "while",
+        "if",
+        "for"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "「変数 count が 0 より大きい間」処理を繰り返したいとき、使う文はどれですか？",
+      "code": null,
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "if count > 0:"
+        },
+        {
+          "id": "c2",
+          "text": "while count > 0:"
+        },
+        {
+          "id": "c3",
+          "text": "for count > 0:"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "条件が True の間繰り返すのは while だから。",
+      "explanation": "while 条件: は、条件が True の間、字下げした部分を何度でも実行します。if は1回だけ判断、for は決まった範囲を順に取り出す繰り返しです。",
+      "wrong_answer_reasons": {
+        "c1": "if は条件が成り立つかを1回だけ判断します。繰り返しはしません。",
+        "c3": "for は range() やリストなどから1つずつ取り出して繰り返す文で、条件式を直接書くことはできません（SyntaxError）。"
+      },
+      "hint": "「〜の間」を表す英単語は？",
+      "feedback_correct": "正解！条件が True の間は while です。",
+      "feedback_incorrect": "惜しい！「〜の間」繰り返すのは while です。"
+    },
+    {
+      "id": "PY-034",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 4,
+      "title": "2倍の合計",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "累積",
+        "range",
+        "+="
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください。",
+      "code": "total = 0\nfor i in range(1, 5):\n    total += i * 2\nprint(total)",
+      "answer": {
+        "expected_output": "20"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "i は1〜4で、2倍した2,4,6,8の合計が20になるから。",
+      "explanation": "i が 1,2,3,4 のとき total に 2,4,6,8 が足されます。合計は 2+4+6+8 = 20。range の終了 5 は含まれないことに注意しましょう。",
+      "common_mistakes": [
+        {
+          "answer": "30",
+          "reason": "range(1, 5) の i は 1,2,3,4 で、5 は含まれません。2+4+6+8 = 20 です。"
+        },
+        {
+          "answer": "10",
+          "reason": "足しているのは i ではなく i * 2 です。"
+        }
+      ],
+      "hint": "i が変わるたびに total がどう変わるか、表にして追いましょう。",
+      "feedback_correct": "正解！ループの中身を正確に追えました。",
+      "feedback_incorrect": "惜しい！i の値と、足している式を1回ずつ確認しましょう。"
+    },
+    {
+      "id": "PY-035",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 5,
+      "title": "while のカウントダウン",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "while",
+        "ループの更新"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "n = 3\nwhile n > 0:\n    print(n)\n    n -= 1",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3\n2\n1"
+        },
+        {
+          "id": "c2",
+          "text": "3\n2\n1\n0"
+        },
+        {
+          "id": "c3",
+          "text": "2\n1\n0"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "expected_output": "3\n2\n1"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "print のあとに n を減らし、n が0になると条件が False になるから。",
+      "explanation": "n=3 で print(3)、n=2 で print(2)、n=1 で print(1)。そのあと n は 0 になり、n > 0 が False なのでループを終了します。",
+      "wrong_answer_reasons": {
+        "c2": "n が 0 になると条件 n > 0 が False になり、ループに入らないので 0 は表示されません。",
+        "c3": "print(n) を先に実行してから n を減らすので、最初に表示されるのは 3 です。"
+      },
+      "hint": "n が 0 になったとき、条件 n > 0 はどうなる？",
+      "feedback_correct": "正解！条件が False になるまで繰り返されます。",
+      "feedback_incorrect": "惜しい！n の値を1回ずつ追い、条件がいつ False になるか確認しましょう。"
+    },
+    {
+      "id": "PY-036",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 6,
+      "title": "終わらないループ",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "無限ループ",
+        "while",
+        "ループの更新"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "n を1ずつ減らして0になったら終わるつもりですが、このプログラムは終わりません。原因はどれですか？",
+      "code": "n = 3\nwhile n > 0:\n    n += 1\nprint(\"終了\")",
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "while の条件 n > 0 の書き方が間違っている"
+        },
+        {
+          "id": "c2",
+          "text": "n += 1 で n が増え続け、条件がずっと True のままだから"
+        },
+        {
+          "id": "c3",
+          "text": "最後の print が字下げされていないから"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "fixed_code": "n = 3\nwhile n > 0:\n    n -= 1\nprint(\"終了\")",
+        "expected_output": "終了",
+        "buggy_error": "Timeout"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "n が増える方向に更新されるため、n > 0 が永遠に True だから。",
+      "explanation": "n は 3 → 4 → 5 と増え続け、0 以下になることがありません。条件が False にならないので無限ループです。n -= 1 に直せば 3 → 2 → 1 → 0 となり終了します。",
+      "wrong_answer_reasons": {
+        "c1": "n > 0 は「n が 0 より大きい間」という正しい書き方です。問題は中で n が増えている点です。",
+        "c3": "字下げのない print は while の外に書かれていて、ループが終わった後に実行されます。これは正しい書き方です。"
+      },
+      "hint": "ループのたびに n はどちらの方向に変わりますか？",
+      "feedback_correct": "正解！更新の向きが逆だったのが原因です。",
+      "feedback_incorrect": "惜しい！ループの中で n がどう変わるかに注目しましょう。"
+    },
+    {
+      "id": "PY-037",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 7,
+      "title": "while の更新式",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "while",
+        "ループの更新",
+        "+="
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "1 から 4 までの合計を while で求めます。ループが正しく終わるように、空欄 __1__ に入れるコードを答えてください。",
+      "code": "total = 0\ni = 1\nwhile i <= 4:\n    total += i\n    __1__\nprint(total)",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "i += 1",
+              "i = i + 1",
+              "i=i+1",
+              "i = 1 + i",
+              "i=i + 1",
+              "i = i+1",
+              "i+=1"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "10"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "i を1増やして i <= 4 がいつか False になるようにする必要があるから。",
+      "explanation": "while の条件に使う i をループの中で増やさないと、いつまでも i <= 4 のままで終わりません。i += 1（または i = i + 1）で i を更新します。これで 1+2+3+4 = 10 になります。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "i + 1",
+          "reason": "i + 1 は計算するだけで、結果を i に入れ直していません。i が変わらず無限ループになります。"
+        }
+      ],
+      "hint": "i を 1 だけ増やして、i に入れ直す書き方は？",
+      "feedback_correct": "正解！ループの中で i を更新できました。",
+      "feedback_incorrect": "惜しい！「計算する」だけでなく「入れ直す」書き方が必要です。"
+    },
+    {
+      "id": "PY-038",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 8,
+      "title": "continue と break",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "break",
+        "continue",
+        "for"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "for i in range(1, 6):\n    if i == 2:\n        continue\n    if i == 4:\n        break\n    print(i)",
+      "answer": {
+        "expected_output": "1\n3"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "2は continue で飛ばされ、4で break してループが終わるから。",
+      "explanation": "i=1 は表示。i=2 は continue で次の回へ。i=3 は表示。i=4 で break し、ループ自体が終了。そのため 1 と 3 だけが表示されます。",
+      "common_mistakes": [
+        {
+          "answer": "1\n2\n3",
+          "reason": "i が 2 のときは continue で print を飛ばすので、2 は表示されません。"
+        },
+        {
+          "answer": "1\n3\n5",
+          "reason": "i が 4 になった時点で break によってループ全体が終了し、5 には到達しません。"
+        }
+      ],
+      "hint": "continue は「この回だけ飛ばす」、break は「ループを終える」です。",
+      "feedback_correct": "正解！continue と break の違いを理解できています。",
+      "feedback_incorrect": "惜しい！i の値ごとに、何が起きるか表にして追ってみましょう。"
+    },
+    {
+      "id": "PY-039",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 9,
+      "title": "合計が合わない（範囲のミス）",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "range",
+        "終了は含まない",
+        "オフバイワン"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "1 から 5 までの合計（15）を求めるつもりが、10 と表示されます。2行目を正しく書き直して入力してください（2行目の内容だけを入力）。",
+      "code": "total = 0\nfor i in range(1, 5):\n    total += i\nprint(total)",
+      "answer": {
+        "target_line": 2,
+        "accepted": [
+          "for i in range(1, 6):",
+          "for i in range(1,6):",
+          "for i in range(6):",
+          "for i in range(0, 6):",
+          "for i in range(0,6):"
+        ],
+        "quote_insensitive": false,
+        "fixed_code": "total = 0\nfor i in range(1, 6):\n    total += i\nprint(total)",
+        "expected_output": "15",
+        "buggy_output": "10"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "range の終了の値は含まれないので、5 を含めるには終了を 6 にする必要があるから。",
+      "explanation": "range(1, 5) は 1,2,3,4 です。5 まで含めたいときは range(1, 6) と、終了を 1 つ大きくします。range(6)（0〜5）でも 0 を足すだけなので合計は 15 です。",
+      "common_mistakes": [
+        {
+          "answer": "for i in range(1, 5):",
+          "reason": "元のコードのままです。range の終了 5 は含まれないので、1〜4 の合計 10 になります。"
+        }
+      ],
+      "hint": "range の2つ目の数字は「ここまで含む」でしたか？",
+      "feedback_correct": "正解！終了の値を1つ大きくして5まで含めました。",
+      "feedback_incorrect": "惜しい！range の終了の値は含まれません。"
+    },
+    {
+      "id": "PY-040",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S04",
+      "stage_number": 4,
+      "number_in_stage": 10,
+      "title": "1 から n までの合計",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 3,
+      "concepts": [
+        "for",
+        "range",
+        "累積",
+        "while"
+      ],
+      "preconditions": "ステージ1〜4で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "変数 n に正の整数が入っています。1 から n までの整数の合計を、繰り返し（for または while）を使って求め、print で表示するコードを書いてください。",
+      "code": null,
+      "prefix_code": "n = 5",
+      "starter_code": "# n はあらかじめ用意されています\n",
+      "answer": {
+        "reference_solution": "total = 0\nfor i in range(1, n + 1):\n    total += i\nprint(total)",
+        "alternative_solutions": [
+          "total = 0\ni = 1\nwhile i <= n:\n    total += i\n    i += 1\nprint(total)",
+          "total = 0\nfor i in range(n + 1):\n    total = total + i\nprint(total)"
+        ],
+        "rejected_examples": [
+          {
+            "code": "total = 0\nfor i in range(1, n):\n    total += i\nprint(total)",
+            "reason": "range の終了は含まれないので n が足されません。n+1 まで進めます。"
+          },
+          {
+            "code": "print(15)",
+            "reason": "決まった数値を書くと、n が変わったときに正しい結果になりません。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "stdout",
+            "setup": "n = 5",
+            "expected_stdout": "15\n",
+            "visible": true
+          },
+          {
+            "kind": "stdout",
+            "setup": "n = 1",
+            "expected_stdout": "1\n",
+            "visible": false
+          },
+          {
+            "kind": "stdout",
+            "setup": "n = 100",
+            "expected_stdout": "5050\n",
+            "visible": false
+          },
+          {
+            "kind": "stdout",
+            "setup": "n = 10",
+            "expected_stdout": "55\n",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [],
+        "required_any_ast_nodes": [
+          "For",
+          "While"
+        ],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "合計用の変数を0で用意し、1からnまで繰り返し足すから。",
+      "explanation": "total = 0 で用意し、i を 1 から n まで動かして total に足します。range(1, n + 1) と書くのがポイントです。n=1 のときなどの端の値も確認しましょう。",
+      "hint": "合計用の変数を 0 で用意して、ループの中で足し込みます。range の終了は n ではなく…？",
+      "feedback_correct": "正解！繰り返しで合計を求められました。",
+      "feedback_incorrect": "惜しい！n=1 や n=5 のときの結果を、手で計算して比べてみましょう。"
+    },
+    {
+      "id": "PY-041",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 1,
+      "title": "最初の要素の取り出し方",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "リスト",
+        "インデックス"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "colors = [\"赤\", \"青\", \"緑\"] というリストから、最初の要素「赤」を取り出す式はどれですか？",
+      "code": null,
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "colors[1]"
+        },
+        {
+          "id": "c2",
+          "text": "colors(0)"
+        },
+        {
+          "id": "c3",
+          "text": "colors[0]"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "リストの番号は0から始まり、取り出しには [ ] を使うから。",
+      "explanation": "リストの要素は、先頭を 0 番目として数えます。colors[0] が「赤」、colors[1] が「青」、colors[2] が「緑」です。丸括弧ではなく角括弧を使う点にも注意しましょう。",
+      "wrong_answer_reasons": {
+        "c1": "インデックスは 0 から始まります。colors[1] は2番目の要素「青」です。",
+        "c2": "要素を取り出すときは角括弧 [ ] を使います。丸括弧 ( ) は関数を呼び出す記号で、TypeError になります。"
+      },
+      "hint": "プログラミングでは、数え始めは 0 です。",
+      "feedback_correct": "正解！最初の要素は [0] です。",
+      "feedback_incorrect": "惜しい！番号は 0 から始まり、取り出しには [ ] を使います。"
+    },
+    {
+      "id": "PY-042",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 2,
+      "title": "len と負のインデックス",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "len",
+        "負のインデックス"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "nums = [4, 8, 15, 16]\nprint(len(nums))\nprint(nums[-1])",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "4\n16"
+        },
+        {
+          "id": "c2",
+          "text": "3\n16"
+        },
+        {
+          "id": "c3",
+          "text": "4\n4"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "expected_output": "4\n16"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "要素は4個で、[-1] は最後の要素16を指すから。",
+      "explanation": "len(nums) は要素の数 4 を返します。nums[-1] は最後の要素で 16 です。-1 を使うと、リストの長さに関係なく最後の要素を取り出せます。",
+      "wrong_answer_reasons": {
+        "c2": "len() は最後の番号ではなく要素の「数」を返します。要素は4つあるので 4 です。",
+        "c3": "[-1] は「最後の要素」です。要素 4 は最初の要素で、最後は 16 です。"
+      },
+      "hint": "len は「何個あるか」、[-1] は「一番後ろ」です。",
+      "feedback_correct": "正解！len は個数、[-1] は最後の要素です。",
+      "feedback_incorrect": "惜しい！len は個数を返し、-1 は最後の要素を表します。"
+    },
+    {
+      "id": "PY-043",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 3,
+      "title": "置き換えと追加",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "要素の置き換え",
+        "append"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください。",
+      "code": "nums = [10, 20, 30]\nnums[1] = 99\nnums.append(40)\nprint(nums)",
+      "answer": {
+        "expected_output": "[10, 99, 30, 40]"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "1番目の要素が99に置き換わり、末尾に40が追加されるから。",
+      "explanation": "nums[1] = 99 でインデックス1（2つ目）の要素が 20 から 99 に変わります。続いて append(40) で末尾に 40 が加わり、[10, 99, 30, 40] になります。リストを print すると [ ] とカンマ付きの形で表示されます。",
+      "common_mistakes": [
+        {
+          "answer": "[10, 20, 30, 40]",
+          "reason": "nums[1] = 99 で、1番目（2つ目）の 20 が 99 に置き換わります。"
+        },
+        {
+          "answer": "[10, 99, 30]",
+          "reason": "append(40) はリストの末尾に 40 を追加します。"
+        }
+      ],
+      "hint": "[1] は2つ目の要素です。append は末尾に追加します。",
+      "feedback_correct": "正解！置き換えと追加を区別できました。",
+      "feedback_incorrect": "惜しい！1行ずつ、リストの中身がどう変わるか書き出しましょう。"
+    },
+    {
+      "id": "PY-044",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 4,
+      "title": "IndexError の直し方",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "IndexError",
+        "インデックス"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "3つ目の要素 3 を表示するつもりが、IndexError になります。エラーなく 3 が表示されるように直した2行目はどれですか？",
+      "code": "nums = [1, 2, 3]\nprint(nums[3])",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "print(nums[2])"
+        },
+        {
+          "id": "c2",
+          "text": "print(nums[4])"
+        },
+        {
+          "id": "c3",
+          "text": "print(nums(3))"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "fixed_code": "nums = [1, 2, 3]\nprint(nums[2])",
+        "expected_output": "3",
+        "buggy_error": "IndexError",
+        "target_line": 2,
+        "choice_is_replacement_line": true
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "3つ目の要素のインデックスは3ではなく2だから。",
+      "explanation": "要素が3つのリストで有効な番号は 0, 1, 2 です。3つ目は nums[2]。nums[3] のように要素数以上の番号を指定すると IndexError になります。",
+      "wrong_answer_reasons": {
+        "c2": "nums[4] も範囲外です。有効な番号は 0, 1, 2 だけなので IndexError のままです。",
+        "c3": "要素の取り出しに丸括弧は使えません。TypeError になります。"
+      },
+      "hint": "3つ目の要素は、0から数えると何番目でしょう？",
+      "feedback_correct": "正解！3つ目は [2] です。",
+      "feedback_incorrect": "惜しい！0から数えたときの番号を考えましょう。"
+    },
+    {
+      "id": "PY-045",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 5,
+      "title": "リストを順に足す",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 2,
+      "concepts": [
+        "for",
+        "リスト",
+        "累積"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "リスト scores の点数を合計して 245 と表示したい。空欄 __1__ に入れるものを答えてください。",
+      "code": "scores = [70, 85, 90]\ntotal = 0\nfor s in __1__:\n    total += s\nprint(total)",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "scores"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "245"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "for はリストそのものを渡すと、要素を1つずつ取り出してくれるから。",
+      "explanation": "for s in scores: と書くと、scores の要素 70, 85, 90 が順に s に入ります。total に足していくと 245 になります。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "scores[0]",
+          "reason": "scores[0] は最初の要素 70（整数）で、整数は for で順に取り出せないため TypeError になります。リスト全体を渡します。"
+        }
+      ],
+      "hint": "for のあとには、取り出し元のリストの名前を書きます。",
+      "feedback_correct": "正解！リストを for で順に処理できました。",
+      "feedback_incorrect": "惜しい！取り出す元のリスト全体を書きましょう。"
+    },
+    {
+      "id": "PY-046",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 6,
+      "title": "in とスライス",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "in演算子",
+        "スライス"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "colors = [\"赤\", \"青\", \"緑\", \"黄\"]\nprint(\"青\" in colors)\nprint(colors[1:3])",
+      "answer": {
+        "expected_output": "True\n['青', '緑']"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "in は含まれているかを調べ、[1:3] は1番目から2番目までを取り出すから。",
+      "explanation": "\"青\" は colors に含まれているので True。colors[1:3] は番号1（青）と番号2（緑）の2要素で、番号3（黄）は含まれません。リストの表示は文字列に引用符が付いて ['青', '緑'] となります。",
+      "common_mistakes": [
+        {
+          "answer": "True\n['青', '緑', '黄']",
+          "reason": "スライス [1:3] の終わり（3）は含まれません。1番目と2番目の2つだけです。"
+        },
+        {
+          "answer": "True\n['赤', '青', '緑']",
+          "reason": "スライスの開始 1 は「2つ目」です。0 番目の「赤」は含まれません。"
+        }
+      ],
+      "hint": "スライスの終わりの番号は含まれません（range と同じです）。",
+      "feedback_correct": "正解！スライスの終わりは含まれません。",
+      "feedback_incorrect": "惜しい！スライスの開始と終了の意味を見直しましょう。"
+    },
+    {
+      "id": "PY-047",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 7,
+      "title": "最後の要素の番号",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "インデックス",
+        "len"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "len(scores) が 3 のリスト scores があります。最後の要素を取り出すインデックスはいくつですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "3"
+        },
+        {
+          "id": "c2",
+          "text": "1"
+        },
+        {
+          "id": "c3",
+          "text": "2"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "番号は0から始まるので、最後の番号は len - 1 になるから。",
+      "explanation": "要素が3つなら番号は 0, 1, 2。最後の番号は「個数 - 1」で 2 です。scores[len(scores) - 1] と書けますし、scores[-1] とも書けます。",
+      "wrong_answer_reasons": {
+        "c1": "要素が3つのとき、有効な番号は 0, 1, 2 です。3 は範囲外で IndexError になります。",
+        "c2": "1 は2つ目の要素の番号です。3つ並んでいる最後は、もっと後ろです。"
+      },
+      "hint": "0 から数えて3個並べると、最後はいくつ？",
+      "feedback_correct": "正解！最後の番号は 個数 - 1 です。",
+      "feedback_incorrect": "惜しい！0 から数えて 3 個並べてみましょう。"
+    },
+    {
+      "id": "PY-048",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 8,
+      "title": "ループの範囲が広すぎる",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "IndexError",
+        "range",
+        "len"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "点数の合計 245 を求めるつもりが IndexError になります。3行目を正しく書き直して入力してください（3行目の内容だけを入力）。",
+      "code": "scores = [70, 85, 90]\ntotal = 0\nfor i in range(len(scores) + 1):\n    total += scores[i]\nprint(total)",
+      "answer": {
+        "target_line": 3,
+        "accepted": [
+          "for i in range(len(scores)):",
+          "for i in range(0, len(scores)):",
+          "for i in range(0,len(scores)):",
+          "for i in range(len(scores)) :"
+        ],
+        "quote_insensitive": false,
+        "fixed_code": "scores = [70, 85, 90]\ntotal = 0\nfor i in range(len(scores)):\n    total += scores[i]\nprint(total)",
+        "expected_output": "245",
+        "buggy_error": "IndexError"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "range(len(scores)) は 0〜2 で、有効な番号と一致するから。",
+      "explanation": "range(len(scores) + 1) は 0〜3 を作りますが、scores の番号は 0〜2 だけです。i=3 のとき scores[3] が範囲外になり IndexError です。+ 1 を外して range(len(scores)) にします。",
+      "common_mistakes": [
+        {
+          "answer": "for i in range(len(scores) + 1):",
+          "reason": "元のコードのままです。i が 3 になったとき scores[3] が範囲外になります。"
+        }
+      ],
+      "hint": "range の終了の値は含まれません。len(scores) はいくつ？",
+      "feedback_correct": "正解！range(len(...)) で番号がぴったり収まります。",
+      "feedback_incorrect": "惜しい！i がいくつまで動くかを確認しましょう。"
+    },
+    {
+      "id": "PY-049",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 9,
+      "title": "sum・max・min",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 2,
+      "concepts": [
+        "sum",
+        "max",
+        "min",
+        "print関数"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "data = [3, 9, 4]\nprint(sum(data), max(data), min(data))",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "9 16 3"
+        },
+        {
+          "id": "c2",
+          "text": "16 9 3"
+        },
+        {
+          "id": "c3",
+          "text": "16 3 9"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "16 9 3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "合計は3+9+4=16、最大値は9、最小値は3で、書いた順に表示されるから。",
+      "explanation": "sum は合計 16、max は最大値 9、min は最小値 3 を返します。print にカンマで並べたので、この順番で空白区切りに表示されます。",
+      "wrong_answer_reasons": {
+        "c1": "print の引数は左から sum, max, min の順です。最初に出るのは合計の 16 です。",
+        "c3": "max は最大値、min は最小値です。順番が逆になっています。"
+      },
+      "hint": "sum → max → min の順に値を求めてから、並べます。",
+      "feedback_correct": "正解！組み込み関数を使いこなせています。",
+      "feedback_incorrect": "惜しい！sum と max と min それぞれの値を先に求めましょう。"
+    },
+    {
+      "id": "PY-050",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S05",
+      "stage_number": 5,
+      "number_in_stage": 10,
+      "title": "平均点を求める",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 3,
+      "concepts": [
+        "sum",
+        "len",
+        "割り算",
+        "リスト"
+      ],
+      "preconditions": "ステージ1〜5で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "リスト scores に点数が入っています。平均点（合計 ÷ 人数）を print で表示するコードを書いてください。人数が変わっても正しく動くようにすること。",
+      "code": null,
+      "prefix_code": "scores = [70, 80, 90]",
+      "starter_code": "# scores はあらかじめ用意されています\n",
+      "answer": {
+        "reference_solution": "print(sum(scores) / len(scores))",
+        "alternative_solutions": [
+          "total = 0\nfor s in scores:\n    total += s\nprint(total / len(scores))",
+          "average = sum(scores) / len(scores)\nprint(average)"
+        ],
+        "rejected_examples": [
+          {
+            "code": "print(sum(scores))",
+            "reason": "合計を人数で割っていないので平均になりません。"
+          },
+          {
+            "code": "print(sum(scores) / 3)",
+            "reason": "人数を 3 と決め打ちすると、人数が変わったときに誤った結果になります。len() を使いましょう。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "stdout",
+            "setup": "scores = [70, 80, 90]",
+            "expected_stdout": "80.0\n",
+            "visible": true
+          },
+          {
+            "kind": "stdout",
+            "setup": "scores = [1, 2]",
+            "expected_stdout": "1.5\n",
+            "visible": false
+          },
+          {
+            "kind": "stdout",
+            "setup": "scores = [100]",
+            "expected_stdout": "100.0\n",
+            "visible": false
+          },
+          {
+            "kind": "stdout",
+            "setup": "scores = [1, 2, 3, 4]",
+            "expected_stdout": "2.5\n",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "sum()で合計、len()で人数を求め、割り算すれば平均になるから。",
+      "explanation": "平均は 合計 ÷ 個数 です。sum(scores) / len(scores) と書けば、リストの長さが変わっても対応できます。/ の結果は float なので 80.0 のように表示されます。",
+      "hint": "合計は sum()、人数は len() で求められます。",
+      "feedback_correct": "正解！sum と len で平均が求められました。",
+      "feedback_incorrect": "惜しい！人数が変わっても動く式になっていますか？"
+    },
+    {
+      "id": "PY-051",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 1,
+      "title": "定義しただけでは動かない",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "関数の定義",
+        "関数の呼び出し"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードだけを実行すると、どうなりますか？",
+      "code": "def greet():\n    print(\"hi\")",
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "SyntaxError になる"
+        },
+        {
+          "id": "c2",
+          "text": "hi と表示される"
+        },
+        {
+          "id": "c3",
+          "text": "何も表示されない"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "def は関数を定義するだけで、呼び出さない限り中身は実行されないから。",
+      "explanation": "関数の定義は「こういう部品を作ります」という宣言です。実行したいときは greet() のように呼び出します。定義だけのコードはエラーも出ず、何も表示されません。",
+      "wrong_answer_reasons": {
+        "c1": "書き方（文法）は正しいので、エラーにはなりません。",
+        "c2": "def は関数を「作る」だけで、中身は実行しません。表示するには greet() と呼び出す必要があります。"
+      },
+      "hint": "コードの最後に greet() という行はありますか？",
+      "feedback_correct": "正解！定義だけでは実行されません。",
+      "feedback_incorrect": "惜しい！呼び出しの行があるかを確認しましょう。"
+    },
+    {
+      "id": "PY-052",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 2,
+      "title": "戻り値を計算に使う",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "戻り値",
+        "関数の呼び出し"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、何が表示されますか？",
+      "code": "def add(a, b):\n    return a + b\n\nprint(add(3, 4) * 2)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "14"
+        },
+        {
+          "id": "c2",
+          "text": "7"
+        },
+        {
+          "id": "c3",
+          "text": "add(3, 4) * 2"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "expected_output": "14"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "add(3, 4) が7を返し、それを2倍して14になるから。",
+      "explanation": "関数を呼び出した式は、その戻り値に置き換わって計算が進みます。add(3, 4) は 7 になるので、7 * 2 = 14 が print に渡されます。",
+      "wrong_answer_reasons": {
+        "c2": "add(3, 4) が 7 を返したあと、さらに * 2 で 14 になります。",
+        "c3": "print は式を計算した結果を表示します。コードの文字がそのまま表示されることはありません。"
+      },
+      "hint": "add(3, 4) をまず 7 に置き換えて考えましょう。",
+      "feedback_correct": "正解！呼び出しは戻り値に置き換わります。",
+      "feedback_incorrect": "惜しい！まず関数呼び出しの部分を戻り値に置き換えてみましょう。"
+    },
+    {
+      "id": "PY-053",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 3,
+      "title": "return のない関数の結果",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "print と return の違い",
+        "None"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "def show(x):\n    print(x)\n\nr = show(5)\nprint(r)",
+      "answer": {
+        "expected_output": "5\nNone"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "show は表示するだけで値を返さないため、r は None になるから。",
+      "explanation": "show(5) の実行中に 5 が表示されます。しかし return がないので戻り値は None で、r = None になります。そのため最後の print(r) が None を表示します。",
+      "common_mistakes": [
+        {
+          "answer": "5",
+          "reason": "r に入っているのは show の戻り値です。return がないので None で、それも print で表示されます。"
+        },
+        {
+          "answer": "5\n5",
+          "reason": "print は表示するだけで、値を返しません。r には 5 ではなく None が入ります。"
+        }
+      ],
+      "hint": "show は return していません。r には何が入るでしょう？",
+      "feedback_correct": "正解！return がないと None になります。",
+      "feedback_incorrect": "惜しい！r に入る値と、表示のタイミングを分けて考えましょう。"
+    },
+    {
+      "id": "PY-054",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 4,
+      "title": "print と return の違い",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "print と return の違い"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "関数の中の print と return の違いとして、正しい説明はどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "どちらも結果を画面に表示する命令で、違いはない"
+        },
+        {
+          "id": "c2",
+          "text": "print した値は、呼び出し元の変数に受け取って計算に使える"
+        },
+        {
+          "id": "c3",
+          "text": "return は値を呼び出し元に返し、print は画面に表示するだけである"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "return は戻り値を渡す仕組み、print は画面表示の仕組みだから。",
+      "explanation": "計算結果をあとで使いたいなら return、人間に見せたいなら print です。return した値は print に渡して表示することもできます。",
+      "wrong_answer_reasons": {
+        "c1": "return は画面に表示しません。呼び出し元に値を返すだけです。",
+        "c2": "print は表示するだけで、値を返しません。受け取れるのは return した値です。"
+      },
+      "hint": "関数の結果を別の計算に使うにはどちらが必要でしょう？",
+      "feedback_correct": "正解！役割がまったく違います。",
+      "feedback_incorrect": "惜しい！「値を返す」と「表示する」の違いを整理しましょう。"
+    },
+    {
+      "id": "PY-055",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 5,
+      "title": "結果を返す関数",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "return",
+        "戻り値"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "長方形の面積を返す関数です。print(area(3, 4)) で 12 だけが表示されるように、空欄 __1__ に入れる語を答えてください。",
+      "code": "def area(w, h):\n    __1__ w * h\n\nprint(area(3, 4))",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "return"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "12"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "計算結果を呼び出し元に返すには return を使うから。",
+      "explanation": "return w * h で面積を返すと、print(area(3, 4)) は返された 12 を表示します。print を使うと関数内で 12 が表示されたうえ、外側の print が None も表示してしまいます。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "print",
+          "reason": "print だと関数の中で 12 が表示されますが、戻り値は None です。外側の print(area(3, 4)) がさらに None を表示してしまいます。"
+        }
+      ],
+      "hint": "結果を「返す」ための語を思い出しましょう。",
+      "feedback_correct": "正解！return で結果を返しました。",
+      "feedback_incorrect": "惜しい！表示ではなく「返す」語が必要です。"
+    },
+    {
+      "id": "PY-056",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 6,
+      "title": "引数が足りない",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "引数",
+        "TypeError",
+        "関数の呼び出し"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "add(3, 4) の結果 7 を表示したいのに、TypeError になります。4行目を直したものはどれですか？",
+      "code": "def add(a, b):\n    return a + b\n\nprint(add(3))",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "print(add)"
+        },
+        {
+          "id": "c2",
+          "text": "print(add(3, 4))"
+        },
+        {
+          "id": "c3",
+          "text": "print(add[3, 4])"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "fixed_code": "def add(a, b):\n    return a + b\n\nprint(add(3, 4))",
+        "expected_output": "7",
+        "buggy_error": "TypeError",
+        "target_line": 4,
+        "choice_is_replacement_line": true
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "add は2つの引数 a と b を必要とするので、2つ渡す必要があるから。",
+      "explanation": "def add(a, b) は2つの値を受け取る関数です。add(3) だと b が足りないため TypeError になります。add(3, 4) と両方渡せば 7 が返ります。",
+      "wrong_answer_reasons": {
+        "c1": "関数名だけでは呼び出されず、関数そのものの情報が表示されます。7 は表示されません。",
+        "c3": "関数の呼び出しには丸括弧 ( ) を使います。角括弧は TypeError になります。"
+      },
+      "hint": "def の行の括弧の中にいくつ名前がありますか？",
+      "feedback_correct": "正解！引数の数を関数の定義に合わせました。",
+      "feedback_incorrect": "惜しい！def の引数の数と、呼び出しの引数の数を比べましょう。"
+    },
+    {
+      "id": "PY-057",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 7,
+      "title": "デフォルト引数",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "デフォルト引数",
+        "**"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "def power(base, exp=2):\n    return base ** exp\n\nprint(power(3))\nprint(power(2, 5))",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "6\n32"
+        },
+        {
+          "id": "c2",
+          "text": "9\n32"
+        },
+        {
+          "id": "c3",
+          "text": "9\n10"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "9\n32"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "exp を省略すると2が使われ、渡すとその値が使われるから。",
+      "explanation": "power(3) は exp が省略されたので 2 が入り、3 ** 2 = 9。power(2, 5) は exp=5 なので 2 ** 5 = 32 です。",
+      "wrong_answer_reasons": {
+        "c1": "** は累乗です。power(3) は 3 を2回かける 3 ** 2 = 9 で、3 * 2 = 6 ではありません。",
+        "c3": "power(2, 5) は 2 ** 5 = 32 です。足し算 2 + 5 = 7 でも 10 でもありません。"
+      },
+      "hint": "1回目は exp を省略しています。デフォルト値はいくつ？",
+      "feedback_correct": "正解！省略すると初期値が使われます。",
+      "feedback_incorrect": "惜しい！省略したときの exp の値と、** の意味を見直しましょう。"
+    },
+    {
+      "id": "PY-058",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 8,
+      "title": "合計が1にしかならない",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 4,
+      "concepts": [
+        "return",
+        "インデント",
+        "ループ"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "[1, 2, 3] の合計 6 を返す関数のつもりが、1 が返ってきます。原因を正しく直す方法はどれですか？",
+      "code": "def total(nums):\n    s = 0\n    for n in nums:\n        s += n\n        return s\n\nprint(total([1, 2, 3]))",
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "s = 0 の行を for の中に移す"
+        },
+        {
+          "id": "c2",
+          "text": "return を print に変える"
+        },
+        {
+          "id": "c3",
+          "text": "return s の字下げを戻し、ループが終わった後に実行されるようにする"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "fixed_code": "def total(nums):\n    s = 0\n    for n in nums:\n        s += n\n    return s\n\nprint(total([1, 2, 3]))",
+        "expected_output": "6",
+        "buggy_output": "1"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "return は関数をその場で終了するため、ループの中に書くと1回で終わってしまうから。",
+      "explanation": "return を実行した時点で関数は終了します。for の中に書くと1回目の足し算（s = 1）の直後に return されるので、1 が返ります。return を for と同じ深さに戻せば、ループが全部終わってから合計が返ります。",
+      "wrong_answer_reasons": {
+        "c1": "for の中に移すと、毎回 s が 0 に戻り、合計できません。",
+        "c2": "return がなくなると戻り値は None になり、外側の print は None を表示します。しかも関数の中で途中経過が表示されてしまいます。"
+      },
+      "hint": "return を実行するとその関数はどうなりますか？ 字下げの深さにも注目しましょう。",
+      "feedback_correct": "正解！return の位置（字下げ）が原因でした。",
+      "feedback_incorrect": "惜しい！return を実行するとその場で関数が終わることを思い出しましょう。"
+    },
+    {
+      "id": "PY-059",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 9,
+      "title": "ローカル変数と外の変数",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "ローカル変数",
+        "スコープ"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "def f():\n    x = 10\n    return x + 1\n\nx = 100\nprint(f())\nprint(x)",
+      "answer": {
+        "expected_output": "11\n100"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "関数の中のxは関数だけで有効なローカル変数で、外のxとは別物だから。",
+      "explanation": "f() の中では x = 10 なので 10 + 1 = 11 を返します。外の x は 100 のまま変わらないので、2行目の表示は 100 です。同じ名前でも、関数の中と外は別の変数として扱われます。",
+      "common_mistakes": [
+        {
+          "answer": "11\n11",
+          "reason": "関数の中の x は別の変数（ローカル変数）で、外の x の値は書き換わりません。"
+        },
+        {
+          "answer": "101\n100",
+          "reason": "関数 f の中では x = 10 が使われます。外の x = 100 は見えていません。"
+        }
+      ],
+      "hint": "関数の中で作られた x は、関数の外の x と同じものでしょうか？",
+      "feedback_correct": "正解！ローカル変数は外に影響しません。",
+      "feedback_incorrect": "惜しい！関数の中の x と外の x は別物です。"
+    },
+    {
+      "id": "PY-060",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S06",
+      "stage_number": 6,
+      "number_in_stage": 10,
+      "title": "偶数判定の関数",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 4,
+      "concepts": [
+        "関数",
+        "return",
+        "%",
+        "比較演算子"
+      ],
+      "preconditions": "ステージ1〜6で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "整数 n を受け取り、偶数なら True、奇数なら False を返す関数 is_even(n) を作ってください。（表示ではなく、return で返すこと）",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def is_even(n):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def is_even(n):\n    return n % 2 == 0",
+        "alternative_solutions": [
+          "def is_even(n):\n    if n % 2 == 0:\n        return True\n    else:\n        return False",
+          "def is_even(n):\n    if n % 2 == 1:\n        return False\n    return True"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def is_even(n):\n    print(n % 2 == 0)",
+            "reason": "print は表示するだけで、値を返していません（None が返ります）。"
+          },
+          {
+            "code": "def is_even(n):\n    return n % 2",
+            "reason": "余りの 0 / 1 を返しています。True / False ではなく、しかも偶数のとき 0 になり意図と逆です。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_even(4)",
+            "expected": "True",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_even(7)",
+            "expected": "False",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_even(0)",
+            "expected": "True",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_even(-3)",
+            "expected": "False",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "FunctionDef"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "2で割った余りが0なら偶数なので、その比較結果をreturnすればよいから。",
+      "explanation": "n % 2 == 0 は偶数なら True、奇数なら False になる式です。そのまま return すれば条件分岐も不要です。if を使って True / False を返す書き方も正解です。",
+      "hint": "偶数は 2 で割った余りが 0 です。その比較の結果をそのまま返せます。",
+      "feedback_correct": "正解！判定を関数にまとめられました。",
+      "feedback_incorrect": "惜しい！print ではなく return で True / False を返していますか？"
+    },
+    {
+      "id": "PY-061",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 1,
+      "title": "エラーメッセージの読み始め",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "エラーメッセージ",
+        "トレースバック"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "エラーが表示されて長いメッセージが出たとき、まず確認すべき場所はどこですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "一番最後の行（エラーの種類と短い説明）"
+        },
+        {
+          "id": "c2",
+          "text": "一番最初の行"
+        },
+        {
+          "id": "c3",
+          "text": "どこも読まず、コードを書き直す"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "最後の行にエラーの種類と原因の説明が書かれているから。",
+      "explanation": "Python のエラーは、最後の行に NameError: name 'x' is not defined のように種類と説明が出ます。途中の行には、エラーが起きたファイルの行番号が出るので、その行を確認します。",
+      "wrong_answer_reasons": {
+        "c2": "最初の行は「トレースバック」という見出しで、原因の手がかりは少ないです。まず最後の行を読みます。",
+        "c3": "メッセージには原因のヒントが書かれています。読まずに書き直すと、別の間違いを増やしかねません。"
+      },
+      "hint": "エラー名（NameError など）が書かれているのはどこでしょう？",
+      "feedback_correct": "正解！まずは最後の行を読みましょう。",
+      "feedback_incorrect": "惜しい！エラーの種類と説明は最後の行に出ます。"
+    },
+    {
+      "id": "PY-062",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 2,
+      "title": "NameError の原因",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "NameError"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "NameError: name 'total' is not defined というエラーの原因として、最も適切なものはどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "0 で割り算をした"
+        },
+        {
+          "id": "c2",
+          "text": "total が文字列だった"
+        },
+        {
+          "id": "c3",
+          "text": "total という名前の変数がまだ作られていない（代入前の使用やスペルミス）"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "NameError は存在しない名前を使ったときに起きるエラーだから。",
+      "explanation": "'total' is not defined は「total という名前が定義されていない」という意味です。変数に代入する前に使った、またはスペルを間違えた（totl など）ときに起こります。",
+      "wrong_answer_reasons": {
+        "c1": "0 で割った場合は ZeroDivisionError という別のエラー名になります。",
+        "c2": "型が合わない場合は TypeError になります。NameError は名前そのものが見つからないときのエラーです。"
+      },
+      "hint": "not defined = 「定義されていない」。どんなミスで起きるでしょう？",
+      "feedback_correct": "正解！NameError は名前が見つからないエラーです。",
+      "feedback_incorrect": "惜しい！エラー名が表すミスの種類を確認しましょう。"
+    },
+    {
+      "id": "PY-063",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 3,
+      "title": "文字列を整数に変換して計算",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "型変換",
+        "int"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、何が表示されますか？",
+      "code": "a = \"5\"\nb = int(a) + 3\nprint(b)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "53"
+        },
+        {
+          "id": "c2",
+          "text": "8"
+        },
+        {
+          "id": "c3",
+          "text": "エラーになる"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "8"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "int()で文字列\"5\"を整数5に変換してから足すので8になるから。",
+      "explanation": "\"5\" は文字列ですが、int(\"5\") は整数 5 を返します。5 + 3 = 8 が b に入ります。もし int() がなければ \"5\" + 3 は TypeError です。",
+      "wrong_answer_reasons": {
+        "c1": "int(a) で \"5\" は整数 5 に変換されます。5 + 3 は連結ではなく足し算で 8 です。",
+        "c3": "int(a) で整数に変換しているので、整数同士の足し算になりエラーは起きません。"
+      },
+      "hint": "int() は文字列を何に変えますか？",
+      "feedback_correct": "正解！int() で整数にしてから足し算しました。",
+      "feedback_incorrect": "惜しい！int(a) の結果の型を考えましょう。"
+    },
+    {
+      "id": "PY-064",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 4,
+      "title": "文字列と数値の連結",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "TypeError",
+        "型変換",
+        "str"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "「年齢は20歳」と表示したいのに TypeError になります。2行目を直したものはどれですか？",
+      "code": "age = 20\nprint(\"年齢は\" + age + \"歳\")",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "print(\"年齢は\" + int(age) + \"歳\")"
+        },
+        {
+          "id": "c2",
+          "text": "print(\"年齢は\" - age + \"歳\")"
+        },
+        {
+          "id": "c3",
+          "text": "print(\"年齢は\" + str(age) + \"歳\")"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "fixed_code": "age = 20\nprint(\"年齢は\" + str(age) + \"歳\")",
+        "expected_output": "年齢は20歳",
+        "buggy_error": "TypeError",
+        "target_line": 2,
+        "choice_is_replacement_line": true
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "数値を str() で文字列にすれば、文字列同士の連結になるから。",
+      "explanation": "文字列と整数を + で直接つなぐことはできません。str(age) で \"20\" に変換すれば、\"年齢は\" + \"20\" + \"歳\" と文字列同士になります。f文字列（f\"年齢は{age}歳\"）でも書けます。",
+      "wrong_answer_reasons": {
+        "c1": "age はすでに整数です。int() で整数にしても、文字列と整数の + は TypeError のままです。",
+        "c2": "- は文字列には使えず、TypeError になります。"
+      },
+      "hint": "+ の両側が同じ型になるように変換します。",
+      "feedback_correct": "正解！str() で文字列にそろえました。",
+      "feedback_incorrect": "惜しい！+ の両側の型をそろえる必要があります。"
+    },
+    {
+      "id": "PY-065",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 5,
+      "title": "try / except の動き",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "try/except",
+        "ValueError"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください。",
+      "code": "try:\n    n = int(\"abc\")\nexcept ValueError:\n    n = 0\nprint(n)",
+      "answer": {
+        "expected_output": "0"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "ValueErrorが起きても except で受け止められ、n が 0 になるから。",
+      "explanation": "int(\"abc\") は数値にできないため ValueError を起こします。try の中でエラーが起きると except ValueError: の部分に移り、n = 0 が実行されます。最後の print は 0 を表示します。",
+      "common_mistakes": [
+        {
+          "answer": "abc",
+          "reason": "int(\"abc\") は失敗するため n には何も代入されません。except の中で n が 0 になります。"
+        },
+        {
+          "answer": "ValueError",
+          "reason": "エラーは except で受け止められているので、エラーメッセージは表示されず、プログラムも続行します。"
+        }
+      ],
+      "hint": "エラーが起きたとき、except の中の処理に移ります。",
+      "feedback_correct": "正解！エラーを受け止めて続行できました。",
+      "feedback_incorrect": "惜しい！エラーが起きたときの except の動きを確認しましょう。"
+    },
+    {
+      "id": "PY-066",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 6,
+      "title": "受け止めるエラー名",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "try/except",
+        "ZeroDivisionError"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "0 で割ったときに 0 を返す関数です。空欄 __1__ に入れるエラー名を答えてください。",
+      "code": "def safe_div(a, b):\n    try:\n        return a / b\n    except __1__:\n        return 0\n\nprint(safe_div(1, 0))",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "ZeroDivisionError"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "0"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "0で割ったときに起きるエラーの名前は ZeroDivisionError だから。",
+      "explanation": "except の後ろには、受け止めたいエラーの名前を書きます。1 / 0 は ZeroDivisionError を起こすので、その名前を書くと return 0 が実行されます。エラー名が違うと受け止められません。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "ValueError",
+          "reason": "起きるエラーは ZeroDivisionError です。ValueError では受け止められず、プログラムがエラーで止まります。"
+        }
+      ],
+      "hint": "0 で割るとどんなエラー名が出ましたか？",
+      "feedback_correct": "正解！起きるエラーの名前と合わせました。",
+      "feedback_incorrect": "惜しい！「0で割る」ときのエラー名を思い出しましょう。"
+    },
+    {
+      "id": "PY-067",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 7,
+      "title": "括弧の閉じ忘れ",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "SyntaxError",
+        "括弧"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードは SyntaxError になります。正しく書き直して入力してください（1行目の内容をすべて入力）。",
+      "code": "print(\"合計:\", sum([1, 2, 3])",
+      "answer": {
+        "target_line": 1,
+        "accepted": [
+          "print(\"合計:\", sum([1, 2, 3]))",
+          "print(\"合計:\", sum([1,2,3]))",
+          "print(\"合計:\",sum([1, 2, 3]))"
+        ],
+        "quote_insensitive": true,
+        "fixed_code": "print(\"合計:\", sum([1, 2, 3]))",
+        "expected_output": "合計: 6",
+        "buggy_error": "SyntaxError"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "開き括弧 ( の数と閉じ括弧 ) の数が合っていなかったから。",
+      "explanation": "print( と sum( の2つの括弧を開いているので、閉じ括弧も2つ必要です。[ ] の角括弧は閉じていますが、丸括弧が1つ足りません。括弧は開いた数と閉じた数を数えて確認しましょう。",
+      "common_mistakes": [
+        {
+          "answer": "print(\"合計:\", sum([1, 2, 3])",
+          "reason": "元のコードのままです。開き括弧が2つ（print の ( と sum の (）あるので、閉じ括弧も2つ必要です。"
+        }
+      ],
+      "hint": "( をいくつ開いて、) をいくつ閉じていますか？",
+      "feedback_correct": "正解！括弧の数がそろいました。",
+      "feedback_incorrect": "惜しい！開き括弧と閉じ括弧の数を数えてみましょう。"
+    },
+    {
+      "id": "PY-068",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 8,
+      "title": "エラーが出ないのに結果が違う",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "論理エラー",
+        "デバッグ"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "エラーメッセージは出ないのに、計算結果が期待と違うとき、どう考えて調べるのが適切ですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "プログラムの考え方（ロジック）に誤りがあるかもしれないので、print で途中の値を確認する"
+        },
+        {
+          "id": "c2",
+          "text": "Python の故障なので、パソコンを再起動する"
+        },
+        {
+          "id": "c3",
+          "text": "エラーが出ていないので、間違いはない"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "文法が正しくても、処理の考え方が間違っていると結果は変わるから。",
+      "explanation": "エラーが出ない誤りを「論理エラー」ということがあります。このときは print で途中の変数の値を表示して、想像と実際の値がどこでずれるかを探します。",
+      "wrong_answer_reasons": {
+        "c2": "同じコードは何度実行しても同じ結果になります。コードの考え方に原因があると考えるのが基本です。",
+        "c3": "エラーが出ないことと結果が正しいことは別です。意図と違う処理を書いていても、文法が正しければエラーにはなりません。"
+      },
+      "hint": "Python は、書かれたとおりに動きます。意図と違うのはどこでしょう？",
+      "feedback_correct": "正解！途中の値を確認するのが基本です。",
+      "feedback_incorrect": "惜しい！エラーが出ないことと、正しいことは別です。"
+    },
+    {
+      "id": "PY-069",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 9,
+      "title": "合計が足し込まれない",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "論理エラー",
+        "累積",
+        "+="
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "1 から 3 の合計 6 を表示するつもりが 3 と表示されます。3行目を正しく書き直して入力してください（3行目の内容だけを入力）。",
+      "code": "total = 0\nfor i in range(1, 4):\n    total = i\nprint(total)",
+      "answer": {
+        "target_line": 3,
+        "accepted": [
+          "total += i",
+          "total = total + i",
+          "total=total+i",
+          "total = i + total",
+          "total+=i",
+          "total=total + i",
+          "total = total+i"
+        ],
+        "quote_insensitive": false,
+        "fixed_code": "total = 0\nfor i in range(1, 4):\n    total += i\nprint(total)",
+        "expected_output": "6",
+        "buggy_output": "3"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "= は上書きなので、足し込むには += を使う必要があるから。",
+      "explanation": "total = i は毎回 total を i で置き換えるだけで、最後は 3 になります。total += i（total = total + i）にすると前の値に足していくので、1+2+3 = 6 になります。",
+      "common_mistakes": [
+        {
+          "answer": "total = i",
+          "reason": "元のコードのままです。= は上書きなので、毎回 i の値に置き換わってしまいます。"
+        }
+      ],
+      "hint": "ループのたびに、total の前の値はどうなっていますか？",
+      "feedback_correct": "正解！上書きではなく足し込みにしました。",
+      "feedback_incorrect": "惜しい！= は上書き、+= は足し込みです。"
+    },
+    {
+      "id": "PY-070",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S07",
+      "stage_number": 7,
+      "number_in_stage": 10,
+      "title": "安全に整数へ変換する",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 4,
+      "concepts": [
+        "try/except",
+        "ValueError",
+        "関数",
+        "None"
+      ],
+      "preconditions": "ステージ1〜7で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "文字列 text を受け取り、整数に変換できれば整数を、できなければ None を返す関数 to_int(text) を作ってください。try / except を使うこと。",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def to_int(text):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def to_int(text):\n    try:\n        return int(text)\n    except ValueError:\n        return None",
+        "alternative_solutions": [
+          "def to_int(text):\n    try:\n        n = int(text)\n    except ValueError:\n        n = None\n    return n"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def to_int(text):\n    return int(text)",
+            "reason": "数値にできない文字列で ValueError が発生し、プログラムが止まります。"
+          },
+          {
+            "code": "def to_int(text):\n    return None",
+            "reason": "常に None を返しています。変換できる場合は整数を返す必要があります。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "to_int('42')",
+            "expected": "42",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "to_int('abc')",
+            "expected": "None",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "to_int('-5')",
+            "expected": "-5",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "to_int('')",
+            "expected": "None",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "to_int('3.5')",
+            "expected": "None",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "Try"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "int()が失敗したときのValueErrorをexceptで受け止めてNoneを返すから。",
+      "explanation": "try の中で int(text) を試し、成功すればその値を return します。ValueError が起きたら except でNone を返します。\"3.5\" のような小数の文字列も int() では ValueError になる点に注意です。",
+      "hint": "try: の中に return int(text) を書き、except ValueError: で別の値を返します。",
+      "feedback_correct": "正解！エラーを受け止めて、安全な関数にできました。",
+      "feedback_incorrect": "惜しい！変換できない文字列を渡したときの動作を確認しましょう。"
+    },
+    {
+      "id": "PY-071",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 1,
+      "title": "strip と len",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "strip",
+        "len",
+        "文字列メソッド"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "s = \" Python \"\nprint(s.strip())\nprint(len(s.strip()))",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "Python\n8"
+        },
+        {
+          "id": "c2",
+          "text": " Python \n6"
+        },
+        {
+          "id": "c3",
+          "text": "Python\n6"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "expected_output": "Python\n6"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "strip()で前後の空白が消え、Python の6文字になるから。",
+      "explanation": "s.strip() は前後の空白を除いた \"Python\" を返します。それに len を使うと 6 です。元の s の長さ（空白を含めて8）を求めているわけではありません。",
+      "wrong_answer_reasons": {
+        "c1": "len も strip した後の文字列に対して数えます。前後の空白がなくなった Python は 6 文字です。",
+        "c2": "strip() は前後の空白を取り除きます。1行目に空白は残りません。"
+      },
+      "hint": "strip() してから len() が呼ばれます。",
+      "feedback_correct": "正解！strip の結果に len を使っています。",
+      "feedback_incorrect": "惜しい！strip() の結果の文字列が何文字かを数えましょう。"
+    },
+    {
+      "id": "PY-072",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 2,
+      "title": "元の文字列は変わらない",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "文字列メソッド",
+        "再代入"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "name = \"taro\"\nname.upper()\nprint(name)\nname = name.upper()\nprint(name)",
+      "answer": {
+        "expected_output": "taro\nTARO"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "upper()は新しい文字列を返すだけで、代入し直すまで元の変数は変わらないから。",
+      "explanation": "2行目の name.upper() は結果を受け取っていないので、何も起きなかったのと同じです。4行目で name に代入し直して、はじめて name が TARO になります。",
+      "common_mistakes": [
+        {
+          "answer": "TARO\nTARO",
+          "reason": "name.upper() は大文字の文字列を返すだけで、name 自体は変わりません。結果を代入した後に初めて変わります。"
+        },
+        {
+          "answer": "taro\ntaro",
+          "reason": "4行目で name = name.upper() と代入しているので、2回目の表示は大文字になります。"
+        }
+      ],
+      "hint": "メソッドが返した新しい文字列は、どこかに代入されていますか？",
+      "feedback_correct": "正解！メソッドは元の文字列を変えません。",
+      "feedback_incorrect": "惜しい！代入している行とそうでない行を区別しましょう。"
+    },
+    {
+      "id": "PY-073",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 3,
+      "title": "split と join",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "split",
+        "join",
+        "リスト"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "words = \"a,b,c\".split(\",\")\nprint(len(words))\nprint(\"-\".join(words))",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "5\na-b-c"
+        },
+        {
+          "id": "c2",
+          "text": "3\na-b-c"
+        },
+        {
+          "id": "c3",
+          "text": "3\na,b,c"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2",
+        "expected_output": "3\na-b-c"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "カンマで分けると3要素のリストになり、joinで-でつなぎ直すから。",
+      "explanation": "\"a,b,c\".split(\",\") は [\"a\", \"b\", \"c\"] です。len は 3。\"-\".join(words) は要素の間に - を入れた \"a-b-c\" を作ります。",
+      "wrong_answer_reasons": {
+        "c1": "split の結果はリストで、要素は a, b, c の3つです。元の文字列の文字数（カンマを含めて5）ではありません。",
+        "c3": "join は \"-\" でつなぐので、カンマではなくハイフンで区切られます。"
+      },
+      "hint": "split の結果はリスト。そのリストの長さと、join でつないだ文字列を考えます。",
+      "feedback_correct": "正解！split と join は逆の働きです。",
+      "feedback_incorrect": "惜しい！split の結果の要素数と、join の区切り文字を確認しましょう。"
+    },
+    {
+      "id": "PY-074",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 4,
+      "title": "文字列の置き換え",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "replace",
+        "文字列メソッド"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "「I like Java」の Java を Python に置き換えて「I like Python」と表示したい。空欄 __1__ に入れるメソッド名を答えてください。",
+      "code": "text = \"I like Java\"\nprint(text.__1__(\"Java\", \"Python\"))",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "replace"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "I like Python"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "文字列の一部を別の文字列に置き換えるメソッドは replace だから。",
+      "explanation": "replace(古い文字列, 新しい文字列) は、見つかった部分をすべて新しい文字列に置き換えた結果を返します。元の text は変わりません。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "upper",
+          "reason": "upper は大文字にするメソッドです。引数を2つ渡す使い方もできず TypeError になります。"
+        }
+      ],
+      "hint": "「置き換える」を英語にすると？",
+      "feedback_correct": "正解！replace で置き換えられました。",
+      "feedback_incorrect": "惜しい！「置き換える」ためのメソッド名を思い出しましょう。"
+    },
+    {
+      "id": "PY-075",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 5,
+      "title": "辞書から取り出されるもの",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "辞書",
+        "キーと値"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "ages = {\"Taro\": 20} という辞書があります。ages[\"Taro\"] で得られる値はどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "\"Taro\""
+        },
+        {
+          "id": "c2",
+          "text": "{\"Taro\": 20}"
+        },
+        {
+          "id": "c3",
+          "text": "20"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "辞書[キー] は、そのキーに結び付いた値を返すから。",
+      "explanation": "辞書は「キー → 値」の対応表です。[ ] にキーを渡すとその値が取り出されます。リストが番号で取り出すのに対し、辞書はキーで取り出します。",
+      "wrong_answer_reasons": {
+        "c1": "\"Taro\" は「キー」です。[ ] の中にキーを渡すと、そのキーに結び付いた「値」が返ります。",
+        "c2": "ages[\"Taro\"] は辞書全体ではなく、キーに対応する値だけを返します。"
+      },
+      "hint": "[ ] の中に書いたのはキーでしょうか、値でしょうか？",
+      "feedback_correct": "正解！キーを渡すと値が返ります。",
+      "feedback_incorrect": "惜しい！キーと値を区別しましょう。"
+    },
+    {
+      "id": "PY-076",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 6,
+      "title": "存在しないキー",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "KeyError",
+        "get"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "在庫 stock に \"grape\" がないとき 0 と表示したいのに、KeyError になります。2行目を直したものはどれですか？",
+      "code": "stock = {\"apple\": 3, \"banana\": 5}\nprint(stock[\"grape\"])",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "print(stock.get(\"grape\", 0))"
+        },
+        {
+          "id": "c2",
+          "text": "print(stock(\"grape\"))"
+        },
+        {
+          "id": "c3",
+          "text": "print(stock[\"grape\", 0])"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "fixed_code": "stock = {\"apple\": 3, \"banana\": 5}\nprint(stock.get(\"grape\", 0))",
+        "expected_output": "0",
+        "buggy_error": "KeyError",
+        "target_line": 2,
+        "choice_is_replacement_line": true
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "get(キー, 初期値) は、キーがなくてもエラーにならず初期値を返すから。",
+      "explanation": "辞書[キー] はキーがないと KeyError になります。辞書.get(キー, 初期値) は、キーがあればその値、なければ初期値を返します。事前に in で調べる方法もあります。",
+      "wrong_answer_reasons": {
+        "c2": "辞書は関数ではないので丸括弧では呼び出せず、TypeError になります。",
+        "c3": "[ ] の中の \"grape\", 0 は1つのキー（組）と見なされ、やはりキーが存在せず KeyError になります。"
+      },
+      "hint": "エラーにならずに「なければ0」を返す辞書のメソッドがあります。",
+      "feedback_correct": "正解！get なら安全に取り出せます。",
+      "feedback_incorrect": "惜しい！キーがないときも使えるメソッドを探しましょう。"
+    },
+    {
+      "id": "PY-077",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 7,
+      "title": "辞書の追加と上書き",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "辞書の追加",
+        "辞書の更新",
+        "len"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "ages = {\"Taro\": 20, \"Hana\": 18}\nages[\"Ken\"] = 25\nages[\"Hana\"] = 19\nprint(len(ages))\nprint(ages[\"Hana\"])",
+      "answer": {
+        "expected_output": "3\n19"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "新しいキーKenは追加、既存のHanaは上書きされるから。",
+      "explanation": "2行目で Ken が新しく加わり要素は3つ。3行目は既存のキー Hana への代入なので上書きとなり、増えません。最終的に要素は3つで、Hana の値は 19 です。",
+      "common_mistakes": [
+        {
+          "answer": "3\n18",
+          "reason": "ages[\"Hana\"] = 19 で Hana の値は 18 から 19 に更新されます。"
+        },
+        {
+          "answer": "4\n19",
+          "reason": "Hana は既にあるキーなので、追加ではなく上書きです。要素数は Taro, Hana, Ken の3つです。"
+        }
+      ],
+      "hint": "既にあるキーへの代入は、追加でしょうか、上書きでしょうか。",
+      "feedback_correct": "正解！既存キーへの代入は上書きです。",
+      "feedback_incorrect": "惜しい！追加と上書きの違いを確認しましょう。"
+    },
+    {
+      "id": "PY-078",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 8,
+      "title": "辞書のペアを順に取り出す",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "items",
+        "辞書",
+        "for"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "在庫の合計個数 8 を求めたい。空欄 __1__ に入れるメソッド名を答えてください（括弧は書かれています）。",
+      "code": "stock = {\"apple\": 3, \"banana\": 5}\ntotal = 0\nfor name, count in stock.__1__():\n    total += count\nprint(total)",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "items"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "8"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "キーと値の両方を同時に取り出すメソッドは items() だから。",
+      "explanation": "for name, count in stock.items(): とすると、1回ごとに (キー, 値) が name と count に入ります。count を足していけば 3 + 5 = 8 です。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "values",
+          "reason": "values() は値だけを取り出すので、name, count の2つの変数に分けられず TypeError になります。"
+        }
+      ],
+      "hint": "キーと値の「両方」を取り出すメソッドは？",
+      "feedback_correct": "正解！items() でペアを取り出せます。",
+      "feedback_incorrect": "惜しい！キーと値の両方を取り出せるのはどれでしょう？"
+    },
+    {
+      "id": "PY-079",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 9,
+      "title": "数え方のミス",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "辞書",
+        "カウント",
+        "論理エラー"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "文字の出現回数を数えるつもりが、結果が {'a': 1, 'b': 0, 'c': 0} になります（正しくは {'a': 2, 'b': 1, 'c': 1}）。6行目を正しく書き直して入力してください（6行目の内容だけを入力）。",
+      "code": "counts = {}\nfor ch in \"abca\":\n    if ch in counts:\n        counts[ch] += 1\n    else:\n        counts[ch] = 0\nprint(counts)",
+      "answer": {
+        "target_line": 6,
+        "accepted": [
+          "counts[ch] = 1",
+          "counts[ch]=1"
+        ],
+        "quote_insensitive": false,
+        "fixed_code": "counts = {}\nfor ch in \"abca\":\n    if ch in counts:\n        counts[ch] += 1\n    else:\n        counts[ch] = 1\nprint(counts)",
+        "expected_output": "{'a': 2, 'b': 1, 'c': 1}",
+        "buggy_output": "{'a': 1, 'b': 0, 'c': 0}"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "初めて出てきた文字は、その時点で1回出現しているので値を 1 にするから。",
+      "explanation": "else の部分は「その文字が初めて出てきた」ときに実行されます。このとき 0 を入れると、1回出た分が数えられません。1 を入れ、2回目以降は += 1 で増やします。",
+      "common_mistakes": [
+        {
+          "answer": "counts[ch] = 0",
+          "reason": "元のコードのままです。初めて出てきた文字は、その時点で1回出ているので、初期値は 1 です。"
+        }
+      ],
+      "hint": "初めてその文字が出た時点で、出現回数はいくつでしょう？",
+      "feedback_correct": "正解！初回の出現を 1 として数えました。",
+      "feedback_incorrect": "惜しい！「初めて出てきた」とき、すでに1回出ています。"
+    },
+    {
+      "id": "PY-080",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S08",
+      "stage_number": 8,
+      "number_in_stage": 10,
+      "title": "単語の出現回数",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 4,
+      "concepts": [
+        "辞書",
+        "split",
+        "for",
+        "関数",
+        "return"
+      ],
+      "preconditions": "ステージ1〜8で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "空白で区切られた英単語の文字列 text を受け取り、単語をキー、出現回数を値にした辞書を返す関数 count_words(text) を作ってください。（text.split() で空白区切りの単語のリストが得られます）",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def count_words(text):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def count_words(text):\n    counts = {}\n    for word in text.split():\n        if word in counts:\n            counts[word] += 1\n        else:\n            counts[word] = 1\n    return counts",
+        "alternative_solutions": [
+          "def count_words(text):\n    counts = {}\n    for word in text.split():\n        counts[word] = counts.get(word, 0) + 1\n    return counts"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def count_words(text):\n    counts = {}\n    for word in text.split():\n        counts[word] = 1\n    return counts",
+            "reason": "毎回 1 に上書きしており、2回以上出る単語が正しく数えられません。"
+          },
+          {
+            "code": "def count_words(text):\n    return len(text.split())",
+            "reason": "辞書ではなく単語の総数を返しています。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "sorted(count_words('a b a').items())",
+            "expected": "[('a', 2), ('b', 1)]",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "sorted(count_words('x').items())",
+            "expected": "[('x', 1)]",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "sorted(count_words('to be or not to be').items())",
+            "expected": "[('be', 2), ('not', 1), ('or', 1), ('to', 2)]",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "count_words('')",
+            "expected": "{}",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "FunctionDef",
+          "For"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "split()で単語に分け、辞書で既存なら+1、なければ1にして数えるから。",
+      "explanation": "ステージ8の例（文字を数える）と同じ考え方で、対象が文字から単語に変わっただけです。get(word, 0) + 1 と書くと if/else を省略できます。最後に counts を return するのを忘れないようにしましょう。",
+      "hint": "辞書 counts = {} を用意し、for で単語を1つずつ取り出して数えます。最後に return。",
+      "feedback_correct": "正解！データ集計の基本形が書けました。",
+      "feedback_incorrect": "惜しい！同じ単語が2回出てきたときの動作を確認しましょう。"
+    },
+    {
+      "id": "PY-081",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 1,
+      "title": "randint の範囲",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "random",
+        "randint"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "import random のあと、random.randint(1, 3) を実行しました。結果として起こり得ない値はどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1"
+        },
+        {
+          "id": "c2",
+          "text": "3"
+        },
+        {
+          "id": "c3",
+          "text": "4"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "randint(1, 3) は1以上3以下の整数だけを返すので、4は返らないから。",
+      "explanation": "random.randint(a, b) は a 以上 b 以下（両端を含む）の整数を返します。range(1, 3) のように最後を含まない仕組みとは違う点に注意しましょう。1, 2, 3 のどれかが返り、4 は返りません。",
+      "wrong_answer_reasons": {
+        "c1": "randint は最初の値（1）も含みます。1 が返ることはあります。",
+        "c2": "randint は最後の値（3）も含みます。range とは違い、3 が返ることもあります。"
+      },
+      "hint": "randint は最後の数も含む、と覚えておきましょう。",
+      "feedback_correct": "正解！randint の範囲は両端を含みます。",
+      "feedback_incorrect": "惜しい！randint は a 以上 b 以下の整数を返します。"
+    },
+    {
+      "id": "PY-082",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 2,
+      "title": "おみくじの結果を読む",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "if/elif/else",
+        "トレース"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "n = 4\nif n >= 9:\n    result = \"大吉\"\nelif n >= 5:\n    result = \"中吉\"\nelse:\n    result = \"小吉\"\nprint(\"結果:\", result)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "結果: 大吉"
+        },
+        {
+          "id": "c2",
+          "text": "結果: 中吉"
+        },
+        {
+          "id": "c3",
+          "text": "結果: 小吉"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "expected_output": "結果: 小吉"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "4は9以上でも5以上でもないので、elseの小吉になるから。",
+      "explanation": "上から順に、n >= 9（False）、n >= 5（False）と調べ、どちらも成立しないので else の小吉が選ばれます。print は \"結果:\" と result の間に空白を入れて表示します。",
+      "wrong_answer_reasons": {
+        "c1": "n = 4 は 9 以上ではありません。最初の条件は False です。",
+        "c2": "n = 4 は 5 以上ではありません。2つ目の条件も False です。"
+      },
+      "hint": "n = 4 のとき、各条件が True か False かを順に判定しましょう。",
+      "feedback_correct": "正解！条件を順に判定できました。",
+      "feedback_incorrect": "惜しい！各条件を上から順に True / False で判定しましょう。"
+    },
+    {
+      "id": "PY-083",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 3,
+      "title": "簡易計算機の動き",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "関数",
+        "if/elif/else",
+        "トレース"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "def calc(a, op, b):\n    if op == \"+\":\n        return a + b\n    elif op == \"-\":\n        return a - b\n    elif op == \"*\":\n        return a * b\n    else:\n        return \"未対応\"\n\nprint(calc(6, \"-\", 4))\nprint(calc(2, \"/\", 5))",
+      "answer": {
+        "expected_output": "2\n未対応"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "\"-\"は引き算で2、\"/\"は対応する分岐がなくelseの未対応になるから。",
+      "explanation": "1回目は op が \"-\" なので a - b = 2。2回目の op は \"/\" ですが、+, -, * のどれにも一致しないので else の「未対応」が返されます。",
+      "common_mistakes": [
+        {
+          "answer": "2\n0.4",
+          "reason": "calc には \"/\" の場合の処理がありません。else に進んで「未対応」が返ります。"
+        },
+        {
+          "answer": "10\n未対応",
+          "reason": "\"-\" は引き算なので 6 - 4 = 2 です。"
+        }
+      ],
+      "hint": "op の値が、どの分岐に一致するかを見ます。",
+      "feedback_correct": "正解！op の値で分岐が切り替わります。",
+      "feedback_incorrect": "惜しい！op の値がどの分岐に当てはまるか確認しましょう。"
+    },
+    {
+      "id": "PY-084",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 4,
+      "title": "割り算の分岐を追加",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "関数",
+        "/",
+        "//"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "calc 関数に割り算の分岐を追加します。calc(10, \"/\", 4) が 2.5 を返すよう、空欄 __1__ に入れる式を答えてください。",
+      "code": "def calc(a, op, b):\n    if op == \"+\":\n        return a + b\n    elif op == \"/\":\n        return __1__\n    else:\n        return \"未対応\"\n\nprint(calc(10, \"/\", 4))",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              "a / b",
+              "a/b"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "2.5"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "小数を含む割り算の結果が必要なので、/ を使うから。",
+      "explanation": "/ は割り切れない場合も小数で結果を返すので 10 / 4 = 2.5。// は切り捨ての商で 2 になってしまいます。変数 a と b を使って書くことで、どんな値でも使える関数になります。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "a // b",
+          "reason": "// は小数点以下を切り捨てた商なので 2 になります。2.5 にするには / を使います。"
+        }
+      ],
+      "hint": "結果が 2.5 になる割り算の記号は / でしたか、// でしたか？",
+      "feedback_correct": "正解！変数を使った式で割り算を書けました。",
+      "feedback_incorrect": "惜しい！/ と // の違いを見直しましょう。"
+    },
+    {
+      "id": "PY-085",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 5,
+      "title": "合格者を数える",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "for",
+        "if",
+        "カウント"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、何が表示されますか？",
+      "code": "scores = [55, 80, 62, 90, 45]\npassed = 0\nfor s in scores:\n    if s >= 60:\n        passed += 1\nprint(passed)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "2"
+        },
+        {
+          "id": "c2",
+          "text": "5"
+        },
+        {
+          "id": "c3",
+          "text": "3"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "expected_output": "3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "60点以上は80、62、90の3人だから。",
+      "explanation": "for で1つずつ調べ、s >= 60 のときだけ passed に1を足します。55 → 数えない、80 → 数える、62 → 数える、90 → 数える、45 → 数えない。合計は3です。",
+      "wrong_answer_reasons": {
+        "c1": "60点以上は 80, 62, 90 の3つです。62 も 60 以上なので数えます。",
+        "c2": "if s >= 60 を満たすものだけ数えます。55 と 45 は数えられません。"
+      },
+      "hint": "1つずつ、60以上かどうかを判定して、数えましょう。",
+      "feedback_correct": "正解！条件に合うものだけ数えました。",
+      "feedback_incorrect": "惜しい！点数ごとに60以上かを判定してみましょう。"
+    },
+    {
+      "id": "PY-086",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 6,
+      "title": "成績判定の順序",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 4,
+      "concepts": [
+        "elif",
+        "条件の順序",
+        "論理エラー"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "85点なら \"B\" と表示するはずが \"C\" と表示されます。どう直すのが適切ですか？",
+      "code": "score = 85\nif score >= 60:\n    grade = \"C\"\nelif score >= 80:\n    grade = \"B\"\nelse:\n    grade = \"D\"\nprint(grade)",
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "条件を厳しい順（80以上、60以上の順）に並べ替える"
+        },
+        {
+          "id": "c2",
+          "text": "elif をすべて if に変える"
+        },
+        {
+          "id": "c3",
+          "text": "score >= 60 を score == 60 に変える"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "fixed_code": "score = 85\nif score >= 80:\n    grade = \"B\"\nelif score >= 60:\n    grade = \"C\"\nelse:\n    grade = \"D\"\nprint(grade)",
+        "expected_output": "B",
+        "buggy_output": "C"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "if/elifは上から順に調べ、最初に成立した所で終わるので、厳しい条件を先に調べる必要があるから。",
+      "explanation": "85 は 60 以上でもあるため、最初の条件で \"C\" になり、80 以上かどうかは調べられません。80 以上を先に調べるように並べ替えると、85 は \"B\"、65 は \"C\" と正しく分けられます。",
+      "wrong_answer_reasons": {
+        "c2": "65点のとき、最初の if で C になった後、2つ目の if（80以上）は False なので else の D が実行され、最終的に D になってしまいます。",
+        "c3": "== は「ちょうど60」のときだけ成立します。85 を含む大半の点数が当てはまらなくなります。"
+      },
+      "hint": "85 は、最初の条件 score >= 60 を満たしますか？",
+      "feedback_correct": "正解！条件の並べ順が重要でした。",
+      "feedback_incorrect": "惜しい！上から順に調べ、最初に成立した所で終わることを思い出しましょう。"
+    },
+    {
+      "id": "PY-087",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 7,
+      "title": "買い物かごの合計",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 3,
+      "concepts": [
+        "辞書",
+        "リスト",
+        "for",
+        "累積"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください。",
+      "code": "prices = {\"りんご\": 120, \"みかん\": 80}\ncart = [\"りんご\", \"みかん\", \"りんご\"]\ntotal = 0\nfor item in cart:\n    total += prices[item]\nprint(\"合計:\", total)",
+      "answer": {
+        "expected_output": "合計: 320"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "りんご120×2とみかん80を足して320になるから。",
+      "explanation": "cart の要素を順に取り出し、prices から価格を引いて足します。120 → 200 → 320。りんごは2回出てくるので、2回足されます。",
+      "common_mistakes": [
+        {
+          "answer": "合計: 200",
+          "reason": "cart にはりんごが2つ入っています。りんごの価格 120 を2回足します。"
+        },
+        {
+          "answer": "合計: 80",
+          "reason": "合計は最後の1つ分ではなく、かごの中の全部です。+= で足し込んでいます。"
+        }
+      ],
+      "hint": "かごの中身を1つずつ、価格に変えながら足します。",
+      "feedback_correct": "正解！辞書とリストを組み合わせて読めました。",
+      "feedback_incorrect": "惜しい！かごの中身を1つずつ、価格に置き換えて足してみましょう。"
+    },
+    {
+      "id": "PY-088",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 8,
+      "title": "コードの読み方",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 3,
+      "concepts": [
+        "トレース",
+        "コードの読み方"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "見慣れた長めのコードの動きを予想するとき、最も確実な方法はどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "全体をざっと眺めて、なんとなくの印象で答える"
+        },
+        {
+          "id": "c2",
+          "text": "一番下の行から順に読み進める"
+        },
+        {
+          "id": "c3",
+          "text": "変数の値が1行ごとにどう変わるかを書き出して、上から順に追う"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "実行の順に、変数の値を1つずつ確かめるのが最も確実だから。",
+      "explanation": "プログラムは上から順に実行され、そのたびに変数の値が変化します。変数名と今の値を書き出しながら追うこと（トレース）が、読み間違いを防ぐ基本の方法です。",
+      "wrong_answer_reasons": {
+        "c1": "印象で答えると、条件の境界や繰り返しの回数を間違えやすくなります。",
+        "c2": "コードは上から下へ順に実行されます。実行順に追わないと値の変化が分かりません。"
+      },
+      "hint": "コンピューターは、どの順番でコードを実行しますか？",
+      "feedback_correct": "正解！値を書き出して追うのが基本です。",
+      "feedback_incorrect": "惜しい！実行の順に、値の変化を追う方法を選びましょう。"
+    },
+    {
+      "id": "PY-089",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 9,
+      "title": "4文字以上を数える",
+      "type": "bug_fix",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "比較演算子",
+        "境界値",
+        "論理エラー"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "4文字以上の単語の数 2 を求めるつもりが 1 と表示されます。4行目を正しく書き直して入力してください（4行目の内容だけを入力）。",
+      "code": "words = [\"cat\", \"tree\", \"horse\", \"dog\"]\ncount = 0\nfor w in words:\n    if len(w) > 4:\n        count += 1\nprint(count)",
+      "answer": {
+        "target_line": 4,
+        "accepted": [
+          "if len(w) >= 4:",
+          "if len(w)>=4:",
+          "if len(w) > 3:",
+          "if len(w)>3:"
+        ],
+        "quote_insensitive": false,
+        "fixed_code": "words = [\"cat\", \"tree\", \"horse\", \"dog\"]\ncount = 0\nfor w in words:\n    if len(w) >= 4:\n        count += 1\nprint(count)",
+        "expected_output": "2",
+        "buggy_output": "1"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true,
+        "scope": "target_line_replacement"
+      },
+      "rationale": "「4文字以上」は4を含むので、>= 4 （または > 3）にする必要があるから。",
+      "explanation": "len(w) > 4 は5文字以上です。4文字の tree が数えられません。「以上」は >= を使います。境界の値（ちょうど4）を実際に当てはめて確かめるのが大切です。",
+      "common_mistakes": [
+        {
+          "answer": "if len(w) > 4:",
+          "reason": "元のコードのままです。「4文字以上」に 4文字ちょうどの tree が含まれていません。"
+        }
+      ],
+      "hint": "4文字ちょうどの単語（tree）は、len(w) > 4 を満たしますか？",
+      "feedback_correct": "正解！境界値（4文字ちょうど）を含めました。",
+      "feedback_incorrect": "惜しい！「以上」と「より大きい」の違いを確認しましょう。"
+    },
+    {
+      "id": "PY-090",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S09",
+      "stage_number": 9,
+      "number_in_stage": 10,
+      "title": "おみくじ判定関数",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 4,
+      "concepts": [
+        "関数",
+        "if/elif/else",
+        "境界値",
+        "return"
+      ],
+      "preconditions": "ステージ1〜9で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "1〜10 の整数 n を受け取り、結果の文字列を返す関数 fortune(n) を作ってください。9 以上なら \"大吉\"、5 以上 8 以下なら \"中吉\"、それ以外（4 以下）なら \"小吉\" を返します。（ランダムに引く部分は含めず、判定だけを作ります）",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def fortune(n):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def fortune(n):\n    if n >= 9:\n        return \"大吉\"\n    elif n >= 5:\n        return \"中吉\"\n    else:\n        return \"小吉\"",
+        "alternative_solutions": [
+          "def fortune(n):\n    if n < 5:\n        return \"小吉\"\n    elif n < 9:\n        return \"中吉\"\n    return \"大吉\"",
+          "def fortune(n):\n    if n >= 9:\n        result = '大吉'\n    elif n >= 5:\n        result = '中吉'\n    else:\n        result = '小吉'\n    return result"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def fortune(n):\n    if n > 9:\n        return \"大吉\"\n    elif n > 5:\n        return \"中吉\"\n    else:\n        return \"小吉\"",
+            "reason": "境界値が違います。9 や 5 ちょうどのときの結果が仕様と合いません（9 以上、5 以上）。"
+          },
+          {
+            "code": "def fortune(n):\n    if n >= 5:\n        return \"中吉\"\n    elif n >= 9:\n        return \"大吉\"\n    else:\n        return \"小吉\"",
+            "reason": "条件の順序が逆です。9 以上でも最初の n >= 5 が成立して中吉になってしまいます。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fortune(10)",
+            "expected": "'大吉'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fortune(9)",
+            "expected": "'大吉'",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fortune(8)",
+            "expected": "'中吉'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fortune(5)",
+            "expected": "'中吉'",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fortune(4)",
+            "expected": "'小吉'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fortune(1)",
+            "expected": "'小吉'",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "FunctionDef",
+          "If"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "厳しい条件（9以上）から順に調べ、境界の9と5を含めるから。",
+      "explanation": "if n >= 9 → elif n >= 5 → else の順に書けば、重なりも漏れもありません。9 と 5 が境界なので、必ずその値で確認します。実際のおみくじでは fortune(random.randint(1, 10)) のように呼び出します。",
+      "hint": "厳しい条件（9以上）から順に調べます。境界の 9 と 5 の扱いに注意しましょう。",
+      "feedback_correct": "正解！おみくじの判定部分ができました。",
+      "feedback_incorrect": "惜しい！境界の値（9 と 5）と、条件を調べる順序を確認しましょう。"
+    },
+    {
+      "id": "PY-091",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 1,
+      "title": "FizzBuzz のかけら",
+      "type": "predict_output",
+      "answer_mode": "choice",
+      "difficulty": 4,
+      "concepts": [
+        "for",
+        "if",
+        "%",
+        "range"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行すると、どう表示されますか？",
+      "code": "for i in range(1, 6):\n    if i % 3 == 0:\n        print(\"Fizz\")\n    else:\n        print(i)",
+      "choice_format": "code",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "1\n2\nFizz\n4\n5"
+        },
+        {
+          "id": "c2",
+          "text": "1\n2\nFizz\n4"
+        },
+        {
+          "id": "c3",
+          "text": "1\n2\n3\n4\n5"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c1",
+        "expected_output": "1\n2\nFizz\n4\n5"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "1〜5のうち3の倍数は3だけで、その回だけFizzが表示されるから。",
+      "explanation": "i が 1, 2 のときは余りが 0 でないので数字を表示。i = 3 のとき 3 % 3 == 0 が成立して Fizz。i = 4, 5 は再び数字です。range の終わり 6 は含まれず、5 回繰り返されます。",
+      "wrong_answer_reasons": {
+        "c2": "range(1, 6) は 1〜5 です。5 回繰り返すので、最後の 5 も表示されます。",
+        "c3": "i が 3 のとき、i % 3 == 0 が成立するので、3 ではなく Fizz が表示されます。"
+      },
+      "hint": "i が 3 のときだけ、条件 i % 3 == 0 が True になります。",
+      "feedback_correct": "正解！ループと条件分岐を組み合わせて読めました。",
+      "feedback_incorrect": "惜しい！i の値ごとに、条件が True か False か判定しましょう。"
+    },
+    {
+      "id": "PY-092",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 2,
+      "title": "入れ子のループ",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "入れ子のループ",
+        "文字列の連結",
+        "range"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください（複数行は改行して入力）。",
+      "code": "for i in range(1, 4):\n    line = \"\"\n    for j in range(i):\n        line += \"*\"\n    print(line)",
+      "answer": {
+        "expected_output": "*\n**\n***"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "外側のiが1,2,3と増え、内側でi個の*が足されるから。",
+      "explanation": "i = 1 のとき内側は 1 回で \"*\"。i = 2 のとき 2 回で \"**\"。i = 3 のとき 3 回で \"***\"。line は外側のループの回ごとに \"\" に戻されます。表示はそのたびに 1 行です。",
+      "common_mistakes": [
+        {
+          "answer": "***\n***\n***",
+          "reason": "内側のループの回数は i です。i = 1 なら 1 回、i = 2 なら 2 回と増えていきます。"
+        },
+        {
+          "answer": "*\n*\n*",
+          "reason": "内側のループの中で line に * を足し込むので、i が大きくなるほど * が増えます。"
+        }
+      ],
+      "hint": "外側の i が 1 回進むごとに、内側のループは最初から回ります。",
+      "feedback_correct": "正解！入れ子のループを正確に追えました。",
+      "feedback_incorrect": "惜しい！i ごとに内側のループが何回回るか確認しましょう。"
+    },
+    {
+      "id": "PY-093",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 3,
+      "title": "最大値を求める考え方",
+      "type": "multiple_choice",
+      "answer_mode": "choice",
+      "difficulty": 4,
+      "concepts": [
+        "アルゴリズムの考え方",
+        "最大値",
+        "for"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "max() を使わずに、リストの最大値を求めるプログラムを作ります。考え方として最も適切なものはどれですか？",
+      "code": null,
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "全部足して、個数で割る"
+        },
+        {
+          "id": "c2",
+          "text": "最初の要素を暫定の最大値とし、残りの要素と比べて、より大きければ更新する"
+        },
+        {
+          "id": "c3",
+          "text": "リストの最後の要素を最大値とみなす"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c2"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "すべての要素を順に比べ、これまでの最大より大きければ更新する方法で最大値が分かるから。",
+      "explanation": "定番の方法は、最初の要素を暫定の最大値にして、残りを順に比べることです。大きい値が見つかったら最大値を更新します。最後まで終わったとき、暫定の最大値が本当の最大値です。",
+      "wrong_answer_reasons": {
+        "c1": "それは平均を求める方法です。最大値は、値同士を比べて見つけます。",
+        "c3": "最後の要素がいつも最大とは限りません。すべての要素を比べる必要があります。"
+      },
+      "hint": "1つずつ比べて、「これまでで一番大きい値」を覚えていくイメージです。",
+      "feedback_correct": "正解！暫定の最大値を更新していく方法です。",
+      "feedback_incorrect": "惜しい！値同士を比べる方法はどれでしょう？"
+    },
+    {
+      "id": "PY-094",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 4,
+      "title": "最大値を更新する条件",
+      "type": "fill_blank",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "比較演算子",
+        "最大値",
+        "for"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "リストの最大値を求めます。空欄 __1__ に入れる比較演算子を答えてください。",
+      "code": "nums = [3, 9, 4]\nbiggest = nums[0]\nfor n in nums:\n    if n __1__ biggest:\n        biggest = n\nprint(biggest)",
+      "answer": {
+        "blanks": [
+          {
+            "id": "b1",
+            "marker": "__1__",
+            "accepted": [
+              ">"
+            ],
+            "quote_insensitive": false
+          }
+        ],
+        "expected_output": "9"
+      },
+      "grading": {
+        "method": "accepted_answers",
+        "normalize": [
+          "nfkc",
+          "strip_outer_whitespace"
+        ],
+        "keep_inner_whitespace": true
+      },
+      "rationale": "現在の最大値より大きい値が見つかったときに更新するから。",
+      "explanation": "n > biggest が True のとき、n の方が大きいので biggest を n に置き換えます。n が 9 のとき更新され、最終的に biggest は 9 になります。",
+      "common_mistakes": [
+        {
+          "blank": "b1",
+          "answer": "<",
+          "reason": "< だと「より小さい」ときに更新するので、最小値側に向かいます。このコードでは 3 のまま変わらず、最大値になりません。"
+        }
+      ],
+      "hint": "更新するのは、新しい値が「どうなったとき」でしょう？",
+      "feedback_correct": "正解！大きい値が見つかったら更新します。",
+      "feedback_incorrect": "惜しい！比較の向きを確認しましょう。"
+    },
+    {
+      "id": "PY-095",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 5,
+      "title": "偶数の合計が合わない",
+      "type": "bug_fix",
+      "answer_mode": "choice",
+      "difficulty": 4,
+      "concepts": [
+        "%",
+        "関数",
+        "論理エラー"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "[1, 2, 3, 4] の偶数の合計 6 を返すつもりの関数が、4 を返します。どう直すのが適切ですか？",
+      "code": "def sum_even(nums):\n    total = 0\n    for n in nums:\n        if n % 2 == 1:\n            total += n\n    return total\n\nprint(sum_even([1, 2, 3, 4]))",
+      "choice_format": "text",
+      "choices": [
+        {
+          "id": "c1",
+          "text": "total = 0 を total = 1 にする"
+        },
+        {
+          "id": "c2",
+          "text": "return total を print(total) に変える"
+        },
+        {
+          "id": "c3",
+          "text": "n % 2 == 1 を n % 2 == 0 に変える"
+        }
+      ],
+      "answer": {
+        "correct_choice_id": "c3",
+        "fixed_code": "def sum_even(nums):\n    total = 0\n    for n in nums:\n        if n % 2 == 0:\n            total += n\n    return total\n\nprint(sum_even([1, 2, 3, 4]))",
+        "expected_output": "6",
+        "buggy_output": "4"
+      },
+      "grading": {
+        "method": "choice_id"
+      },
+      "rationale": "余りが1のものは奇数なので、偶数を足すには余りが0の条件にする必要があるから。",
+      "explanation": "n % 2 == 1 は奇数のときに成立するので、1 + 3 = 4 を足していました。偶数は 2 で割った余りが 0 なので、条件を n % 2 == 0 に直すと 2 + 4 = 6 になります。",
+      "wrong_answer_reasons": {
+        "c1": "合計の初期値が 1 になり、結果が 1 ずれるだけです。偶数を足していない原因は条件にあります。",
+        "c2": "関数は値を返さなくなり、外側の print が None を表示します。しかも足している数も変わりません。"
+      },
+      "hint": "余りが 1 になるのは偶数でしょうか、奇数でしょうか？",
+      "feedback_correct": "正解！偶数は余りが0です。",
+      "feedback_incorrect": "惜しい！足されている数 1 と 3 に注目しましょう。"
+    },
+    {
+      "id": "PY-096",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 6,
+      "title": "合否のカウント",
+      "type": "predict_output",
+      "answer_mode": "text",
+      "difficulty": 4,
+      "concepts": [
+        "辞書",
+        "関数",
+        "for",
+        "境界値"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "次のコードを実行したときの表示を入力してください。辞書は print すると {キー: 値, ...} の形で表示されます（文字列のキーは引用符付き）。",
+      "code": "def grade_count(scores):\n    result = {\"合格\": 0, \"不合格\": 0}\n    for s in scores:\n        if s >= 60:\n            result[\"合格\"] += 1\n        else:\n            result[\"不合格\"] += 1\n    return result\n\nprint(grade_count([70, 40, 60, 59]))",
+      "answer": {
+        "expected_output": "{'合格': 2, '不合格': 2}"
+      },
+      "grading": {
+        "method": "output_compare",
+        "normalize": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ],
+        "case_sensitive": true
+      },
+      "rationale": "70と60が合格、40と59が不合格で、それぞれ2人ずつになるから。",
+      "explanation": "s が 70 → 合格。40 → 不合格。60 → 60 以上なので合格（境界）。59 → 不合格。結果は 合格 2、不合格 2 です。辞書の表示は元の順序（合格、不合格）のまま {'合格': 2, '不合格': 2} となります。",
+      "common_mistakes": [
+        {
+          "answer": "{'合格': 1, '不合格': 3}",
+          "reason": "60 点は 60 以上なので合格です。70 と 60 の2人が合格になります。"
+        },
+        {
+          "answer": "{'合格': 3, '不合格': 1}",
+          "reason": "59 点は 60 未満なので不合格です。40 と 59 の2人が不合格になります。"
+        }
+      ],
+      "hint": "境界の 60 は合格側でしょうか？ 1人ずつ判定して数えましょう。",
+      "feedback_correct": "正解！関数・辞書・条件を組み合わせて読めました。",
+      "feedback_incorrect": "惜しい！1人ずつ、合格か不合格かを判定してみましょう。"
+    },
+    {
+      "id": "PY-097",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 7,
+      "title": "FizzBuzz の関数",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 4,
+      "concepts": [
+        "関数",
+        "if/elif/else",
+        "%",
+        "str",
+        "条件の順序"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "整数 n を受け取り、次の文字列を返す関数 fizzbuzz(n) を作ってください。\n・15 の倍数なら \"FizzBuzz\"\n・3 の倍数なら \"Fizz\"\n・5 の倍数なら \"Buzz\"\n・それ以外は n を文字列にしたもの（例: 7 なら \"7\"）",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def fizzbuzz(n):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def fizzbuzz(n):\n    if n % 15 == 0:\n        return \"FizzBuzz\"\n    elif n % 3 == 0:\n        return \"Fizz\"\n    elif n % 5 == 0:\n        return \"Buzz\"\n    else:\n        return str(n)",
+        "alternative_solutions": [
+          "def fizzbuzz(n):\n    if n % 3 == 0 and n % 5 == 0:\n        return \"FizzBuzz\"\n    if n % 3 == 0:\n        return \"Fizz\"\n    if n % 5 == 0:\n        return \"Buzz\"\n    return str(n)"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def fizzbuzz(n):\n    if n % 3 == 0:\n        return \"Fizz\"\n    elif n % 5 == 0:\n        return \"Buzz\"\n    elif n % 15 == 0:\n        return \"FizzBuzz\"\n    else:\n        return str(n)",
+            "reason": "15 の倍数は先に 3 の倍数に当てはまり Fizz になってしまいます。15 の判定を最初にします。"
+          },
+          {
+            "code": "def fizzbuzz(n):\n    if n % 15 == 0:\n        return \"FizzBuzz\"\n    elif n % 3 == 0:\n        return \"Fizz\"\n    elif n % 5 == 0:\n        return \"Buzz\"\n    else:\n        return n",
+            "reason": "最後の戻り値が整数のままです。文字列にするには str(n) を使います。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fizzbuzz(15)",
+            "expected": "'FizzBuzz'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fizzbuzz(9)",
+            "expected": "'Fizz'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fizzbuzz(10)",
+            "expected": "'Buzz'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fizzbuzz(7)",
+            "expected": "'7'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fizzbuzz(30)",
+            "expected": "'FizzBuzz'",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "fizzbuzz(1)",
+            "expected": "'1'",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "FunctionDef",
+          "If"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "15の倍数を最初に判定し、3、5の順に調べ、それ以外はstr(n)を返すから。",
+      "explanation": "条件の順序が最大のポイントです。15 の倍数は 3 の倍数でも 5 の倍数でもあるため、先に 15 を判定しないと FizzBuzz にたどり着けません。最後は str(n) で数字を文字列にして返します。",
+      "hint": "15 の倍数を最初に判定します。最後の戻り値は文字列にします。",
+      "feedback_correct": "正解！定番課題を自力で書けました。",
+      "feedback_incorrect": "惜しい！15 の倍数のとき（15 と 30）の結果を確認しましょう。"
+    },
+    {
+      "id": "PY-098",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 8,
+      "title": "回文の判定",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 5,
+      "concepts": [
+        "for",
+        "インデックス",
+        "負のインデックス",
+        "return",
+        "関数"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "文字列 text を受け取り、前から読んでも後ろから読んでも同じ（回文）なら True、そうでなければ False を返す関数 is_palindrome(text) を作ってください。空の文字列と1文字の文字列は True とします。",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def is_palindrome(text):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def is_palindrome(text):\n    for i in range(len(text)):\n        if text[i] != text[-1 - i]:\n            return False\n    return True",
+        "alternative_solutions": [
+          "def is_palindrome(text):\n    return text == text[::-1]",
+          "def is_palindrome(text):\n    i = 0\n    j = len(text) - 1\n    while i < j:\n        if text[i] != text[j]:\n            return False\n        i += 1\n        j -= 1\n    return True"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def is_palindrome(text):\n    return text[0] == text[-1]",
+            "reason": "最初と最後の文字しか比べていません。\"abca\" のように中が違う文字列で誤った結果になり、空の文字列ではエラーになります。"
+          },
+          {
+            "code": "def is_palindrome(text):\n    for i in range(len(text)):\n        if text[i] == text[-1 - i]:\n            return True\n    return False",
+            "reason": "1つでも同じ組があると True にしてしまっています。すべての組が同じかを確かめる必要があります。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_palindrome('level')",
+            "expected": "True",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_palindrome('abc')",
+            "expected": "False",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_palindrome('a')",
+            "expected": "True",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_palindrome('')",
+            "expected": "True",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_palindrome('abba')",
+            "expected": "True",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "is_palindrome('abca')",
+            "expected": "False",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "FunctionDef"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "前からi番目と後ろからi番目を比べ、1つでも違えばFalse、全部同じならTrueにするから。",
+      "explanation": "text[i] と text[-1 - i] は、前から i 番目と後ろから i 番目の文字です。違う組が1つでも見つかればすぐ False を返し、最後まで見つからなければ True を返します。True を返す return はループの外に書くのがポイントです。",
+      "hint": "text[i] と text[-1 - i] を比べます。True を返すのは、ループが終わってからです。",
+      "feedback_correct": "正解！回文判定が自力で書けました。",
+      "feedback_incorrect": "惜しい！'abca' や空の文字列など、端の値で動かしてみましょう。"
+    },
+    {
+      "id": "PY-099",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 9,
+      "title": "最高得点の人を探す",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 5,
+      "concepts": [
+        "辞書",
+        "items",
+        "for",
+        "最大値",
+        "関数"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "名前をキー、点数（0 以上の整数）を値にした辞書 scores を受け取り、最高得点の人の名前を返す関数 top_scorer(scores) を作ってください。同点の人はいないものとします。max() の key 引数は使わず、for で書いてみましょう。",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def top_scorer(scores):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def top_scorer(scores):\n    best_name = \"\"\n    best_score = -1\n    for name, score in scores.items():\n        if score > best_score:\n            best_score = score\n            best_name = name\n    return best_name",
+        "alternative_solutions": [
+          "def top_scorer(scores):\n    best_name = \"\"\n    best_score = -1\n    for name in scores:\n        if scores[name] > best_score:\n            best_score = scores[name]\n            best_name = name\n    return best_name"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def top_scorer(scores):\n    for name in scores:\n        return name",
+            "reason": "最初の名前を返して終了しています。すべての点数を比べる必要があります。"
+          },
+          {
+            "code": "def top_scorer(scores):\n    best_name = \"\"\n    best_score = 0\n    for name, score in scores.items():\n        if score > best_score:\n            best_score = score\n            best_name = name\n    return best_name",
+            "reason": "最高得点が 0 のとき（全員 0 点など）に更新が起きず、名前が空のままです。初期値は -1 など、あり得ない小さな値にします。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "top_scorer({'A': 70, 'B': 90, 'C': 80})",
+            "expected": "'B'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "top_scorer({'Taro': 55})",
+            "expected": "'Taro'",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "top_scorer({'X': 0})",
+            "expected": "'X'",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "top_scorer({'A': 10, 'B': 20, 'C': 30})",
+            "expected": "'C'",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "FunctionDef",
+          "For"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "暫定の最高点と名前を覚えておき、より高い点数が出たら更新するから。",
+      "explanation": "最大値探しと同じ考え方を、辞書の items() に適用します。初期値は、どんな点数よりも小さい -1 にしておけば、最初の1人で必ず更新されます。初期値を 0 にすると、点数 0 の人しかいないときに更新されません。",
+      "hint": "最高点と名前をそれぞれ変数に覚えておき、より高い点が出たら両方を更新します。",
+      "feedback_correct": "正解！最大値探しを辞書に応用できました。",
+      "feedback_incorrect": "惜しい！点数が 0 のときでも動くか確認しましょう。"
+    },
+    {
+      "id": "PY-100",
+      "course_id": "python-basics-ja",
+      "language": "python",
+      "stage_id": "S10",
+      "stage_number": 10,
+      "number_in_stage": 10,
+      "title": "成績をまとめる（総仕上げ）",
+      "type": "code_write",
+      "answer_mode": "code",
+      "difficulty": 5,
+      "concepts": [
+        "関数",
+        "辞書",
+        "sum/max/min",
+        "for",
+        "if",
+        "境界値"
+      ],
+      "preconditions": "ステージ1〜10で学習した内容のみを前提とする。import（ステージ9の random のみ例外）と標準入力(input)は使わない。",
+      "prompt": "点数のリスト scores（1つ以上）を受け取り、次の4つの項目を持つ辞書を返す関数 summarize(scores) を作ってください。\n・\"max\": 最高点\n・\"min\": 最低点\n・\"average\": 平均点（合計 ÷ 人数）\n・\"passed\": 60点以上の人数",
+      "code": null,
+      "prefix_code": "",
+      "starter_code": "def summarize(scores):\n    # ここに書きましょう\n",
+      "answer": {
+        "reference_solution": "def summarize(scores):\n    passed = 0\n    for s in scores:\n        if s >= 60:\n            passed += 1\n    return {\n        \"max\": max(scores),\n        \"min\": min(scores),\n        \"average\": sum(scores) / len(scores),\n        \"passed\": passed,\n    }",
+        "alternative_solutions": [
+          "def summarize(scores):\n    result = {}\n    result['max'] = max(scores)\n    result['min'] = min(scores)\n    result['average'] = sum(scores) / len(scores)\n    count = 0\n    for s in scores:\n        if s >= 60:\n            count = count + 1\n    result['passed'] = count\n    return result"
+        ],
+        "rejected_examples": [
+          {
+            "code": "def summarize(scores):\n    passed = 0\n    for s in scores:\n        if s > 60:\n            passed += 1\n    return {\"max\": max(scores), \"min\": min(scores), \"average\": sum(scores) / len(scores), \"passed\": passed}",
+            "reason": "60 点ちょうどが合格に含まれていません。「60点以上」は >= です。"
+          },
+          {
+            "code": "def summarize(scores):\n    passed = 0\n    for s in scores:\n        if s >= 60:\n            passed += 1\n    return {\"max\": max(scores), \"min\": min(scores), \"average\": sum(scores) // len(scores), \"passed\": passed}",
+            "reason": "// は切り捨ての商です。平均は小数を含む / で求めます。"
+          }
+        ]
+      },
+      "grading": {
+        "method": "test_cases",
+        "tests": [
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "sorted(summarize([80, 60, 40]).items())",
+            "expected": "[('average', 60.0), ('max', 80), ('min', 40), ('passed', 2)]",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "sorted(summarize([100]).items())",
+            "expected": "[('average', 100.0), ('max', 100), ('min', 100), ('passed', 1)]",
+            "visible": true
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "sorted(summarize([50, 30]).items())",
+            "expected": "[('average', 40.0), ('max', 50), ('min', 30), ('passed', 0)]",
+            "visible": false
+          },
+          {
+            "kind": "call",
+            "setup": "",
+            "call": "sorted(summarize([59, 60]).items())",
+            "expected": "[('average', 59.5), ('max', 60), ('min', 59), ('passed', 1)]",
+            "visible": false
+          }
+        ],
+        "required_ast_nodes": [
+          "FunctionDef"
+        ],
+        "required_any_ast_nodes": [],
+        "timeout_sec": 5,
+        "execution": "sandboxed_worker",
+        "normalize_stdout": [
+          "crlf_to_lf",
+          "rstrip_each_line",
+          "strip_trailing_blank_lines"
+        ]
+      },
+      "rationale": "max・min・sum/len・条件付きカウントを組み合わせて辞書にまとめるから。",
+      "explanation": "最高点・最低点は max / min、平均は sum(scores) / len(scores)、合格者数は for と if で数えます（境界の 60 を含めるため >=）。4つの値を辞書にまとめて return すれば完成です。これまでの知識の総復習になる問題です。",
+      "hint": "1つずつ別の変数に求めてから、最後に辞書にまとめるとやさしくなります。",
+      "feedback_correct": "正解！全ステージの知識を組み合わせて書けました。おめでとうございます！",
+      "feedback_incorrect": "惜しい！項目を1つずつ、小さなリストで手計算して確かめましょう。"
+    }
+  ]
+}

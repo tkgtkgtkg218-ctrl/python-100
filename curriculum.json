@@ -1,0 +1,1775 @@
+{
+  "course": {
+    "id": "python-basics-ja",
+    "language": "python",
+    "language_display_name": "Python",
+    "language_version_checked": "3.12.10",
+    "language_version_policy": "Python 3.10 以上で同じ結果になる内容のみを使用",
+    "locale": "ja-JP",
+    "title": "Python はじめの100問",
+    "schema_version": "1.0.0"
+  },
+  "stages": [
+    {
+      "id": "S01",
+      "number": 1,
+      "title": "はじめの一歩",
+      "subtitle": "print、文字列、基本的な構文",
+      "learning_goals": [
+        "print() を使って画面に文字や数値を表示できる",
+        "文字列を引用符で囲むという約束を説明できる",
+        "コードが上から下へ順番に実行されることを理解する",
+        "コメント（#）の役割を説明できる",
+        "最初のエラー（NameError / SyntaxError）を見て、原因の見当をつけられる"
+      ],
+      "prerequisite_knowledge": [
+        "特になし（パソコンで文字を入力できれば十分です）"
+      ],
+      "prerequisite_stage_ids": [],
+      "topics": [
+        "print() の使い方",
+        "文字列と引用符（\" \" と ' '）",
+        "複数の値を , で区切って表示する",
+        "コードは上から順に実行される",
+        "コメント（#）",
+        "大文字・小文字の区別",
+        "最初のエラーメッセージの見方"
+      ],
+      "common_pitfalls": [
+        "Print のように大文字で書いてしまう（Python は大文字・小文字を区別する）",
+        "引用符を閉じ忘れる、または開始と終了で違う種類を使う",
+        "全角の括弧（）や全角スペースを使ってしまう",
+        "引用符を付けずに日本語を書いてしまう"
+      ],
+      "lesson_id": "LESSON-S01",
+      "question_plan": [
+        {
+          "question_id": "PY-001",
+          "number_in_stage": 1,
+          "title": "print() の役割",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "print関数",
+            "出力"
+          ]
+        },
+        {
+          "question_id": "PY-002",
+          "number_in_stage": 2,
+          "title": "文字列には引用符が必要",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "文字列",
+            "引用符",
+            "print関数"
+          ]
+        },
+        {
+          "question_id": "PY-003",
+          "number_in_stage": 3,
+          "title": "3行の print の結果",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "実行順序",
+            "print関数",
+            "改行"
+          ]
+        },
+        {
+          "question_id": "PY-004",
+          "number_in_stage": 4,
+          "title": "カンマで区切ると？",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "print関数",
+            "複数の値"
+          ]
+        },
+        {
+          "question_id": "PY-005",
+          "number_in_stage": 5,
+          "title": "コメントは実行されない",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "コメント",
+            "実行順序"
+          ]
+        },
+        {
+          "question_id": "PY-006",
+          "number_in_stage": 6,
+          "title": "エラーの原因（大文字）",
+          "type": "bug_fix",
+          "difficulty": 1,
+          "concepts": [
+            "大文字小文字の区別",
+            "NameError"
+          ]
+        },
+        {
+          "question_id": "PY-007",
+          "number_in_stage": 7,
+          "title": "引用符のそろえ方",
+          "type": "bug_fix",
+          "difficulty": 1,
+          "concepts": [
+            "引用符",
+            "SyntaxError"
+          ]
+        },
+        {
+          "question_id": "PY-008",
+          "number_in_stage": 8,
+          "title": "文字列を表示する",
+          "type": "fill_blank",
+          "difficulty": 1,
+          "concepts": [
+            "文字列",
+            "引用符"
+          ]
+        },
+        {
+          "question_id": "PY-009",
+          "number_in_stage": 9,
+          "title": "文字と数値を並べる",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "print関数",
+            "複数の値",
+            "数値"
+          ]
+        },
+        {
+          "question_id": "PY-010",
+          "number_in_stage": 10,
+          "title": "2行のあいさつ",
+          "type": "code_write",
+          "difficulty": 2,
+          "concepts": [
+            "print関数",
+            "文字列",
+            "実行順序"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "表示したい値に名前を付ける「変数」（ステージ2）の土台になります"
+      ],
+      "unlock_condition": null
+    },
+    {
+      "id": "S02",
+      "number": 2,
+      "title": "データを扱う",
+      "subtitle": "変数、数値、文字列、計算",
+      "learning_goals": [
+        "変数に値を入れて、名前で取り出せる",
+        "変数名のルールを説明できる",
+        "数値の計算（+ - * / // % **）と優先順位を理解する",
+        "文字列の連結（+）と繰り返し（*）、f文字列を使える",
+        "int・float・str の違いを説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "print() で表示できる（ステージ1）",
+        "文字列を引用符で書ける（ステージ1）"
+      ],
+      "prerequisite_stage_ids": [
+        "S01"
+      ],
+      "topics": [
+        "変数と代入（=）",
+        "変数の上書きと += ",
+        "変数名のルール",
+        "数値の計算と優先順位",
+        "/ と // と %",
+        "文字列の + と *",
+        "f文字列",
+        "型（int / float / str）と type()"
+      ],
+      "common_pitfalls": [
+        "= を「等しい」という意味で読んでしまう（実際は「右の値を左の名前に入れる」）",
+        "/ は割り切れても小数（5.0など）になる",
+        "掛け算・割り算は足し算・引き算より先に計算される",
+        "変数名に空白を入れる／数字で始める"
+      ],
+      "lesson_id": "LESSON-S02",
+      "question_plan": [
+        {
+          "question_id": "PY-011",
+          "number_in_stage": 1,
+          "title": "x = 5 の意味",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "変数",
+            "代入"
+          ]
+        },
+        {
+          "question_id": "PY-012",
+          "number_in_stage": 2,
+          "title": "上書きと +=",
+          "type": "predict_output",
+          "difficulty": 1,
+          "concepts": [
+            "変数",
+            "再代入",
+            "+="
+          ]
+        },
+        {
+          "question_id": "PY-013",
+          "number_in_stage": 3,
+          "title": "使えない変数名",
+          "type": "multiple_choice",
+          "difficulty": 1,
+          "concepts": [
+            "変数名のルール"
+          ]
+        },
+        {
+          "question_id": "PY-014",
+          "number_in_stage": 4,
+          "title": "商と余りと累乗",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "//",
+            "%",
+            "**",
+            "算術演算子"
+          ]
+        },
+        {
+          "question_id": "PY-015",
+          "number_in_stage": 5,
+          "title": "割り算の型",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "/",
+            "型",
+            "float",
+            "type"
+          ]
+        },
+        {
+          "question_id": "PY-016",
+          "number_in_stage": 6,
+          "title": "文字列の足し算とかけ算",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "文字列の連結",
+            "文字列の繰り返し"
+          ]
+        },
+        {
+          "question_id": "PY-017",
+          "number_in_stage": 7,
+          "title": "f文字列に変数を埋め込む",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "f文字列",
+            "変数"
+          ]
+        },
+        {
+          "question_id": "PY-018",
+          "number_in_stage": 8,
+          "title": "変数名のエラー",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "変数名のルール",
+            "SyntaxError"
+          ]
+        },
+        {
+          "question_id": "PY-019",
+          "number_in_stage": 9,
+          "title": "平均の計算ミス",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "計算の優先順位",
+            "括弧"
+          ]
+        },
+        {
+          "question_id": "PY-020",
+          "number_in_stage": 10,
+          "title": "長方形の面積",
+          "type": "code_write",
+          "difficulty": 2,
+          "concepts": [
+            "変数",
+            "掛け算",
+            "print関数"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "変数の値を使って「条件で動きを変える」（ステージ3）へ進みます"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S01"
+      }
+    },
+    {
+      "id": "S03",
+      "number": 3,
+      "title": "条件によって動きを変える",
+      "subtitle": "if、elif、else、比較演算子",
+      "learning_goals": [
+        "比較演算子（== != < > <= >=）の結果が True / False になることを理解する",
+        "= と == の違いを説明できる",
+        "if / elif / else で処理を分岐できる",
+        "インデント（字下げ）が処理のまとまりを表すことを理解する",
+        "and / or / not で条件を組み合わせられる"
+      ],
+      "prerequisite_knowledge": [
+        "変数と代入（ステージ2）",
+        "数値の計算と比較に使う数値（ステージ2）",
+        "print() と文字列（ステージ1）"
+      ],
+      "prerequisite_stage_ids": [
+        "S02"
+      ],
+      "topics": [
+        "True / False（真偽値）",
+        "比較演算子",
+        "= と == の違い",
+        "if / else",
+        "elif",
+        "インデントとコロン（:）",
+        "and / or / not"
+      ],
+      "common_pitfalls": [
+        "条件で = を使ってしまう（正しくは ==）",
+        "if / else / elif の末尾のコロン（:）を忘れる",
+        "インデントを忘れる・そろえない",
+        "elif は上から順に調べ、最初に成立した1つだけが実行される",
+        "以上（>=）と より大きい（>）の境界の取り違え"
+      ],
+      "lesson_id": "LESSON-S03",
+      "question_plan": [
+        {
+          "question_id": "PY-021",
+          "number_in_stage": 1,
+          "title": "等しいかどうかを調べる",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "比較演算子",
+            "==",
+            "代入との違い"
+          ]
+        },
+        {
+          "question_id": "PY-022",
+          "number_in_stage": 2,
+          "title": "以上と等しくない",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "比較演算子",
+            "真偽値"
+          ]
+        },
+        {
+          "question_id": "PY-023",
+          "number_in_stage": 3,
+          "title": "if の外にある行",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "if",
+            "else",
+            "インデント"
+          ]
+        },
+        {
+          "question_id": "PY-024",
+          "number_in_stage": 4,
+          "title": "elif は最初の1つだけ",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "elif",
+            "条件分岐の順序"
+          ]
+        },
+        {
+          "question_id": "PY-025",
+          "number_in_stage": 5,
+          "title": "インデントの役割",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "インデント",
+            "ブロック"
+          ]
+        },
+        {
+          "question_id": "PY-026",
+          "number_in_stage": 6,
+          "title": "条件で = を使っている",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "==",
+            "SyntaxError",
+            "if"
+          ]
+        },
+        {
+          "question_id": "PY-027",
+          "number_in_stage": 7,
+          "title": "else のコロン",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "else",
+            "コロン",
+            "SyntaxError"
+          ]
+        },
+        {
+          "question_id": "PY-028",
+          "number_in_stage": 8,
+          "title": "両方の条件を満たすとき",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "and",
+            "or",
+            "論理演算"
+          ]
+        },
+        {
+          "question_id": "PY-029",
+          "number_in_stage": 9,
+          "title": "and・or・not の結果",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "and",
+            "or",
+            "not",
+            "比較演算子"
+          ]
+        },
+        {
+          "question_id": "PY-030",
+          "number_in_stage": 10,
+          "title": "合否判定",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "if",
+            "else",
+            "比較演算子",
+            "境界値"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "条件を繰り返し使う「ループ」（ステージ4）へ進みます"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S02"
+      }
+    },
+    {
+      "id": "S04",
+      "number": 4,
+      "title": "処理を繰り返す",
+      "subtitle": "for、while、range",
+      "learning_goals": [
+        "for と range() で決まった回数の繰り返しを書ける",
+        "range() の開始・終了・間隔の意味（終了は含まない）を理解する",
+        "while で「条件が成り立つ間」の繰り返しを書ける",
+        "合計を求めるなど、変数を更新しながら繰り返す書き方ができる",
+        "break と continue の違いを説明できる",
+        "終わらないループ（無限ループ）の原因に気づける"
+      ],
+      "prerequisite_knowledge": [
+        "変数・計算・+=（ステージ2）",
+        "if と比較演算子、インデント（ステージ3）"
+      ],
+      "prerequisite_stage_ids": [
+        "S03"
+      ],
+      "topics": [
+        "for と range(n)",
+        "range(開始, 終了) と range(開始, 終了, 間隔)",
+        "合計を求める（累積）",
+        "while",
+        "ループの中での変数の更新",
+        "break と continue",
+        "無限ループ"
+      ],
+      "common_pitfalls": [
+        "range(5) は 0〜4（5 は含まれない）",
+        "range(1, 5) は 1〜4。1〜5 にしたければ range(1, 6)",
+        "while の中で条件に使う変数を更新し忘れて終わらなくなる",
+        "合計を入れる変数の初期化（0）を忘れる／ループの中で初期化してしまう"
+      ],
+      "lesson_id": "LESSON-S04",
+      "question_plan": [
+        {
+          "question_id": "PY-031",
+          "number_in_stage": 1,
+          "title": "range(3) の中身",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "for",
+            "range"
+          ]
+        },
+        {
+          "question_id": "PY-032",
+          "number_in_stage": 2,
+          "title": "間隔つき range",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "range",
+            "間隔(step)"
+          ]
+        },
+        {
+          "question_id": "PY-033",
+          "number_in_stage": 3,
+          "title": "条件で繰り返す",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "while",
+            "if",
+            "for"
+          ]
+        },
+        {
+          "question_id": "PY-034",
+          "number_in_stage": 4,
+          "title": "2倍の合計",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "累積",
+            "range",
+            "+="
+          ]
+        },
+        {
+          "question_id": "PY-035",
+          "number_in_stage": 5,
+          "title": "while のカウントダウン",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "while",
+            "ループの更新"
+          ]
+        },
+        {
+          "question_id": "PY-036",
+          "number_in_stage": 6,
+          "title": "終わらないループ",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "無限ループ",
+            "while",
+            "ループの更新"
+          ]
+        },
+        {
+          "question_id": "PY-037",
+          "number_in_stage": 7,
+          "title": "while の更新式",
+          "type": "fill_blank",
+          "difficulty": 3,
+          "concepts": [
+            "while",
+            "ループの更新",
+            "+="
+          ]
+        },
+        {
+          "question_id": "PY-038",
+          "number_in_stage": 8,
+          "title": "continue と break",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "break",
+            "continue",
+            "for"
+          ]
+        },
+        {
+          "question_id": "PY-039",
+          "number_in_stage": 9,
+          "title": "合計が合わない（範囲のミス）",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "range",
+            "終了は含まない",
+            "オフバイワン"
+          ]
+        },
+        {
+          "question_id": "PY-040",
+          "number_in_stage": 10,
+          "title": "1 から n までの合計",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "for",
+            "range",
+            "累積",
+            "while"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "まとめて扱うデータ「リスト」と for を組み合わせます（ステージ5）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S03"
+      }
+    },
+    {
+      "id": "S05",
+      "number": 5,
+      "title": "データをまとめる",
+      "subtitle": "リスト、インデックス、基本操作",
+      "learning_goals": [
+        "リストを作り、インデックス（0始まり）で要素を取り出せる",
+        "負のインデックス（-1 = 最後）を理解する",
+        "append・要素の置き換え・len・in・sum・max・min を使える",
+        "for でリストの要素を1つずつ処理できる",
+        "スライス（範囲指定）の基本を理解する",
+        "IndexError の原因を説明できる"
+      ],
+      "prerequisite_knowledge": [
+        "変数（ステージ2）",
+        "for と range（ステージ4）",
+        "比較とif（ステージ3）"
+      ],
+      "prerequisite_stage_ids": [
+        "S04"
+      ],
+      "topics": [
+        "リストの作り方 [ ]",
+        "インデックス（0始まり・負の数）",
+        "要素の置き換えと append",
+        "len / sum / max / min",
+        "in 演算子",
+        "for でリストを順に処理",
+        "スライス [開始:終了]",
+        "IndexError"
+      ],
+      "common_pitfalls": [
+        "インデックスは 0 から始まる（1番目の要素は [0]）",
+        "最後の要素のインデックスは len(リスト) - 1（len(リスト) は範囲外）",
+        "スライス [1:3] の終わり（3）は含まれない（range と同じ）",
+        "要素を取り出すのは角括弧 [ ]、丸括弧 ( ) ではない"
+      ],
+      "lesson_id": "LESSON-S05",
+      "question_plan": [
+        {
+          "question_id": "PY-041",
+          "number_in_stage": 1,
+          "title": "最初の要素の取り出し方",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "リスト",
+            "インデックス"
+          ]
+        },
+        {
+          "question_id": "PY-042",
+          "number_in_stage": 2,
+          "title": "len と負のインデックス",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "len",
+            "負のインデックス"
+          ]
+        },
+        {
+          "question_id": "PY-043",
+          "number_in_stage": 3,
+          "title": "置き換えと追加",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "要素の置き換え",
+            "append"
+          ]
+        },
+        {
+          "question_id": "PY-044",
+          "number_in_stage": 4,
+          "title": "IndexError の直し方",
+          "type": "bug_fix",
+          "difficulty": 2,
+          "concepts": [
+            "IndexError",
+            "インデックス"
+          ]
+        },
+        {
+          "question_id": "PY-045",
+          "number_in_stage": 5,
+          "title": "リストを順に足す",
+          "type": "fill_blank",
+          "difficulty": 2,
+          "concepts": [
+            "for",
+            "リスト",
+            "累積"
+          ]
+        },
+        {
+          "question_id": "PY-046",
+          "number_in_stage": 6,
+          "title": "in とスライス",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "in演算子",
+            "スライス"
+          ]
+        },
+        {
+          "question_id": "PY-047",
+          "number_in_stage": 7,
+          "title": "最後の要素の番号",
+          "type": "multiple_choice",
+          "difficulty": 2,
+          "concepts": [
+            "インデックス",
+            "len"
+          ]
+        },
+        {
+          "question_id": "PY-048",
+          "number_in_stage": 8,
+          "title": "ループの範囲が広すぎる",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "IndexError",
+            "range",
+            "len"
+          ]
+        },
+        {
+          "question_id": "PY-049",
+          "number_in_stage": 9,
+          "title": "sum・max・min",
+          "type": "predict_output",
+          "difficulty": 2,
+          "concepts": [
+            "sum",
+            "max",
+            "min",
+            "print関数"
+          ]
+        },
+        {
+          "question_id": "PY-050",
+          "number_in_stage": 10,
+          "title": "平均点を求める",
+          "type": "code_write",
+          "difficulty": 3,
+          "concepts": [
+            "sum",
+            "len",
+            "割り算",
+            "リスト"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "繰り返し書いている処理を「関数」としてまとめます（ステージ6）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S04"
+      }
+    },
+    {
+      "id": "S06",
+      "number": 6,
+      "title": "処理を部品化する",
+      "subtitle": "関数、引数、戻り値",
+      "learning_goals": [
+        "def で関数を定義し、呼び出して使える",
+        "引数で値を渡し、return で結果を受け取れる",
+        "return と print の違いを説明できる",
+        "デフォルト引数を使える",
+        "関数の中の変数（ローカル変数）は外とは別物だと理解する"
+      ],
+      "prerequisite_knowledge": [
+        "変数・計算（ステージ2）",
+        "if（ステージ3）",
+        "for（ステージ4）",
+        "リスト（ステージ5）"
+      ],
+      "prerequisite_stage_ids": [
+        "S05"
+      ],
+      "topics": [
+        "def と関数の呼び出し",
+        "引数",
+        "戻り値（return）",
+        "return と print の違い",
+        "None",
+        "デフォルト引数",
+        "ローカル変数"
+      ],
+      "common_pitfalls": [
+        "def で定義しただけでは実行されない（呼び出しが必要）",
+        "print と return を混同する（print は表示、return は値を返す）",
+        "return を書かない関数は None を返す",
+        "引数の数が合わないと TypeError になる",
+        "return はそこで関数を終了する（ループの中に書くと1回で終わる）"
+      ],
+      "lesson_id": "LESSON-S06",
+      "question_plan": [
+        {
+          "question_id": "PY-051",
+          "number_in_stage": 1,
+          "title": "定義しただけでは動かない",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "関数の定義",
+            "関数の呼び出し"
+          ]
+        },
+        {
+          "question_id": "PY-052",
+          "number_in_stage": 2,
+          "title": "戻り値を計算に使う",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "戻り値",
+            "関数の呼び出し"
+          ]
+        },
+        {
+          "question_id": "PY-053",
+          "number_in_stage": 3,
+          "title": "return のない関数の結果",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "print と return の違い",
+            "None"
+          ]
+        },
+        {
+          "question_id": "PY-054",
+          "number_in_stage": 4,
+          "title": "print と return の違い",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "print と return の違い"
+          ]
+        },
+        {
+          "question_id": "PY-055",
+          "number_in_stage": 5,
+          "title": "結果を返す関数",
+          "type": "fill_blank",
+          "difficulty": 3,
+          "concepts": [
+            "return",
+            "戻り値"
+          ]
+        },
+        {
+          "question_id": "PY-056",
+          "number_in_stage": 6,
+          "title": "引数が足りない",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "引数",
+            "TypeError",
+            "関数の呼び出し"
+          ]
+        },
+        {
+          "question_id": "PY-057",
+          "number_in_stage": 7,
+          "title": "デフォルト引数",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "デフォルト引数",
+            "**"
+          ]
+        },
+        {
+          "question_id": "PY-058",
+          "number_in_stage": 8,
+          "title": "合計が1にしかならない",
+          "type": "bug_fix",
+          "difficulty": 4,
+          "concepts": [
+            "return",
+            "インデント",
+            "ループ"
+          ]
+        },
+        {
+          "question_id": "PY-059",
+          "number_in_stage": 9,
+          "title": "ローカル変数と外の変数",
+          "type": "predict_output",
+          "difficulty": 4,
+          "concepts": [
+            "ローカル変数",
+            "スコープ"
+          ]
+        },
+        {
+          "question_id": "PY-060",
+          "number_in_stage": 10,
+          "title": "偶数判定の関数",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "関数",
+            "return",
+            "%",
+            "比較演算子"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "エラーの読み方と直し方を学びます（ステージ7）。関数はそのまま使います"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S05"
+      }
+    },
+    {
+      "id": "S07",
+      "number": 7,
+      "title": "エラーを見つけて修正する",
+      "subtitle": "構文エラー、型、デバッグの基本",
+      "learning_goals": [
+        "エラーメッセージの最後の行から、種類と原因の見当をつけられる",
+        "SyntaxError / NameError / TypeError / ValueError / ZeroDivisionError の典型的な原因を説明できる",
+        "int() / float() / str() で型を変換できる",
+        "try / except でエラーを受け止める基本形を書ける",
+        "エラーが出ない間違い（論理エラー）を print で調べる考え方を理解する"
+      ],
+      "prerequisite_knowledge": [
+        "print・変数・型（ステージ1〜2）",
+        "if・for（ステージ3〜4）",
+        "リスト・関数（ステージ5〜6）"
+      ],
+      "prerequisite_stage_ids": [
+        "S06"
+      ],
+      "topics": [
+        "エラーメッセージの読み方（最後の行）",
+        "SyntaxError（括弧・コロン・引用符）",
+        "NameError",
+        "TypeError（型の不一致）",
+        "ValueError / ZeroDivisionError",
+        "型の変換 int() float() str()",
+        "try / except",
+        "print による調べ方（デバッグ）"
+      ],
+      "common_pitfalls": [
+        "エラーメッセージの最初から読んで圧倒される（まず最後の行を読む）",
+        "文字列と数値を + でつなごうとして TypeError になる",
+        "int(\"abc\") のように数値にできない文字列で ValueError になる",
+        "エラーが出ないから正しい、とは限らない（結果が間違っている場合）"
+      ],
+      "lesson_id": "LESSON-S07",
+      "question_plan": [
+        {
+          "question_id": "PY-061",
+          "number_in_stage": 1,
+          "title": "エラーメッセージの読み始め",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "エラーメッセージ",
+            "トレースバック"
+          ]
+        },
+        {
+          "question_id": "PY-062",
+          "number_in_stage": 2,
+          "title": "NameError の原因",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "NameError"
+          ]
+        },
+        {
+          "question_id": "PY-063",
+          "number_in_stage": 3,
+          "title": "文字列を整数に変換して計算",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "型変換",
+            "int"
+          ]
+        },
+        {
+          "question_id": "PY-064",
+          "number_in_stage": 4,
+          "title": "文字列と数値の連結",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "TypeError",
+            "型変換",
+            "str"
+          ]
+        },
+        {
+          "question_id": "PY-065",
+          "number_in_stage": 5,
+          "title": "try / except の動き",
+          "type": "predict_output",
+          "difficulty": 4,
+          "concepts": [
+            "try/except",
+            "ValueError"
+          ]
+        },
+        {
+          "question_id": "PY-066",
+          "number_in_stage": 6,
+          "title": "受け止めるエラー名",
+          "type": "fill_blank",
+          "difficulty": 4,
+          "concepts": [
+            "try/except",
+            "ZeroDivisionError"
+          ]
+        },
+        {
+          "question_id": "PY-067",
+          "number_in_stage": 7,
+          "title": "括弧の閉じ忘れ",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "SyntaxError",
+            "括弧"
+          ]
+        },
+        {
+          "question_id": "PY-068",
+          "number_in_stage": 8,
+          "title": "エラーが出ないのに結果が違う",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "論理エラー",
+            "デバッグ"
+          ]
+        },
+        {
+          "question_id": "PY-069",
+          "number_in_stage": 9,
+          "title": "合計が足し込まれない",
+          "type": "bug_fix",
+          "difficulty": 4,
+          "concepts": [
+            "論理エラー",
+            "累積",
+            "+="
+          ]
+        },
+        {
+          "question_id": "PY-070",
+          "number_in_stage": 10,
+          "title": "安全に整数へ変換する",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "try/except",
+            "ValueError",
+            "関数",
+            "None"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "文字列のメソッドや辞書など、データを加工する道具を学びます（ステージ8）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S06"
+      }
+    },
+    {
+      "id": "S08",
+      "number": 8,
+      "title": "文字列・データの操作",
+      "subtitle": "文字列メソッド、辞書、基本的なデータ処理",
+      "learning_goals": [
+        "strip / upper / lower / replace / split / join / count / in などの文字列メソッドを使える",
+        "文字列メソッドは元の文字列を変えず、新しい文字列を返すことを理解する",
+        "辞書（キーと値）を作り、取り出し・追加・更新できる",
+        "get と in で存在しないキーに安全に対応できる",
+        "for と items() で辞書を順に処理し、簡単な集計ができる"
+      ],
+      "prerequisite_knowledge": [
+        "文字列・変数（ステージ1〜2）",
+        "for と if（ステージ3〜4）",
+        "リストと関数（ステージ5〜6）",
+        "KeyError などエラーの読み方（ステージ7）"
+      ],
+      "prerequisite_stage_ids": [
+        "S07"
+      ],
+      "topics": [
+        "文字列メソッド（strip, upper, lower, replace, split, join, count）",
+        "文字列メソッドは新しい値を返す",
+        "in 演算子",
+        "辞書の作り方・取り出し・追加・更新",
+        "get / in / len",
+        "keys / values / items と for",
+        "辞書を使った集計（カウント）"
+      ],
+      "common_pitfalls": [
+        "name.upper() だけでは name は変わらない（結果を受け取る必要がある）",
+        "存在しないキーを [ ] で取り出すと KeyError（get なら安全）",
+        "既存のキーに代入すると追加ではなく上書き",
+        "for key, value in 辞書.items(): と書く（items() を忘れない）"
+      ],
+      "lesson_id": "LESSON-S08",
+      "question_plan": [
+        {
+          "question_id": "PY-071",
+          "number_in_stage": 1,
+          "title": "strip と len",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "strip",
+            "len",
+            "文字列メソッド"
+          ]
+        },
+        {
+          "question_id": "PY-072",
+          "number_in_stage": 2,
+          "title": "元の文字列は変わらない",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "文字列メソッド",
+            "再代入"
+          ]
+        },
+        {
+          "question_id": "PY-073",
+          "number_in_stage": 3,
+          "title": "split と join",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "split",
+            "join",
+            "リスト"
+          ]
+        },
+        {
+          "question_id": "PY-074",
+          "number_in_stage": 4,
+          "title": "文字列の置き換え",
+          "type": "fill_blank",
+          "difficulty": 3,
+          "concepts": [
+            "replace",
+            "文字列メソッド"
+          ]
+        },
+        {
+          "question_id": "PY-075",
+          "number_in_stage": 5,
+          "title": "辞書から取り出されるもの",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "辞書",
+            "キーと値"
+          ]
+        },
+        {
+          "question_id": "PY-076",
+          "number_in_stage": 6,
+          "title": "存在しないキー",
+          "type": "bug_fix",
+          "difficulty": 3,
+          "concepts": [
+            "KeyError",
+            "get"
+          ]
+        },
+        {
+          "question_id": "PY-077",
+          "number_in_stage": 7,
+          "title": "辞書の追加と上書き",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "辞書の追加",
+            "辞書の更新",
+            "len"
+          ]
+        },
+        {
+          "question_id": "PY-078",
+          "number_in_stage": 8,
+          "title": "辞書のペアを順に取り出す",
+          "type": "fill_blank",
+          "difficulty": 4,
+          "concepts": [
+            "items",
+            "辞書",
+            "for"
+          ]
+        },
+        {
+          "question_id": "PY-079",
+          "number_in_stage": 9,
+          "title": "数え方のミス",
+          "type": "bug_fix",
+          "difficulty": 4,
+          "concepts": [
+            "辞書",
+            "カウント",
+            "論理エラー"
+          ]
+        },
+        {
+          "question_id": "PY-080",
+          "number_in_stage": 10,
+          "title": "単語の出現回数",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "辞書",
+            "split",
+            "for",
+            "関数",
+            "return"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "ここまでの知識を組み合わせ、ミニプログラムを読み解きます（ステージ9）"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S07"
+      }
+    },
+    {
+      "id": "S09",
+      "number": 9,
+      "title": "ミニプログラムを読み解く",
+      "subtitle": "おみくじ、簡易計算機、集計など",
+      "learning_goals": [
+        "短いプログラム全体を読み、何をしているか説明できる",
+        "変数の値を1行ずつ追いかけて（トレースして）結果を予想できる",
+        "random.randint の範囲（両端を含む）を理解する",
+        "if / 関数 / 繰り返し / リスト / 辞書を組み合わせたコードを読み書きできる",
+        "条件の順序や境界値などの典型的なミスを見つけられる"
+      ],
+      "prerequisite_knowledge": [
+        "ステージ1〜8のすべて（特に if・for・関数・リスト・辞書）"
+      ],
+      "prerequisite_stage_ids": [
+        "S08"
+      ],
+      "topics": [
+        "プログラムの読み方（変数の値を表にして追う）",
+        "import と random.randint",
+        "おみくじ（if / elif）",
+        "簡易計算機（関数 + 条件分岐）",
+        "成績の集計（リスト + for + if）",
+        "買い物かごの合計（辞書 + リスト）"
+      ],
+      "common_pitfalls": [
+        "random.randint(a, b) は a も b も含む（range とは違う）",
+        "elif は上から順に調べるので、条件の並べ順が大事",
+        "コードを一気に読もうとして混乱する（1行ずつ追う）",
+        "テストでは random の値が毎回変わるため、値を固定して確認する"
+      ],
+      "lesson_id": "LESSON-S09",
+      "question_plan": [
+        {
+          "question_id": "PY-081",
+          "number_in_stage": 1,
+          "title": "randint の範囲",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "random",
+            "randint"
+          ]
+        },
+        {
+          "question_id": "PY-082",
+          "number_in_stage": 2,
+          "title": "おみくじの結果を読む",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "if/elif/else",
+            "トレース"
+          ]
+        },
+        {
+          "question_id": "PY-083",
+          "number_in_stage": 3,
+          "title": "簡易計算機の動き",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "関数",
+            "if/elif/else",
+            "トレース"
+          ]
+        },
+        {
+          "question_id": "PY-084",
+          "number_in_stage": 4,
+          "title": "割り算の分岐を追加",
+          "type": "fill_blank",
+          "difficulty": 3,
+          "concepts": [
+            "関数",
+            "/",
+            "//"
+          ]
+        },
+        {
+          "question_id": "PY-085",
+          "number_in_stage": 5,
+          "title": "合格者を数える",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "for",
+            "if",
+            "カウント"
+          ]
+        },
+        {
+          "question_id": "PY-086",
+          "number_in_stage": 6,
+          "title": "成績判定の順序",
+          "type": "bug_fix",
+          "difficulty": 4,
+          "concepts": [
+            "elif",
+            "条件の順序",
+            "論理エラー"
+          ]
+        },
+        {
+          "question_id": "PY-087",
+          "number_in_stage": 7,
+          "title": "買い物かごの合計",
+          "type": "predict_output",
+          "difficulty": 3,
+          "concepts": [
+            "辞書",
+            "リスト",
+            "for",
+            "累積"
+          ]
+        },
+        {
+          "question_id": "PY-088",
+          "number_in_stage": 8,
+          "title": "コードの読み方",
+          "type": "multiple_choice",
+          "difficulty": 3,
+          "concepts": [
+            "トレース",
+            "コードの読み方"
+          ]
+        },
+        {
+          "question_id": "PY-089",
+          "number_in_stage": 9,
+          "title": "4文字以上を数える",
+          "type": "bug_fix",
+          "difficulty": 4,
+          "concepts": [
+            "比較演算子",
+            "境界値",
+            "論理エラー"
+          ]
+        },
+        {
+          "question_id": "PY-090",
+          "number_in_stage": 10,
+          "title": "おみくじ判定関数",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "関数",
+            "if/elif/else",
+            "境界値",
+            "return"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "総合演習（ステージ10）で、複数の知識を組み合わせて自分で書きます"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S08"
+      }
+    },
+    {
+      "id": "S10",
+      "number": 10,
+      "title": "総合演習",
+      "subtitle": "複数の知識を組み合わせた問題",
+      "learning_goals": [
+        "問題を「入力・処理・出力」に分けて考えられる",
+        "ループの中にループ（入れ子）や、関数・リスト・辞書を組み合わせたコードを読める",
+        "「暫定の最大値を更新する」など、定番の考え方でプログラムを組み立てられる",
+        "境界値やテストの値を自分で考えて、コードを確かめられる",
+        "FizzBuzz・回文判定・集計など、基本的なミニ課題を自力で書ける"
+      ],
+      "prerequisite_knowledge": [
+        "ステージ1〜9のすべて"
+      ],
+      "prerequisite_stage_ids": [
+        "S09"
+      ],
+      "topics": [
+        "問題の分解（入力・処理・出力）",
+        "ループの入れ子",
+        "最大値を求めるパターン（暫定の最大を更新）",
+        "FizzBuzz（条件の順序）",
+        "回文判定（前と後ろから比べる）",
+        "辞書とループによる集計",
+        "境界値のテスト"
+      ],
+      "common_pitfalls": [
+        "いきなり全部を書こうとして混乱する（小さく分けて、1つずつ確かめる）",
+        "条件の順序（FizzBuzz は 15 の倍数を先に判定）",
+        "初期値の決め方（最大値探しや集計の最初の値）",
+        "境界値（空のリスト・0・1つだけ）を考えずに完成と思い込む"
+      ],
+      "lesson_id": "LESSON-S10",
+      "question_plan": [
+        {
+          "question_id": "PY-091",
+          "number_in_stage": 1,
+          "title": "FizzBuzz のかけら",
+          "type": "predict_output",
+          "difficulty": 4,
+          "concepts": [
+            "for",
+            "if",
+            "%",
+            "range"
+          ]
+        },
+        {
+          "question_id": "PY-092",
+          "number_in_stage": 2,
+          "title": "入れ子のループ",
+          "type": "predict_output",
+          "difficulty": 4,
+          "concepts": [
+            "入れ子のループ",
+            "文字列の連結",
+            "range"
+          ]
+        },
+        {
+          "question_id": "PY-093",
+          "number_in_stage": 3,
+          "title": "最大値を求める考え方",
+          "type": "multiple_choice",
+          "difficulty": 4,
+          "concepts": [
+            "アルゴリズムの考え方",
+            "最大値",
+            "for"
+          ]
+        },
+        {
+          "question_id": "PY-094",
+          "number_in_stage": 4,
+          "title": "最大値を更新する条件",
+          "type": "fill_blank",
+          "difficulty": 4,
+          "concepts": [
+            "比較演算子",
+            "最大値",
+            "for"
+          ]
+        },
+        {
+          "question_id": "PY-095",
+          "number_in_stage": 5,
+          "title": "偶数の合計が合わない",
+          "type": "bug_fix",
+          "difficulty": 4,
+          "concepts": [
+            "%",
+            "関数",
+            "論理エラー"
+          ]
+        },
+        {
+          "question_id": "PY-096",
+          "number_in_stage": 6,
+          "title": "合否のカウント",
+          "type": "predict_output",
+          "difficulty": 4,
+          "concepts": [
+            "辞書",
+            "関数",
+            "for",
+            "境界値"
+          ]
+        },
+        {
+          "question_id": "PY-097",
+          "number_in_stage": 7,
+          "title": "FizzBuzz の関数",
+          "type": "code_write",
+          "difficulty": 4,
+          "concepts": [
+            "関数",
+            "if/elif/else",
+            "%",
+            "str",
+            "条件の順序"
+          ]
+        },
+        {
+          "question_id": "PY-098",
+          "number_in_stage": 8,
+          "title": "回文の判定",
+          "type": "code_write",
+          "difficulty": 5,
+          "concepts": [
+            "for",
+            "インデックス",
+            "負のインデックス",
+            "return",
+            "関数"
+          ]
+        },
+        {
+          "question_id": "PY-099",
+          "number_in_stage": 9,
+          "title": "最高得点の人を探す",
+          "type": "code_write",
+          "difficulty": 5,
+          "concepts": [
+            "辞書",
+            "items",
+            "for",
+            "最大値",
+            "関数"
+          ]
+        },
+        {
+          "question_id": "PY-100",
+          "number_in_stage": 10,
+          "title": "成績をまとめる（総仕上げ）",
+          "type": "code_write",
+          "difficulty": 5,
+          "concepts": [
+            "関数",
+            "辞書",
+            "sum/max/min",
+            "for",
+            "if",
+            "境界値"
+          ]
+        }
+      ],
+      "clear_condition": {
+        "type": "first_attempt_correct_count",
+        "required_correct": 7,
+        "total_questions": 10,
+        "description": "ステージ内の10問すべてに最後まで回答し、1回目の回答で7問以上正解するとクリア。",
+        "stars": {
+          "1": 7,
+          "2": 9,
+          "3": 10
+        },
+        "retry_policy": "不正解でも同じ問題に何度でも再挑戦できる（再挑戦での正解は学習履歴には残るが、クリア判定・星には数えない）。クリアできなかった場合は「ステージをやり直す」で新しい挑戦を始められる。",
+        "unlock_next_stage": true
+      },
+      "leads_to": [
+        "この先は、ファイルの読み書き・クラス・ライブラリなど、より大きなプログラムづくりへ進めます"
+      ],
+      "unlock_condition": {
+        "type": "stage_cleared",
+        "stage_id": "S09"
+      }
+    }
+  ]
+}

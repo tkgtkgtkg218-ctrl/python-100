@@ -1,0 +1,20 @@
+{
+  "id": "./",
+  "name": "Python はじめの100問",
+  "short_name": "Python100問",
+  "description": "短い教科書を読んで、すぐ問題を解く。Python 初心者向けの10ステージ・全100問の学習アプリ。",
+  "lang": "ja",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f6f7f9",
+  "theme_color": "#2b6de0",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

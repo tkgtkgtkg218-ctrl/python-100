@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+# 検証用に生成されるファイル（src/parity_test.py が作る）
+app/parity_cases.json
+# 実行結果のログ（必要なら外してください）
+src/verify_results.json
+src/claims_results.json
+.vercel/
+.DS_Store
+Thumbs.db
